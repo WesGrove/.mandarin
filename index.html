@@ -127,6 +127,213 @@
             margin-bottom: 20px;
         }
 
+        /* Basics Section Specific Styles */
+        .basics-category-index {
+            width: 100%;
+            max-width: 800px;
+            background: rgba(63, 112, 255, 0.08);
+            border: 1px solid rgba(63, 112, 255, 0.15);
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 20px;
+        }
+
+        .basics-category-title {
+            text-align: center;
+            font-size: 14px;
+            font-weight: 700;
+            color: #3F70FF;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .basics-category-btn {
+            background: linear-gradient(135deg, #3F70FF 0%, #2a5cff 100%);
+            color: white;
+            border: none;
+            padding: 6px 8px;
+            border-radius: 6px;
+            font-size: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+            box-shadow: 0 1px 4px rgba(63, 112, 255, 0.2);
+            line-height: 1.2;
+            width: 120px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .basics-category-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 3px 8px rgba(63, 112, 255, 0.3);
+            background: linear-gradient(135deg, #2a5cff 0%, #3F70FF 100%);
+        }
+
+        .basics-category-btn.active {
+            background: linear-gradient(135deg, #333333 0%, #555555 100%);
+            box-shadow: 0 3px 8px rgba(51, 51, 51, 0.3);
+            transform: translateY(-1px);
+        }
+
+        /* Interactive Tables Styles */
+        .tables-container {
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .table-section {
+            background: rgba(63, 112, 255, 0.05);
+            border: 2px solid rgba(63, 112, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(63, 112, 255, 0.1);
+        }
+
+        .table-title {
+            font-size: 24px;
+            font-weight: 800;
+            color: #3F70FF;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .interactive-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 4px;
+            margin: 0 auto;
+        }
+
+        .interactive-table th {
+            background: linear-gradient(135deg, #3F70FF 0%, #2a5cff 100%);
+            color: white;
+            padding: 12px 8px;
+            font-weight: 700;
+            text-align: center;
+            border-radius: 8px;
+            font-size: 14px;
+            box-shadow: 0 2px 8px rgba(63, 112, 255, 0.2);
+        }
+
+        .interactive-table td {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+            padding: 10px 8px;
+            text-align: center;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(63, 112, 255, 0.1);
+            font-weight: 600;
+            font-size: 14px;
+            position: relative;
+        }
+
+        .interactive-table td:hover {
+            background: linear-gradient(135deg, #3F70FF 0%, #2a5cff 100%);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(63, 112, 255, 0.4);
+            border-color: #3F70FF;
+        }
+
+        .interactive-table td.clickable::after {
+            content: '';
+        }
+
+        /* Popup Modal Styles */
+        .popup-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, #3F70FF 0%, #2a5cff 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            border: 3px solid #000;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+            z-index: 10000;
+            text-align: center;
+            font-weight: 700;
+            min-width: 300px;
+            max-width: 80%;
+            line-height: 1.4;
+        }
+
+        .popup-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #FFD700;
+        }
+
+        .popup-content {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .popup-close {
+            background: #FFD700;
+            color: #000;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+
+        .popup-close:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+        }
+
+        /* Backdrop */
+        .popup-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+        }
+
+        /* Small tables for tones */
+        .small-table {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .table-section {
+                padding: 15px;
+            }
+            
+            .table-title {
+                font-size: 20px;
+            }
+            
+            .interactive-table th,
+            .interactive-table td {
+                padding: 8px 4px;
+                font-size: 12px;
+            }
+            
+            .popup-modal {
+                padding: 20px;
+                min-width: 250px;
+            }
+        }
+
         /* HSK1 Specific Styles */
         .progress-container {
             width: 100%;
@@ -583,10 +790,822 @@
     <div class="content-container">
         <!-- Basics Section -->
         <div id="basics" class="content-section">
-            <div class="coming-soon">
-                <div class="coming-soon-icon">📚</div>
-                <h2>Basics</h2>
-                <p>Foundational Chinese characters and concepts coming soon!</p>
+            <div class="basics-category-index">
+                <div class="basics-category-title">Categories</div>
+                <button class="basics-category-btn active">
+                    <span class="category-name">Overview</span>
+                    <span class="category-count">6 tables</span>
+                </button>
+            </div>
+
+            <div class="tables-container">
+                <!-- Tones Table -->
+                <div class="table-section">
+                    <div class="table-title">Chinese Tones</div>
+                    <table class="interactive-table small-table">
+                        <thead>
+                            <tr>
+                                <th>Tone</th>
+                                <th>Pinyin</th>
+                                <th>Hanzi</th>
+                                <th>Meaning</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Neutral Tone', 'The first tone is flat and high. Keep your voice level and steady.')">Neutral</td>
+                                <td class="clickable" onclick="showPopup('mā', 'First tone: high and flat pitch')">mā</td>
+                                <td class="clickable" onclick="showPopup('妈', 'Character for mother')">妈</td>
+                                <td class="clickable" onclick="showPopup('Mother', 'A loving term for one\\'s female parent')">mother</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Rising Tone', 'The second tone rises from mid to high pitch, like asking a question.')">Rising</td>
+                                <td class="clickable" onclick="showPopup('má', 'Second tone: rising pitch from mid to high')">má</td>
+                                <td class="clickable" onclick="showPopup('麻', 'Character meaning spicy or hemp')">麻</td>
+                                <td class="clickable" onclick="showPopup('Spicy', 'Having a strong, hot flavor')">spicy</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Dip Tone', 'The third tone dips down then rises up, like a valley shape.')">Dip</td>
+                                <td class="clickable" onclick="showPopup('mǎ', 'Third tone: falling then rising pitch')">mǎ</td>
+                                <td class="clickable" onclick="showPopup('马', 'Character for horse')">马</td>
+                                <td class="clickable" onclick="showPopup('Horse', 'A large four-legged animal used for riding')">horse</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Falling Tone', 'The fourth tone falls sharply from high to low, like giving a command.')">Falling</td>
+                                <td class="clickable" onclick="showPopup('mà', 'Fourth tone: falling pitch from high to low')">mà</td>
+                                <td class="clickable" onclick="showPopup('骂', 'Character meaning to scold')">骂</td>
+                                <td class="clickable" onclick="showPopup('Scold', 'To angrily criticize someone')">scold</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Complex Strokes Table -->
+                <div class="table-section">
+                    <div class="table-title">Complex Chinese Strokes</div>
+                    <table class="interactive-table">
+                        <thead>
+                            <tr>
+                                <th>English</th>
+                                <th>Pinyin</th>
+                                <th>Stroke</th>
+                                <th>Example</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Horizontal Hook', 'Horizontal stroke ending with a hook')">Horizontal Hook</td>
+                                <td class="clickable" onclick="showPopup('héng gōu', 'Pronunciation: HUNG GOH')">héng gōu</td>
+                                <td class="clickable" onclick="showPopup('㇖', 'Horizontal stroke with hook at end')">㇖</td>
+                                <td class="clickable" onclick="showPopup('了', 'Character meaning finished/completed')">了</td>
+                                <td class="clickable" onclick="showPopup('Hook stroke', 'Horizontal line ending with downward hook')">Horizontal + Hook</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Horizontal Left-Stroke', 'Horizontal stroke followed by left-falling stroke')">Horizontal Left-Stroke</td>
+                                <td class="clickable" onclick="showPopup('héng piě', 'Pronunciation: HUNG PYEH')">héng piě</td>
+                                <td class="clickable" onclick="showPopup('㇇', 'Horizontal then left-falling stroke')">㇇</td>
+                                <td class="clickable" onclick="showPopup('夕', 'Character meaning evening')">夕</td>
+                                <td class="clickable" onclick="showPopup('Combined stroke', 'Horizontal followed by diagonal left')">Horizontal + Left</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Horizontal Fold', 'Horizontal stroke with 90-degree turn down')">Horizontal Fold</td>
+                                <td class="clickable" onclick="showPopup('héng zhé', 'Pronunciation: HUNG ZHUH')">héng zhé</td>
+                                <td class="clickable" onclick="showPopup('㇕', 'Horizontal stroke turning vertical')">㇕</td>
+                                <td class="clickable" onclick="showPopup('口', 'Character meaning mouth')">口</td>
+                                <td class="clickable" onclick="showPopup('Right angle', 'Horizontal turning to vertical')">L-shaped</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Horizontal Fold Hook', 'Horizontal fold ending with hook')">Horizontal Fold Hook</td>
+                                <td class="clickable" onclick="showPopup('héng zhé gōu', 'Pronunciation: HUNG ZHUH GOH')">héng zhé gōu</td>
+                                <td class="clickable" onclick="showPopup('㇆', 'Horizontal fold with hook at end')">㇆</td>
+                                <td class="clickable" onclick="showPopup('包', 'Character meaning package/wrap')">包</td>
+                                <td class="clickable" onclick="showPopup('Complex stroke', 'Horizontal + vertical + hook')">Fold + Hook</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Horizontal Fold Rise', 'Horizontal fold ending with rising stroke')">Horizontal Fold Rise</td>
+                                <td class="clickable" onclick="showPopup('héng zhé tí', 'Pronunciation: HUNG ZHUH TEE')">héng zhé tí</td>
+                                <td class="clickable" onclick="showPopup('㇊', 'Horizontal fold with rising end')">㇊</td>
+                                <td class="clickable" onclick="showPopup('讠', 'Speech radical on left side')">讠</td>
+                                <td class="clickable" onclick="showPopup('Rising end', 'Fold ending with upward stroke')">Fold + Rise</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Horizontal Fold Bend Hook', 'Complex stroke with multiple turns and hook')">Horizontal Fold Bend Hook</td>
+                                <td class="clickable" onclick="showPopup('héng zhé wān gōu', 'Pronunciation: HUNG ZHUH WAN GOH')">héng zhé wān gōu</td>
+                                <td class="clickable" onclick="showPopup('㇈', 'Most complex horizontal-based stroke')">㇈</td>
+                                <td class="clickable" onclick="showPopup('九', 'Character meaning nine')">九</td>
+                                <td class="clickable" onclick="showPopup('Multi-turn stroke', 'Multiple bends and final hook')">Complex curve</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Vertical Hook', 'Vertical stroke ending with hook')">Vertical Hook</td>
+                                <td class="clickable" onclick="showPopup('shù gōu', 'Pronunciation: SHOO GOH')">shù gōu</td>
+                                <td class="clickable" onclick="showPopup('㇚', 'Vertical stroke with hook at bottom')">㇚</td>
+                                <td class="clickable" onclick="showPopup('爭', 'Character meaning contend/fight')">爭</td>
+                                <td class="clickable" onclick="showPopup('Vertical hook', 'Downward line with leftward hook')">Vertical + Hook</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Vertical Left-Stroke', 'Vertical stroke followed by left-falling stroke')">Vertical Left-Stroke</td>
+                                <td class="clickable" onclick="showPopup('shù piě', 'Pronunciation: SHOO PYEH')">shù piě</td>
+                                <td class="clickable" onclick="showPopup('㇓', 'Vertical then left-falling stroke')">㇓</td>
+                                <td class="clickable" onclick="showPopup('月', 'Character meaning moon/month')">月</td>
+                                <td class="clickable" onclick="showPopup('Combined stroke', 'Vertical followed by diagonal left')">Vertical + Left</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Vertical Rise', 'Vertical stroke ending with rising stroke')">Vertical Rise</td>
+                                <td class="clickable" onclick="showPopup('shù tí', 'Pronunciation: SHOO TEE')">shù tí</td>
+                                <td class="clickable" onclick="showPopup('㇙', 'Vertical stroke with rising end')">㇙</td>
+                                <td class="clickable" onclick="showPopup('以', 'Character meaning with/by means of')">以</td>
+                                <td class="clickable" onclick="showPopup('Rising end', 'Vertical ending with upward stroke')">Vertical + Rise</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Vertical Bend Hook', 'Vertical stroke with bend and hook')">Vertical Bend Hook</td>
+                                <td class="clickable" onclick="showPopup('shù wān gōu', 'Pronunciation: SHOO WAN GOH')">shù wān gōu</td>
+                                <td class="clickable" onclick="showPopup('㇟', 'Vertical with curved bottom and hook')">㇟</td>
+                                <td class="clickable" onclick="showPopup('乱', 'Character meaning chaotic/messy')">乱</td>
+                                <td class="clickable" onclick="showPopup('Curved hook', 'Vertical with curved ending')">Bend + Hook</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Left-Stroke Hook', 'Left-falling stroke ending with hook')">Left-Stroke Hook</td>
+                                <td class="clickable" onclick="showPopup('piě gōu', 'Pronunciation: PYEH GOH')">piě gōu</td>
+                                <td class="clickable" onclick="showPopup('㇢', 'Left-falling stroke with hook')">㇢</td>
+                                <td class="clickable" onclick="showPopup('乄', 'Rare character with left-stroke hook')">乄</td>
+                                <td class="clickable" onclick="showPopup('Diagonal hook', 'Left stroke ending with hook')">Left + Hook</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Left-Stroke Fold', 'Left-falling stroke with fold')">Left-Stroke Fold</td>
+                                <td class="clickable" onclick="showPopup('piě zhé', 'Pronunciation: PYEH ZHUH')">piě zhé</td>
+                                <td class="clickable" onclick="showPopup('㇜', 'Left-falling stroke with turn')">㇜</td>
+                                <td class="clickable" onclick="showPopup('弘', 'Character meaning great/vast')">弘</td>
+                                <td class="clickable" onclick="showPopup('Angled stroke', 'Left stroke with angular turn')">Left + Fold</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Slant Hook', 'Diagonal stroke ending with hook')">Slant Hook</td>
+                                <td class="clickable" onclick="showPopup('xié gōu', 'Pronunciation: SHYEH GOH')">xié gōu</td>
+                                <td class="clickable" onclick="showPopup('㇂', 'Diagonal stroke with hook')">㇂</td>
+                                <td class="clickable" onclick="showPopup('戈', 'Character meaning spear/halberd')">戈</td>
+                                <td class="clickable" onclick="showPopup('Angled hook', 'Slanted line with hook ending')">Diagonal + Hook</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Flat Slant Hook', 'Flatter diagonal stroke with hook')">Flat Slant Hook</td>
+                                <td class="clickable" onclick="showPopup('biǎn xié gōu', 'Pronunciation: BYEN SHYEH GOH')">biǎn xié gōu</td>
+                                <td class="clickable" onclick="showPopup('㇃', 'Flat diagonal stroke with hook')">㇃</td>
+                                <td class="clickable" onclick="showPopup('心', 'Character meaning heart/mind')">心</td>
+                                <td class="clickable" onclick="showPopup('Gentle curve', 'Less steep diagonal with hook')">Flat + Hook</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Bend Hook', 'Curved stroke ending with hook')">Bend Hook</td>
+                                <td class="clickable" onclick="showPopup('wān gōu', 'Pronunciation: WAN GOH')">wān gōu</td>
+                                <td class="clickable" onclick="showPopup('㇁', 'Curved stroke with hook')">㇁</td>
+                                <td class="clickable" onclick="showPopup('狐', 'Character meaning fox')">狐</td>
+                                <td class="clickable" onclick="showPopup('Curved hook', 'Smooth curve ending with hook')">Curved + Hook</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pinyin Table -->
+                <div class="table-section">
+                    <div class="table-title">Pinyin Consonants (Initials)</div>
+                    <table class="interactive-table">
+                        <thead>
+                            <tr>
+                                <th>Initial</th>
+                                <th>Pronunciation</th>
+                                <th>Initial</th>
+                                <th>Pronunciation</th>
+                                <th>Initial</th>
+                                <th>Pronunciation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('b', 'Like \"b\" in \"bad\" but unaspirated (no puff of air)')">b</td>
+                                <td class="clickable" onclick="showPopup('b pronunciation', 'Unaspirated: lips together, release without air puff')">bad (unaspirated)</td>
+                                <td class="clickable" onclick="showPopup('p', 'Like \"p\" in \"pop\" with strong aspiration')">p</td>
+                                <td class="clickable" onclick="showPopup('p pronunciation', 'Aspirated: strong puff of air when releasing lips')">pop</td>
+                                <td class="clickable" onclick="showPopup('m', 'Like \"m\" in \"meet\" - nasal sound')">m</td>
+                                <td class="clickable" onclick="showPopup('m pronunciation', 'Nasal: lips closed, air through nose')">meet</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('f', 'Like \"f\" in \"food\" - fricative sound')">f</td>
+                                <td class="clickable" onclick="showPopup('f pronunciation', 'Fricative: upper teeth touch lower lip')">food</td>
+                                <td class="clickable" onclick="showPopup('d', 'Like \"d\" in \"day\" but unaspirated')">d</td>
+                                <td class="clickable" onclick="showPopup('d pronunciation', 'Unaspirated: tongue tip touches roof, no air puff')">day (unaspirated)</td>
+                                <td class="clickable" onclick="showPopup('t', 'Like \"t\" in \"talk\" with aspiration')">t</td>
+                                <td class="clickable" onclick="showPopup('t pronunciation', 'Aspirated: tongue tip position with air puff')">talk</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('n', 'Like \"n\" in \"need\" - nasal sound')">n</td>
+                                <td class="clickable" onclick="showPopup('n pronunciation', 'Nasal: tongue tip touches roof, air through nose')">need</td>
+                                <td class="clickable" onclick="showPopup('l', 'Like \"l\" in \"love\" - lateral sound')">l</td>
+                                <td class="clickable" onclick="showPopup('l pronunciation', 'Lateral: tongue sides down, air flows around tongue')">love</td>
+                                <td class="clickable" onclick="showPopup('g', 'Like \"g\" in \"go\" but unaspirated')">g</td>
+                                <td class="clickable" onclick="showPopup('g pronunciation', 'Unaspirated: back of tongue touches soft palate')">go</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('k', 'Like \"k\" in \"kill\" with aspiration')">k</td>
+                                <td class="clickable" onclick="showPopup('k pronunciation', 'Aspirated: back of tongue position with air puff')">kill</td>
+                                <td class="clickable" onclick="showPopup('h', 'Like \"h\" in \"hello\" - breathy sound')">h</td>
+                                <td class="clickable" onclick="showPopup('h pronunciation', 'Fricative: air flow through throat opening')">hello</td>
+                                <td class="clickable" onclick="showPopup('j', 'Close to \"j\" in \"jeep\" without lip protrusion')">j</td>
+                                <td class="clickable" onclick="showPopup('j pronunciation', 'Palatal: tongue body against hard palate, no lip rounding')">jeep (no lips)</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('q', 'Like \"ch\" but harder and more aspirated')">q</td>
+                                <td class="clickable" onclick="showPopup('q pronunciation', 'Aspirated palatal: strong air puff, harder than English ch')">ch (harder)</td>
+                                <td class="clickable" onclick="showPopup('x', 'Close to \"sh\" in \"shirt\" but more fronted')">x</td>
+                                <td class="clickable" onclick="showPopup('x pronunciation', 'Palatal fricative: like sh but tongue more forward')">shirt</td>
+                                <td class="clickable" onclick="showPopup('z', 'Like \"ds\" in \"words\" - dental sound')">z</td>
+                                <td class="clickable" onclick="showPopup('z pronunciation', 'Dental affricate: tongue tip against teeth')">words</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('c', 'Like \"ts\" in \"rats\" with strong aspiration')">c</td>
+                                <td class="clickable" onclick="showPopup('c pronunciation', 'Aspirated dental: like ts with strong air puff')">rats (aspirated)</td>
+                                <td class="clickable" onclick="showPopup('s', 'Like \"s\" in \"Sunday\" - sibilant sound')">s</td>
+                                <td class="clickable" onclick="showPopup('s pronunciation', 'Dental fricative: air flow through teeth gap')">Sunday</td>
+                                <td class="clickable" onclick="showPopup('zh', 'Like \"dr\" in \"draw\" but more retroflex')">zh</td>
+                                <td class="clickable" onclick="showPopup('zh pronunciation', 'Retroflex: tongue tip curled back toward roof')">draw</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('ch', 'Like \"ch\" in \"touch\" with aspiration and retroflex')">ch</td>
+                                <td class="clickable" onclick="showPopup('ch pronunciation', 'Aspirated retroflex: tongue curled back with air puff')">touch (aspirated)</td>
+                                <td class="clickable" onclick="showPopup('sh', 'Close to \"sh\" in \"shy\" but more retroflex')">sh</td>
+                                <td class="clickable" onclick="showPopup('sh pronunciation', 'Retroflex fricative: tongue tip curled, air flow')">shy</td>
+                                <td class="clickable" onclick="showPopup('r', 'Close to \"r\" in \"roll\" but less rounded')">r</td>
+                                <td class="clickable" onclick="showPopup('r pronunciation', 'Retroflex approximant: tongue position like zh but voiced')">roll</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Structure Table -->
+                <div class="table-section">
+                    <div class="table-title">Chinese Character Structures</div>
+                    <table class="interactive-table">
+                        <thead>
+                            <tr>
+                                <th>Composition</th>
+                                <th>Structure</th>
+                                <th>Example</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Whole', 'A complete character that cannot be divided into separate components')">Whole</td>
+                                <td class="clickable" onclick="showPopup('▢', 'Symbol representing a complete, indivisible character structure')">▢</td>
+                                <td class="clickable" onclick="showPopup('囗', 'Example of whole character - means enclosure or border')">囗</td>
+                                <td class="clickable" onclick="showPopup('Complete Structure', 'Characters that form a single, unified component')">Single unit</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Left-Right', 'Character divided into left and right components')">Left-Right</td>
+                                <td class="clickable" onclick="showPopup('⿰', 'Symbol for left-right character composition')">⿰</td>
+                                <td class="clickable" onclick="showPopup('相', 'Tree (木) + eye (目) = to look, mutual')">相</td>
+                                <td class="clickable" onclick="showPopup('Horizontal Split', 'Two components side by side horizontally')">Side by side</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Top-Bottom', 'Character divided into top and bottom components')">Top-Bottom</td>
+                                <td class="clickable" onclick="showPopup('⿱', 'Symbol for top-bottom character composition')">⿱</td>
+                                <td class="clickable" onclick="showPopup('杏', 'Tree (木) + mouth (口) = apricot')">杏</td>
+                                <td class="clickable" onclick="showPopup('Vertical Split', 'Two components stacked vertically')">Stacked</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Left-Center-Right', 'Character with three horizontal components')">Left-Center-Right</td>
+                                <td class="clickable" onclick="showPopup('⿲', 'Symbol for three-way horizontal composition')">⿲</td>
+                                <td class="clickable" onclick="showPopup('衍', 'Complex character with three horizontal parts')">衍</td>
+                                <td class="clickable" onclick="showPopup('Triple Horizontal', 'Three components arranged horizontally')">Three across</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Top-Middle-Bottom', 'Character with three vertical components')">Top-Middle-Bottom</td>
+                                <td class="clickable" onclick="showPopup('⿳', 'Symbol for three-way vertical composition')">⿳</td>
+                                <td class="clickable" onclick="showPopup('京', 'Capital - three vertically stacked components')">京</td>
+                                <td class="clickable" onclick="showPopup('Triple Vertical', 'Three components stacked vertically')">Three high</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Overall-Surrounded', 'Component completely enclosed by another')">Overall-Surrounded</td>
+                                <td class="clickable" onclick="showPopup('⿴', 'Symbol for completely surrounded structure')">⿴</td>
+                                <td class="clickable" onclick="showPopup('回', 'Enclosure surrounding inner component')">回</td>
+                                <td class="clickable" onclick="showPopup('Full Enclosure', 'Inner component completely surrounded')">Enclosed</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Left-Up-Right-Surrounded', 'Component surrounded on three sides: left, top, and right')">Left-Up-Right-Surrounded</td>
+                                <td class="clickable" onclick="showPopup('⿵', 'Symbol for three-sided enclosure structure')">⿵</td>
+                                <td class="clickable" onclick="showPopup('凰', 'Phoenix character with three-sided enclosure')">凰</td>
+                                <td class="clickable" onclick="showPopup('Three-sided box', 'Open at the bottom')">U-shaped</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Left-Right-Down-Surrounded', 'Component surrounded on left, right, and bottom sides')">Left-Right-Down-Surrounded</td>
+                                <td class="clickable" onclick="showPopup('⿶', 'Symbol for bottom-open enclosure')">⿶</td>
+                                <td class="clickable" onclick="showPopup('凶', 'Ominous character with bottom enclosure')">凶</td>
+                                <td class="clickable" onclick="showPopup('Upside-down U', 'Open at the top')">Inverted U</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Top-Left-Bottom-Surrounded', 'Component surrounded on top, left, and bottom sides')">Top-Left-Bottom-Surrounded</td>
+                                <td class="clickable" onclick="showPopup('⿷', 'Symbol for right-open enclosure')">⿷</td>
+                                <td class="clickable" onclick="showPopup('匠', 'Craftsman character with right-open structure')">匠</td>
+                                <td class="clickable" onclick="showPopup('Right-open box', 'Open on the right side')">Right-open</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Left-Up-Surrounded', 'Component surrounded on left and top sides only')">Left-Up-Surrounded</td>
+                                <td class="clickable" onclick="showPopup('⿸', 'Symbol for corner enclosure structure')">⿸</td>
+                                <td class="clickable" onclick="showPopup('病', 'Illness character with corner enclosure')">病</td>
+                                <td class="clickable" onclick="showPopup('Corner box', 'L-shaped enclosure')">L-shaped</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Up-Right-Surrounded', 'Component surrounded on top and right sides')">Up-Right-Surrounded</td>
+                                <td class="clickable" onclick="showPopup('⿹', 'Symbol for reverse corner enclosure')">⿹</td>
+                                <td class="clickable" onclick="showPopup('戒', 'Warning character with reverse corner structure')">戒</td>
+                                <td class="clickable" onclick="showPopup('Reverse L', 'Backwards L-shaped enclosure')">Reverse L</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Left-Down-Surrounded', 'Component surrounded on left and bottom sides')">Left-Down-Surrounded</td>
+                                <td class="clickable" onclick="showPopup('⿺', 'Symbol for bottom-left enclosure')">⿺</td>
+                                <td class="clickable" onclick="showPopup('超', 'Exceed character with bottom-left structure')">超</td>
+                                <td class="clickable" onclick="showPopup('Bottom corner', 'Lower-left corner enclosure')">Bottom L</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Overlapped', 'Components that overlap or intersect')">Overlapped</td>
+                                <td class="clickable" onclick="showPopup('⿻', 'Symbol for overlapping structure')">⿻</td>
+                                <td class="clickable" onclick="showPopup('巫', 'Shaman character with overlapping components')">巫</td>
+                                <td class="clickable" onclick="showPopup('Intersection', 'Components cross over each other')">Crossed</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Top-Right-Bottom-Surrounded', 'Component surrounded on top, right, and bottom')">Top-Right-Bottom-Surrounded</td>
+                                <td class="clickable" onclick="showPopup('⿼', 'Symbol for left-open enclosure')">⿼</td>
+                                <td class="clickable" onclick="showPopup('㕚', 'Rare character with left-open structure')">㕚</td>
+                                <td class="clickable" onclick="showPopup('Left-open box', 'Open on the left side')">Left-open</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Right-Down-Surrounded', 'Component surrounded on right and bottom sides')">Right-Down-Surrounded</td>
+                                <td class="clickable" onclick="showPopup('⿽', 'Symbol for top-left open structure')">⿽</td>
+                                <td class="clickable" onclick="showPopup('氷', 'Ice character variant with corner structure')">氷</td>
+                                <td class="clickable" onclick="showPopup('Right corner', 'Lower-right corner enclosure')">Right L</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Horizontal-Rotation', 'Component rotated horizontally')">Horizontal-Rotation</td>
+                                <td class="clickable" onclick="showPopup('⿾', 'Symbol for horizontal rotation')">⿾</td>
+                                <td class="clickable" onclick="showPopup('卐', 'Swastika symbol with rotational structure')">卐</td>
+                                <td class="clickable" onclick="showPopup('Rotated form', 'Horizontally rotated component')">H-rotated</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Rotation', 'Component with general rotational structure')">Rotation</td>
+                                <td class="clickable" onclick="showPopup('⿿', 'Symbol for general rotation')">⿿</td>
+                                <td class="clickable" onclick="showPopup('𠕄', 'Rare character with rotational structure')">𠕄</td>
+                                <td class="clickable" onclick="showPopup('General rotation', 'Components arranged in rotational pattern')">Rotated</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Strokes Table -->
+                <div class="table-section">
+                    <div class="table-title">Basic Chinese Strokes</div>
+                    <table class="interactive-table">
+                        <thead>
+                            <tr>
+                                <th>English</th>
+                                <th>Pinyin</th>
+                                <th>Stroke</th>
+                                <th>Example</th>
+                                <th>Direction</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Horizontal', 'A straight line drawn from left to right')">Horizontal</td>
+                                <td class="clickable" onclick="showPopup('héng', 'Pronunciation: HUNG (second tone)')">héng</td>
+                                <td class="clickable" onclick="showPopup('㇐', 'Basic horizontal stroke - foundation of many characters')">㇐</td>
+                                <td class="clickable" onclick="showPopup('一', 'Character for \"one\" - single horizontal stroke')">一</td>
+                                <td class="clickable" onclick="showPopup('Left to Right', 'Always draw horizontal strokes from left to right')">→</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Vertical', 'A straight line drawn from top to bottom')">Vertical</td>
+                                <td class="clickable" onclick="showPopup('shù', 'Pronunciation: SHOO (fourth tone)')">shù</td>
+                                <td class="clickable" onclick="showPopup('㇑', 'Basic vertical stroke - creates structure')">㇑</td>
+                                <td class="clickable" onclick="showPopup('十', 'Character for \"ten\" - cross with horizontal and vertical')">十</td>
+                                <td class="clickable" onclick="showPopup('Top to Bottom', 'Always draw vertical strokes from top to bottom')">↓</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Dot', 'A small stroke, often like a droplet')">Dot</td>
+                                <td class="clickable" onclick="showPopup('diǎn', 'Pronunciation: DYEN (third tone)')">diǎn</td>
+                                <td class="clickable" onclick="showPopup('㇔', 'Basic dot stroke - adds detail and meaning')">㇔</td>
+                                <td class="clickable" onclick="showPopup('我', 'Character for \"I/me\" - contains dot strokes')">我</td>
+                                <td class="clickable" onclick="showPopup('Top-down', 'Draw dots from top toward bottom-right')">↘</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Rising', 'An upward stroke from bottom-left to top-right')">Rising</td>
+                                <td class="clickable" onclick="showPopup('tí', 'Pronunciation: TEE (second tone)')">tí</td>
+                                <td class="clickable" onclick="showPopup('㇀', 'Rising stroke - creates upward movement')">㇀</td>
+                                <td class="clickable" onclick="showPopup('八', 'Character for \"eight\" - two diagonal strokes')">八</td>
+                                <td class="clickable" onclick="showPopup('Bottom-left up', 'Draw rising strokes upward and rightward')">↗</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Left-Stroke', 'A diagonal stroke from top-right to bottom-left')">Left-Stroke</td>
+                                <td class="clickable" onclick="showPopup('piě', 'Pronunciation: PYEH (third tone)')">piě</td>
+                                <td class="clickable" onclick="showPopup('㇒', 'Left-falling stroke - creates leftward movement')">㇒</td>
+                                <td class="clickable" onclick="showPopup('人', 'Character for \"person\" - left and right strokes')">人</td>
+                                <td class="clickable" onclick="showPopup('Top-right down', 'Draw from top-right toward bottom-left')">↙</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Right-Stroke', 'A diagonal stroke from top-left to bottom-right')">Right-Stroke</td>
+                                <td class="clickable" onclick="showPopup('nà', 'Pronunciation: NAH (fourth tone)')">nà</td>
+                                <td class="clickable" onclick="showPopup('㇏', 'Right-falling stroke - creates rightward movement')">㇏</td>
+                                <td class="clickable" onclick="showPopup('小', 'Character for \"small\" - contains right stroke')">小</td>
+                                <td class="clickable" onclick="showPopup('Top-left down', 'Draw from top-left toward bottom-right')">↘</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Radicals Table -->
+                <div class="table-section">
+                    <div class="table-title">All 214 Chinese Radicals</div>
+                    <table class="interactive-table">
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Radical</th>
+                                <th>Pinyin</th>
+                                <th>Meaning</th>
+                                <th>Examples</th>
+                                <th>Strokes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- 1 Stroke Radicals -->
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Radical 1', 'First radical in the traditional system')">1</td>
+                                <td class="clickable" onclick="showPopup('一', 'Horizontal line radical')">一</td>
+                                <td class="clickable" onclick="showPopup('yī', 'Pronunciation: YEE (first tone)')">yī</td>
+                                <td class="clickable" onclick="showPopup('One/Horizontal', 'Number one and horizontal line')">One</td>
+                                <td class="clickable" onclick="showPopup('Examples', '丁 万 上 下 (ding, wan, shang, xia)')">丁 万 上 下</td>
+                                <td class="clickable" onclick="showPopup('1 Stroke', 'Single horizontal stroke')">1</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Radical 2', 'Second radical - vertical line')">2</td>
+                                <td class="clickable" onclick="showPopup('丨', 'Vertical line radical')">丨</td>
+                                <td class="clickable" onclick="showPopup('gǔn', 'Pronunciation: GOON (third tone)')">gǔn</td>
+                                <td class="clickable" onclick="showPopup('Vertical Line', 'Straight vertical stroke')">Vertical</td>
+                                <td class="clickable" onclick="showPopup('Examples', '个 中 丰 串 临 (ge, zhong, feng, chuan, lin)')">个 中 丰 串 临</td>
+                                <td class="clickable" onclick="showPopup('1 Stroke', 'Single vertical stroke')">1</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Radical 3', 'Third radical - dot')">3</td>
+                                <td class="clickable" onclick="showPopup('丶', 'Dot radical')">丶</td>
+                                <td class="clickable" onclick="showPopup('zhǔ', 'Pronunciation: ZHOO (third tone)')">zhǔ</td>
+                                <td class="clickable" onclick="showPopup('Dot', 'Small dot or point')">Dot</td>
+                                <td class="clickable" onclick="showPopup('Examples', '丸 义 丹 为 主 (wan, yi, dan, wei, zhu)')">丸 义 丹 为 主</td>
+                                <td class="clickable" onclick="showPopup('1 Stroke', 'Single dot stroke')">1</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Radical 4', 'Fourth radical - left falling stroke')">4</td>
+                                <td class="clickable" onclick="showPopup('丿', 'Left-falling stroke radical')">丿</td>
+                                <td class="clickable" onclick="showPopup('piě', 'Pronunciation: PYEH (third tone)')">piě</td>
+                                <td class="clickable" onclick="showPopup('Left Stroke', 'Diagonal falling left')">Left Stroke</td>
+                                <td class="clickable" onclick="showPopup('Examples', '乂 乃 久 乇 乎 (yi, nai, jiu, zhe, hu)')">乂 乃 久 乇 乎</td>
+                                <td class="clickable" onclick="showPopup('1 Stroke', 'Single left-falling stroke')">1</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Radical 5', 'Fifth radical - hook stroke')">5</td>
+                                <td class="clickable" onclick="showPopup('乙', 'Hook stroke radical')">乙</td>
+                                <td class="clickable" onclick="showPopup('yǐ', 'Pronunciation: YEE (third tone)')">yǐ</td>
+                                <td class="clickable" onclick="showPopup('Hook/Second', 'Hook stroke or second heavenly stem')">Hook</td>
+                                <td class="clickable" onclick="showPopup('Examples', '九 乞 乩 乱 (jiu, qi, ji, luan)')">九 乞 乩 乱</td>
+                                <td class="clickable" onclick="showPopup('1 Stroke', 'Single hook stroke')">1</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Radical 6', 'Sixth radical - vertical hook')">6</td>
+                                <td class="clickable" onclick="showPopup('亅', 'Vertical hook radical')">亅</td>
+                                <td class="clickable" onclick="showPopup('jué', 'Pronunciation: JWEH (second tone)')">jué</td>
+                                <td class="clickable" onclick="showPopup('Vertical Hook', 'Vertical line with hook')">Vertical Hook</td>
+                                <td class="clickable" onclick="showPopup('Examples', '了 争 事 (le, zheng, shi)')">了 争 事</td>
+                                <td class="clickable" onclick="showPopup('1 Stroke', 'Single vertical hook')">1</td>
+                            </tr>
+                            <!-- 2 Stroke Radicals -->
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Radical 7', 'Seventh radical - two')">7</td>
+                                <td class="clickable" onclick="showPopup('二', 'Two radical')">二</td>
+                                <td class="clickable" onclick="showPopup('èr', 'Pronunciation: ERR (fourth tone)')">èr</td>
+                                <td class="clickable" onclick="showPopup('Two', 'Number two')">Two</td>
+                                <td class="clickable" onclick="showPopup('Examples', '亍 于 云 五 亚 (chu, yu, yun, wu, ya)')">亍 于 云 五 亚</td>
+                                <td class="clickable" onclick="showPopup('2 Strokes', 'Two horizontal strokes')">2</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Radical 8', 'Eighth radical - lid')">8</td>
+                                <td class="clickable" onclick="showPopup('亠', 'Lid radical')">亠</td>
+                                <td class="clickable" onclick="showPopup('tóu', 'Pronunciation: TOH (second tone)')">tóu</td>
+                                <td class="clickable" onclick="showPopup('Lid/Cover', 'Top covering or lid')">Lid</td>
+                                <td class="clickable" onclick="showPopup('Examples', '亡 亢 交 产 京 (wang, kang, jiao, chan, jing)')">亡 亢 交 产 京</td>
+                                <td class="clickable" onclick="showPopup('2 Strokes', 'Lid-shaped radical')">2</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Radical 9', 'Ninth radical - person')">9</td>
+                                <td class="clickable" onclick="showPopup('人 (亻)', 'Person radical')">人 (亻)</td>
+                                <td class="clickable" onclick="showPopup('rén', 'Pronunciation: RUN (second tone)')">rén</td>
+                                <td class="clickable" onclick="showPopup('Person/Human', 'Human being or person')">Person</td>
+                                <td class="clickable" onclick="showPopup('Examples', '你 他 仕 仙 例 (ni, ta, shi, xian, li)')">你 他 仕 仙 例</td>
+                                <td class="clickable" onclick="showPopup('2 Strokes', 'Two-stroke person shape')">2</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Radical 10', 'Tenth radical - legs')">10</td>
+                                <td class="clickable" onclick="showPopup('儿', 'Legs radical')">儿</td>
+                                <td class="clickable" onclick="showPopup('ér', 'Pronunciation: ERR (second tone)')">ér</td>
+                                <td class="clickable" onclick="showPopup('Legs/Child', 'Human legs or child')">Legs</td>
+                                <td class="clickable" onclick="showPopup('Examples', '兀 元 兄 先 克 (wu, yuan, xiong, xian, ke)')">兀 元 兄 先 克</td>
+                                <td class="clickable" onclick="showPopup('2 Strokes', 'Two-stroke leg shape')">2</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Radical 11', 'Eleventh radical - enter')">11</td>
+                                <td class="clickable" onclick="showPopup('入', 'Enter radical')">入</td>
+                                <td class="clickable" onclick="showPopup('rù', 'Pronunciation: ROO (fourth tone)')">rù</td>
+                                <td class="clickable" onclick="showPopup('Enter', 'To enter or go into')">Enter</td>
+                                <td class="clickable" onclick="showPopup('Examples', '內 全 氽 (nei, quan, tun)')">內 全 氽</td>
+                                <td class="clickable" onclick="showPopup('2 Strokes', 'Two diagonal strokes')">2</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Radical 12', 'Twelfth radical - eight')">12</td>
+                                <td class="clickable" onclick="showPopup('八', 'Eight radical')">八</td>
+                                <td class="clickable" onclick="showPopup('bā', 'Pronunciation: BAH (first tone)')">bā</td>
+                                <td class="clickable" onclick="showPopup('Eight/Divide', 'Number eight or to divide')">Eight</td>
+                                <td class="clickable" onclick="showPopup('Examples', '兮 公 兰 关 兴 (xi, gong, lan, guan, xing)')">兮 公 兰 关 兴</td>
+                                <td class="clickable" onclick="showPopup('2 Strokes', 'Two diverging strokes')">2</td>
+                            </tr>
+                            <!-- Continue with more radicals... I'll add key ones from each stroke count -->
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Radical 30', 'Thirtieth radical - mouth')">30</td>
+                                <td class="clickable" onclick="showPopup('口', 'Mouth radical')">口</td>
+                                <td class="clickable" onclick="showPopup('kǒu', 'Pronunciation: KOH (third tone)')">kǒu</td>
+                                <td class="clickable" onclick="showPopup('Mouth', 'Mouth or opening')">Mouth</td>
+                                <td class="clickable" onclick="showPopup('Examples', '吃 叹 品 吵 叫 (chi, tan, pin, chao, jiao)')">吃 叹 品 吵 叫</td>
+                                <td class="clickable" onclick="showPopup('3 Strokes', 'Square mouth shape')">3</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Radical 32', 'Thirty-second radical - earth')">32</td>
+                                <td class="clickable" onclick="showPopup('土', 'Earth radical')">土</td>
+                                <td class="clickable" onclick="showPopup('tǔ', 'Pronunciation: TOO (third tone)')">tǔ</td>
+                                <td class="clickable" onclick="showPopup('Earth/Soil', 'Earth, soil, or ground')">Earth</td>
+                                <td class="clickable" onclick="showPopup('Examples', '在 地 城 型 坐 (zai, di, cheng, xing, zuo)')">在 地 城 型 坐</td>
+                                <td class="clickable" onclick="showPopup('3 Strokes', 'Earth mound shape')">3</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Radical 38', 'Thirty-eighth radical - woman')">38</td>
+                                <td class="clickable" onclick="showPopup('女', 'Woman radical')">女</td>
+                                <td class="clickable" onclick="showPopup('nǚ', 'Pronunciation: NYU (third tone)')">nǚ</td>
+                                <td class="clickable" onclick="showPopup('Woman/Female', 'Woman or female')">Woman</td>
+                                <td class="clickable" onclick="showPopup('Examples', '妈 好 始 姓 安 (ma, hao, shi, xing, an)')">妈 好 始 姓 安</td>
+                                <td class="clickable" onclick="showPopup('3 Strokes', 'Female figure shape')">3</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Radical 61', 'Sixty-first radical - heart')">61</td>
+                                <td class="clickable" onclick="showPopup('心 (忄)', 'Heart radical')">心 (忄)</td>
+                                <td class="clickable" onclick="showPopup('xīn', 'Pronunciation: SHEEN (first tone)')">xīn</td>
+                                <td class="clickable" onclick="showPopup('Heart/Mind', 'Heart, mind, or emotions')">Heart</td>
+                                <td class="clickable" onclick="showPopup('Examples', '必 忆 忘 忙 快 (bi, yi, wang, mang, kuai)')">必 忆 忘 忙 快</td>
+                                <td class="clickable" onclick="showPopup('4 Strokes', 'Heart organ shape')">4</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Radical 64', 'Sixty-fourth radical - hand')">64</td>
+                                <td class="clickable" onclick="showPopup('扌', 'Hand radical')">扌</td>
+                                <td class="clickable" onclick="showPopup('shǒu', 'Pronunciation: SHOH (third tone)')">shǒu</td>
+                                <td class="clickable" onclick="showPopup('Hand', 'Hand or manual action')">Hand</td>
+                                <td class="clickable" onclick="showPopup('Examples', '扔 扬 扛 抱 打 (reng, yang, kang, bao, da)')">扔 扬 扛 抱 打</td>
+                                <td class="clickable" onclick="showPopup('4 Strokes', 'Left-side hand form')">4</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Radical 72', 'Seventy-second radical - sun')">72</td>
+                                <td class="clickable" onclick="showPopup('日', 'Sun radical')">日</td>
+                                <td class="clickable" onclick="showPopup('rì', 'Pronunciation: RIH (fourth tone)')">rì</td>
+                                <td class="clickable" onclick="showPopup('Sun/Day', 'Sun or day')">Sun</td>
+                                <td class="clickable" onclick="showPopup('Examples', '时 早 明 是 晩 (shi, zao, ming, shi, wan)')">时 早 明 是 晩</td>
+                                <td class="clickable" onclick="showPopup('4 Strokes', 'Rectangle sun shape')">4</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Radical 75', 'Seventy-fifth radical - tree')">75</td>
+                                <td class="clickable" onclick="showPopup('木', 'Tree radical')">木</td>
+                                <td class="clickable" onclick="showPopup('mù', 'Pronunciation: MOO (fourth tone)')">mù</td>
+                                <td class="clickable" onclick="showPopup('Tree/Wood', 'Tree, wood, or plant')">Tree</td>
+                                <td class="clickable" onclick="showPopup('Examples', '森 林 相 根 本 (sen, lin, xiang, gen, ben)')">森 林 相 根 本</td>
+                                <td class="clickable" onclick="showPopup('4 Strokes', 'Tree trunk and branches')">4</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Radical 85', 'Eighty-fifth radical - water')">85</td>
+                                <td class="clickable" onclick="showPopup('水 (氵)', 'Water radical')">水 (氵)</td>
+                                <td class="clickable" onclick="showPopup('shuǐ', 'Pronunciation: SHWAY (third tone)')">shuǐ</td>
+                                <td class="clickable" onclick="showPopup('Water', 'Water or liquid')">Water</td>
+                                <td class="clickable" onclick="showPopup('Examples', '海 河 湖 江 洗 (hai, he, hu, jiang, xi)')">海 河 湖 江 洗</td>
+                                <td class="clickable" onclick="showPopup('4 Strokes', 'Three-drop water form')">4</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Radical 86', 'Eighty-sixth radical - fire')">86</td>
+                                <td class="clickable" onclick="showPopup('火 (灬)', 'Fire radical')">火 (灬)</td>
+                                <td class="clickable" onclick="showPopup('huǒ', 'Pronunciation: HWAW (third tone)')">huǒ</td>
+                                <td class="clickable" onclick="showPopup('Fire', 'Fire, heat, or energy')">Fire</td>
+                                <td class="clickable" onclick="showPopup('Examples', '灯 炎 热 点 然 (deng, yan, re, dian, ran)')">灯 炎 热 点 然</td>
+                                <td class="clickable" onclick="showPopup('4 Strokes', 'Flame shape or four dots')">4</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Radical 96', 'Ninety-sixth radical - jade')">96</td>
+                                <td class="clickable" onclick="showPopup('王 (玉)', 'Jade radical')">王 (玉)</td>
+                                <td class="clickable" onclick="showPopup('yù', 'Pronunciation: YU (fourth tone)')">yù</td>
+                                <td class="clickable" onclick="showPopup('Jade/King', 'Jade stone or king')">Jade</td>
+                                <td class="clickable" onclick="showPopup('Examples', '珍 现 琴 莹 玺 (zhen, xian, qin, ying, xi)')">珍 现 琴 莹 玺</td>
+                                <td class="clickable" onclick="showPopup('5 Strokes', 'Jade or royal symbol')">5</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Radical 102', 'One hundred second radical - field')">102</td>
+                                <td class="clickable" onclick="showPopup('田', 'Field radical')">田</td>
+                                <td class="clickable" onclick="showPopup('tián', 'Pronunciation: TYEN (second tone)')">tián</td>
+                                <td class="clickable" onclick="showPopup('Field', 'Farm field or cultivated land')">Field</td>
+                                <td class="clickable" onclick="showPopup('Examples', '男 甸 画 畅 界 (nan, dian, hua, chang, jie)')">男 甸 画 畅 界</td>
+                                <td class="clickable" onclick="showPopup('5 Strokes', 'Square field grid')">5</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Radical 109', 'One hundred ninth radical - eye')">109</td>
+                                <td class="clickable" onclick="showPopup('目', 'Eye radical')">目</td>
+                                <td class="clickable" onclick="showPopup('mù', 'Pronunciation: MOO (fourth tone)')">mù</td>
+                                <td class="clickable" onclick="showPopup('Eye', 'Eye or sight')">Eye</td>
+                                <td class="clickable" onclick="showPopup('Examples', '盯 相 盲 看 眠 (ding, xiang, mang, kan, mian)')">盯 相 盲 看 眠</td>
+                                <td class="clickable" onclick="showPopup('5 Strokes', 'Eye shape on side')">5</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Radical 112', 'One hundred twelfth radical - stone')">112</td>
+                                <td class="clickable" onclick="showPopup('石', 'Stone radical')">石</td>
+                                <td class="clickable" onclick="showPopup('shí', 'Pronunciation: SHIH (second tone)')">shí</td>
+                                <td class="clickable" onclick="showPopup('Stone/Rock', 'Stone, rock, or mineral')">Stone</td>
+                                <td class="clickable" onclick="showPopup('Examples', '码 破 硌 硏 硬 (ma, po, ge, yan, ying)')">码 破 硌 硏 硬</td>
+                                <td class="clickable" onclick="showPopup('5 Strokes', 'Stone or cliff shape')">5</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Radical 115', 'One hundred fifteenth radical - grain')">115</td>
+                                <td class="clickable" onclick="showPopup('禾', 'Grain radical')">禾</td>
+                                <td class="clickable" onclick="showPopup('hé', 'Pronunciation: HUH (second tone)')">hé</td>
+                                <td class="clickable" onclick="showPopup('Grain/Rice', 'Grain, rice, or cereal')">Grain</td>
+                                <td class="clickable" onclick="showPopup('Examples', '秀 秋 种 秒 租 (xiu, qiu, zhong, miao, zu)')">秀 秋 种 秒 租</td>
+                                <td class="clickable" onclick="showPopup('5 Strokes', 'Grain stalk shape')">5</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Radical 118', 'One hundred eighteenth radical - bamboo')">118</td>
+                                <td class="clickable" onclick="showPopup('竹 (⺮)', 'Bamboo radical')">竹 (⺮)</td>
+                                <td class="clickable" onclick="showPopup('zhú', 'Pronunciation: ZHOO (second tone)')">zhú</td>
+                                <td class="clickable" onclick="showPopup('Bamboo', 'Bamboo plant')">Bamboo</td>
+                                <td class="clickable" onclick="showPopup('Examples', '笑 笛 第 竿 等 (xiao, di, di, gan, deng)')">笑 笛 第 竿 等</td>
+                                <td class="clickable" onclick="showPopup('6 Strokes', 'Bamboo leaves on top')">6</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Radical 119', 'One hundred nineteenth radical - rice')">119</td>
+                                <td class="clickable" onclick="showPopup('米', 'Rice radical')">米</td>
+                                <td class="clickable" onclick="showPopup('mǐ', 'Pronunciation: MEE (third tone)')">mǐ</td>
+                                <td class="clickable" onclick="showPopup('Rice', 'Rice grain')">Rice</td>
+                                <td class="clickable" onclick="showPopup('Examples', '粮 类 粉 粤 籽 (liang, lei, fen, yue, zi)')">粮 类 粉 粤 籽</td>
+                                <td class="clickable" onclick="showPopup('6 Strokes', 'Rice grain pattern')">6</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Radical 120', 'One hundred twentieth radical - silk')">120</td>
+                                <td class="clickable" onclick="showPopup('糸 (纟)', 'Silk radical')">糸 (纟)</td>
+                                <td class="clickable" onclick="showPopup('sī', 'Pronunciation: SIH (first tone)')">sī</td>
+                                <td class="clickable" onclick="showPopup('Silk/Thread', 'Silk thread or textile')">Silk</td>
+                                <td class="clickable" onclick="showPopup('Examples', '红 纪 组 系 紧 (hong, ji, zu, xi, jin)')">红 纪 组 系 紧</td>
+                                <td class="clickable" onclick="showPopup('6 Strokes', 'Twisted silk threads')">6</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Radical 140', 'One hundred fortieth radical - grass')">140</td>
+                                <td class="clickable" onclick="showPopup('艹', 'Grass radical')">艹</td>
+                                <td class="clickable" onclick="showPopup('cǎo', 'Pronunciation: TSAO (third tone)')">cǎo</td>
+                                <td class="clickable" onclick="showPopup('Grass/Plant', 'Grass or vegetation')">Grass</td>
+                                <td class="clickable" onclick="showPopup('Examples', '花 菜 茶 茬 草 (hua, cai, cha, cha, cao)')">花 菜 茶 茬 草</td>
+                                <td class="clickable" onclick="showPopup('6 Strokes', 'Grass shoots on top')">6</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Radical 142', 'One hundred forty-second radical - insect')">142</td>
+                                <td class="clickable" onclick="showPopup('虫', 'Insect radical')">虫</td>
+                                <td class="clickable" onclick="showPopup('chóng', 'Pronunciation: CHONG (second tone)')">chóng</td>
+                                <td class="clickable" onclick="showPopup('Insect/Bug', 'Insect or small creature')">Insect</td>
+                                <td class="clickable" onclick="showPopup('Examples', '蛇 蚊 蛋 蚤 蚀 (she, wen, dan, zao, shi)')">蛇 蚊 蛋 蚤 蚀</td>
+                                <td class="clickable" onclick="showPopup('6 Strokes', 'Insect body shape')">6</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Radical 145', 'One hundred forty-fifth radical - clothes')">145</td>
+                                <td class="clickable" onclick="showPopup('衣 (衤)', 'Clothes radical')">衣 (衤)</td>
+                                <td class="clickable" onclick="showPopup('yī', 'Pronunciation: YEE (first tone)')">yī</td>
+                                <td class="clickable" onclick="showPopup('Clothes', 'Clothing or garment')">Clothes</td>
+                                <td class="clickable" onclick="showPopup('Examples', '表 袋 袓 衷 袄 (biao, dai, zu, zhong, ao)')">表 袋 袓 衷 袄</td>
+                                <td class="clickable" onclick="showPopup('6 Strokes', 'Garment shape')">6</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Radical 149', 'One hundred forty-ninth radical - speech')">149</td>
+                                <td class="clickable" onclick="showPopup('讠', 'Speech radical')">讠</td>
+                                <td class="clickable" onclick="showPopup('yán', 'Pronunciation: YAN (second tone)')">yán</td>
+                                <td class="clickable" onclick="showPopup('Speech/Words', 'Speech, words, or language')">Speech</td>
+                                <td class="clickable" onclick="showPopup('Examples', '计 讨 记 讲 识 (ji, tao, ji, jiang, shi)')">计 讨 记 讲 识</td>
+                                <td class="clickable" onclick="showPopup('7 Strokes', 'Left-side speech form')">7</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Radical 154', 'One hundred fifty-fourth radical - shell')">154</td>
+                                <td class="clickable" onclick="showPopup('贝', 'Shell radical')">贝</td>
+                                <td class="clickable" onclick="showPopup('bèi', 'Pronunciation: BAY (fourth tone)')">bèi</td>
+                                <td class="clickable" onclick="showPopup('Shell/Money', 'Shell or money')">Shell</td>
+                                <td class="clickable" onclick="showPopup('Examples', '贞 负 贡 责 财 (zhen, fu, gong, ze, cai)')">贞 负 贡 责 财</td>
+                                <td class="clickable" onclick="showPopup('7 Strokes', 'Cowrie shell shape')">7</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Radical 157', 'One hundred fifty-seventh radical - foot')">157</td>
+                                <td class="clickable" onclick="showPopup('足', 'Foot radical')">足</td>
+                                <td class="clickable" onclick="showPopup('zú', 'Pronunciation: DZOO (second tone)')">zú</td>
+                                <td class="clickable" onclick="showPopup('Foot/Leg', 'Foot, leg, or walking')">Foot</td>
+                                <td class="clickable" onclick="showPopup('Examples', '跃 跑 路 跳 (yue, pao, lu, tiao)')">跃 跑 路 跳</td>
+                                <td class="clickable" onclick="showPopup('7 Strokes', 'Foot and leg shape')">7</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Radical 159', 'One hundred fifty-ninth radical - cart')">159</td>
+                                <td class="clickable" onclick="showPopup('车', 'Cart radical')">车</td>
+                                <td class="clickable" onclick="showPopup('chē', 'Pronunciation: CHUH (first tone)')">chē</td>
+                                <td class="clickable" onclick="showPopup('Cart/Vehicle', 'Cart, vehicle, or wheel')">Cart</td>
+                                <td class="clickable" onclick="showPopup('Examples', '轧 轨 软 轮 轻 (ya, gui, ruan, lun, qing)')">轧 轨 软 轮 轻</td>
+                                <td class="clickable" onclick="showPopup('7 Strokes', 'Wheeled vehicle')">7</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Radical 162', 'One hundred sixty-second radical - walk')">162</td>
+                                <td class="clickable" onclick="showPopup('辶', 'Walk radical')">辶</td>
+                                <td class="clickable" onclick="showPopup('chuò', 'Pronunciation: CHWAW (fourth tone)')">chuò</td>
+                                <td class="clickable" onclick="showPopup('Walk/Movement', 'Walking or movement')">Walk</td>
+                                <td class="clickable" onclick="showPopup('Examples', '边 达 过 运 远 (bian, da, guo, yun, yuan)')">边 达 过 运 远</td>
+                                <td class="clickable" onclick="showPopup('7 Strokes', 'Walking motion radical')">7</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Radical 167', 'One hundred sixty-seventh radical - metal')">167</td>
+                                <td class="clickable" onclick="showPopup('金 (钅)', 'Metal radical')">金 (钅)</td>
+                                <td class="clickable" onclick="showPopup('jīn', 'Pronunciation: JEEN (first tone)')">jīn</td>
+                                <td class="clickable" onclick="showPopup('Metal/Gold', 'Metal, gold, or mineral')">Metal</td>
+                                <td class="clickable" onclick="showPopup('Examples', '银 钉 钟 钥 鉴 (yin, ding, zhong, yao, jian)')">银 钉 钟 钥 鉴</td>
+                                <td class="clickable" onclick="showPopup('8 Strokes', 'Metal or gold symbol')">8</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Radical 169', 'One hundred sixty-ninth radical - gate')">169</td>
+                                <td class="clickable" onclick="showPopup('门', 'Gate radical')">门</td>
+                                <td class="clickable" onclick="showPopup('mén', 'Pronunciation: MUN (second tone)')">mén</td>
+                                <td class="clickable" onclick="showPopup('Gate/Door', 'Gate, door, or entrance')">Gate</td>
+                                <td class="clickable" onclick="showPopup('Examples', '间 闪 闯 闭 闹 (jian, shan, chuang, bi, nao)')">间 闪 闯 闭 闹</td>
+                                <td class="clickable" onclick="showPopup('8 Strokes', 'Double-door gate')">8</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Radical 172', 'One hundred seventy-second radical - bird')">172</td>
+                                <td class="clickable" onclick="showPopup('隹', 'Short-tailed bird radical')">隹</td>
+                                <td class="clickable" onclick="showPopup('zhuī', 'Pronunciation: JWAY (first tone)')">zhuī</td>
+                                <td class="clickable" onclick="showPopup('Short-tailed Bird', 'Small bird')">Bird</td>
+                                <td class="clickable" onclick="showPopup('Examples', '难 雀 集 雇 (nan, que, ji, gu)')">难 雀 集 雇</td>
+                                <td class="clickable" onclick="showPopup('8 Strokes', 'Short-tailed bird shape')">8</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Radical 173', 'One hundred seventy-third radical - rain')">173</td>
+                                <td class="clickable" onclick="showPopup('雨', 'Rain radical')">雨</td>
+                                <td class="clickable" onclick="showPopup('yǔ', 'Pronunciation: YU (third tone)')">yǔ</td>
+                                <td class="clickable" onclick="showPopup('Rain', 'Rain or weather')">Rain</td>
+                                <td class="clickable" onclick="showPopup('Examples', '雪 零 雷 雾 (xue, ling, lei, wu)')">雪 零 雷 雾</td>
+                                <td class="clickable" onclick="showPopup('8 Strokes', 'Rain drops from cloud')">8</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Radical 184', 'One hundred eighty-fourth radical - eat')">184</td>
+                                <td class="clickable" onclick="showPopup('食 (饣)', 'Eat radical')">食 (饣)</td>
+                                <td class="clickable" onclick="showPopup('shí', 'Pronunciation: SHIH (second tone)')">shí</td>
+                                <td class="clickable" onclick="showPopup('Eat/Food', 'Eating or food')">Eat</td>
+                                <td class="clickable" onclick="showPopup('Examples', '饥 饮 饱 饰 餐 (ji, yin, bao, shi, can)')">饥 饮 饱 饰 餐</td>
+                                <td class="clickable" onclick="showPopup('9 Strokes', 'Food vessel shape')">9</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Radical 187', 'One hundred eighty-seventh radical - horse')">187</td>
+                                <td class="clickable" onclick="showPopup('马', 'Horse radical')">马</td>
+                                <td class="clickable" onclick="showPopup('mǎ', 'Pronunciation: MAH (third tone)')">mǎ</td>
+                                <td class="clickable" onclick="showPopup('Horse', 'Horse or equine')">Horse</td>
+                                <td class="clickable" onclick="showPopup('Examples', '驰 驹 骂 骇 驳 (chi, ju, ma, hai, bo)')">驰 驹 骂 骇 驳</td>
+                                <td class="clickable" onclick="showPopup('10 Strokes', 'Horse with mane')">10</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Radical 195', 'One hundred ninety-fifth radical - fish')">195</td>
+                                <td class="clickable" onclick="showPopup('鱼', 'Fish radical')">鱼</td>
+                                <td class="clickable" onclick="showPopup('yú', 'Pronunciation: YU (second tone)')">yú</td>
+                                <td class="clickable" onclick="showPopup('Fish', 'Fish or aquatic animal')">Fish</td>
+                                <td class="clickable" onclick="showPopup('Examples', '鲜 鲈 鲑 (xian, lu, gui)')">鲜 鲈 鲑</td>
+                                <td class="clickable" onclick="showPopup('11 Strokes', 'Fish with scales')">11</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Radical 196', 'One hundred ninety-sixth radical - bird')">196</td>
+                                <td class="clickable" onclick="showPopup('鸟', 'Bird radical')">鸟</td>
+                                <td class="clickable" onclick="showPopup('niǎo', 'Pronunciation: NYAO (third tone)')">niǎo</td>
+                                <td class="clickable" onclick="showPopup('Bird', 'Bird or flying creature')">Bird</td>
+                                <td class="clickable" onclick="showPopup('Examples', '鸡 鸦 鸭 (ji, ya, ya)')">鸡 鸦 鸭</td>
+                                <td class="clickable" onclick="showPopup('11 Strokes', 'Long-tailed bird')">11</td>
+                            </tr>
+                            <tr>
+                                <td class="clickable" onclick="showPopup('Radical 214', 'Two hundred fourteenth radical - flute')">214</td>
+                                <td class="clickable" onclick="showPopup('龠', 'Flute radical')">龠</td>
+                                <td class="clickable" onclick="showPopup('yuè', 'Pronunciation: YWEH (fourth tone)')">yuè</td>
+                                <td class="clickable" onclick="showPopup('Flute', 'Ancient Chinese flute')">Flute</td>
+                                <td class="clickable" onclick="showPopup('Examples', 'Rarely used in modern Chinese')">-</td>
+                                <td class="clickable" onclick="showPopup('17 Strokes', 'Ancient musical instrument')">17</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
 
@@ -604,7 +1623,7 @@
                        class="progress-slider" 
                        id="cardSlider"
                        min="1" 
-                       max="150" 
+                       max="153" 
                        value="1"
                        oninput="goToCard(this.value)">
                 <div class="progress-text">
@@ -1058,10 +2077,64 @@
         }
 
         function nextCard() {
+            console.log("nextCard called, currentIndex:", currentIndex, "total cards:", hsk1Vocabulary.length);
             if (currentIndex < hsk1Vocabulary.length - 1) {
                 currentIndex++;
                 updateCard();
+            } else {
+                // Show popup when trying to go past the final card
+                console.log("Showing completion popup");
+                showCompletionPopup();
             }
+        }
+
+        function showCompletionPopup() {
+            // Create a more visible popup
+            const popup = document.createElement('div');
+            popup.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: linear-gradient(135deg, #FF4444 0%, #FF6666 100%);
+                color: white;
+                padding: 40px;
+                border-radius: 20px;
+                border: 4px solid #000;
+                box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+                z-index: 10000;
+                text-align: center;
+                font-weight: 700;
+                width: 450px;
+                min-height: 520px;
+                max-width: 95%;
+                line-height: 1.4;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            `;
+            
+            popup.innerHTML = `
+                <div style="font-size: 64px; margin-bottom: 20px;">🐼</div>
+                <div style="font-size: 28px; margin-bottom: 15px;">Excellent Work!</div>
+                <div style="font-size: 18px; margin-bottom: 20px;">You've mastered all ${hsk1Vocabulary.length} HSK1 vocabulary cards!</div>
+                <div style="font-size: 16px; margin-bottom: 20px; color: #FFD700;">Ready for the next challenge? Consider moving to HSK2!</div>
+                <div style="font-size: 14px; margin-bottom: 25px; opacity: 0.9;">Remember: Immerse yourself in Chinese discussions and conversations to deepen your comprehension and get valuable feedback on your progress.</div>
+                <button onclick="this.parentElement.remove()" style="
+                    background: #FFD700;
+                    color: #000;
+                    border: none;
+                    padding: 12px 24px;
+                    border-radius: 12px;
+                    font-weight: 700;
+                    cursor: pointer;
+                    font-size: 18px;
+                    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+                    transition: all 0.2s ease;
+                " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 16px rgba(255, 215, 0, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(255, 215, 0, 0.3)'">Continue Learning!</button>
+            `;
+            
+            document.body.appendChild(popup);
         }
 
         function previousCard() {
@@ -1076,7 +2149,8 @@
             const nextBtn = document.getElementById('nextBtn');
             
             if (prevBtn) prevBtn.disabled = currentIndex === 0;
-            if (nextBtn) nextBtn.disabled = currentIndex === hsk1Vocabulary.length - 1;
+            // Keep Next button enabled even on final card so popup can trigger
+            if (nextBtn) nextBtn.disabled = false;
         }
 
         // Touch/swipe support
@@ -1127,6 +2201,41 @@
                     event.preventDefault();
                     nextCard();
                     break;
+            }
+        });
+
+        // Popup functionality for interactive tables
+        function showPopup(title, content) {
+            // Create backdrop
+            const backdrop = document.createElement('div');
+            backdrop.className = 'popup-backdrop';
+            backdrop.onclick = closePopup;
+            
+            // Create popup
+            const popup = document.createElement('div');
+            popup.className = 'popup-modal';
+            popup.innerHTML = `
+                <div class="popup-title">${title}</div>
+                <div class="popup-content">${content}</div>
+                <button class="popup-close" onclick="closePopup()">Got it!</button>
+            `;
+            
+            document.body.appendChild(backdrop);
+            document.body.appendChild(popup);
+        }
+
+        function closePopup() {
+            const backdrop = document.querySelector('.popup-backdrop');
+            const popup = document.querySelector('.popup-modal');
+            
+            if (backdrop) backdrop.remove();
+            if (popup) popup.remove();
+        }
+
+        // Close popup with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closePopup();
             }
         });
 
