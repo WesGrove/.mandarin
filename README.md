@@ -16,3 +16,4 @@ CURRENT TODO:
 - Add Cards for HSK2 through HSK6
 - Brainstorm a Cultrual Immersion section. Think like a megathread for modern Chinese culture that leads to immersion and feedback, and include resources used for the website.
 - Find a way to split the long ass HTML i got so far into seperate HTMLs and CSSs into several by section so the project doesnt get bloated in one place. 
+- add concise summaries for each component of chinese within their respective sections. 
