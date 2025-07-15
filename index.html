@@ -206,9 +206,9 @@
 
         .interactive-table {
             width: 100%;
-            border-collapse: separate;
-            border-spacing: 4px;
+            border-collapse: collapse;
             margin: 0 auto;
+            border: 2px solid rgba(63, 112, 255, 0.2);
         }
 
         .interactive-table th {
@@ -217,19 +217,17 @@
             padding: 12px 8px;
             font-weight: 700;
             text-align: center;
-            border-radius: 8px;
             font-size: 14px;
-            box-shadow: 0 2px 8px rgba(63, 112, 255, 0.2);
+            border: 1px solid rgba(63, 112, 255, 0.3);
         }
 
         .interactive-table td {
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+            background: #ffffff;
             padding: 10px 8px;
             text-align: center;
-            border-radius: 6px;
             cursor: pointer;
             transition: all 0.3s ease;
-            border: 2px solid rgba(63, 112, 255, 0.1);
+            border: 1px solid rgba(63, 112, 255, 0.2);
             font-weight: 600;
             font-size: 14px;
             position: relative;
@@ -238,9 +236,6 @@
         .interactive-table td:hover {
             background: linear-gradient(135deg, #3F70FF 0%, #2a5cff 100%);
             color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(63, 112, 255, 0.4);
-            border-color: #3F70FF;
         }
 
         .interactive-table td.clickable::after {
