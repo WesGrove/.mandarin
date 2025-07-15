@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chinese Language Learning Hub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            background-color: #f5f5f5;
+            min-height: 100vh;
+        }
+        
+        /* Navigation Styles */
+        .navbar {
+            background-color: #2c3e50;
+            padding: 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        
+        .nav-section {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-section:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* Color Schemes for Each Section */
+        .nav-section.basics { background-color: #9b59b6; }
+        .nav-section.hsk1 { background-color: #e74c3c; }
+        .nav-section.hsk2 { background-color: #e67e22; }
+        .nav-section.hsk3 { background-color: #f39c12; }
+        .nav-section.hsk4 { background-color: #27ae60; }
+        .nav-section.hsk5 { background-color: #3498db; }
+        .nav-section.hsk6 { background-color: #34495e; }
+        
+        .nav-title {
+            color: white;
+            padding: 15px 10px;
+            font-weight: bold;
+            font-size: 16px;
+            display: block;
+        }
+        
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: inherit;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .nav-section:hover .dropdown {
+            display: block;
+        }
+        
+        .dropdown-item {
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s;
+        }
+        
+        .dropdown-item:hover {
+            background-color: rgba(0,0,0,0.1);
+        }
+        
+        /* Content Styles */
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .section-content {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        .section-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Table Styles */
+        .table-container {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 0;
+        }
+        
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+        }
+        
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        /* Flashcard Styles */
+        .flashcard-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 500px;
+            position: relative;
+        }
+        
+        .flashcard {
+            width: 400px;
+            height: 500px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            padding: 30px;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            display: none;
+        }
+        
+        .flashcard.active {
+            display: block;
+        }
+        
+        .flashcard:hover {
+            transform: scale(1.02);
+        }
+        
+        .card-header {
+            padding: 15px;
+            margin: -30px -30px 20px;
+            border-radius: 12px 12px 0 0;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .character-display {
+            font-size: 120px;
+            text-align: center;
+            margin: 40px 0;
+            font-weight: bold;
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .info-section {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        
+        .info-label {
+            font-weight: bold;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .info-content {
+            font-size: 18px;
+            color: #333;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            gap: 20px;
+        }
+        
+        .nav-btn {
+            flex: 1;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        /* Category Selector */
+        .category-selector {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .category-selector select {
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 6px;
+            border: 2px solid #ddd;
+            background: white;
+            cursor: pointer;
+        }
+        
+        /* Progress Indicator */
+        .progress-indicator {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        /* Highlight styles */
+        mark {
+            background-color: #ffeb3b;
+            padding: 2px;
+        }
+        
+        /* Home Section */
+        .home-section {
+            text-align: center;
+            padding: 50px 20px;
+        }
+        
+        .home-section h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        .home-section p {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 40px;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+        
+        .feature-card h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .feature-card p {
+            color: #666;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-section basics" data-section="basics">
+                <span class="nav-title">Basics</span>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-item" data-subsection="tables">Overview Tables</a>
+                    <a href="#" class="dropdown-item" data-subsection="flashcards">Flashcards</a>
+                </div>
+            </div>
+            <div class="nav-section hsk1" data-section="hsk1">
+                <span class="nav-title">HSK 1</span>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-item" data-subsection="tables">Overview Tables</a>
+                    <a href="#" class="dropdown-item" data-subsection="flashcards">Flashcards</a>
+                </div>
+            </div>
+            <div class="nav-section hsk2" data-section="hsk2">
+                <span class="nav-title">HSK 2</span>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-item" data-subsection="tables">Overview Tables</a>
+                    <a href="#" class="dropdown-item" data-subsection="flashcards">Flashcards</a>
+                </div>
+            </div>
+            <div class="nav-section hsk3" data-section="hsk3">
+                <span class="nav-title">HSK 3</span>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-item" data-subsection="tables">Overview Tables</a>
+                    <a href="#" class="dropdown-item" data-subsection="flashcards">Flashcards</a>
+                </div>
+            </div>
+            <div class="nav-section hsk4" data-section="hsk4">
+                <span class="nav-title">HSK 4</span>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-item" data-subsection="tables">Overview Tables</a>
+                    <a href="#" class="dropdown-item" data-subsection="flashcards">Flashcards</a>
+                </div>
+            </div>
+            <div class="nav-section hsk5" data-section="hsk5">
+                <span class="nav-title">HSK 5</span>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-item" data-subsection="tables">Overview Tables</a>
+                    <a href="#" class="dropdown-item" data-subsection="flashcards">Flashcards</a>
+                </div>
+            </div>
+            <div class="nav-section hsk6" data-section="hsk6">
+                <span class="nav-title">HSK 6</span>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-item" data-subsection="tables">Overview Tables</a>
+                    <a href="#" class="dropdown-item" data-subsection="flashcards">Flashcards</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="content">
+        <!-- Home Section -->
+        <div id="home" class="section-content active">
+            <div class="home-section">
+                <h1>Chinese Language Learning Hub</h1>
+                <p>Master Chinese from basics to HSK 6 with interactive flashcards and comprehensive tables</p>
+                
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h3>📚 Structured Learning</h3>
+                        <p>Progress from basics through all HSK levels with organized content</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🎯 Interactive Flashcards</h3>
+                        <p>Learn characters with pinyin, meanings, and examples</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>📊 Comprehensive Tables</h3>
+                        <p>Quick reference tables for tones, radicals, and vocabulary</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>🌈 Color-Coded System</h3>
+                        <p>Each level has its own color scheme for easy navigation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Basics Tables -->
+        <div id="basics-tables" class="section-content">
+            <h2 style="color: #9b59b6; margin-bottom: 20px;">Basics - Overview Tables</h2>
+            
+            <div class="table-container">
+                <h3>4 Tone Types</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tone</th>
+                            <th>Pinyin</th>
+                            <th>Hanzi</th>
+                            <th>Meaning</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Neutral</td>
+                            <td><mark>mā</mark></td>
+                            <td>妈</td>
+                            <td>mother</td>
+                        </tr>
+                        <tr>
+                            <td>Rising</td>
+                            <td><mark>má</mark></td>
+                            <td>麻</td>
+                            <td>spicy</td>
+                        </tr>
+                        <tr>
+                            <td>Dip</td>
+                            <td><mark>mǎ</mark></td>
+                            <td>马</td>
+                            <td>horse</td>
+                        </tr>
+                        <tr>
+                            <td>Falling</td>
+                            <td><mark>mà</mark></td>
+                            <td>骂</td>
+                            <td>scold</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-container">
+                <h3>Simple Consonants/Initials</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Simple Initials</th>
+                            <th>Pronunciation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><mark>b</mark></td><td>like "b" in "bad" (unaspirated)</td></tr>
+                        <tr><td><mark>p</mark></td><td>like "p" in "pop"</td></tr>
+                        <tr><td><mark>m</mark></td><td>like "m" in "meet"</td></tr>
+                        <tr><td><mark>f</mark></td><td>like "f" in "food"</td></tr>
+                        <tr><td><mark>d</mark></td><td>Like "d" in "day" (unaspirated)</td></tr>
+                        <tr><td><mark>t</mark></td><td>like "t" in "talk"</td></tr>
+                        <tr><td><mark>n</mark></td><td>like "n" in "need"</td></tr>
+                        <tr><td><mark>l</mark></td><td>like "l" in "love"</td></tr>
+                        <tr><td><mark>g</mark></td><td>like "g" in "go"</td></tr>
+                        <tr><td><mark>k</mark></td><td>like "k" in "kill"</td></tr>
+                        <tr><td><mark>h</mark></td><td>like "h" in "hello"</td></tr>
+                        <tr><td><mark>j</mark></td><td>close to "j" in "jeep"(without protruding the lips)</td></tr>
+                        <tr><td><mark>q</mark></td><td>ch harder than "ch" in cheap</td></tr>
+                        <tr><td><mark>x</mark></td><td>close to "sh" in "shirt"</td></tr>
+                        <tr><td><mark>z</mark></td><td>like "ds" in "words"</td></tr>
+                        <tr><td><mark>c</mark></td><td>like "ts" in "rats"，with aspiration</td></tr>
+                        <tr><td><mark>s</mark></td><td>like "s" in "Sunday"</td></tr>
+                        <tr><td><mark>zh</mark></td><td>like "dr" in "draw"</td></tr>
+                        <tr><td><mark>ch</mark></td><td>like "ch" in "touch", aspiration</td></tr>
+                        <tr><td><mark>sh</mark></td><td>close to "sh" in "shy"</td></tr>
+                        <tr><td><mark>r</mark></td><td>close to "r" in "roll"</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-container">
+                <h3>Simple Vowels/Finals</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Simple Finals</th>
+                            <th>Pronunciation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><mark>a</mark></td><td>"ah" as in "ah-ha!"</td></tr>
+                        <tr><td><mark>o</mark></td><td>"o" in "often"</td></tr>
+                        <tr><td><mark>e</mark></td><td>"er" in "her" w/ less tongue curling</td></tr>
+                        <tr><td><mark>i</mark></td><td>"ee" in "see"</td></tr>
+                        <tr><td><mark>u</mark></td><td>"oo" in "food"</td></tr>
+                        <tr><td><mark>ü</mark></td><td>"oo" with pouting up lips</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Basics Flashcards -->
+        <div id="basics-flashcards" class="section-content">
+            <h2 style="color: #9b59b6; margin-bottom: 20px;">Basics - Flashcards</h2>
+            
+            <div class="category-selector">
+                <label for="basics-category">Select Category: </label>
+                <select id="basics-category">
+                    <option value="strokes">Basic Strokes</option>
+                    <option value="radicals">Common Radicals</option>
+                    <option value="structure">Character Structure</option>
+                </select>
+            </div>
+
+            <div class="flashcard-container">
+                <div class="flashcard active" data-category="strokes">
+                    <div class="card-header" style="background-color: #9b59b6;">基础 Basics</div>
+                    <div class="character-display">一</div>
+                    <div class="info-section">
+                        <div class="info-label">Stroke Type:</div>
+                        <div class="info-content">Horizontal (横 héng)</div>
+                    </div>
+                    <div class="info-section">
+                        <div class="info-label">Stroke Order:</div>
+                        <div class="info-content">Left to right →</div>
+                    </div>
+                    <div class="info-section">
+                        <div class="info-label">Example:</div>
+                        <div class="info-content">一 (yī) - one</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="nav-btn" id="basics-prev" style="background-color: #9b59b6;">← Previous</button>
+                <button class="nav-btn" id="basics-next" style="background-color: #9b59b6;">Next →</button>
+            </div>
+            
+            <div class="progress-indicator">
+                <span id="basics-progress">1 / 10</span>
+            </div>
+        </div>
+
+        <!-- HSK 1 Tables -->
+        <div id="hsk1-tables" class="section-content">
+            <h2 style="color: #e74c3c; margin-bottom: 20px;">HSK 1 - Overview Tables</h2>
+            
+            <div class="table-container">
+                <h3>Personal Pronouns</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Chinese</th>
+                            <th>Pinyin</th>
+                            <th>English</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>我</td><td>wǒ</td><td>I, me</td></tr>
+                        <tr><td>我们</td><td>wǒmen</td><td>we, us (pl.)</td></tr>
+                        <tr><td>你</td><td>nǐ</td><td>you</td></tr>
+                        <tr><td>你们</td><td>nǐmen</td><td>you (pl.)</td></tr>
+                        <tr><td>他</td><td>tā</td><td>he, him</td></tr>
+                        <tr><td>她</td><td>tā</td><td>she, her</td></tr>
+                        <tr><td>他们</td><td>tāmen</td><td>they (male+female/male, pl.)</td></tr>
+                        <tr><td>她们</td><td>tāmen</td><td>they (females, pl.)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-container">
+                <h3>Numbers</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Chinese</th>
+                            <th>Pinyin</th>
+                            <th>English</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>一</td><td>yī</td><td>one</td></tr>
+                        <tr><td>二</td><td>èr</td><td>two</td></tr>
+                        <tr><td>三</td><td>sān</td><td>three</td></tr>
+                        <tr><td>四</td><td>sì</td><td>four</td></tr>
+                        <tr><td>五</td><td>wǔ</td><td>five</td></tr>
+                        <tr><td>六</td><td>liù</td><td>six</td></tr>
+                        <tr><td>七</td><td>qī</td><td>seven</td></tr>
+                        <tr><td>八</td><td>bā</td><td>eight</td></tr>
+                        <tr><td>九</td><td>jiǔ</td><td>nine</td></tr>
+                        <tr><td>十</td><td>shí</td><td>ten</td></tr>
+                        <tr><td>零</td><td>líng</td><td>zero</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- HSK 1 Flashcards -->
+        <div id="hsk1-flashcards" class="section-content">
+            <h2 style="color: #e74c3c; margin-bottom: 20px;">HSK 1 - Flashcards</h2>
+            
+            <div class="category-selector">
+                <label for="hsk1-category">Select Category: </label>
+                <select id="hsk1-category">
+                    <option value="pronouns">Personal Pronouns</option>
+                    <option value="numbers">Numbers</option>
+                    <option value="nouns">Common Nouns</option>
+                    <option value="verbs">Basic Verbs</option>
+                    <option value="adjectives">Adjectives</option>
+                </select>
+            </div>
+
+            <div class="flashcard-container">
+                <div class="flashcard active" data-category="pronouns">
+                    <div class="card-header" style="background-color: #e74c3c;">HSK 1</div>
+                    <div class="character-display">我</div>
+                    <div class="info-section">
+                        <div class="info-label">Pinyin:</div>
+                        <div class="info-content">wǒ</div>
+                    </div>
+                    <div class="info-section">
+                        <div class="info-label">Meaning:</div>
+                        <div class="info-content">I, me</div>
+                    </div>
+                    <div class="info-section">
+                        <div class="info-label">Category:</div>
+                        <div class="info-content">Personal Pronoun</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="nav-btn" id="hsk1-prev" style="background-color: #e74c3c;">← Previous</button>
+                <button class="nav-btn" id="hsk1-next" style="background-color: #e74c3c;">Next →</button>
+            </div>
+            
+            <div class="progress-indicator">
+                <span id="hsk1-progress">1 / 20</span>
+            </div>
+        </div>
+
+        <!-- Additional sections would follow the same pattern for HSK 2-6 -->
+        <!-- For brevity, I'll include just the structure for HSK 2 -->
+
+        <!-- HSK 2 Tables -->
+        <div id="hsk2-tables" class="section-content">
+            <h2 style="color: #e67e22; margin-bottom: 20px;">HSK 2 - Overview Tables</h2>
+            
+            <div class="table-container">
+                <h3>Key Vocabulary Sample</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Chinese</th>
+                            <th>Pinyin</th>
+                            <th>English</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>别</td><td>bié</td><td>other</td></tr>
+                        <tr><td>非常</td><td>fēicháng</td><td>very</td></tr>
+                        <tr><td>已经</td><td>yǐjīng</td><td>already</td></tr>
+                        <tr><td>一起</td><td>yìqǐ</td><td>together</td></tr>
+                        <tr><td>因为</td><td>yīnwèi</td><td>because</td></tr>
+                        <tr><td>所以</td><td>suǒyǐ</td><td>so</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- HSK 2 Flashcards -->
+        <div id="hsk2-flashcards" class="section-content">
+            <h2 style="color: #e67e22; margin-bottom: 20px;">HSK 2 - Flashcards</h2>
+            
+            <div class="category-selector">
+                <label for="hsk2-category">Select Category: </label>
+                <select id="hsk2-category">
+                    <option value="adverbs">Adverbs</option>
+                    <option value="conjunctions">Conjunctions</option>
+                    <option value="verbs">Verbs</option>
+                </select>
+            </div>
+
+            <div class="flashcard-container">
+                <div class="flashcard active" data-category="adverbs">
+                    <div class="card-header" style="background-color: #e67e22;">HSK 2</div>
+                    <div class="character-display">非常</div>
+                    <div class="info-section">
+                        <div class="info-label">Pinyin:</div>
+                        <div class="info-content">fēicháng</div>
+                    </div>
+                    <div class="info-section">
+                        <div class="info-label">Meaning:</div>
+                        <div class="info-content">very</div>
+                    </div>
+                    <div class="info-section">
+                        <div class="info-label">Category:</div>
+                        <div class="info-content">Adverb</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="nav-btn" id="hsk2-prev" style="background-color: #e67e22;">← Previous</button>
+                <button class="nav-btn" id="hsk2-next" style="background-color: #e67e22;">Next →</button>
+            </div>
+            
+            <div class="progress-indicator">
+                <span id="hsk2-progress">1 / 15</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Flashcard Data
+        const flashcardData = {
+            basics: {
+                strokes: [
+                    { character: '一', stroke: 'Horizontal (横 héng)', order: 'Left to right →', example: '一 (yī) - one' },
+                    { character: '丨', stroke: 'Vertical (竖 shù)', order: 'Top to bottom ↓', example: '十 (shí) - ten' },
+                    { character: '丿', stroke: 'Left-falling (撇 piě)', order: 'Top-right to bottom-left ↙', example: '人 (rén) - person' },
+                    { character: '丶', stroke: 'Dot (点 diǎn)', order: 'Top to bottom', example: '我 (wǒ) - I/me' },
+                    { character: '㇏', stroke: 'Right-falling (捺 nà)', order: 'Top-left to bottom-right ↘', example: '大 (dà) - big' }
+                ],
+                radicals: [
+                    { character: '人', pinyin: 'rén', meaning: 'person', examples: '你, 他, 们' },
+                    { character: '水', pinyin: 'shuǐ', meaning: 'water', examples: '河, 海, 湖' },
+                    { character: '火', pinyin: 'huǒ', meaning: 'fire', examples: '热, 烧, 灯' },
+                    { character: '木', pinyin: 'mù', meaning: 'tree', examples: '林, 森, 枝' },
+                    { character: '心', pinyin: 'xīn', meaning: 'heart', examples: '想, 思, 念' }
+                ],
+                structure: [
+                    { character: '好', structure: 'Left-Right (左右)', components: '女 + 子', meaning: 'good' },
+                    { character: '明', structure: 'Left-Right (左右)', components: '日 + 月', meaning: 'bright' },
+                    { character: '安', structure: 'Top-Bottom (上下)', components: '宀 + 女', meaning: 'peace' },
+                    { character: '国', structure: 'Enclosure (包围)', components: '囗 + 玉', meaning: 'country' }
+                ]
+            },
+            hsk1: {
+                pronouns: [
+                    { character: '我', pinyin: 'wǒ', meaning: 'I, me' },
+                    { character: '你', pinyin: 'nǐ', meaning: 'you' },
+                    { character: '他', pinyin: 'tā', meaning: 'he, him' },
+                    { character: '她', pinyin: 'tā', meaning: 'she, her' },
+                    { character: '我们', pinyin: 'wǒmen', meaning: 'we, us' }
+                ],
+                numbers: [
+                    { character: '一', pinyin: 'yī', meaning: 'one' },
+                    { character: '二', pinyin: 'èr', meaning: 'two' },
+                    { character: '三', pinyin: 'sān', meaning: 'three' },
+                    { character: '四', pinyin: 'sì', meaning: 'four' },
+                    { character: '五', pinyin: 'wǔ', meaning: 'five' }
+                ],
+                nouns: [
+                    { character: '家', pinyin: 'jiā', meaning: 'home, family' },
+                    { character: '学校', pinyin: 'xuéxiào', meaning: 'school' },
+                    { character: '朋友', pinyin: 'péngyou', meaning: 'friend' },
+                    { character: '老师', pinyin: 'lǎoshī', meaning: 'teacher' },
+                    { character: '学生', pinyin: 'xuésheng', meaning: 'student' }
+                ],
+                verbs: [
+                    { character: '是', pinyin: 'shì', meaning: 'to be (am, is, are)' },
+                    { character: '有', pinyin: 'yǒu', meaning: 'to have' },
+                    { character: '看', pinyin: 'kàn', meaning: 'to look, to see' },
+                    { character: '吃', pinyin: 'chī', meaning: 'to eat' },
+                    { character: '喝', pinyin: 'hē', meaning: 'to drink' }
+                ],
+                adjectives: [
+                    { character: '好', pinyin: 'hǎo', meaning: 'good' },
+                    { character: '大', pinyin: 'dà', meaning: 'big' },
+                    { character: '小', pinyin: 'xiǎo', meaning: 'small' },
+                    { character: '多', pinyin: 'duō', meaning: 'many, much' },
+                    { character: '少', pinyin: 'shǎo', meaning: 'few, little' }
+                ]
+            },
+            hsk2: {
+                adverbs: [
+                    { character: '非常', pinyin: 'fēicháng', meaning: 'very' },
+                    { character: '已经', pinyin: 'yǐjīng', meaning: 'already' },
+                    { character: '一起', pinyin: 'yìqǐ', meaning: 'together' },
+                    { character: '再', pinyin: 'zài', meaning: 'again' },
+                    { character: '就', pinyin: 'jiù', meaning: 'at once' }
+                ],
+                conjunctions: [
+                    { character: '因为', pinyin: 'yīnwèi', meaning: 'because' },
+                    { character: '所以', pinyin: 'suǒyǐ', meaning: 'so' },
+                    { character: '但是', pinyin: 'dànshì', meaning: 'but' },
+                    { character: '和', pinyin: 'hé', meaning: 'and' }
+                ],
+                verbs: [
+                    { character: '找', pinyin: 'zhǎo', meaning: 'to find, to look for' },
+                    { character: '给', pinyin: 'gěi', meaning: 'to give' },
+                    { character: '等', pinyin: 'děng', meaning: 'to wait' },
+                    { character: '让', pinyin: 'ràng', meaning: 'to let' },
+                    { character: '送', pinyin: 'sòng', meaning: 'to send, to deliver' }
+                ]
+            }
+        };
+
+        // Current state for each section
+        const flashcardState = {
+            basics: { current: 0, category: 'strokes' },
+            hsk1: { current: 0, category: 'pronouns' },
+            hsk2: { current: 0, category: 'adverbs' }
+        };
+
+        // Navigation functionality
+        document.querySelectorAll('.dropdown-item').forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                const section = e.target.closest('.nav-section').dataset.section;
+                const subsection = e.target.dataset.subsection;
+                showContent(`${section}-${subsection}`);
+            });
+        });
+
+        // Show content function
+        function showContent(contentId) {
+            document.querySelectorAll('.section-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            const targetContent = document.getElementById(contentId);
+            if (targetContent) {
+                targetContent.classList.add('active');
+            } else {
+                document.getElementById('home').classList.add('active');
+            }
+        }
+
+        // Flashcard navigation
+        function setupFlashcardNavigation(section) {
+            const prevBtn = document.getElementById(`${section}-prev`);
+            const nextBtn = document.getElementById(`${section}-next`);
+            const categorySelect = document.getElementById(`${section}-category`);
+
+            if (!prevBtn || !nextBtn) return;
+
+            prevBtn.addEventListener('click', () => navigateFlashcard(section, -1));
+            nextBtn.addEventListener('click', () => navigateFlashcard(section, 1));
+            
+            if (categorySelect) {
+                categorySelect.addEventListener('change', (e) => {
+                    flashcardState[section].category = e.target.value;
+                    flashcardState[section].current = 0;
+                    updateFlashcard(section);
+                });
+            }
+        }
+
+        function navigateFlashcard(section, direction) {
+            const state = flashcardState[section];
+            const category = state.category;
+            const cards = flashcardData[section][category];
+            
+            if (!cards) return;
+
+            state.current += direction;
+            
+            if (state.current < 0) state.current = cards.length - 1;
+            if (state.current >= cards.length) state.current = 0;
+            
+            updateFlashcard(section);
+        }
+
+        function updateFlashcard(section) {
+            const state = flashcardState[section];
+            const category = state.category;
+            const cards = flashcardData[section][category];
+            
+            if (!cards || cards.length === 0) return;
+            
+            const card = cards[state.current];
+            const container = document.querySelector(`#${section}-flashcards .flashcard-container`);
+            
+            if (!container) return;
+
+            let flashcardHTML = '';
+            
+            if (section === 'basics') {
+                if (category === 'strokes') {
+                    flashcardHTML = `
+                        <div class="flashcard active" data-category="${category}">
+                            <div class="card-header" style="background-color: #9b59b6;">基础 Basics</div>
+                            <div class="character-display">${card.character}</div>
+                            <div class="info-section">
+                                <div class="info-label">Stroke Type:</div>
+                                <div class="info-content">${card.stroke}</div>
+                            </div>
+                            <div class="info-section">
+                                <div class="info-label">Stroke Order:</div>
+                                <div class="info-content">${card.order}</div>
+                            </div>
+                            <div class="info-section">
+                                <div class="info-label">Example:</div>
+                                <div class="info-content">${card.example}</div>
+                            </div>
+                        </div>
+                    `;
+                } else if (category === 'radicals') {
+                    flashcardHTML = `
+                        <div class="flashcard active" data-category="${category}">
+                            <div class="card-header" style="background-color: #9b59b6;">基础 Basics</div>
+                            <div class="character-display">${card.character}</div>
+                            <div class="info-section">
+                                <div class="info-label">Pinyin:</div>
+                                <div class="info-content">${card.pinyin}</div>
+                            </div>
+                            <div class="info-section">
+                                <div class="info-label">Meaning:</div>
+                                <div class="info-content">${card.meaning}</div>
+                            </div>
+                            <div class="info-section">
+                                <div class="info-label">Examples:</div>
+                                <div class="info-content">${card.examples}</div>
+                            </div>
+                        </div>
+                    `;
+                } else if (category === 'structure') {
+                    flashcardHTML = `
+                        <div class="flashcard active" data-category="${category}">
+                            <div class="card-header" style="background-color: #9b59b6;">基础 Basics</div>
+                            <div class="character-display">${card.character}</div>
+                            <div class="info-section">
+                                <div class="info-label">Structure:</div>
+                                <div class="info-content">${card.structure}</div>
+                            </div>
+                            <div class="info-section">
+                                <div class="info-label">Components:</div>
+                                <div class="info-content">${card.components}</div>
+                            </div>
+                            <div class="info-section">
+                                <div class="info-label">Meaning:</div>
+                                <div class="info-content">${card.meaning}</div>
+                            </div>
+                        </div>
+                    `;
+                }
+            } else {
+                const colors = {
+                    hsk1: '#e74c3c',
+                    hsk2: '#e67e22',
+                    hsk3: '#f39c12',
+                    hsk4: '#27ae60',
+                    hsk5: '#3498db',
+                    hsk6: '#34495e'
+                };
+                
+                flashcardHTML = `
+                    <div class="flashcard active" data-category="${category}">
+                        <div class="card-header" style="background-color: ${colors[section]};">HSK ${section.slice(-1)}</div>
+                        <div class="character-display">${card.character}</div>
+                        <div class="info-section">
+                            <div class="info-label">Pinyin:</div>
+                            <div class="info-content">${card.pinyin}</div>
+                        </div>
+                        <div class="info-section">
+                            <div class="info-label">Meaning:</div>
+                            <div class="info-content">${card.meaning}</div>
+                        </div>
+                        <div class="info-section">
+                            <div class="info-label">Category:</div>
+                            <div class="info-content">${category.charAt(0).toUpperCase() + category.slice(1)}</div>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            container.innerHTML = flashcardHTML;
+            
+            // Update progress
+            const progress = document.getElementById(`${section}-progress`);
+            if (progress) {
+                progress.textContent = `${state.current + 1} / ${cards.length}`;
+            }
+        }
+
+        // Initialize flashcard navigation
+        setupFlashcardNavigation('basics');
+        setupFlashcardNavigation('hsk1');
+        setupFlashcardNavigation('hsk2');
+
+        // Initialize first flashcards
+        updateFlashcard('basics');
+        updateFlashcard('hsk1');
+        updateFlashcard('hsk2');
+    </script>
+</body>
+</html>
