@@ -1,12 +1,3 @@
-Flash cards for written Chinese that cover the HSK1 through HSK6 grammar levels, built using Claude AI and organized by:
-- Rules/Index
-- Tones
-- Pinyin
-- Structure
-- Strokes
-- Radicals
-- Hanzi
-
 CURRENT TODO:
 - Clean Up Overview Tables in Basics (adding all radicals, changing styling a bit) and Add Overview sections for each HSK1 through HSK6
 - Add Cards for Basics sections that cover the rules/index, Tones, Pinyin, Structure, Strokes, and Radicals.
