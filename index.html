@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HSK1 Vocabulary Cards</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: #FFFFFF;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .progress-container {
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 20px;
+        }
+
+        .category-index {
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: 16px;
+            background: rgba(255, 68, 68, 0.08);
+            border: 1px solid rgba(255, 68, 68, 0.15);
+            border-radius: 8px;
+            padding: 12px;
+        }
+
+        .category-title {
+            text-align: center;
+            font-size: 14px;
+            font-weight: 700;
+            color: #FF4444;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+            gap: 6px;
+        }
+
+        .category-btn {
+            background: linear-gradient(135deg, #FF4444 0%, #FF6666 100%);
+            color: white;
+            border: none;
+            padding: 6px 8px;
+            border-radius: 6px;
+            font-size: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+            box-shadow: 0 1px 4px rgba(255, 68, 68, 0.2);
+            line-height: 1.2;
+        }
+
+        .category-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 3px 8px rgba(255, 68, 68, 0.3);
+            background: linear-gradient(135deg, #FF6666 0%, #FF4444 100%);
+        }
+
+        .category-btn:active {
+            transform: translateY(0);
+        }
+
+        .category-btn.active {
+            background: linear-gradient(135deg, #333333 0%, #555555 100%);
+            box-shadow: 0 3px 8px rgba(51, 51, 51, 0.3);
+            transform: translateY(-1px);
+        }
+
+        .category-btn.active:hover {
+            background: linear-gradient(135deg, #555555 0%, #333333 100%);
+        }
+
+        .category-name {
+            display: block;
+            margin-bottom: 1px;
+            font-weight: 700;
+            font-size: 9px;
+        }
+
+        .category-count {
+            display: block;
+            font-size: 8px;
+            opacity: 0.85;
+            font-weight: 500;
+        }
+
+        @media (max-width: 600px) {
+            .category-grid {
+                grid-template-columns: repeat(auto-fit, minmax(95px, 1fr));
+                gap: 5px;
+            }
+            
+            .category-btn {
+                padding: 5px 6px;
+                font-size: 9px;
+            }
+            
+            .category-name {
+                font-size: 8px;
+            }
+            
+            .category-count {
+                font-size: 7px;
+            }
+        }
+
+        .progress-slider {
+            width: 100%;
+            height: 8px;
+            background: #E0E0E0;
+            border-radius: 4px;
+            outline: none;
+            margin-bottom: 10px;
+            cursor: pointer;
+            -webkit-appearance: none;
+            appearance: none;
+            transition: all 0.2s ease;
+        }
+
+        .progress-slider:hover {
+            height: 10px;
+        }
+
+        .progress-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, #FF4444 0%, #FF6666 100%);
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid #FFFFFF;
+            box-shadow: 0 2px 8px rgba(255, 68, 68, 0.3);
+            transition: all 0.2s ease;
+        }
+
+        .progress-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+            box-shadow: 0 4px 12px rgba(255, 68, 68, 0.5);
+        }
+
+        .progress-slider::-webkit-slider-thumb:active {
+            transform: scale(1.3);
+            box-shadow: 0 6px 16px rgba(255, 68, 68, 0.6);
+        }
+
+        .progress-slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, #FF4444 0%, #FF6666 100%);
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid #FFFFFF;
+            box-shadow: 0 2px 8px rgba(255, 68, 68, 0.3);
+            transition: all 0.2s ease;
+        }
+
+        .progress-slider::-moz-range-thumb:hover {
+            transform: scale(1.2);
+            box-shadow: 0 4px 12px rgba(255, 68, 68, 0.5);
+        }
+
+        .progress-slider::-webkit-slider-track {
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(to right, 
+                #FF4444 0%, 
+                #FF4444 var(--progress, 0%), 
+                #E0E0E0 var(--progress, 0%), 
+                #E0E0E0 100%);
+            border-radius: 4px;
+        }
+
+        .progress-slider::-moz-range-track {
+            width: 100%;
+            height: 8px;
+            background: #E0E0E0;
+            border-radius: 4px;
+            border: none;
+        }
+
+        .progress-slider::-moz-range-progress {
+            height: 8px;
+            background: linear-gradient(90deg, #FF4444 0%, #FF6666 100%);
+            border-radius: 4px;
+        }
+
+        .progress-text {
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            font-weight: 600;
+        }
+
+        .card-container {
+            position: relative;
+            touch-action: pan-y;
+        }
+
+        .card {
+            width: 360px;
+            height: auto;
+            min-height: 480px;
+            background: #FF4444;
+            border: 4px solid #000000;
+            position: relative;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+            padding-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .card.flipped {
+            transform: rotateY(180deg);
+        }
+
+        /* Subtle pattern background */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent 0px,
+                    rgba(0,0,0,0.05) 1px,
+                    transparent 2px,
+                    transparent 20px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    transparent 0px,
+                    rgba(0,0,0,0.05) 1px,
+                    transparent 2px,
+                    transparent 20px
+                );
+            pointer-events: none;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .category-tag {
+            font-size: 12px;
+            font-weight: 700;
+            color: #FFD700;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            background: rgba(0,0,0,0.2);
+            padding: 4px 8px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,215,0,0.3);
+        }
+
+        .hsk-label {
+            font-size: 16px;
+            font-weight: 800;
+            color: #FFD700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .main-display {
+            background: #F5F5DC;
+            border: 4px solid #000000;
+            margin: 12px;
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .main-display:hover {
+            background: #FFFEF7;
+            transform: scale(1.02);
+        }
+
+        .chinese-character {
+            font-size: 80px;
+            font-weight: 900;
+            color: #000000;
+            font-family: 'SimSun', serif;
+        }
+
+        .info-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #F5F5DC;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .info-overlay.show {
+            display: flex;
+        }
+
+        .pinyin-display {
+            font-size: 24px;
+            color: #333;
+            font-weight: 700;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
+        .english-display {
+            font-size: 18px;
+            color: #666;
+            font-weight: 600;
+        }
+
+        .content-area {
+            position: relative;
+            z-index: 2;
+            padding: 0 12px;
+        }
+
+        .info-grid {
+            display: grid;
+            gap: 6px;
+        }
+
+        .info-row {
+            background: rgba(0,0,0,0.1);
+            border: 2px solid rgba(0,0,0,0.2);
+            border-radius: 16px;
+            padding: 8px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .info-label {
+            font-size: 14px;
+            font-weight: 700;
+            color: #FFD700;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .info-value {
+            font-size: 14px;
+            font-weight: 700;
+            color: #FFD700;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .chinese-text {
+            font-family: 'SimSun', serif;
+            font-size: 16px;
+        }
+
+        .navigation {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+            align-items: center;
+        }
+
+        .nav-btn {
+            background: linear-gradient(135deg, #3F70FF 0%, #2a5cff 100%);
+            color: #FFFFFF;
+            border: 2px solid #333333;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            box-shadow: 0 4px 15px rgba(63, 112, 255, 0.3);
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(63, 112, 255, 0.4);
+        }
+
+        .nav-btn:disabled {
+            background: #CCCCCC;
+            color: #888888;
+            cursor: not-allowed;
+            box-shadow: none;
+            transform: none;
+        }
+
+        .flip-hint {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 12px;
+            color: #FFD700;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        @media (max-width: 500px) {
+            .card {
+                width: 320px;
+            }
+            
+            .chinese-character {
+                font-size: 60px;
+            }
+            
+            .main-display {
+                height: 140px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="category-index">
+        <div class="category-title">Categories</div>
+        <div class="category-grid" id="categoryGrid">
+            <!-- Categories will be dynamically populated -->
+        </div>
+    </div>
+
+    <div class="progress-container">
+        <input type="range" 
+               class="progress-slider" 
+               id="cardSlider"
+               min="1" 
+               max="150" 
+               value="1"
+               oninput="goToCard(this.value)">
+        <div class="progress-text">
+            <span id="currentCard">1</span> of <span id="totalCards">150</span> • HSK1 Vocabulary
+        </div>
+    </div>
+
+    <div class="card-container">
+        <div class="card" id="flashcard">
+            <div class="card-header">
+                <div class="category-tag" id="categoryTag">Personal Pronouns</div>
+                <div class="hsk-label">HSK1</div>
+            </div>
+
+            <div class="main-display" onclick="toggleCard()">
+                <div class="chinese-character" id="chineseChar">我</div>
+                <div class="info-overlay" id="infoOverlay">
+                    <div class="pinyin-display" id="pinyinDisplay">wǒ</div>
+                    <div class="english-display" id="englishDisplay">I, me</div>
+                </div>
+            </div>
+
+            <div class="content-area">
+                <div class="info-grid">
+                    <div class="info-row">
+                        <span class="info-label">Character:</span>
+                        <span class="info-value chinese-text" id="characterInfo">我</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Pinyin:</span>
+                        <span class="info-value" id="pinyinInfo">wǒ</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">English:</span>
+                        <span class="info-value" id="englishInfo">I, me</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-hint">
+                Click character area to reveal meaning
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-btn" onclick="previousCard()" id="prevBtn">← Previous</button>
+        <button class="nav-btn" onclick="nextCard()" id="nextBtn">Next →</button>
+    </div>
+
+    <script>
+        const hsk1Vocabulary = [
+            // Personal Pronouns
+            { chinese: "我", pinyin: "wǒ", english: "I, me", category: "Personal Pronouns" },
+            { chinese: "我们", pinyin: "wǒmen", english: "we, us (pl.)", category: "Personal Pronouns" },
+            { chinese: "你", pinyin: "nǐ", english: "you", category: "Personal Pronouns" },
+            { chinese: "你们", pinyin: "nǐmen", english: "you (pl.)", category: "Personal Pronouns" },
+            { chinese: "他", pinyin: "tā", english: "he, him", category: "Personal Pronouns" },
+            { chinese: "她", pinyin: "tā", english: "she, her", category: "Personal Pronouns" },
+            { chinese: "他们", pinyin: "tāmen", english: "they (male+female/male, pl.)", category: "Personal Pronouns" },
+            { chinese: "她们", pinyin: "tāmen", english: "they (females, pl.)", category: "Personal Pronouns" },
+            
+            // Demonstrative Pronouns
+            { chinese: "这", pinyin: "zhè", english: "this (here)", category: "Demonstrative Pronouns" },
+            { chinese: "那", pinyin: "nà", english: "that (there)", category: "Demonstrative Pronouns" },
+            
+            // Interrogative Pronouns
+            { chinese: "哪", pinyin: "nǎ", english: "where", category: "Interrogative Pronouns" },
+            { chinese: "谁", pinyin: "shéi", english: "who", category: "Interrogative Pronouns" },
+            { chinese: "什么", pinyin: "shénme", english: "what, why", category: "Interrogative Pronouns" },
+            { chinese: "多少", pinyin: "duōshǎo", english: "how many, how much", category: "Interrogative Pronouns" },
+            { chinese: "几", pinyin: "jǐ", english: "a few, how many", category: "Interrogative Pronouns" },
+            { chinese: "怎么", pinyin: "zěnme", english: "how", category: "Interrogative Pronouns" },
+            { chinese: "怎么样", pinyin: "zěnmeyàng", english: "how about", category: "Interrogative Pronouns" },
+            
+            // Numerals
+            { chinese: "一", pinyin: "yī", english: "one", category: "Numerals" },
+            { chinese: "二", pinyin: "èr", english: "two", category: "Numerals" },
+            { chinese: "三", pinyin: "sān", english: "three", category: "Numerals" },
+            { chinese: "四", pinyin: "sì", english: "four", category: "Numerals" },
+            { chinese: "五", pinyin: "wǔ", english: "five", category: "Numerals" },
+            { chinese: "六", pinyin: "liù", english: "six", category: "Numerals" },
+            { chinese: "七", pinyin: "qī", english: "seven", category: "Numerals" },
+            { chinese: "八", pinyin: "bā", english: "eight", category: "Numerals" },
+            { chinese: "九", pinyin: "jiǔ", english: "nine", category: "Numerals" },
+            { chinese: "十", pinyin: "shí", english: "ten", category: "Numerals" },
+            { chinese: "零", pinyin: "líng", english: "zero", category: "Numerals" },
+            
+            // Quantifiers
+            { chinese: "个", pinyin: "gè", english: "one, a, an", category: "Quantifiers" },
+            { chinese: "岁", pinyin: "suì", english: "year", category: "Quantifiers" },
+            { chinese: "本", pinyin: "běn", english: "volume", category: "Quantifiers" },
+            { chinese: "些", pinyin: "xiē", english: "some", category: "Quantifiers" },
+            { chinese: "块", pinyin: "kuài", english: "piece", category: "Quantifiers" },
+            
+            // Adverbs
+            { chinese: "不", pinyin: "bù", english: "no", category: "Adverbs" },
+            { chinese: "没", pinyin: "méi", english: "no", category: "Adverbs" },
+            { chinese: "很", pinyin: "hěn", english: "quite, very", category: "Adverbs" },
+            { chinese: "太", pinyin: "tài", english: "too", category: "Adverbs" },
+            { chinese: "都", pinyin: "dōu", english: "all", category: "Adverbs" },
+            
+            // Conjunctions
+            { chinese: "和", pinyin: "hé", english: "and", category: "Conjunctions" },
+            
+            // Prepositions
+            { chinese: "在", pinyin: "zài", english: "in, at", category: "Prepositions" },
+            
+            // Auxiliaries
+            { chinese: "的", pinyin: "de", english: "(possessive particle)", category: "Auxiliaries" },
+            { chinese: "了", pinyin: "le", english: "(aspect particle)", category: "Auxiliaries" },
+            { chinese: "吗", pinyin: "ma", english: "(question particle)", category: "Auxiliaries" },
+            { chinese: "呢", pinyin: "ne", english: "(question particle)", category: "Auxiliaries" },
+            
+            // Interjections
+            { chinese: "喂", pinyin: "wèi", english: "hello", category: "Interjections" },
+            
+            // Nouns
+            { chinese: "家", pinyin: "jiā", english: "home", category: "Nouns" },
+            { chinese: "学校", pinyin: "xuéxiào", english: "school", category: "Nouns" },
+            { chinese: "饭馆", pinyin: "fàndiàn", english: "restaurant", category: "Nouns" },
+            { chinese: "商店", pinyin: "shāngdiàn", english: "store", category: "Nouns" },
+            { chinese: "医院", pinyin: "yīyuàn", english: "hospital", category: "Nouns" },
+            { chinese: "火车站", pinyin: "huǒchēzhàn", english: "train station", category: "Nouns" },
+            { chinese: "中国", pinyin: "Zhōngguó", english: "China", category: "Nouns" },
+            { chinese: "北京", pinyin: "Běijīng", english: "Beijing", category: "Nouns" },
+            { chinese: "上", pinyin: "shàng", english: "up", category: "Nouns" },
+            { chinese: "下", pinyin: "xià", english: "down", category: "Nouns" },
+            { chinese: "前面", pinyin: "qiánmiàn", english: "front", category: "Nouns" },
+            { chinese: "后面", pinyin: "hòumiàn", english: "behind", category: "Nouns" },
+            { chinese: "里", pinyin: "lǐmiàn", english: "inside", category: "Nouns" },
+            { chinese: "今天", pinyin: "jīntiān", english: "today", category: "Nouns" },
+            { chinese: "明天", pinyin: "míngtiān", english: "tomorrow", category: "Nouns" },
+            { chinese: "昨天", pinyin: "zuótiān", english: "yesterday", category: "Nouns" },
+            { chinese: "上午", pinyin: "shàngwǔ", english: "morning", category: "Nouns" },
+            { chinese: "中午", pinyin: "zhōngwǔ", english: "noon", category: "Nouns" },
+            { chinese: "下午", pinyin: "xiàwǔ", english: "afternoon", category: "Nouns" },
+            { chinese: "年", pinyin: "nián", english: "year", category: "Nouns" },
+            { chinese: "月", pinyin: "yuè", english: "month", category: "Nouns" },
+            { chinese: "日", pinyin: "rì", english: "day", category: "Nouns" },
+            { chinese: "星期", pinyin: "xīngqī", english: "week", category: "Nouns" },
+            { chinese: "点", pinyin: "diǎn", english: "dot, spot", category: "Nouns" },
+            { chinese: "分钟", pinyin: "fēnzhōng", english: "minute", category: "Nouns" },
+            { chinese: "现在", pinyin: "xiànzài", english: "now", category: "Nouns" },
+            { chinese: "时候", pinyin: "shíhou", english: "time", category: "Nouns" },
+            { chinese: "爸爸", pinyin: "bàba", english: "father", category: "Nouns" },
+            { chinese: "妈妈", pinyin: "māma", english: "mother", category: "Nouns" },
+            { chinese: "儿子", pinyin: "érzi", english: "son", category: "Nouns" },
+            { chinese: "女儿", pinyin: "nǚér", english: "daughter", category: "Nouns" },
+            { chinese: "老师", pinyin: "lǎoshī", english: "teacher", category: "Nouns" },
+            { chinese: "学生", pinyin: "xuéshēng", english: "student", category: "Nouns" },
+            { chinese: "同学", pinyin: "tóngxué", english: "classmate", category: "Nouns" },
+            { chinese: "朋友", pinyin: "péngyǒu", english: "friend", category: "Nouns" },
+            { chinese: "医生", pinyin: "yīshēng", english: "doctor", category: "Nouns" },
+            { chinese: "先生", pinyin: "xiānsheng", english: "sir", category: "Nouns" },
+            { chinese: "小姐", pinyin: "xiǎojiě", english: "Miss", category: "Nouns" },
+            { chinese: "衣服", pinyin: "yīfu", english: "cloth", category: "Nouns" },
+            { chinese: "水", pinyin: "shuǐ", english: "water", category: "Nouns" },
+            { chinese: "菜", pinyin: "cài", english: "dish", category: "Nouns" },
+            { chinese: "米饭", pinyin: "mǐfàn", english: "rice", category: "Nouns" },
+            { chinese: "水果", pinyin: "shuǐguǒ", english: "fruit", category: "Nouns" },
+            { chinese: "苹果", pinyin: "píngguǒ", english: "apple", category: "Nouns" },
+            { chinese: "茶", pinyin: "chá", english: "tea", category: "Nouns" },
+            { chinese: "杯子", pinyin: "bēizi", english: "cup", category: "Nouns" },
+            { chinese: "钱", pinyin: "qián", english: "money", category: "Nouns" },
+            { chinese: "飞机", pinyin: "fēijī", english: "airplane", category: "Nouns" },
+            { chinese: "出租车", pinyin: "chūzūchē", english: "taxi", category: "Nouns" },
+            { chinese: "电视", pinyin: "diànshì", english: "television", category: "Nouns" },
+            { chinese: "电脑", pinyin: "diànnǎo", english: "computer", category: "Nouns" },
+            { chinese: "电影", pinyin: "diànyǐng", english: "movie", category: "Nouns" },
+            { chinese: "天气", pinyin: "tiānqì", english: "weather", category: "Nouns" },
+            { chinese: "猫", pinyin: "māo", english: "cat", category: "Nouns" },
+            { chinese: "狗", pinyin: "gǒu", english: "dog", category: "Nouns" },
+            { chinese: "东西", pinyin: "dōngxi", english: "thing", category: "Nouns" },
+            { chinese: "人", pinyin: "rén", english: "person", category: "Nouns" },
+            { chinese: "名字", pinyin: "míngzi", english: "name", category: "Nouns" },
+            { chinese: "书", pinyin: "shū", english: "book", category: "Nouns" },
+            { chinese: "汉语", pinyin: "hànyǔ", english: "mandarin Chinese", category: "Nouns" },
+            { chinese: "字", pinyin: "zì", english: "character", category: "Nouns" },
+            { chinese: "桌子", pinyin: "zhuōzi", english: "desk", category: "Nouns" },
+            { chinese: "椅子", pinyin: "yǐzi", english: "chair", category: "Nouns" },
+            
+            // Verbs
+            { chinese: "谢谢", pinyin: "xièxie", english: "thank", category: "Verbs" },
+            { chinese: "不客气", pinyin: "búkèqì", english: "you are welcome", category: "Verbs" },
+            { chinese: "再见", pinyin: "zàijiàn", english: "good-bye", category: "Verbs" },
+            { chinese: "请", pinyin: "qǐng", english: "please", category: "Verbs" },
+            { chinese: "对不起", pinyin: "duìbùqǐ", english: "sorry", category: "Verbs" },
+            { chinese: "没关系", pinyin: "méiguānxì", english: "It doesn't matter", category: "Verbs" },
+            { chinese: "是", pinyin: "shì", english: "be (am, is, are)", category: "Verbs" },
+            { chinese: "有", pinyin: "yǒu", english: "have", category: "Verbs" },
+            { chinese: "看", pinyin: "kàn", english: "look", category: "Verbs" },
+            { chinese: "听", pinyin: "tīng", english: "listen", category: "Verbs" },
+            { chinese: "说话", pinyin: "shuōhuà", english: "speak", category: "Verbs" },
+            { chinese: "读", pinyin: "dú", english: "read", category: "Verbs" },
+            { chinese: "写", pinyin: "xiě", english: "write", category: "Verbs" },
+            { chinese: "看见", pinyin: "kànjiàn", english: "see", category: "Verbs" },
+            { chinese: "叫", pinyin: "jiào", english: "call", category: "Verbs" },
+            { chinese: "来", pinyin: "lái", english: "come", category: "Verbs" },
+            { chinese: "回", pinyin: "huí", english: "return", category: "Verbs" },
+            { chinese: "去", pinyin: "qù", english: "go", category: "Verbs" },
+            { chinese: "吃", pinyin: "chī", english: "eat", category: "Verbs" },
+            { chinese: "喝", pinyin: "hē", english: "drink", category: "Verbs" },
+            { chinese: "睡觉", pinyin: "shuìjiào", english: "sleep", category: "Verbs" },
+            { chinese: "打电话", pinyin: "dǎdiànhuà", english: "call up", category: "Verbs" },
+            { chinese: "做", pinyin: "zuò", english: "do", category: "Verbs" },
+            { chinese: "买", pinyin: "mǎi", english: "buy", category: "Verbs" },
+            { chinese: "开", pinyin: "kāi", english: "open", category: "Verbs" },
+            { chinese: "坐", pinyin: "zuò", english: "sit", category: "Verbs" },
+            { chinese: "住", pinyin: "zhù", english: "live", category: "Verbs" },
+            { chinese: "学习", pinyin: "xuéxí", english: "study", category: "Verbs" },
+            { chinese: "工作", pinyin: "gōngzuò", english: "work", category: "Verbs" },
+            { chinese: "下雨", pinyin: "xiàyǔ", english: "rain", category: "Verbs" },
+            { chinese: "爱", pinyin: "ài", english: "love", category: "Verbs" },
+            { chinese: "喜欢", pinyin: "xǐhuān", english: "love, like", category: "Verbs" },
+            { chinese: "想", pinyin: "xiǎng", english: "want", category: "Verbs" },
+            { chinese: "认识", pinyin: "rènshi", english: "know", category: "Verbs" },
+            { chinese: "会", pinyin: "huì", english: "can", category: "Verbs" },
+            { chinese: "能", pinyin: "néng", english: "can, be able to", category: "Verbs" },
+            
+            // Adjectives
+            { chinese: "好", pinyin: "hǎo", english: "good", category: "Adjectives" },
+            { chinese: "大", pinyin: "dà", english: "big", category: "Adjectives" },
+            { chinese: "小", pinyin: "xiǎo", english: "small", category: "Adjectives" },
+            { chinese: "多", pinyin: "duō", english: "many, much", category: "Adjectives" },
+            { chinese: "少", pinyin: "shǎo", english: "few, little", category: "Adjectives" },
+            { chinese: "冷", pinyin: "lěng", english: "cold", category: "Adjectives" },
+            { chinese: "热", pinyin: "rè", english: "hot", category: "Adjectives" },
+            { chinese: "高兴", pinyin: "gāoxìng", english: "happy", category: "Adjectives" },
+            { chinese: "漂亮", pinyin: "piàoliang", english: "beautiful", category: "Adjectives" }
+        ];
+
+        let currentIndex = 0;
+        let isFlipped = false;
+        let categoryIndex = {};
+
+        function buildCategoryIndex() {
+            categoryIndex = {};
+            
+            // Count cards in each category and find first occurrence
+            hsk1Vocabulary.forEach((card, index) => {
+                if (!categoryIndex[card.category]) {
+                    categoryIndex[card.category] = {
+                        count: 0,
+                        firstIndex: index
+                    };
+                }
+                categoryIndex[card.category].count++;
+            });
+        }
+
+        function createCategoryButtons() {
+            const grid = document.getElementById('categoryGrid');
+            grid.innerHTML = '';
+            
+            Object.keys(categoryIndex).forEach(category => {
+                const button = document.createElement('button');
+                button.className = 'category-btn';
+                button.onclick = () => goToCategory(category);
+                
+                button.innerHTML = `
+                    <span class="category-name">${category}</span>
+                    <span class="category-count">${categoryIndex[category].count} cards</span>
+                `;
+                
+                grid.appendChild(button);
+            });
+        }
+
+        function goToCategory(categoryName) {
+            const categoryData = categoryIndex[categoryName];
+            if (categoryData) {
+                currentIndex = categoryData.firstIndex;
+                updateCard();
+            }
+        }
+
+        function updateActiveCategory() {
+            // Remove active class from all buttons
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Add active class to current category button
+            const currentCategory = hsk1Vocabulary[currentIndex].category;
+            const buttons = document.querySelectorAll('.category-btn');
+            buttons.forEach(btn => {
+                const categoryName = btn.querySelector('.category-name').textContent;
+                if (categoryName === currentCategory) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        function updateCard() {
+            const card = hsk1Vocabulary[currentIndex];
+            
+            // Update card content
+            document.getElementById('categoryTag').textContent = card.category;
+            document.getElementById('chineseChar').textContent = card.chinese;
+            document.getElementById('characterInfo').textContent = card.chinese;
+            document.getElementById('pinyinInfo').textContent = card.pinyin;
+            document.getElementById('pinyinDisplay').textContent = card.pinyin;
+            document.getElementById('englishInfo').textContent = card.english;
+            document.getElementById('englishDisplay').textContent = card.english;
+            
+            // Update progress
+            document.getElementById('currentCard').textContent = currentIndex + 1;
+            document.getElementById('totalCards').textContent = hsk1Vocabulary.length;
+            
+            // Update slider position
+            const slider = document.getElementById('cardSlider');
+            slider.value = currentIndex + 1;
+            updateSliderProgress();
+            
+            // Update active category
+            updateActiveCategory();
+            
+            // Reset flip state
+            hideOverlay();
+            updateButtons();
+        }
+
+        function updateSliderProgress() {
+            const slider = document.getElementById('cardSlider');
+            const progress = ((slider.value - 1) / (slider.max - 1)) * 100;
+            slider.style.setProperty('--progress', progress + '%');
+        }
+
+        function goToCard(cardNumber) {
+            const newIndex = parseInt(cardNumber) - 1;
+            if (newIndex >= 0 && newIndex < hsk1Vocabulary.length) {
+                currentIndex = newIndex;
+                updateCard();
+            }
+        }
+
+        function toggleCard() {
+            const overlay = document.getElementById('infoOverlay');
+            
+            if (!isFlipped) {
+                overlay.classList.add('show');
+                isFlipped = true;
+            } else {
+                hideOverlay();
+            }
+        }
+
+        function hideOverlay() {
+            document.getElementById('infoOverlay').classList.remove('show');
+            isFlipped = false;
+        }
+
+        function nextCard() {
+            if (currentIndex < hsk1Vocabulary.length - 1) {
+                currentIndex++;
+                updateCard();
+            }
+        }
+
+        function previousCard() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCard();
+            }
+        }
+
+        function updateButtons() {
+            document.getElementById('prevBtn').disabled = currentIndex === 0;
+            document.getElementById('nextBtn').disabled = currentIndex === hsk1Vocabulary.length - 1;
+        }
+
+        // Touch/swipe support
+        let startX = 0;
+        let endX = 0;
+
+        document.addEventListener('touchstart', function(event) {
+            startX = event.touches[0].clientX;
+        });
+
+        document.addEventListener('touchend', function(event) {
+            endX = event.changedTouches[0].clientX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const threshold = 50;
+            const diff = startX - endX;
+            
+            if (Math.abs(diff) > threshold) {
+                if (diff > 0) {
+                    nextCard(); // Swipe left = next
+                } else {
+                    previousCard(); // Swipe right = previous
+                }
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            switch(event.key) {
+                case ' ':
+                case 'Enter':
+                    event.preventDefault();
+                    toggleCard();
+                    break;
+                case 'ArrowLeft':
+                    event.preventDefault();
+                    previousCard();
+                    break;
+                case 'ArrowRight':
+                    event.preventDefault();
+                    nextCard();
+                    break;
+            }
+        });
+
+        // Initialize
+        buildCategoryIndex();
+        createCategoryButtons();
+        document.getElementById('cardSlider').max = hsk1Vocabulary.length;
+        updateCard();
+    </script>
+</body>
+</html>
