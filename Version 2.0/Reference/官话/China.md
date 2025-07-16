@@ -63,4 +63,3 @@ China plays a major role in international affairs:
 
 ## Conclusion
 Modern China is a complex and dynamic nation, balancing its historical roots with rapid modernization and a prominent role in global affairs.
-
