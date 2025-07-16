@@ -1,6 +1,8 @@
 CURRENT TODO:
 - Redo Obsidian language vault to be more context oriented so that AI can properly pull information the way I need.
 - Look in to claude code for VSCode integration for greater project architecture
+
+
 OLD TODO:
 - add all cards to all sections in intervals as to not overwhelm the ai. can use deepseek for this (claude has RATE LIMITED MY ASS)
 - Add audio to each card. Include several voice options for max perspective. 
