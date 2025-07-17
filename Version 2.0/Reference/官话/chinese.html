@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chinese</title>
+
+  <!-- GitHub-flavored markdown typography -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css">
+
+  <!-- Tabulator theme -->
+  <link href="https://unpkg.com/tabulator-tables@5.5.2/dist/css/tabulator.min.css" rel="stylesheet">
+
+  <style>
+    body{max-width:900px;margin:40px auto;padding:0 20px;}
+    .tabulator{border:none;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;font-size:16px;background:transparent;}
+    .tabulator .tabulator-header{border-bottom:1px solid #d0d7de;background:transparent;}
+    .tabulator-arrow{display:none;}
+  </style>
+</head>
+
+<body class="markdown-body">
+
+<h1>Chinese</h1>
+
+<h2>1. Snapshot – Simplified vs Traditional</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Aspect</th>
+      <th>Simplified (Focus)</th>
+      <th>Traditional (Reference)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Official in</strong></td>
+      <td>Mainland China, Singapore</td>
+      <td>Taiwan, Hong Kong, Macau</td>
+    </tr>
+    <tr>
+      <td><strong>Character count</strong></td>
+      <td>~8,000 total; ~3,500 for 99 % daily use</td>
+      <td>~13,000 total; ~4,800 for 99 % daily use</td>
+    </tr>
+    <tr>
+      <td><strong>Typical font</strong></td>
+      <td>Noto Sans SC, Source Han Sans</td>
+      <td>Noto Sans TC, JhengHei</td>
+    </tr>
+    <tr>
+      <td><strong>Typing</strong></td>
+      <td>Pinyin → pick character</td>
+      <td>Zhuyin or Pinyin → pick character</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>2. First 8 Characters to Know</h2>
+<div id="first8"></div>
+
+<h2>3. Universal Stroke-Order Rules</h2>
+<ol>
+  <li><strong>Top → bottom</strong></li>
+  <li><strong>Left → right</strong></li>
+  <li><strong>Outside → inside</strong></li>
+</ol>
+
+<h2>4. Daily Study Recipe</h2>
+<ul>
+  <li><strong>Learn:</strong> 10–20 new Hanzi per day via spaced-repetition (Anki / Skritter / Pleco).</li>
+  <li><strong>Read aloud:</strong> every card to nail tones.</li>
+  <li><strong>Type daily:</strong> switch phone keyboard to <strong>Pinyin (Simplified)</strong> and chat.</li>
+</ul>
+
+<script src="https://unpkg.com/tabulator-tables@5.5.2/dist/js/tabulator.min.js"></script>
+<script>
+/* First 8 Characters */
+const first8 = [
+  { Character: '我', Pinyin: 'wǒ', Meaning: 'I / me' },
+  { Character: '你', Pinyin: 'nǐ', Meaning: 'you' },
+  { Character: '好', Pinyin: 'hǎo', Meaning: 'good' },
+  { Character: '是', Pinyin: 'shì', Meaning: 'to be' },
+  { Character: '不', Pinyin: 'bù', Meaning: 'not' },
+  { Character: '了', Pinyin: 'le', Meaning: 'completed action' },
+  { Character: '人', Pinyin: 'rén', Meaning: 'person' },
+  { Character: '大', Pinyin: 'dà', Meaning: 'big' }
+];
+
+new Tabulator('#first8', {
+  data: first8,
+  layout: 'fitColumns',
+  resizableColumns: false,
+  columns: [
+    { title: 'Character', field: 'Character', width: 90 },
+    { title: 'Pinyin', field: 'Pinyin', width: 90 },
+    { title: 'Meaning', field: 'Meaning' }
+  ]
+});
+</script>
+
+<p style="text-align:center;margin-top:3em;">加油！<br><em>Happy learning!</em></p>
+
+</body>
+</html>

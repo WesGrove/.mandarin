@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Chinese Strokes</title>
+
+<!-- GitHub-flavoured typography -->
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css">
+<link href="https://unpkg.com/tabulator-tables@5.5.2/dist/css/tabulator.min.css" rel="stylesheet">
+
+<style>
+  body{box-sizing:border-box;max-width:900px;margin:40px auto;padding:0 20px}
+  .tabulator{border:none;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;font-size:16px;background:transparent}
+  .tabulator .tabulator-header{border-bottom:1px solid #d0d7de;background:transparent}
+  .tabulator .tabulator-header .tabulator-col{background:transparent}
+  .tabulator-arrow{display:none}
+  hr{border:none;border-top:1px solid #d0d7de;margin:2.5rem 0}
+</style>
+</head>
+
+<body class="markdown-body">
+
+<h1>Chinese Strokes</h1>
+
+<h2>1. Canonical Stroke Forms</h2>
+<div id="strokeTable"></div>
+
+<hr>
+
+<h2>2. Stroke-Order Principles</h2>
+<ol>
+  <li>Horizontal before vertical</li>
+  <li>Piě (丿) before nà (㇏)</li>
+  <li>Top to bottom</li>
+  <li>Left to right</li>
+  <li>Outside before inside</li>
+  <li>Close the frame last</li>
+  <li>Centre before sides</li>
+  <li>Uppermost dot first</li>
+</ol>
+
+<hr>
+
+<h2>3. Coordinate Grid</h2>
+<ul>
+  <li>Origin (0,0) at <strong>bottom-left</strong></li>
+  <li>Ascender line: <strong>880</strong></li>
+  <li>Descender line: <strong>–120</strong></li>
+  <li>Square size: <strong>1024 × 1024</strong> units</li>
+</ul>
+
+<hr>
+
+<h2>4. Reference Sources</h2>
+<ul>
+  <li>State Language Commission stroke-order standards (1997, 2013)</li>
+  <li>MakeMeAHanzi stroke data set</li>
+  <li>Unicode IDS.TXT for component analysis</li>
+</ul>
+
+<script src="https://unpkg.com/tabulator-tables@5.5.2/dist/js/tabulator.min.js"></script>
+<script>
+/* ---------- Canonical stroke data ---------- */
+const strokes = [
+  {Name:'横 héng',          Glyph:'一',  Direction:'horizontal left → right'},
+  {Name:'竖 shù',           Glyph:'丨',  Direction:'vertical top → bottom'},
+  {Name:'撇 piě',           Glyph:'丿',  Direction:'top-right → bottom-left'},
+  {Name:'捺 nà',            Glyph:'㇏',  Direction:'top-left → bottom-right'},
+  {Name:'点 diǎn',          Glyph:'丶',  Direction:'short downward flick'},
+  {Name:'提 tí',            Glyph:'㇀',  Direction:'rising left → right flick'},
+  {Name:'横钩 héng-gōu',     Glyph:'乛',  Direction:'horizontal then sharp hook'},
+  {Name:'竖钩 shù-gōu',      Glyph:'亅',  Direction:'vertical then sharp left hook'},
+  {Name:'弯钩 wān-gōu',      Glyph:'㇂',  Direction:'curved then hook'},
+  {Name:'斜钩 xié-gōu',      Glyph:'㇃',  Direction:'diagonal then upward hook'},
+  {Name:'横折 héng-zhé',     Glyph:'𠃍', Direction:'horizontal → right-angle → vertical'},
+  {Name:'竖折 shù-zhé',      Glyph:'𠃊', Direction:'vertical → right-angle → horizontal'},
+  {Name:'撇折 piě-zhé',      Glyph:'𠃋', Direction:'撇 then short horizontal'},
+  {Name:'横折钩 héng-zhé-gōu',Glyph:'𠃌', Direction:'horizontal → vertical → hook'},
+  {Name:'竖弯钩 shù-wān-gōu', Glyph:'乚', Direction:'vertical → curve → hook'},
+  {Name:'横折弯 héng-zhé-wān',Glyph:'㇄', Direction:'horizontal → vertical → curve'},
+  {Name:'横折提 héng-zhé-tí', Glyph:'㇊', Direction:'horizontal → vertical → rising flick'}
+];
+
+/* ---------- Render table ---------- */
+new Tabulator('#strokeTable', {
+  data: strokes,
+  layout: 'fitColumns',
+  resizableColumns: false,
+  columns: [
+    {title:'Stroke Name', field:'Name', width:150},
+    {title:'Glyph', field:'Glyph', width:70, hozAlign:'center'},
+    {title:'Direction & Shape', field:'Direction'}
+  ]
+});
+</script>
+
+</body>
+</html>

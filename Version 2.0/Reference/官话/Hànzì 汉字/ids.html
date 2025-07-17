@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>IDS Operators</title>
+
+<!-- GitHub-flavored markdown typography -->
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css">
+
+<!-- Tabulator theme -->
+<link href="https://unpkg.com/tabulator-tables@5.5.2/dist/css/tabulator.min.css" rel="stylesheet">
+
+<style>
+  /* Re-use hànzì.html layout rules */
+  body {
+    box-sizing: border-box;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+
+  /* Markdown-flavoured tables: no borders, no chrome */
+  .tabulator {
+    border: none;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    background: transparent;
+  }
+
+  .tabulator .tabulator-header {
+    border-bottom: 1px solid #d0d7de;
+    background: transparent;
+  }
+
+  .tabulator .tabulator-header .tabulator-col {
+    background: transparent;
+  }
+
+  /* Hide column-sort arrows for a cleaner, markdown feel */
+  .tabulator-arrow {
+    display: none;
+  }
+</style>
+</head>
+
+<body class="markdown-body">
+
+<h1>Ideographic Description Sequences (IDS)</h1>
+
+<p>
+This page distils the <strong>12 Unicode IDS operators</strong> from Mainland Chinese standards,  
+then renders them in two Tabulator tables for quick look-up and experimentation.
+</p>
+
+<hr>
+
+<h2>1.  What you will learn</h2>
+<ul>
+<li>The 12 symbols and their <strong>layout semantics</strong></li>
+<li>How to read and write <strong>prefix-style expressions</strong></li>
+<li>Where these operators are used (GB 18030, Unihan, textbooks, etc.)</li>
+</ul>
+
+<hr>
+
+<h2>2.  The 12 Operators – Quick Reference</h2>
+<div id="operator-table"></div>
+
+<hr>
+
+<h2>3.  Worked Examples – Deconstructing Real Hanzi</h2>
+<div id="example-table"></div>
+
+<hr>
+
+<h2>4.  Cheat-Sheet (copy-paste)</h2>
+<pre>⿰ ⿱ ⿲ ⿳ ⿴ ⿵ ⿶ ⿷ ⿸ ⿹ ⿺ ⿻</pre>
+
+<script src="https://unpkg.com/tabulator-tables@5.5.2/dist/js/tabulator.min.js"></script>
+<script>
+/* ----------  Data ---------- */
+const operators = [
+  {op:"⿰", name:"LEFT–RIGHT", hint:"two-column",     layout:"A ◁▷ B"},
+  {op:"⿱", name:"TOP–BOTTOM", hint:"two-row",        layout:"A △ B"},
+  {op:"⿲", name:"LEFT–MIDDLE–RIGHT", hint:"three-column", layout:"A ◁◇▷ C"},
+  {op:"⿳", name:"TOP–MIDDLE–BOTTOM", hint:"three-row",    layout:"A △◇ B"},
+  {op:"⿴", name:"FULL SURROUND", hint:"box outside, content inside", layout:"A ▢ B"},
+  {op:"⿵", name:"SURROUND FROM TOP", hint:"冂-shape hat", layout:"A ⌒ B"},
+  {op:"⿶", name:"SURROUND FROM BOTTOM", hint:"U-shape base", layout:"A ∪ B"},
+  {op:"⿷", name:"SURROUND FROM LEFT", hint:"匚-shape wall", layout:"A ⊏ B"},
+  {op:"⿸", name:"SURROUND FROM TOP-LEFT", hint:"厂-shape roof", layout:"A ┐ B"},
+  {op:"⿹", name:"SURROUND FROM TOP-RIGHT", hint:"勹-shape hook", layout:"A ┌ B"},
+  {op:"⿺", name:"SURROUND FROM BOTTOM-LEFT", hint:"辶-shape tail", layout:"A └ B"},
+  {op:"⿻", name:"OVERLAY / CROSS", hint:"X overlapped", layout:"A ✚ B"}
+];
+
+const examples = [
+  {hanzi:"好",  ids:"⿰女子",   parts:"女 (left) + 子 (right)"},
+  {hanzi:"树",  ids:"⿰木⿱又寸", parts:"木 (left) + ⿱又寸 (right block)"},
+  {hanzi:"问",  ids:"⿵门口",   parts:"门 (surround) + 口 (content)"},
+  {hanzi:"国",  ids:"⿴囗玉",   parts:"囗 (full surround) + 玉 (inside)"},
+  {hanzi:"这",  ids:"⿺辶文",   parts:"辶 (tail) + 文 (remainder)"},
+  {hanzi:"巫",  ids:"⿻工从",   parts:"工 overlapped with 从"}
+];
+
+/* ----------  Tables ---------- */
+new Tabulator('#operator-table', {
+  data: operators,
+  layout: 'fitColumns',
+  resizableColumns: false,
+  columns: [
+    { title: 'Operator', field: 'op', width: 90 },
+    { title: 'Name', field: 'name', width: 160 },
+    { title: 'Mnemonic', field: 'hint' },
+    { title: 'Layout', field: 'layout' }
+  ]
+});
+
+new Tabulator('#example-table', {
+  data: examples,
+  layout: 'fitColumns',
+  resizableColumns: false,
+  columns: [
+    { title: 'Hanzi', field: 'hanzi', width: 70 },
+    { title: 'IDS', field: 'ids', width: 130 },
+    { title: 'Human-readable', field: 'parts' }
+  ]
+});
+</script>
+
+</body>
+</html>
