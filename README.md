@@ -22,12 +22,18 @@ Open `Version 1.2/chinese.html` in your browser to start learning.
 - `Version 1.0/` - Initial prototype
 - `Version 1.2/` - Current stable version with full feature set
 - `Version 2.0/` - Comprehensive learning materials and documentation
-  - `Reference/` - Learning reference materials
-  - `官话/` - Complete Mandarin language documentation
-    - Character systems (Simplified/Traditional)
-    - HSK vocabulary lists (Levels 1-6)
-    - Radicals, strokes, and Pinyin guides
-    - Cultural and social practice materials
+  - `Reference/` - Learning reference materials and guidelines
+    - `General Instructions/` - Project development guidelines
+      - Considerations, gamification, and web standards
+    - `social_guide.html` - Comprehensive social integration guide for China
+    - `官话/` - Complete Mandarin language documentation
+      - Character systems (Simplified/Traditional)
+      - HSK vocabulary lists (Levels 1-6) with PDFs
+      - `Hànzì 汉字/` - Character learning resources
+        - Radicals, strokes, and Pinyin guides
+        - Ideographic Description Sequences (IDS)
+      - Cultural context and social practice materials
+      - Regional dialects and linguistic variations
 
 ## Contributing
 
