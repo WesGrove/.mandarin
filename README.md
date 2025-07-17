@@ -11,11 +11,7 @@ A comprehensive Chinese/Mandarin language learning platform featuring interactiv
 - **Interactive Flashcards**: Learn Chinese characters with visual mnemonics
 - **HSK Level Progression**: Structured learning from HSK 1 through advanced levels
 - **Character Recognition**: Practice reading and understanding Chinese characters
-- **Cultural Context**: Immersive cultural learning resources
-
-## Getting Started
-
-Open `Version 1.2/chinese.html` in your browser to start learning.
+- **Cultural Context**: Immersive cultural learning resources=
 
 ## Project Structure
 
