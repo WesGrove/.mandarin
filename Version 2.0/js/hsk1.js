@@ -1,30 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>HSK-1 (500 words) – Working Table</title>
-
-<link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css">
-<link href="https://unpkg.com/tabulator-tables@5.5.2/dist/css/tabulator.min.css" rel="stylesheet">
-
-<style>
-  body{box-sizing:border-box;max-width:920px;margin:40px auto;padding:0 20px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
-  .tabulator{border:none;font-size:15px;background:transparent}
-  .tabulator .tabulator-header{border-bottom:1px solid #d0d7de;background:transparent}
-  .tabulator .tabulator-header .tabulator-col{background:transparent}
-  .tabulator-arrow{display:none}
-</style>
-</head>
-
-<body class="markdown-body">
-<h1>HSK-1 (500 words)</h1>
-<p>Click a row for a mini-note.  You can filter or sort any column.</p>
-<div id="hsk1-table"></div>
-
-<script src="https://unpkg.com/tabulator-tables@5.5.2/dist/js/tabulator.min.js"></script>
-<script>
-/* ---------- pre-parsed clean JSON ---------- */
+/* ---------- 500 entries ---------- */
 const data = [
 {No:1,Chinese:"爱",Pinyin:"ài",English:"love"},
 {No:2,Chinese:"爱好",Pinyin:"ài hào",English:"hobby"},
@@ -527,7 +501,6 @@ const data = [
 {No:499,Chinese:"坐下",Pinyin:"zuò xià",English:"sit down"},
 {No:500,Chinese:"做",Pinyin:"zuò",English:"do"}
 ];
-
 /* ---------- Tabulator ---------- */
 new Tabulator('#hsk1-table', {
   data: data,
@@ -540,6 +513,3 @@ new Tabulator('#hsk1-table', {
     {title: 'English', field: 'English', widthGrow: 2}
   ]
 });
-</script>
-</body>
-</html>

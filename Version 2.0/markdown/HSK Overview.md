@@ -7,16 +7,16 @@
 | **HSK 2.0** (Classic) | 1-6 | Still offered everywhere in 2025 | 6-level model most schools quote today  |
 | **HSK 3.0** (New) | 1-9 | Phase-in started 2021 | Adds 3 advanced bands (7-9); aligns better with CEFR  |
 
-|**NEW HSK 3.0**|   |   |**CURRENT HSK 2.0**|   |
-|---|---|---|---|---|
-|Level|Band|Required Vocabulary|Required Vocabulary|Level|
-|**Elementary**|1|500|150|[1](https://mandarinbean.com/hsk-1-vocabulary-list/)|
-|2|1272|300|[2](https://mandarinbean.com/hsk-2-vocabulary-list/)|
-|3|2245|600|[3](https://mandarinbean.com/hsk-3-vocabulary-list/)|
-|**Intermediate**|4|3245|1200|[4](https://mandarinbean.com/hsk-4-vocabulary-list/)|
-|5|4316|2500|[5](https://mandarinbean.com/hsk-5-vocabulary-list/)|
-|6|5456|5000|[6](https://mandarinbean.com/hsk-6-vocabulary-list/)|
-|**Advanced**|7 / 8 / 9|11092|/|/|
+| **NEW HSK 3.0**  |           |                     |
+| ---------------- | --------- | ------------------- |
+| Level            | Band      | Required Vocabulary |
+| **Elementary**   | 1         | 500                 |
+| 2                | 1272      | 300                 |
+| 3                | 2245      | 600                 |
+| **Intermediate** | 4         | 3245                |
+| 5                | 4316      | 2500                |
+| 6                | 5456      | 5000                |
+| **Advanced**     | 7 / 8 / 9 | 11092               |
 
 #### 2. Classic 6-Level Snapshot
 | Level | Words to Know | Test Time | CEFR* |
