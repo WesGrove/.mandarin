@@ -2,14 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Mandarin</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complete Guide to Chinese Character Systems</title>
 
 <!-- GitHub-flavored markdown typography -->
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css">
-
-<!-- Tabulator default theme -->
-<link href="https://unpkg.com/tabulator-tables@5.5.2/dist/css/tabulator.min.css" rel="stylesheet">
 
 <style>
   body {
@@ -19,117 +17,1273 @@
     padding: 0 20px;
   }
 
-  /* Make Tabulator tables look like plain markdown */
-  .tabulator {
-    border: none;
+  /* Clean markdown-style tables */
+  table {
+    border-collapse: collapse;
+    margin: 20px 0;
+    width: 100%;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
     font-size: 16px;
-    background: transparent;
   }
 
-  .tabulator .tabulator-header {
+  th, td {
+    text-align: left;
+    padding: 8px 12px;
     border-bottom: 1px solid #d0d7de;
+  }
+
+  th {
+    font-weight: 600;
     background: transparent;
   }
 
-  .tabulator .tabulator-header .tabulator-col {
-    background: transparent;
+  tr:last-child td {
+    border-bottom: none;
   }
 
-  /* Hide column-sort arrows for a cleaner markdown feel */
-  .tabulator .tabulator-header .tabulator-col .tabulator-col-title {
-    padding-right: 0;
+  /* Specific table styling */
+  .comparison-table th:nth-child(1),
+  .comparison-table td:nth-child(1) { width: 15%; }
+  .comparison-table th:nth-child(2),
+  .comparison-table td:nth-child(2) { width: 15%; }
+  .comparison-table th:nth-child(3),
+  .comparison-table td:nth-child(3) { width: 20%; }
+  .comparison-table th:nth-child(4),
+  .comparison-table td:nth-child(4) { width: 20%; }
+  .comparison-table th:nth-child(5),
+  .comparison-table td:nth-child(5) { width: 30%; }
+
+  .milestone-table th:nth-child(1),
+  .milestone-table td:nth-child(1) { width: 20%; }
+  .milestone-table th:nth-child(2),
+  .milestone-table td:nth-child(2) { width: 15%; }
+  .milestone-table th:nth-child(3),
+  .milestone-table td:nth-child(3) { width: 35%; }
+  .milestone-table th:nth-child(4),
+  .milestone-table td:nth-child(4) { width: 30%; }
+
+  .character-table th:nth-child(1),
+  .character-table td:nth-child(1) { width: 12%; }
+  .character-table th:nth-child(2),
+  .character-table td:nth-child(2) { width: 12%; }
+  .character-table th:nth-child(3),
+  .character-table td:nth-child(3) { width: 12%; }
+  .character-table th:nth-child(4),
+  .character-table td:nth-child(4) { width: 10%; }
+  .character-table th:nth-child(5),
+  .character-table td:nth-child(5) { width: 12%; }
+  .character-table th:nth-child(6),
+  .character-table td:nth-child(6) { width: 12%; }
+  .character-table th:nth-child(7),
+  .character-table td:nth-child(7) { width: 30%; }
+
+  /* Blockquote styling */
+  blockquote {
+    padding: 0 1em;
+    color: #656d76;
+    border-left: 0.25em solid #d0d7de;
+    margin: 1em 0;
   }
 
-  .tabulator-arrow {
-    display: none;
+  /* Code styling for Chinese characters */
+  code {
+    padding: 0.2em 0.4em;
+    margin: 0;
+    font-size: 85%;
+    background-color: rgba(175,184,193,0.2);
+    border-radius: 6px;
+  }
+
+  /* Section dividers */
+  hr {
+    height: 0.25em;
+    padding: 0;
+    margin: 24px 0;
+    background-color: #d0d7de;
+    border: 0;
+  }
+
+  /* Flashcard styling */
+  .flashcard-container {
+    margin: 24px 0;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    padding: 20px;
+    background-color: #f6f8fa;
+  }
+
+  .flashcard-controls {
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #d0d7de;
+  }
+
+  .flashcard-controls label {
+    font-weight: 600;
+    margin-right: 12px;
+    color: #1f2328;
+    font-size: 16px;
+  }
+
+  .flashcard-controls select {
+    padding: 8px 12px;
+    border: 1px solid #d0d7de;
+    border-radius: 4px;
+    background-color: #ffffff;
+    font-family: inherit;
+    font-size: 16px;
+    color: #1f2328;
+  }
+
+  .flashcard {
+    background-color: #ffffff;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    padding: 32px;
+    min-height: 140px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .flashcard:hover {
+    border-color: #1f2328;
+    box-shadow: 0 2px 4px rgba(31, 35, 40, 0.1);
+  }
+
+  .flashcard-front h4,
+  .flashcard-back h4 {
+    margin: 0 0 12px 0;
+    color: #1f2328;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .flashcard-back p {
+    margin: 0;
+    color: #1f2328;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .flashcard-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .flashcard-navigation button {
+    padding: 10px 16px;
+    border: 1px solid #d0d7de;
+    border-radius: 4px;
+    background-color: #ffffff;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    color: #1f2328;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .flashcard-navigation button:hover:not(:disabled) {
+    background-color: #1f2328;
+    color: #ffffff;
+    border-color: #1f2328;
+  }
+
+  .flashcard-navigation button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    color: #1f2328;
+    background-color: #ffffff;
+    border-color: #d0d7de;
+  }
+
+  .flashcard-navigation span {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1f2328;
+  }
+
+  /* Tone contour styling */
+  .tone-contour {
+    font-family: monospace;
+    font-size: 18px;
+    font-weight: bold;
+    color: #0969da;
+    letter-spacing: 1px;
   }
 </style>
 </head>
 
 <body class="markdown-body">
 
-<h1>Mandarin Chinese</h1>
+<h1>Complete Guide to Chinese Character Systems: Mastering Simplified Chinese</h1>
 
-<h2>1. Core Language Snapshot</h2>
-<div id="coreTable"></div>
+<blockquote>
+<p>A comprehensive teaching guide with <strong>Simplified Chinese (简化字)</strong> as the foundation for your learning journey.</p>
+</blockquote>
 
-<h2>2. Survival Phrases</h2>
-<div id="phraseTable"></div>
+<hr>
 
-<h2>3. Major Dialect Flavours</h2>
-<div id="dialectTable"></div>
+<h2>1. Overview: Understanding the Chinese Character Landscape</h2>
 
-<h3>Quick Tips</h3>
+<p>When you first encounter Chinese writing, you might notice something puzzling: the same language seems to have different versions of the same characters. This isn't an accident or inconsistency—it's the result of a fascinating historical development that shapes how Chinese is written across different regions today.</p>
+
+<h3>The Great Divide: Two Systems, One Language</h3>
+
+<table class="comparison-table">
+  <thead>
+    <tr>
+      <th>Region</th>
+      <th>Script</th>
+      <th>Common Characters</th>
+      <th>Daily-Use 99%</th>
+      <th>Writing Style</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Mainland China &amp; Singapore</strong></td>
+      <td><strong>简化字 (Simplified)</strong></td>
+      <td><strong>~8,000</strong></td>
+      <td><strong>~3,500</strong></td>
+      <td><strong>Fewer strokes</strong></td>
+    </tr>
+    <tr>
+      <td>Taiwan, Hong Kong, Macau</td>
+      <td>繁體字 (Traditional)</td>
+      <td>~13,000</td>
+      <td>~4,800</td>
+      <td>More strokes</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Think of this division like the difference between American and British spelling—both write the same language, but "color" versus "colour" represents different standardization choices. However, the Chinese situation is more dramatic because entire character shapes changed, not just spelling variations.</p>
+
+<h3>What These Numbers Actually Mean</h3>
+
+<p>The "~8,000 common characters" for simplified Chinese might sound overwhelming, but consider this perspective: Shakespeare used about 17,000 different words in all his plays combined, yet most English speakers get by perfectly well with 3,000-5,000 words for daily conversation. Similarly, those 3,500 high-frequency simplified characters will cover 99% of what you encounter in newspapers, websites, and everyday conversation.</p>
+
+<table class="milestone-table">
+  <thead>
+    <tr>
+      <th>Learning Milestone</th>
+      <th>Character Count</th>
+      <th>Real-World Capability</th>
+      <th>Time Investment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Survival Level</strong></td>
+      <td>300-500</td>
+      <td>Basic signs, simple conversations</td>
+      <td>6-12 months</td>
+    </tr>
+    <tr>
+      <td><strong>Functional Level</strong></td>
+      <td>1,000-1,500</td>
+      <td>News headlines, social media</td>
+      <td>1-2 years</td>
+    </tr>
+    <tr>
+      <td><strong>Fluent Level</strong></td>
+      <td>2,500-3,500</td>
+      <td>Novels, academic texts, business</td>
+      <td>2-4 years</td>
+    </tr>
+    <tr>
+      <td><strong>Native Level</strong></td>
+      <td>4,000+</td>
+      <td>Classical literature, specialized fields</td>
+      <td>4+ years</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The character count difference between simplified and traditional isn't just about having more characters—it's about complexity. Traditional characters often contain significantly more strokes per character, making them more time-consuming to write and initially harder to distinguish for new learners.</p>
+
+<h3>Regional Context: Why Geography Matters</h3>
+
+<p>Understanding where each system is used helps explain why they developed differently. Mainland China and Singapore adopted simplified characters as part of literacy campaigns aimed at making Chinese more accessible to larger populations. Taiwan, Hong Kong, and Macau maintained traditional characters partly due to different political histories and cultural preservation priorities.</p>
+
+<p>This geographical split has practical implications: if you're planning to live in Beijing or study at a university in mainland China, simplified characters are essential. If you're interested in classical Chinese literature or plan to work in Taiwan's tech industry, traditional characters become more relevant.</p>
+
+<h3>The Mutual Intelligibility Factor</h3>
+
+<p>Here's something that might surprise you: educated Chinese speakers can generally read both systems, even if they primarily use one. It's similar to how someone who learned to read printed text can usually manage handwritten text, even though the shapes are different. The underlying language remains the same—only the visual representation changes.</p>
+
+<h3>Interactive Flashcards: Test Your Understanding</h3>
+
+<p>Practice the key concepts from this section with these interactive flashcards:</p>
+
+<div class="flashcard-container">
+  <div class="flashcard-controls">
+    <label for="flashcard-set">Choose flashcard set:</label>
+    <select id="flashcard-set" onchange="loadFlashcardSet()">
+      <option value="terminology">Key Terminology</option>
+      <option value="regions">Regional Usage</option>
+      <option value="milestones">Learning Milestones</option>
+      <option value="concepts">Core Concepts</option>
+    </select>
+  </div>
+  
+  <div class="flashcard-display">
+    <div class="flashcard" id="flashcard" onclick="flipCard()">
+      <div class="flashcard-front" id="flashcard-front">
+        <h4>What does "简化字" mean?</h4>
+      </div>
+      <div class="flashcard-back" id="flashcard-back" style="display: none;">
+        <h4>Simplified Chinese</h4>
+        <p>The writing system used in mainland China and Singapore, featuring characters with fewer strokes than traditional forms.</p>
+      </div>
+    </div>
+    
+    <div class="flashcard-navigation">
+      <button onclick="previousCard()" id="prev-btn" disabled>← Previous</button>
+      <span id="card-counter">1 / 5</span>
+      <button onclick="nextCard()" id="next-btn">Next →</button>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<h2>2. Spotlight on 简化字 (Simplified): The Modern Standard</h2>
+
+<h3>The Birth of Simplified Characters: A Historical Revolution</h3>
+
+<p>The creation of simplified characters represents one of the most ambitious language reform projects in human history. In the 1950s and 1960s, the newly established People's Republic of China faced a massive challenge: how to increase literacy rates in a population where the vast majority couldn't read or write.</p>
+
+<p>Traditional Chinese characters had evolved over thousands of years, accumulating complexity through historical accident rather than systematic design. Some characters required 20 or more strokes to write correctly, making them time-consuming to learn and physically demanding to write quickly. The government assembled teams of linguists, educators, and cultural experts to systematically reduce this complexity.</p>
+
+<h3>The Simplification Philosophy: Fewer Strokes, Same Meaning</h3>
+
+<p>The simplification process followed several logical principles that make the system easier to understand once you know the patterns:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Simplification Method</th>
+      <th>Traditional</th>
+      <th>Simplified</th>
+      <th>Principle</th>
+      <th>Common Usage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Structural Reduction</strong></td>
+      <td>學 (16 strokes)</td>
+      <td>学 (8 strokes)</td>
+      <td>Remove complex components</td>
+      <td>學習 → 学习 (study)</td>
+    </tr>
+    <tr>
+      <td><strong>Phonetic Substitution</strong></td>
+      <td>華 (12 strokes)</td>
+      <td>华 (6 strokes)</td>
+      <td>Replace with simpler same-sound character</td>
+      <td>中華 → 中华 (Chinese)</td>
+    </tr>
+    <tr>
+      <td><strong>Component Standardization</strong></td>
+      <td>語 (14 strokes)</td>
+      <td>语 (9 strokes)</td>
+      <td>Standardize 言 → 讠 radical</td>
+      <td>語言 → 语言 (language)</td>
+    </tr>
+    <tr>
+      <td><strong>Merge Similar Characters</strong></td>
+      <td>復/復 (12 strokes)</td>
+      <td>复 (9 strokes)</td>
+      <td>Combine multiple traditional forms</td>
+      <td>複雜 → 复杂 (complex)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>The Tone Mark System: Music Made Visual</h3>
+
+<p>The tone marks in Pinyin (ā, á, ǎ, à, a) represent one of Mandarin's most distinctive features: its tonal nature. Each tone mark indicates a specific pitch pattern that native speakers use to distinguish meaning.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tone</th>
+      <th>Mark</th>
+      <th>Pitch Pattern</th>
+      <th>Visual Contour</th>
+      <th>Example Character</th>
+      <th>Pinyin</th>
+      <th>Meaning</th>
+      <th>Memory Aid</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>1st Tone</strong></td>
+      <td>ā</td>
+      <td>High level (55)</td>
+      <td><span class="tone-contour">━━━━</span></td>
+      <td>妈</td>
+      <td>mā</td>
+      <td>mother</td>
+      <td>Flat highway</td>
+    </tr>
+    <tr>
+      <td><strong>2nd Tone</strong></td>
+      <td>á</td>
+      <td>Rising (35)</td>
+      <td><span class="tone-contour">╱╱╱╱</span></td>
+      <td>麻</td>
+      <td>má</td>
+      <td>hemp</td>
+      <td>Asking "what?"</td>
+    </tr>
+    <tr>
+      <td><strong>3rd Tone</strong></td>
+      <td>ǎ</td>
+      <td>Falling-rising (214)</td>
+      <td><span class="tone-contour">╲╱</span></td>
+      <td>马</td>
+      <td>mǎ</td>
+      <td>horse</td>
+      <td>Disappointed "oh..."</td>
+    </tr>
+    <tr>
+      <td><strong>4th Tone</strong></td>
+      <td>à</td>
+      <td>Falling (51)</td>
+      <td><span class="tone-contour">╲╲╲╲</span></td>
+      <td>骂</td>
+      <td>mà</td>
+      <td>scold</td>
+      <td>Angry "No!"</td>
+    </tr>
+    <tr>
+      <td><strong>Neutral</strong></td>
+      <td>a</td>
+      <td>Light, unstressed</td>
+      <td><span class="tone-contour">∙∙∙∙</span></td>
+      <td>吗</td>
+      <td>ma</td>
+      <td>question particle</td>
+      <td>Casual afterthought</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Think of tones like musical notes on a staff—they're not decorative, they're essential information. The word "ma" can mean "mother" (mā - high level tone), "hemp" (má - rising tone), "horse" (mǎ - falling-rising tone), or "scold" (mà - falling tone) depending on the tone used.</p>
+
+<h3>Top Apps for Learning: Your Digital Toolkit</h3>
+
+<p><strong>Pleco (Dictionary + Flashcards)</strong><br>
+Pleco functions as your comprehensive Chinese reference tool, combining multiple dictionaries, character lookup systems, and spaced repetition flashcards. Its optical character recognition (OCR) feature lets you point your phone camera at Chinese text and instantly get translations—invaluable for reading signs, menus, or documents in the wild.</p>
+
+<p><strong>Du Chinese (Graded Reading)</strong><br>
+Du Chinese provides reading materials specifically designed for learners at different levels. Unlike jumping straight into native materials, these texts gradually increase in complexity, introducing new characters and grammar patterns at manageable rates. Think of it as training wheels for Chinese reading—you're still riding the bike, but with support as you build confidence.</p>
+
+<p><strong>Skritter (Handwriting SRS)</strong><br>
+Skritter uses spaced repetition specifically for handwriting practice. While typing Chinese is important, handwriting helps cement character recognition in ways that typing alone cannot. The app tracks your stroke order and provides immediate feedback, helping you develop proper muscle memory.</p>
+
+<h3>Interactive Flashcards: Master Simplified Chinese Concepts</h3>
+
+<p>Test your understanding of simplified Chinese characters, tones, and learning strategies:</p>
+
+<div class="flashcard-container">
+  <div class="flashcard-controls">
+    <label for="flashcard-set-2">Choose flashcard set:</label>
+    <select id="flashcard-set-2" onchange="loadFlashcardSet2()">
+      <option value="history">Historical Context</option>
+      <option value="methods">Simplification Methods</option>
+      <option value="tones">Tone System</option>
+    </select>
+  </div>
+  
+  <div class="flashcard-display">
+    <div class="flashcard" id="flashcard-2" onclick="flipCard2()">
+      <div class="flashcard-front" id="flashcard-front-2">
+        <h4>When were simplified characters created?</h4>
+      </div>
+      <div class="flashcard-back" id="flashcard-back-2" style="display: none;">
+        <h4>1950s-1960s</h4>
+        <p>Created by the People's Republic of China as part of a massive literacy campaign to make Chinese more accessible to the general population.</p>
+      </div>
+    </div>
+    
+    <div class="flashcard-navigation">
+      <button onclick="previousCard2()" id="prev-btn-2" disabled>← Previous</button>
+      <span id="card-counter-2">1 / 5</span>
+      <button onclick="nextCard2()" id="next-btn-2">Next →</button>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<h2>3. First 8 Characters to Master: Building Your Foundation</h2>
+
+<h3>Why These Eight Characters Matter</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Character</th>
+      <th>Pinyin</th>
+      <th>Meaning</th>
+      <th>Usage Context</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>我</td>
+      <td>wǒ</td>
+      <td>I / me</td>
+      <td>Every conversation starter</td>
+    </tr>
+    <tr>
+      <td>你</td>
+      <td>nǐ</td>
+      <td>you</td>
+      <td>Essential for dialogue</td>
+    </tr>
+    <tr>
+      <td>好</td>
+      <td>hǎo</td>
+      <td>good</td>
+      <td>Greetings and descriptions</td>
+    </tr>
+    <tr>
+      <td>是</td>
+      <td>shì</td>
+      <td>to be</td>
+      <td>Linking concepts</td>
+    </tr>
+    <tr>
+      <td>不</td>
+      <td>bù</td>
+      <td>not</td>
+      <td>Negation in all contexts</td>
+    </tr>
+    <tr>
+      <td>了</td>
+      <td>le</td>
+      <td>completed action</td>
+      <td>Past tense and completion</td>
+    </tr>
+    <tr>
+      <td>人</td>
+      <td>rén</td>
+      <td>person</td>
+      <td>Fundamental noun</td>
+    </tr>
+    <tr>
+      <td>大</td>
+      <td>dà</td>
+      <td>big</td>
+      <td>Basic adjective</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>These eight characters weren't chosen randomly—they represent the building blocks of Chinese communication. Understanding why each one is crucial helps you appreciate their importance.</p>
+
+<h3>Character Deep Dive: Understanding Each Foundation Stone</h3>
+
+<table class="character-table">
+  <thead>
+    <tr>
+      <th>Character</th>
+      <th>Pinyin</th>
+      <th>Meaning</th>
+      <th>Strokes</th>
+      <th>Radical</th>
+      <th>Frequency Rank</th>
+      <th>Key Combinations</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>我</strong></td>
+      <td>wǒ</td>
+      <td>I/me</td>
+      <td>7</td>
+      <td>戈 (halberd)</td>
+      <td>#11</td>
+      <td>我们 (we), 我的 (my)</td>
+    </tr>
+    <tr>
+      <td><strong>你</strong></td>
+      <td>nǐ</td>
+      <td>you</td>
+      <td>7</td>
+      <td>亻(person)</td>
+      <td>#20</td>
+      <td>你好 (hello), 你们 (you plural)</td>
+    </tr>
+    <tr>
+      <td><strong>好</strong></td>
+      <td>hǎo</td>
+      <td>good</td>
+      <td>6</td>
+      <td>女 (woman)</td>
+      <td>#41</td>
+      <td>很好 (very good), 好吃 (delicious)</td>
+    </tr>
+    <tr>
+      <td><strong>是</strong></td>
+      <td>shì</td>
+      <td>to be</td>
+      <td>9</td>
+      <td>日 (sun)</td>
+      <td>#3</td>
+      <td>不是 (not), 就是 (exactly)</td>
+    </tr>
+    <tr>
+      <td><strong>不</strong></td>
+      <td>bù</td>
+      <td>not</td>
+      <td>4</td>
+      <td>一 (one)</td>
+      <td>#7</td>
+      <td>不好 (not good), 不是 (not)</td>
+    </tr>
+    <tr>
+      <td><strong>了</strong></td>
+      <td>le</td>
+      <td>completed</td>
+      <td>2</td>
+      <td>乛 (hook)</td>
+      <td>#1</td>
+      <td>好了 (finished), 走了 (left)</td>
+    </tr>
+    <tr>
+      <td><strong>人</strong></td>
+      <td>rén</td>
+      <td>person</td>
+      <td>2</td>
+      <td>人 (person)</td>
+      <td>#14</td>
+      <td>人们 (people), 中国人 (Chinese)</td>
+    </tr>
+    <tr>
+      <td><strong>大</strong></td>
+      <td>dà</td>
+      <td>big</td>
+      <td>3</td>
+      <td>大 (big)</td>
+      <td>#51</td>
+      <td>大家 (everyone), 大学 (university)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>These eight characters are <strong>identical in simplified and traditional systems</strong>, making them perfect for cross-script comparison later. This means that every minute you spend mastering these characters pays dividends if you ever need to read traditional Chinese texts.</p>
+
+<hr>
+
+<h2>4. Quick-Start Checklist: Your Learning Strategy</h2>
+
+<h3>1. Stroke Order: The Foundation of Character Recognition</h3>
+
+<p>Stroke order isn't just about pretty handwriting—it's about building muscle memory and developing character recognition skills that will serve you throughout your Chinese learning journey.</p>
+
+<p><strong>The Basic Rules:</strong></p>
 <ul>
-  <li>Start with <strong>Pinyin + tones</strong>.</li>
-  <li>Learn the <strong>100 most-used characters</strong> first.</li>
-  <li>Listen daily—tones take practice.</li>
+  <li><strong>Top to bottom</strong>: Write the top part of a character before the bottom part</li>
+  <li><strong>Left to right</strong>: Write the left side before the right side</li>
+  <li><strong>Outside to inside</strong>: Write enclosing strokes before enclosed strokes</li>
+  <li><strong>Horizontal before vertical</strong>: When strokes cross, write horizontal strokes first</li>
 </ul>
 
-<script src="https://unpkg.com/tabulator-tables@5.5.2/dist/js/tabulator.min.js"></script>
+<h3>2. Say + Write Aloud: Connecting Sound, Shape, and Meaning</h3>
+
+<p>This multisensory approach engages different parts of your brain simultaneously, creating stronger memory connections than studying silently.</p>
+
+<p><strong>The Process:</strong></p>
+<ol>
+  <li><strong>Look</strong> at the character and say its Pinyin pronunciation aloud</li>
+  <li><strong>Write</strong> the character while saying the pronunciation</li>
+  <li><strong>Say</strong> the English meaning while looking at the completed character</li>
+  <li><strong>Use</strong> the character in a simple sentence</li>
+</ol>
+
+<h3>3. Spaced-Repetition Flashcards: The Science of Forgetting</h3>
+
+<p>Spaced repetition systems (SRS) are based on the psychological spacing effect: information is more easily recalled if learning sessions are spaced out over time rather than massed together.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Review Stage</th>
+      <th>Interval</th>
+      <th>Success Rate</th>
+      <th>Action</th>
+      <th>Example Timeline</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>New</strong></td>
+      <td>Learn today</td>
+      <td>-</td>
+      <td>First exposure</td>
+      <td>Day 1: Learn 我, 你, 好</td>
+    </tr>
+    <tr>
+      <td><strong>Learning</strong></td>
+      <td>1 day</td>
+      <td>&lt;60%</td>
+      <td>Review tomorrow</td>
+      <td>Day 2: Review + learn 是, 不</td>
+    </tr>
+    <tr>
+      <td><strong>Young</strong></td>
+      <td>3 days</td>
+      <td>60-80%</td>
+      <td>Short intervals</td>
+      <td>Day 5: Review first batch</td>
+    </tr>
+    <tr>
+      <td><strong>Mature</strong></td>
+      <td>7+ days</td>
+      <td>80%+</td>
+      <td>Long intervals</td>
+      <td>Day 12: Review if remembered</td>
+    </tr>
+    <tr>
+      <td><strong>Difficult</strong></td>
+      <td>Variable</td>
+      <td>&lt;60%</td>
+      <td>Frequent reviews</td>
+      <td>Appears every 1-2 days</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr>
+
+<h2>5. Simplified vs. Traditional at a Glance: Understanding the Differences</h2>
+
+<h3>The Visual Comparison: Seeing the Simplification Process</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Concept</th>
+      <th>Simplified</th>
+      <th>Traditional</th>
+      <th>Stroke Difference</th>
+      <th>Simplification Method</th>
+      <th>Common Word</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>body</strong></td>
+      <td>体 (7 strokes)</td>
+      <td>體 (23 strokes)</td>
+      <td>-16 strokes</td>
+      <td>Replaced complex component</td>
+      <td>身体 (body)</td>
+    </tr>
+    <tr>
+      <td><strong>dragon</strong></td>
+      <td>龙 (5 strokes)</td>
+      <td>龍 (16 strokes)</td>
+      <td>-11 strokes</td>
+      <td>Completely redesigned</td>
+      <td>龙年 (dragon year)</td>
+    </tr>
+    <tr>
+      <td><strong>country</strong></td>
+      <td>国 (8 strokes)</td>
+      <td>國 (11 strokes)</td>
+      <td>-3 strokes</td>
+      <td>Removed internal complexity</td>
+      <td>中国 (China)</td>
+    </tr>
+    <tr>
+      <td><strong>love</strong></td>
+      <td>爱 (10 strokes)</td>
+      <td>愛 (13 strokes)</td>
+      <td>-3 strokes</td>
+      <td>Simplified heart component</td>
+      <td>爱情 (love)</td>
+    </tr>
+    <tr>
+      <td><strong>electricity</strong></td>
+      <td>电 (5 strokes)</td>
+      <td>電 (13 strokes)</td>
+      <td>-8 strokes</td>
+      <td>Removed detailed elements</td>
+      <td>电话 (telephone)</td>
+    </tr>
+    <tr>
+      <td><strong>vehicle</strong></td>
+      <td>车 (4 strokes)</td>
+      <td>車 (7 strokes)</td>
+      <td>-3 strokes</td>
+      <td>Streamlined wheel design</td>
+      <td>汽车 (car)</td>
+    </tr>
+    <tr>
+      <td><strong>door</strong></td>
+      <td>门 (3 strokes)</td>
+      <td>門 (8 strokes)</td>
+      <td>-5 strokes</td>
+      <td>Simplified frame structure</td>
+      <td>门口 (doorway)</td>
+    </tr>
+    <tr>
+      <td><strong>horse</strong></td>
+      <td>马 (3 strokes)</td>
+      <td>馬 (10 strokes)</td>
+      <td>-7 strokes</td>
+      <td>Removed detailed features</td>
+      <td>马路 (road)</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr>
+
+<h2>6. Next Steps: Your Personalized Learning Path</h2>
+
+<h3>Immediate Actions: Your First Month</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Learning Phase</th>
+      <th>Characters</th>
+      <th>Daily Practice</th>
+      <th>Weekly Goal</th>
+      <th>Success Markers</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Week 1</strong></td>
+      <td>我, 你, 好, 是</td>
+      <td>20 min writing + 10 min flashcards</td>
+      <td>Recognize without hesitation</td>
+      <td>Can write from memory</td>
+    </tr>
+    <tr>
+      <td><strong>Week 2</strong></td>
+      <td>不, 了, 人, 大</td>
+      <td>25 min writing + 15 min flashcards</td>
+      <td>Combine into simple phrases</td>
+      <td>Read 你好 instantly</td>
+    </tr>
+    <tr>
+      <td><strong>Week 3</strong></td>
+      <td>Review + 6 new</td>
+      <td>30 min mixed practice</td>
+      <td>Form basic sentences</td>
+      <td>Write name + 我是</td>
+    </tr>
+    <tr>
+      <td><strong>Week 4</strong></td>
+      <td>12 new characters</td>
+      <td>35 min varied practice</td>
+      <td>Read simple signs</td>
+      <td>Recognize on street signs</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Long-Term Vision: Achieving Proficiency</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Proficiency Level</th>
+      <th>Character Count</th>
+      <th>Reading Ability</th>
+      <th>Writing Ability</th>
+      <th>Speaking Context</th>
+      <th>Time Investment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Beginner</strong></td>
+      <td>500-800</td>
+      <td>Simple signs, basic texts</td>
+      <td>Name, simple sentences</td>
+      <td>Greetings, basic needs</td>
+      <td>6-12 months</td>
+    </tr>
+    <tr>
+      <td><strong>Elementary</strong></td>
+      <td>1,000-1,500</td>
+      <td>News headlines, social media</td>
+      <td>Short messages, forms</td>
+      <td>Daily conversations</td>
+      <td>1-2 years</td>
+    </tr>
+    <tr>
+      <td><strong>Intermediate</strong></td>
+      <td>2,000-2,500</td>
+      <td>Articles, stories</td>
+      <td>Emails, essays</td>
+      <td>Complex discussions</td>
+      <td>2-3 years</td>
+    </tr>
+    <tr>
+      <td><strong>Advanced</strong></td>
+      <td>3,000-3,500</td>
+      <td>Literature, technical texts</td>
+      <td>Reports, creative writing</td>
+      <td>Professional meetings</td>
+      <td>3-4 years</td>
+    </tr>
+    <tr>
+      <td><strong>Near-Native</strong></td>
+      <td>4,000+</td>
+      <td>Classical texts, specialized</td>
+      <td>Academic papers</td>
+      <td>Cultural nuances</td>
+      <td>4+ years</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Branch to Traditional: When and How</h3>
+
+<p><strong>Branch out to Traditional only after</strong> you're comfortable with the 3,500 high-frequency simplified forms. This typically requires 2-3 years of consistent study, but provides a solid foundation that makes traditional character learning much more efficient.</p>
+
+<h3>Motivation and Mindset: Sustaining Your Journey</h3>
+
+<p>Learning Chinese characters is a marathon, not a sprint. Celebrate when you recognize a character on a street sign, understand a meme on social media, or successfully order food using characters you've learned.</p>
+
+<p>Each character you learn connects to others in meaningful ways. The character <code>好</code> (good) appears in <code>好吃</code> (delicious), <code>好看</code> (good-looking), and <code>好人</code> (good person). These connections create a web of understanding that grows stronger with each new character.</p>
+
+<p>Your journey with Chinese characters is unique, but these expanded foundations provide a systematic approach to mastering one of the world's most fascinating writing systems. Remember that every expert was once a beginner, and every character you learn brings you closer to unlocking the rich world of Chinese language and culture.</p>
+
 <script>
-/* ---------- 1. Core Language Snapshot ---------- */
-const core = [
-  { Aspect: 'Native Name',        Value: '普通话 (Pǔtōnghuà)' },
-  { Aspect: 'Where spoken',       Value: 'Mainland China, Taiwan, Singapore' },
-  { Aspect: 'Speakers',           Value: '~1.1 billion (L1 + L2)' },
-  { Aspect: 'Family',             Value: 'Sino-Tibetan → Chinese' },
-  { Aspect: 'Writing system',     Value: 'Simplified (mainland) / Traditional (Taiwan)' },
-  { Aspect: 'Tones',              Value: '4 main (+ neutral)' },
-  { Aspect: 'Grammar notes',      Value: 'No conjugations, no plurals, fixed word order' },
-  { Aspect: 'Pronunciation guide',Value: 'Pinyin (Roman alphabet)' }
-];
+// Flashcard data organized by sets relevant to Section 1
+const flashcardSets = {
+  terminology: {
+    title: "Key Terminology",
+    cards: [
+      {
+        front: "What does \"简化字\" (jiǎnhuàzì) mean?",
+        back: "<h4>Simplified Chinese</h4><p>The writing system used in mainland China and Singapore, featuring characters with fewer strokes than traditional forms.</p>"
+      },
+      {
+        front: "What does \"繁體字\" (fántǐzì) mean?",
+        back: "<h4>Traditional Chinese</h4><p>The original character system with more complex strokes, used in Taiwan, Hong Kong, and Macau.</p>"
+      },
+      {
+        front: "What is Pinyin?",
+        back: "<h4>Romanization System</h4><p>The official system for representing Chinese pronunciation using Latin letters and tone marks (e.g., nǐ hǎo).</p>"
+      },
+      {
+        front: "What does \"普通话\" (pǔtōnghuà) mean?",
+        back: "<h4>Standard Mandarin</h4><p>Literally \"common speech\" - the standardized form of spoken Chinese based on Beijing pronunciation.</p>"
+      },
+      {
+        front: "What are the 4 main tones?",
+        back: "<h4>Mandarin Tone System</h4><p>High level (ā), rising (á), falling-rising (ǎ), falling (à), plus neutral tone (a).</p>"
+      }
+    ]
+  },
+  regions: {
+    title: "Regional Usage",
+    cards: [
+      {
+        front: "Which regions use Simplified Chinese?",
+        back: "<h4>Mainland China & Singapore</h4><p>These regions adopted simplified characters as part of literacy campaigns to make Chinese more accessible.</p>"
+      },
+      {
+        front: "Which regions use Traditional Chinese?",
+        back: "<h4>Taiwan, Hong Kong, Macau</h4><p>These regions maintained traditional characters due to different political histories and cultural preservation priorities.</p>"
+      },
+      {
+        front: "Why did mainland China simplify characters?",
+        back: "<h4>Literacy Campaign</h4><p>In the 1950s-60s, the government simplified characters to increase literacy rates and make writing faster and easier to learn.</p>"
+      },
+      {
+        front: "Can educated Chinese speakers read both systems?",
+        back: "<h4>Yes, Generally</h4><p>Like reading print vs. handwriting - the underlying language is the same, only visual representation differs.</p>"
+      },
+      {
+        front: "Which system should beginners learn first?",
+        back: "<h4>Simplified First</h4><p>Fewer strokes reduce cognitive load, build patterns faster, and simplified characters can serve as a bridge to traditional.</p>"
+      }
+    ]
+  },
+  milestones: {
+    title: "Learning Milestones",
+    cards: [
+      {
+        front: "How many characters for survival level?",
+        back: "<h4>300-500 Characters</h4><p>Enough for basic signs and simple conversations. Achievable in 6-12 months with consistent practice.</p>"
+      },
+      {
+        front: "How many characters for functional level?",
+        back: "<h4>1,000-1,500 Characters</h4><p>Enables reading news headlines and social media. Typically requires 1-2 years of study.</p>"
+      },
+      {
+        front: "How many characters for fluent level?",
+        back: "<h4>2,500-3,500 Characters</h4><p>Covers 99% of daily text including novels, academic texts, and business communication. Takes 2-4 years.</p>"
+      },
+      {
+        front: "How many simplified characters exist total?",
+        back: "<h4>~8,000 Common Characters</h4><p>But you only need ~3,500 high-frequency characters for 99% comprehension of daily Chinese text.</p>"
+      },
+      {
+        front: "How does this compare to English vocabulary?",
+        back: "<h4>Similar to English</h4><p>Shakespeare used 17,000 words total, but most English speakers use 3,000-5,000 for daily conversation.</p>"
+      }
+    ]
+  },
+  concepts: {
+    title: "Core Concepts",
+    cards: [
+      {
+        front: "What's the main difference between simplified and traditional?",
+        back: "<h4>Stroke Complexity</h4><p>Traditional characters often have significantly more strokes, making them more time-consuming to write and learn.</p>"
+      },
+      {
+        front: "Is Chinese writing phonetic like English?",
+        back: "<h4>No - It's Logographic</h4><p>Characters represent ideas/concepts rather than sounds. Same text can be 'read' in different dialects with different pronunciations.</p>"
+      },
+      {
+        front: "Why learn character patterns instead of memorizing individually?",
+        back: "<h4>Pattern Recognition</h4><p>Characters combine predictable elements (radicals) in systematic ways. Understanding patterns accelerates learning.</p>"
+      },
+      {
+        front: "What's the relationship between spoken and written Chinese?",
+        back: "<h4>Different from English</h4><p>Written Chinese represents ideas through characters rather than sounds, creating unique spoken-written dynamics.</p>"
+      },
+      {
+        front: "Why is stroke order important?",
+        back: "<h4>Muscle Memory & Recognition</h4><p>Correct stroke order builds brain patterns for character recognition and improves dictionary lookup ability.</p>"
+      }
+    ]
+  }
+};
 
-new Tabulator('#coreTable', {
-  data: core,
-  layout: 'fitColumns',
-  headerVisible: false,
-  columns: [
-    { field: 'Aspect', widthGrow: 1, resizable: false },
-    { field: 'Value',  widthGrow: 2, resizable: false }
-  ]
+// Flashcard data for Section 2
+const flashcardSets2 = {
+  history: {
+    title: "Historical Context",
+    cards: [
+      {
+        front: "When were simplified characters created?",
+        back: "<h4>1950s-1960s</h4><p>Created by the People's Republic of China as part of a massive literacy campaign to make Chinese more accessible to the general population.</p>"
+      },
+      {
+        front: "What problem did simplified characters solve?",
+        back: "<h4>Literacy Crisis</h4><p>The vast majority of the population couldn't read or write due to the complexity of traditional characters (some requiring 20+ strokes).</p>"
+      },
+      {
+        front: "Who created the simplification system?",
+        back: "<h4>Government Teams</h4><p>Teams of linguists, educators, and cultural experts worked systematically to reduce character complexity while maintaining meaning.</p>"
+      },
+      {
+        front: "What was the main challenge with traditional characters?",
+        back: "<h4>Complexity Through History</h4><p>Characters had evolved over thousands of years, accumulating complexity through historical accident rather than systematic design.</p>"
+      },
+      {
+        front: "Why was this considered revolutionary?",
+        back: "<h4>Ambitious Scale</h4><p>One of the most ambitious language reform projects in human history, affecting over a billion people's literacy.</p>"
+      }
+    ]
+  },
+  methods: {
+    title: "Simplification Methods",
+    cards: [
+      {
+        front: "What is structural reduction?",
+        back: "<h4>Remove Complex Components</h4><p>Example: 學 (16 strokes) → 学 (8 strokes). Simplify components while keeping overall structure recognizable.</p>"
+      },
+      {
+        front: "What is phonetic substitution?",
+        back: "<h4>Replace with Simpler Same-Sound</h4><p>Example: 華 (12 strokes) → 华 (6 strokes). Like using '2' instead of 'two' - same sound, simpler form.</p>"
+      },
+      {
+        front: "What is component standardization?",
+        back: "<h4>Standardize Radical Forms</h4><p>Example: 語 → 语. The speech radical 言 becomes 讠 across dozens of characters for consistency.</p>"
+      },
+      {
+        front: "What does 'merge similar characters' mean?",
+        back: "<h4>Combine Multiple Forms</h4><p>Example: Multiple traditional forms like 復/復 all become 复. Reduces total character count to learn.</p>"
+      },
+      {
+        front: "Why do these methods make learning easier?",
+        back: "<h4>Systematic Patterns</h4><p>Once you learn the patterns, you can recognize simplifications across many characters, accelerating learning speed.</p>"
+      }
+    ]
+  },
+  tones: {
+    title: "Tone System",
+    cards: [
+      {
+        front: "What is the 1st tone (ā)?",
+        back: "<h4>High Level Tone</h4><p>Flat, high pitch like saying 'ahhhh' at the doctor. Example: 妈 (mā) = mother. Memory aid: flat highway.</p>"
+      },
+      {
+        front: "What is the 2nd tone (á)?",
+        back: "<h4>Rising Tone</h4><p>Pitch rises like asking 'what?' Example: 麻 (má) = hemp. Goes from mid to high pitch.</p>"
+      },
+      {
+        front: "What is the 3rd tone (ǎ)?",
+        back: "<h4>Falling-Rising Tone</h4><p>Dips down then rises, like disappointed 'oh...' Example: 马 (mǎ) = horse. Most complex tone pattern.</p>"
+      },
+      {
+        front: "What is the 4th tone (à)?",
+        back: "<h4>Falling Tone</h4><p>Sharp drop from high to low, like angry 'No!' Example: 骂 (mà) = scold. Most dramatic tone.</p>"
+      },
+      {
+        front: "Why are tones crucial in Mandarin?",
+        back: "<h4>Change Meaning Completely</h4><p>Same sound 'ma' means mother, hemp, horse, or scold depending on tone. Tones aren't decorative - they're essential information.</p>"
+      }
+    ]
+  }
+};
+
+let currentSet = 'terminology';
+let currentCardIndex = 0;
+let isFlipped = false;
+
+// Section 2 flashcard variables
+let currentSet2 = 'history';
+let currentCardIndex2 = 0;
+let isFlipped2 = false;
+
+function loadFlashcardSet() {
+  const select = document.getElementById('flashcard-set');
+  currentSet = select.value;
+  currentCardIndex = 0;
+  isFlipped = false;
+  updateFlashcard();
+}
+
+function updateFlashcard() {
+  const set = flashcardSets[currentSet];
+  const card = set.cards[currentCardIndex];
+  
+  // Update counter
+  document.getElementById('card-counter').textContent = `${currentCardIndex + 1} / ${set.cards.length}`;
+  
+  // Update card content
+  document.getElementById('flashcard-front').innerHTML = `<h4>${card.front}</h4>`;
+  document.getElementById('flashcard-back').innerHTML = card.back;
+  
+  // Reset to front side
+  document.getElementById('flashcard-front').style.display = 'block';
+  document.getElementById('flashcard-back').style.display = 'none';
+  isFlipped = false;
+  
+  // Update navigation buttons
+  document.getElementById('prev-btn').disabled = currentCardIndex === 0;
+  document.getElementById('next-btn').disabled = currentCardIndex === set.cards.length - 1;
+}
+
+function flipCard() {
+  const front = document.getElementById('flashcard-front');
+  const back = document.getElementById('flashcard-back');
+  
+  if (isFlipped) {
+    front.style.display = 'block';
+    back.style.display = 'none';
+  } else {
+    front.style.display = 'none';
+    back.style.display = 'block';
+  }
+  isFlipped = !isFlipped;
+}
+
+function previousCard() {
+  if (currentCardIndex > 0) {
+    currentCardIndex--;
+    updateFlashcard();
+  }
+}
+
+function nextCard() {
+  const set = flashcardSets[currentSet];
+  if (currentCardIndex < set.cards.length - 1) {
+    currentCardIndex++;
+    updateFlashcard();
+  }
+}
+
+// Initialize flashcards on page load
+document.addEventListener('DOMContentLoaded', function() {
+  updateFlashcard();
+  updateFlashcard2();
 });
 
-/* ---------- 2. Survival Phrases ---------- */
-const phrases = [
-  { Chinese: '你好',    Pinyin: 'nǐ hǎo',     English: 'Hello' },
-  { Chinese: '谢谢',    Pinyin: 'xièxie',     English: 'Thank you' },
-  { Chinese: '是',      Pinyin: 'shì',        English: 'Yes' },
-  { Chinese: '不是',    Pinyin: 'bù shì',     English: 'No' },
-  { Chinese: '多少钱？', Pinyin: 'duōshao qián?', English: 'How much?' }
-];
+// Section 2 flashcard functions
+function loadFlashcardSet2() {
+  const select = document.getElementById('flashcard-set-2');
+  currentSet2 = select.value;
+  currentCardIndex2 = 0;
+  isFlipped2 = false;
+  updateFlashcard2();
+}
 
-new Tabulator('#phraseTable', {
-  data: phrases,
-  layout: 'fitColumns',
-  resizableColumns: false,
-  columns: [
-    { title: 'Chinese', field: 'Chinese', width: 120 },
-    { title: 'Pinyin',  field: 'Pinyin',  width: 120 },
-    { title: 'English', field: 'English' }
-  ]
-});
+function updateFlashcard2() {
+  const set = flashcardSets2[currentSet2];
+  const card = set.cards[currentCardIndex2];
+  
+  // Update counter
+  document.getElementById('card-counter-2').textContent = `${currentCardIndex2 + 1} / ${set.cards.length}`;
+  
+  // Update card content
+  document.getElementById('flashcard-front-2').innerHTML = `<h4>${card.front}</h4>`;
+  document.getElementById('flashcard-back-2').innerHTML = card.back;
+  
+  // Reset to front side
+  document.getElementById('flashcard-front-2').style.display = 'block';
+  document.getElementById('flashcard-back-2').style.display = 'none';
+  isFlipped2 = false;
+  
+  // Update navigation buttons
+  document.getElementById('prev-btn-2').disabled = currentCardIndex2 === 0;
+  document.getElementById('next-btn-2').disabled = currentCardIndex2 === set.cards.length - 1;
+}
 
-/* ---------- 3. Major Dialect Flavours ---------- */
-const dialects = [
-  { Region: 'North',       Variety: 'Beijing Mandarin',          Features: '“r”-added sounds (儿化音), neutral tones' },
-  { Region: 'Northeast',   Variety: 'Dongbei',                   Features: 'Strong retroflex, “er” endings, lively intonation' },
-  { Region: 'East',        Variety: 'Shanghainese (Wu-influenced)', Features: 'Soft retroflex, merges sh/s, rising glide tones' },
-  { Region: 'Central',     Variety: 'South-western (Sichuan)',   Features: 'Few retroflex, wide tone range, n ↔ l mixing' },
-  { Region: 'South',       Variety: 'Yue & Min-influenced',      Features: 'Entering-tone remnants, consonant endings, sharper tones' }
-];
+function flipCard2() {
+  const front = document.getElementById('flashcard-front-2');
+  const back = document.getElementById('flashcard-back-2');
+  
+  if (isFlipped2) {
+    front.style.display = 'block';
+    back.style.display = 'none';
+  } else {
+    front.style.display = 'none';
+    back.style.display = 'block';
+  }
+  isFlipped2 = !isFlipped2;
+}
 
-new Tabulator('#dialectTable', {
-  data: dialects,
-  layout: 'fitColumns',
-  resizableColumns: false,
-  columns: [
-    { title: 'Region',    field: 'Region',  width: 100 },
-    { title: 'Variety',   field: 'Variety', width: 160 },
-    { title: 'Key Features', field: 'Features' }
-  ]
-});
+function previousCard2() {
+  if (currentCardIndex2 > 0) {
+    currentCardIndex2--;
+    updateFlashcard2();
+  }
+}
+
+function nextCard2() {
+  const set = flashcardSets2[currentSet2];
+  if (currentCardIndex2 < set.cards.length - 1) {
+    currentCardIndex2++;
+    updateFlashcard2();
+  }
+}
 </script>
+
 </body>
 </html>
