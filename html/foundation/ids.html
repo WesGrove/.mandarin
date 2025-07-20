@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ideographic Description Sequences</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        .intro {
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #ecf0f1;
+            border-radius: 8px;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            font-size: 2.2em;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #2c3e50;
+            margin-top: 2em;
+        }
+        h3 {
+            color: #34495e;
+            margin-top: 1.5em;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1em 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        strong {
+            font-weight: 600;
+        }
+        ul, ol {
+            margin: 1em 0;
+            padding-left: 2em;
+        }
+        li {
+            margin: 0.5em 0;
+        }
+        .example {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-left: 4px solid #007acc;
+            margin: 1em 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ideographic Description Sequences</h1>
+    
+    <div class="intro">
+        <p>Imagine trying to describe the structure of a complex building to someone over the phone without using any visual aids. You'd need a systematic way to explain how different parts relate to each other - which elements are on top, beside, or inside others. Ideographic Description Sequences serve exactly this purpose for Chinese characters, providing a standardized "language" for describing how character components are arranged spatially within the overall character structure.</p>
+
+        <p>Think of IDS as the architectural blueprint system for Chinese characters. Just as architects use standardized symbols and notation to communicate building designs precisely, IDS uses a set of twelve standardized symbols to describe how any Chinese character is constructed from its component parts. This system becomes particularly powerful when you realize it can describe not just simple characters, but also the most complex characters containing dozens of strokes, all through logical, step-by-step structural descriptions.</p>
+    </div>
+    
+    <h2>The Foundation: Understanding Spatial Relationships</h2>
+
+    <p>Before we dive into the specific symbols, let's establish why this system exists and what problem it solves. Chinese characters occupy a roughly square space, and within that space, components can be arranged in various ways. Unlike alphabetic writing where letters simply line up horizontally, Chinese character components have complex spatial relationships - they can be stacked vertically, placed side by side, nested inside each other, or arranged in more intricate patterns.</p>
+
+    <p>Consider how you might describe the character 好 (good) to someone. You could say "it has a woman on the left and a child on the right," but what if the character were more complex? What about characters like 憂 (worry) or 戀 (love) that have multiple layers of components? You'd quickly realize the need for a systematic way to describe these relationships precisely and unambiguously.</p>
+
+    <p>IDS addresses this challenge by providing twelve fundamental symbols that capture all the basic ways components can be spatially related within Chinese characters. Think of these symbols as the "grammar" of character construction - they tell you not what the components mean, but how they're positioned relative to each other.</p>
+
+    <h3>What is IDS?</h3>
+
+    <p>IDS is a standardized system using 12 symbols to describe the spatial structure of Chinese characters. It shows how character components are arranged within the character space.</p>
+
+    <p><strong>Purpose:</strong> Systematically describe any Chinese character's structure using spatial relationships.</p>
+
+    <h2>The Twelve Building Blocks: IDS Symbols Explained</h2>
+
+    <p>Let me walk you through each IDS symbol, starting with the most common and intuitive ones, then building toward the more complex arrangements. As we explore each symbol, try to visualize how it captures a specific type of spatial relationship.</p>
+
+    <p>The horizontal division symbol ⿰ indicates that a character splits into left and right components. When you see ⿰AB in an IDS, you're being told "component A is on the left, component B is on the right." The character 好 (good) would be described as ⿰女子 - the woman radical on the left, the child component on the right. This is probably the most frequent relationship you'll encounter in Chinese characters.</p>
+
+    <p>The vertical division symbol ⿱ describes top-bottom arrangements. An IDS notation of ⿱AB means "component A is on top, component B is on the bottom." The character 安 (peace) follows this pattern: ⿱宀女 - the roof radical on top, the woman radical below. Notice how this captures the visual stacking relationship clearly and unambiguously.</p>
+
+    <p>The three-way horizontal split ⿲ handles characters divided into three parts horizontally. When you see ⿲ABC, you're reading "A on the left, B in the center, C on the right." This appears in characters like 謝 (thank), though these three-way splits are less common than simple left-right divisions.</p>
+
+    <p>The three-way vertical split ⿳ works similarly but for top-middle-bottom arrangements. ⿳ABC means "A on top, B in the middle, C on the bottom." You might encounter this in more complex characters where components stack in three distinct layers.</p>
+
+    <p>Now we move into the enclosure relationships, which capture how some components wrap around or contain others. The full enclosure symbol ⿴ describes situations where one component completely surrounds another, like ⿴囗王 for 國 (country) - the enclosing frame around the internal components.</p>
+
+    <h3>The 12 IDS Symbols</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Structure</th>
+                <th>Example</th>
+                <th>IDS</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>⿰</td>
+                <td>Left-right</td>
+                <td>A│B</td>
+                <td>好 (good)</td>
+                <td>⿰女子</td>
+            </tr>
+            <tr>
+                <td>⿱</td>
+                <td>Top-bottom</td>
+                <td>A<br>─<br>B</td>
+                <td>安 (peace)</td>
+                <td>⿱宀女</td>
+            </tr>
+            <tr>
+                <td>⿲</td>
+                <td>Left-center-right</td>
+                <td>A│B│C</td>
+                <td>謝 (thank)</td>
+                <td>⿲言身寸</td>
+            </tr>
+            <tr>
+                <td>⿳</td>
+                <td>Top-center-bottom</td>
+                <td>A<br>B<br>C</td>
+                <td>意 (meaning)</td>
+                <td>⿳立日心</td>
+            </tr>
+            <tr>
+                <td>⿴</td>
+                <td>Full surround</td>
+                <td>□A</td>
+                <td>國 (country)</td>
+                <td>⿴囗王</td>
+            </tr>
+            <tr>
+                <td>⿵</td>
+                <td>Surround from above</td>
+                <td>⌐A</td>
+                <td>同 (same)</td>
+                <td>⿵冂口</td>
+            </tr>
+            <tr>
+                <td>⿶</td>
+                <td>Surround from below</td>
+                <td>⌙A</td>
+                <td>凶 (fierce)</td>
+                <td>⿶凵乂</td>
+            </tr>
+            <tr>
+                <td>⿷</td>
+                <td>Surround from left</td>
+                <td>⌊A</td>
+                <td>匡 (correct)</td>
+                <td>⿷匚王</td>
+            </tr>
+            <tr>
+                <td>⿸</td>
+                <td>Surround from upper left</td>
+                <td>⌈A</td>
+                <td>病 (sick)</td>
+                <td>⿸疒丙</td>
+            </tr>
+            <tr>
+                <td>⿹</td>
+                <td>Surround from upper right</td>
+                <td>⌉A</td>
+                <td>勿 (don't)</td>
+                <td>⿹勹丿</td>
+            </tr>
+            <tr>
+                <td>⿺</td>
+                <td>Surround from lower left</td>
+                <td>⌞A</td>
+                <td>延 (extend)</td>
+                <td>⿺廴止</td>
+            </tr>
+            <tr>
+                <td>⿻</td>
+                <td>Overlapping</td>
+                <td>A⊕B</td>
+                <td>申 (apply)</td>
+                <td>⿻日丨</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Partial Enclosures: Capturing Complex Spatial Relationships</h2>
+
+    <p>The remaining symbols handle various types of partial enclosures, which represent some of the most sophisticated spatial relationships in Chinese character construction. These require more careful thought to understand, but they're essential for describing many common characters accurately.</p>
+
+    <p>The upper-left enclosure ⿵ describes components that wrap around from the top and left side, like an upside-down "L" shape. Think of characters where one component forms a corner that partially contains another. The lower-left enclosure ⿷ captures the mirror image - components that wrap from the bottom and left.</p>
+
+    <p>The upper-right enclosure ⿶ and lower-right enclosure ⿸ complete this family, handling situations where components wrap from their respective corners. Each of these captures a specific geometric relationship that appears regularly in Chinese character construction.</p>
+
+    <p>The full surround on three sides ⿹ describes components that wrap around on three sides, leaving one side open. This often appears in characters where one component forms a "U" shape that partially contains another component.</p>
+
+    <p>Finally, the overlap symbol ⿻ handles the special case where components overlay each other rather than sitting in distinct spatial regions. This is less common but essential for accurately describing certain character structures where components genuinely occupy the same space.</p>
+
+    <h2>Seeing IDS in Action: Character Examples</h2>
+
+    <p>Let's work through several examples to see how these symbols combine to describe real characters. Start with something simple and build your intuition before tackling more complex cases.</p>
+
+    <p>The character 林 (forest) demonstrates a straightforward horizontal relationship: ⿰木木. You read this as "wood component on the left, wood component on the right." Notice how the IDS captures the essential structural relationship without requiring you to know what the components mean semantically.</p>
+
+    <p>Moving to a vertical arrangement, consider 安 (peace): ⿱宀女. This reads as "roof component on top, woman component on bottom." The IDS tells you exactly how to reconstruct the character's spatial arrangement from its components.</p>
+
+    <p>Now let's tackle something more complex. The character 想 (think) has a more intricate structure: ⿱相心. Breaking this down, you have the "mutual" component on top and the "heart" component on bottom. But notice that 相 itself could be further decomposed if needed: ⿰木目 (wood on left, eye on right). This demonstrates how IDS can work recursively - you can describe components at whatever level of detail serves your purpose.</p>
+
+    <p>For an even more sophisticated example, consider how you might describe 憂 (worry). This character involves multiple layers and partial enclosures, requiring several IDS symbols working together to capture its complete structure. Working through such examples helps you appreciate how IDS can systematically describe even the most complex character arrangements.</p>
+
+    <h3>How to Read IDS</h3>
+
+    <p><strong>Format:</strong> Symbol + Component1 + Component2 [+ Component3]</p>
+
+    <div class="example">
+        <p><strong>Examples:</strong></p>
+        <ul>
+            <li>⿰木木 = 林 (forest) - wood left, wood right</li>
+            <li>⿱雨下 = 雪 (snow) - rain above, below</li>
+            <li>⿲木人木 = 來 (come) - wood left, person center, wood right</li>
+        </ul>
+    </div>
+
+    <h3>Recursive Structure</h3>
+
+    <p>Components can be further decomposed:</p>
+    <ul>
+        <li>想 (think) = ⿱相心</li>
+        <li>相 (mutual) = ⿰木目</li>
+        <li>Full decomposition: ⿱⿰木目心</li>
+    </ul>
+
+    <h3>Common Patterns</h3>
+
+    <h4>Frequent Left-Right (⿰)</h4>
+    <ul>
+        <li>他 = ⿰亻也</li>
+        <li>明 = ⿰日月</li>
+        <li>林 = ⿰木木</li>
+        <li>江 = ⿰氵工</li>
+    </ul>
+
+    <h4>Common Top-Bottom (⿱)</h4>
+    <ul>
+        <li>字 = ⿱宀子</li>
+        <li>室 = ⿱宀至</li>
+        <li>空 = ⿱穴工</li>
+    </ul>
+
+    <h4>Enclosures</h4>
+    <ul>
+        <li>回 = ⿴囗口</li>
+        <li>园 = ⿴囗元</li>
+        <li>因 = ⿴囗大</li>
+    </ul>
+
+    <h2>The Recursive Nature: Building Complexity from Simplicity</h2>
+
+    <p>One of the most elegant aspects of IDS lies in its recursive capability. Just as you can describe a complex sentence by breaking it into clauses, which break into phrases, which break into words, you can describe complex characters by breaking them into components, which themselves break into sub-components, continuing until you reach the basic stroke level.</p>
+
+    <p>This recursive property means that IDS can describe characters of any complexity while maintaining systematic clarity. You might describe a character's top-level structure with one IDS symbol, then separately describe the internal structure of each major component. This layered approach prevents descriptions from becoming unwieldy while preserving complete structural information.</p>
+
+    <p>Consider this approach when analyzing your own character learning. Instead of trying to memorize complex characters as indivisible wholes, use IDS thinking to break them into manageable structural relationships. This analytical approach often reveals patterns and logic that make characters easier to remember and write correctly.</p>
+
+    <h2>Practical Applications: Why IDS Matters</h2>
+
+    <p>Understanding IDS provides several concrete benefits for Chinese learners, even if you never write formal IDS notation yourself. The systematic thinking that IDS represents helps you analyze character structure more effectively, leading to better retention and more accurate writing.</p>
+
+    <p>When you encounter an unfamiliar character, IDS-style analysis helps you break it down systematically. Instead of seeing an intimidating tangle of strokes, you can identify the major spatial relationships and recognize familiar components within their structural context. This analytical skill accelerates both recognition and reproduction of new characters.</p>
+
+    <p>For those interested in Chinese typography, linguistics, or computer processing of Chinese text, IDS becomes even more directly useful. Font designers use IDS concepts to ensure consistent character proportions and relationships. Dictionary makers use IDS thinking to organize character information systematically. Computer systems use IDS principles for character encoding and automated processing.</p>
+
+    <h3>Practical Applications</h3>
+
+    <h4>Character Analysis</h4>
+    <p>Break complex characters into structural relationships:</p>
+    <ul>
+        <li>Identify major divisions first</li>
+        <li>Recognize component positions</li>
+        <li>Apply recursively for sub-components</li>
+    </ul>
+
+    <h4>Learning Benefits</h4>
+    <ul>
+        <li><strong>Structure recognition:</strong> See patterns in character construction</li>
+        <li><strong>Memory aids:</strong> Understand spatial logic</li>
+        <li><strong>Writing accuracy:</strong> Know component relationships</li>
+    </ul>
+
+    <h4>Technical Uses</h4>
+    <ul>
+        <li><strong>Font design:</strong> Consistent character proportions</li>
+        <li><strong>Dictionary organization:</strong> Systematic character description</li>
+        <li><strong>Computer processing:</strong> Character encoding and analysis</li>
+    </ul>
+
+    <h2>Developing Your Structural Analysis Skills</h2>
+
+    <p>As you continue studying Chinese characters, try incorporating IDS-style thinking into your analysis routine. When you encounter a new character, pause and ask yourself: "What are the major spatial relationships here? How would I describe this character's structure systematically?"</p>
+
+    <p>Start by identifying the top-level division - is this character fundamentally split left-right, top-bottom, or does it involve some type of enclosure relationship? Then work down into the sub-components, applying the same systematic analysis at each level.</p>
+
+    <p>This analytical practice develops what you might call "structural intuition" - the ability to quickly parse character arrangements and understand how components relate spatially. This intuition proves invaluable not just for learning new characters, but for developing more natural handwriting and better character recognition skills.</p>
+
+    <p>Remember that IDS represents a formal system for capturing knowledge that skilled readers and writers of Chinese develop intuitively through extensive practice. By understanding IDS principles explicitly, you're gaining conscious access to structural patterns that might otherwise take years to absorb unconsciously. This conscious structural awareness can significantly accelerate your progress toward fluent character recognition and production.</p>
+
+    <h3>Reading Strategy</h3>
+
+    <ol>
+        <li><strong>Identify main division:</strong> Left-right, top-bottom, or enclosure</li>
+        <li><strong>Apply IDS symbol:</strong> Choose appropriate spatial relationship</li>
+        <li><strong>Name components:</strong> Left to right, top to bottom</li>
+        <li><strong>Recurse if needed:</strong> Break down complex components</li>
+    </ol>
+
+    <div class="example">
+        <p><strong>Example Process:</strong></p>
+        <ul>
+            <li>Character: 慢 (slow)</li>
+            <li>Structure: Left-right division</li>
+            <li>IDS: ⿰忄曼</li>
+            <li>忄 = heart radical (left)</li>
+            <li>曼 = phonetic component (right)</li>
+        </ul>
+    </div>
+</body>
+</html>

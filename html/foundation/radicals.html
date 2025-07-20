@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radicals</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            font-size: 2.2em;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h1:first-child {
+            margin-top: 0;
+        }
+        h2, h3, h4, h5 {
+            color: #2c3e50;
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+        h2:first-child, h3:first-child, h4:first-child, h5:first-child {
+            margin-top: 0;
+        }
+        h2 { border-bottom: 1px solid #3498db; padding-bottom: 5px; }
+        h3 { color: #34495e; }
+        h4 { color: #7f8c8d; margin-top: 20px; }
+        h5 { color: #95a5a6; margin-top: 15px; }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px 12px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background-color: #f5f5f5;
+            font-weight: bold;
+        }
+        tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tbody tr:hover {
+            background-color: #f0f0f0;
+        }
+        .chinese {
+            font-family: "Noto Sans CJK SC", "Microsoft YaHei", "SimHei", "Arial Unicode MS", sans-serif;
+            font-size: 1.1em;
+        }
+        code {
+            background-color: #f5f5f5;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        blockquote {
+            border-left: 4px solid #ddd;
+            margin: 20px 0;
+            padding-left: 20px;
+            color: #666;
+        }
+        .intro {
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #ecf0f1;
+            border-radius: 8px;
+        }
+        ul, ol { margin: 10px 0; padding-left: 30px; }
+        li { margin: 5px 0; }
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+                font-size: 14px;
+            }
+            table {
+                font-size: 12px;
+            }
+            th, td {
+                padding: 6px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+<h1>Radicals</h1>
+
+    <div class="intro">
+        <p>Imagine trying to understand English without knowing that words like "telephone," "telegraph," and "television" all share the Greek root "tele" meaning "far" or "distant." You might memorize each word individually, but you'd miss the underlying logic that connects them and makes them easier to remember. Chinese radicals function exactly like these root elements, serving as the fundamental building blocks that give structure, meaning, and pronunciation clues to Chinese characters.</p>
+
+        <p>Think of radicals as the DNA of Chinese writing. Just as biological DNA contains the genetic instructions that determine an organism's characteristics, radicals carry the semantic and sometimes phonetic information that shapes how characters look, what they mean, and occasionally how they sound. This systematic approach transforms what might seem like an overwhelming collection of thousands of unique symbols into a logical, learnable system built from roughly 200 core components.</p>
+    </div>
+
+<h2>Understanding What Radicals Actually Are</h2>
+
+<p>Let me start by clarifying what we mean by "radical" because this term can be confusing for beginners. In Chinese, these building blocks are called <span class="chinese">"bùshǒu" (部首)</span>, which literally means "section head." Historically, radicals served as the organizational system for Chinese dictionaries, much like how English dictionaries organize words alphabetically. However, their role extends far beyond mere dictionary organization.</p>
+
+<p>A radical is essentially a meaningful component that appears within Chinese characters, often providing a semantic hint about the character's meaning. Picture radicals as the "category tags" that help you understand what general area of meaning a character belongs to. When you see the water radical <span class="chinese">氵</span> in characters like <span class="chinese">河</span> (river), <span class="chinese">海</span> (ocean), or <span class="chinese">洗</span> (wash), you immediately know these characters relate to water or liquid in some way.</p>
+
+<p>However, here's where it gets interesting and where many learners initially feel confused. Not every component you see in a character is necessarily the dictionary radical. Modern dictionaries typically assign one primary radical per character for organizational purposes, but characters often contain multiple meaningful components. Think of it this way: if a character were a house, the dictionary radical would be the main address for postal purposes, but the house might contain multiple rooms, each with its own function and meaning.</p>
+
+<h3>What Are Radicals?</h3>
+
+<p>Radicals <span class="chinese">(部首 bùshǒu)</span> are meaningful components within Chinese characters that provide:</p>
+<ul>
+<li><strong>Semantic clues</strong> about meaning</li>
+<li><strong>Phonetic hints</strong> about pronunciation</li>
+<li><strong>Dictionary organization</strong> system</li>
+</ul>
+
+<p>Think of them as the "DNA" of Chinese characters - core building blocks that make thousands of characters learnable through pattern recognition.</p>
+
+<h2>The Historical Journey: From Pictures to System</h2>
+
+<p>To truly understand radicals, you need to appreciate their historical development. Chinese characters began as pictographs - literal pictures of objects and concepts. The character <span class="chinese">火</span> (fire) originally looked like flames, while <span class="chinese">山</span> (mountain) resembled mountain peaks. Over thousands of years, these pictures evolved into the standardized forms we see today, but they retained their core meanings.</p>
+
+<p>As Chinese civilization grew more complex, people needed to write about concepts that couldn't be easily pictured. How do you draw "love" or "democracy"? The solution was brilliant: combine existing meaningful elements to create new characters. This process gave birth to the radical system as we know it today.</p>
+
+<p>Consider how this works in practice. The ancient Chinese already had the character <span class="chinese">木</span> (tree/wood) for wooden objects and trees. When they needed characters for different types of trees, they kept <span class="chinese">木</span> as the core element and added distinguishing components. This created characters like <span class="chinese">松</span> (pine tree), <span class="chinese">柳</span> (willow), and <span class="chinese">桃</span> (peach tree). The <span class="chinese">木</span> radical immediately tells you these characters relate to trees or wooden objects, while the additional components provide specific identification.</p>
+
+<h2>Categories of Radicals: The Three Main Types</h2>
+
+<p>Understanding that radicals fall into three main categories will dramatically improve your ability to analyze and remember characters. Each type serves a different function, much like how different parts of speech serve different roles in English sentences.</p>
+
+<p>Semantic radicals provide meaning clues and represent the largest category. These tell you what general category or field the character belongs to. The heart radical <span class="chinese">心</span> or <span class="chinese">⺗</span> appears in emotion-related characters like <span class="chinese">爱</span> (love), <span class="chinese">怕</span> (fear), and <span class="chinese">想</span> (think). The metal radical <span class="chinese">金</span> shows up in characters related to metals and money: <span class="chinese">银</span> (silver), <span class="chinese">钱</span> (money), and <span class="chinese">铁</span> (iron). When you encounter an unfamiliar character containing a semantic radical you recognize, you can make educated guesses about its meaning field.</p>
+
+<p>Phonetic radicals provide pronunciation hints, though this system works less reliably in modern Chinese than it did historically. Language evolution has changed pronunciations over the centuries, so phonetic hints that were once clear have become less predictable. However, they still offer valuable clues. Characters containing the component <span class="chinese">青</span> (qīng) often have similar pronunciations: <span class="chinese">清</span> (qīng - clear), <span class="chinese">请</span> (qǐng - please), and <span class="chinese">情</span> (qíng - emotion). Notice how the pronunciations cluster around the "qing" sound family, even though the tones and exact pronunciations vary.</p>
+
+<p>Signific radicals combine both meaning and sound functions, though these are less common. These components contribute both semantic and phonetic information to their host characters, making them particularly valuable for learners who can recognize their dual function.</p>
+
+<h3>Three Types of Radicals</h3>
+
+<h4>1. Semantic Radicals (Meaning)</h4>
+<p>Indicate the general category or field of meaning.</p>
+<ul>
+<li><strong class="chinese">氵(water)</strong> → <span class="chinese">河</span> (river), <span class="chinese">海</span> (ocean), <span class="chinese">洗</span> (wash)</li>
+<li><strong class="chinese">⺗(heart)</strong> → <span class="chinese">爱</span> (love), <span class="chinese">怕</span> (fear), <span class="chinese">想</span> (think)</li>
+<li><strong class="chinese">木 (wood)</strong> → <span class="chinese">树</span> (tree), <span class="chinese">桌</span> (table), <span class="chinese">林</span> (forest)</li>
+</ul>
+
+<h4>2. Phonetic Radicals (Sound)</h4>
+<p>Provide pronunciation hints (less reliable in modern Chinese).</p>
+<ul>
+<li><strong class="chinese">青 (qīng)</strong> → <span class="chinese">清</span> (qīng), <span class="chinese">请</span> (qǐng), <span class="chinese">情</span> (qíng)</li>
+<li><strong class="chinese">工 (gōng)</strong> → <span class="chinese">红</span> (hóng), <span class="chinese">攻</span> (gōng), <span class="chinese">功</span> (gōng)</li>
+</ul>
+
+<h4>3. Signific Radicals (Both)</h4>
+<p>Contribute both meaning and sound (less common).</p>
+
+<h2>How to Recognize and Analyze Radicals in Characters</h2>
+
+<p>Developing your radical recognition skills requires a systematic approach that becomes more intuitive with practice. Start by training your eye to see characters as combinations of components rather than indivisible wholes. This shift in perspective is crucial and takes conscious effort at first.</p>
+
+<p>When you encounter a new character, begin by scanning for components you already recognize. Look for familiar shapes that might be slightly modified or positioned differently than when they appear as standalone characters. The water radical, for example, appears as <span class="chinese">水</span> when written alone but transforms into <span class="chinese">氵</span> when used as a component on the left side of characters. This transformation follows consistent patterns that you'll learn to recognize automatically.</p>
+
+<p>Pay attention to position patterns because radicals tend to appear in predictable locations within characters. Left-side radicals like <span class="chinese">氵</span>(water), <span class="chinese">木</span> (wood), and <span class="chinese">人</span> (person) are extremely common. Top radicals like <span class="chinese">艹</span> (grass) and <span class="chinese">宀</span> (roof) appear frequently above other components. Bottom radicals like <span class="chinese">心</span> (heart) and <span class="chinese">火</span> (fire) provide foundation meanings. Right-side components often contribute phonetic information.</p>
+
+<p>Consider the character <span class="chinese">慢</span> (slow) as a practical example. Breaking it down systematically, you can identify the left side as the heart radical <span class="chinese">⺗</span>, which tells you this character relates to emotions or mental states. The right side contains <span class="chinese">曼</span>, which provides phonetic information. Knowing that "slow" involves a mental or emotional state makes perfect sense when you think about patience and deliberate action.</p>
+
+<h2>Common Radical Families and Their Meanings</h2>
+
+<p>Let me introduce you to some of the most frequent and useful radical families. Mastering these will unlock your understanding of hundreds of characters immediately.</p>
+
+<p>The water family, headed by <span class="chinese">氵</span>, encompasses all manner of liquid-related concepts. Beyond obvious water words like <span class="chinese">河</span> (river) and <span class="chinese">湖</span> (lake), this radical appears in less obvious but logically connected characters like <span class="chinese">汗</span> (sweat), <span class="chinese">酒</span> (alcohol), and <span class="chinese">法</span> (law - historically connected to water's role in justice and purity rituals).</p>
+
+<p>The wood family, built around <span class="chinese">木</span>, extends beyond trees to include wooden objects and, by extension, many plants. Characters like <span class="chinese">桌</span> (table), <span class="chinese">椅</span> (chair), and <span class="chinese">林</span> (forest) make obvious sense, but <span class="chinese">木</span> also appears in <span class="chinese">村</span> (village) because traditional villages were built with wood and surrounded by trees.</p>
+
+<p>The metal family, centered on <span class="chinese">金</span>, covers metals, money, and valuable objects. This includes <span class="chinese">银</span> (silver), <span class="chinese">铜</span> (copper), <span class="chinese">钱</span> (money), and <span class="chinese">钟</span> (clock - originally made of metal). The connection between metal and value explains why this radical appears in many commerce-related characters.</p>
+
+<p>The person family, featuring <span class="chinese">人</span> or its variant form <span class="chinese">亻</span>, appears in characters describing human actions, relationships, and characteristics. Examples include <span class="chinese">他</span> (he), <span class="chinese">们</span> (plural marker for people), <span class="chinese">信</span> (trust), and <span class="chinese">作</span> (make/do). This radical helps you immediately identify character meanings related to human behavior and social relationships.</p>
+
+<h3>Most Common Radical Families</h3>
+
+<h4>Human &amp; Body</h4>
+<table>
+<thead>
+<tr><th>Radical</th><th>Form</th><th>Examples</th><th>Meaning Field</th></tr>
+</thead>
+<tbody>
+<tr><td class="chinese">人/亻</td><td>person</td><td class="chinese">他, 们, 信</td><td>human actions, relationships</td></tr>
+<tr><td class="chinese">手/扌</td><td>hand</td><td class="chinese">打, 拿, 推</td><td>hand actions</td></tr>
+<tr><td class="chinese">口</td><td>mouth</td><td class="chinese">吃, 说, 唱</td><td>mouth actions, speech</td></tr>
+<tr><td class="chinese">心/⺗</td><td>heart</td><td class="chinese">想, 怕, 忘</td><td>emotions, mental states</td></tr>
+</tbody>
+</table>
+
+<h4>Nature &amp; Elements</h4>
+<table>
+<thead>
+<tr><th>Radical</th><th>Form</th><th>Examples</th><th>Meaning Field</th></tr>
+</thead>
+<tbody>
+<tr><td class="chinese">氵</td><td>water</td><td class="chinese">河, 海, 洗</td><td>water, liquids</td></tr>
+<tr><td class="chinese">火/灬</td><td>fire</td><td class="chinese">热, 烧, 灯</td><td>fire, heat, light</td></tr>
+<tr><td class="chinese">木</td><td>wood</td><td class="chinese">树, 林, 桌</td><td>trees, wood objects</td></tr>
+<tr><td class="chinese">土</td><td>earth</td><td class="chinese">地, 城, 墙</td><td>earth, land, buildings</td></tr>
+<tr><td class="chinese">金</td><td>metal</td><td class="chinese">银, 钱, 铁</td><td>metals, money</td></tr>
+<tr><td class="chinese">石</td><td>stone</td><td class="chinese">砖, 破, 硬</td><td>stone, hard objects</td></tr>
+</tbody>
+</table>
+
+<h4>Common Positions</h4>
+<table>
+<thead>
+<tr><th>Position</th><th>Examples</th><th>Notes</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Left side</strong></td><td class="chinese">氵木亻扌</td><td>Most common position</td></tr>
+<tr><td><strong>Top</strong></td><td class="chinese">艹宀雨</td><td>Covers other components</td></tr>
+<tr><td><strong>Bottom</strong></td><td class="chinese">心火土</td><td>Foundation meaning</td></tr>
+<tr><td><strong>Right side</strong></td><td class="chinese">刂力阝</td><td>Often phonetic</td></tr>
+<tr><td><strong>Enclosure</strong></td><td class="chinese">囗门匚</td><td>Surrounds components</td></tr>
+</tbody>
+</table>
+
+<h2>Learning Strategies That Actually Work</h2>
+
+<p>Now that you understand what radicals are and how they function, let's focus on effective learning strategies that will accelerate your progress. The key insight is to learn radicals systematically rather than randomly encountering them through character study.</p>
+
+<p>Start by mastering the most frequent radicals first. Focusing on the top 30-40 radicals will give you analytical tools for thousands of characters. Create mental associations between each radical and its core meaning, then actively look for that radical in new characters you encounter. This active searching trains your pattern recognition skills.</p>
+
+<p>Group characters by their shared radicals when you study vocabulary. Instead of learning <span class="chinese">河, 海, 洗, 法,</span> and <span class="chinese">游</span> as five separate characters, group them as "water radical characters" and explore how each one extends the basic water concept in different directions. This approach creates stronger memory networks and helps you predict meanings of unfamiliar characters.</p>
+
+<p>Practice radical decomposition as a regular exercise. Take any character and try to break it down into its component parts, identifying which components you recognize and what they might contribute to the overall meaning. This analytical practice develops the mental habits that make advanced Chinese reading possible.</p>
+
+<p>Use the radical knowledge to make intelligent guesses about unfamiliar characters. When you encounter <span class="chinese">渴</span> for the first time, even without knowing its pronunciation, you can deduce from the water radical and the context that it likely relates to liquid or thirst. This inferencing skill becomes invaluable for reading comprehension.</p>
+
+<h3>Character Analysis Method</h3>
+
+<h4>Step-by-Step Breakdown:</h4>
+<ol>
+<li><strong>Scan for known components</strong> - Look for familiar shapes</li>
+<li><strong>Identify positions</strong> - Left, right, top, bottom</li>
+<li><strong>Determine primary radical</strong> - Usually semantic indicator</li>
+<li><strong>Find phonetic elements</strong> - Often on right side</li>
+<li><strong>Synthesize meaning</strong> - Combine component meanings</li>
+</ol>
+
+<h4>Example: <span class="chinese">慢</span> (slow)</h4>
+<ul>
+<li><strong>Left:</strong> <span class="chinese">⺗</span> (heart) = emotional/mental state</li>
+<li><strong>Right:</strong> <span class="chinese">曼</span> = phonetic component</li>
+<li><strong>Meaning:</strong> Mental state of not hurrying = slow</li>
+</ul>
+
+<h3>Learning Strategy</h3>
+
+<h4>Priority Order:</h4>
+<ol>
+<li><strong>Master top 40 radicals</strong> - Covers 80% of characters</li>
+<li><strong>Group by radical families</strong> - Learn related characters together</li>
+<li><strong>Practice decomposition</strong> - Break down every new character</li>
+<li><strong>Use context clues</strong> - Combine radical knowledge with reading context</li>
+</ol>
+
+<h4>Key Radicals to Learn First:</h4>
+<p><span class="chinese">氵人木口心手土金火言食日月艹宀女子马鱼鸟虫衣页贝车门</span></p>
+
+<h2>Building Toward Mastery</h2>
+
+<p>Remember that learning radicals is not about memorization but about developing pattern recognition and analytical thinking. Your goal is to see characters as logical combinations of meaningful parts rather than random collections of strokes. This fundamental shift in perspective transforms Chinese from an intimidating wall of symbols into a systematic, learnable language with internal logic.</p>
+
+<p>As you progress, you'll start recognizing not just individual radicals but common combination patterns. Certain radicals frequently appear together, creating character families with related meanings. This meta-pattern recognition represents advanced radical knowledge and marks your transition from beginner to intermediate understanding of Chinese character structure.</p>
+
+<p>The journey from seeing characters as mysterious symbols to understanding them as logical combinations of meaningful components requires patience and consistent practice. However, this investment pays enormous dividends in reading speed, character retention, and overall confidence with Chinese text. Every new radical you master unlocks understanding of dozens or even hundreds of additional characters, creating an accelerating cycle of learning that makes advanced Chinese proficiency achievable and enjoyable.</p>
+
+<h3>Practical Tips</h3>
+
+<ul>
+<li><strong>Radical ≠ Component</strong> - Characters may have multiple meaningful parts</li>
+<li><strong>Position matters</strong> - Same radical may look different in different positions</li>
+<li><strong>Context helps</strong> - Use surrounding text to confirm meaning guesses</li>
+<li><strong>Not always obvious</strong> - Some connections are historical/metaphorical</li>
+</ul>
+
+<h3>Common Transformations</h3>
+
+<p>When radicals become components, they often change form:</p>
+<ul>
+<li><span class="chinese">人 → 亻</span> (person radical on left)</li>
+<li><span class="chinese">水 → 氵</span> (water radical on left)</li>
+<li><span class="chinese">心 → ⺗</span> (heart radical on left)</li>
+<li><span class="chinese">火 → 灬</span> (fire radical on bottom)</li>
+<li><span class="chinese">手 → 扌</span> (hand radical on left)</li>
+</ul>
+
+<hr>
+
+<h2>Index by Stroke-Count</h2>
+
+<h4>1–2 Strokes</h4>
+<table>
+<thead>
+<tr><th>#</th><th>Radical</th><th>Strokes</th><th>Pinyin</th><th>Meaning</th><th>Examples</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td class="chinese">一</td><td>1</td><td>yī</td><td>one</td><td class="chinese">三 丁 七</td></tr>
+<tr><td>2</td><td class="chinese">丨</td><td>1</td><td>gǔn</td><td>line</td><td class="chinese">中 串</td></tr>
+<tr><td>3</td><td class="chinese">丶</td><td>1</td><td>zhǔ</td><td>dot</td><td class="chinese">丸 主</td></tr>
+<tr><td>4</td><td class="chinese">丿</td><td>1</td><td>piě</td><td>slash</td><td class="chinese">久 乏</td></tr>
+<tr><td>5</td><td class="chinese">乙</td><td>1</td><td>yǐ</td><td>second</td><td class="chinese">九 乞</td></tr>
+<tr><td>6</td><td class="chinese">亅</td><td>1</td><td>jué</td><td>hook</td><td class="chinese">事</td></tr>
+<tr><td>7</td><td class="chinese">二</td><td>2</td><td>èr</td><td>two</td><td class="chinese">元 云</td></tr>
+<tr><td>8</td><td class="chinese">亠</td><td>2</td><td>tóu</td><td>lid</td><td class="chinese">京 高</td></tr>
+<tr><td>9</td><td class="chinese">人</td><td>2</td><td>rén</td><td>person</td><td class="chinese">今 从</td></tr>
+<tr><td>10</td><td class="chinese">儿</td><td>2</td><td>rén</td><td>legs</td><td class="chinese">先 元</td></tr>
+<tr><td>11</td><td class="chinese">入</td><td>2</td><td>rù</td><td>enter</td><td class="chinese">内 全</td></tr>
+<tr><td>12</td><td class="chinese">八</td><td>2</td><td>bā</td><td>eight</td><td class="chinese">公 六</td></tr>
+<tr><td>13</td><td class="chinese">冂</td><td>2</td><td>jiōng</td><td>border</td><td class="chinese">冋</td></tr>
+<tr><td>14</td><td class="chinese">冖</td><td>2</td><td>mì</td><td>cover</td><td class="chinese">军 写</td></tr>
+<tr><td>15</td><td class="chinese">冫</td><td>2</td><td>bīng</td><td>ice</td><td class="chinese">冷 冻</td></tr>
+<tr><td>16</td><td class="chinese">几</td><td>2</td><td>jī</td><td>table</td><td class="chinese">凡 凤</td></tr>
+<tr><td>17</td><td class="chinese">凵</td><td>2</td><td>kǎn</td><td>open box</td><td class="chinese">凶</td></tr>
+<tr><td>18</td><td class="chinese">刀</td><td>2</td><td>dāo</td><td>knife</td><td class="chinese">分 切</td></tr>
+<tr><td>19</td><td class="chinese">力</td><td>2</td><td>lì</td><td>strength</td><td class="chinese">动 助</td></tr>
+<tr><td>20</td><td class="chinese">勹</td><td>2</td><td>bāo</td><td>wrap</td><td class="chinese">包 勾</td></tr>
+<tr><td>21</td><td class="chinese">匕</td><td>2</td><td>bǐ</td><td>spoon</td><td class="chinese">北 化</td></tr>
+<tr><td>22</td><td class="chinese">匚</td><td>2</td><td>fāng</td><td>box</td><td class="chinese">区 医</td></tr>
+<tr><td>23</td><td class="chinese">匸</td><td>2</td><td>xì</td><td>hiding</td><td class="chinese">匿</td></tr>
+<tr><td>24</td><td class="chinese">十</td><td>2</td><td>shí</td><td>ten</td><td class="chinese">千 午</td></tr>
+<tr><td>25</td><td class="chinese">卜</td><td>2</td><td>bǔ</td><td>divination</td><td class="chinese">占 外</td></tr>
+<tr><td>26</td><td class="chinese">卩</td><td>2</td><td>jié</td><td>seal</td><td class="chinese">卫 印</td></tr>
+<tr><td>27</td><td class="chinese">厂</td><td>2</td><td>hǎn</td><td>cliff</td><td class="chinese">厅 历</td></tr>
+<tr><td>28</td><td class="chinese">厶</td><td>2</td><td>sī</td><td>private</td><td class="chinese">去 公</td></tr>
+<tr><td>29</td><td class="chinese">又</td><td>2</td><td>yòu</td><td>again</td><td class="chinese">双 友</td></tr>
+</tbody>
+</table>
+
+<h4>3 Strokes</h4>
+<table>
+<thead>
+<tr><th>#</th><th>Radical</th><th>Strokes</th><th>Pinyin</th><th>Meaning</th><th>Examples</th></tr>
+</thead>
+<tbody>
+<tr><td>30</td><td class="chinese">口</td><td>3</td><td>kǒu</td><td>mouth</td><td class="chinese">古 叫</td></tr>
+<tr><td>31</td><td class="chinese">囗</td><td>3</td><td>wéi</td><td>enclosure</td><td class="chinese">国 园</td></tr>
+<tr><td>32</td><td class="chinese">土</td><td>3</td><td>tǔ</td><td>earth</td><td class="chinese">地 场</td></tr>
+<tr><td>33</td><td class="chinese">士</td><td>3</td><td>shì</td><td>scholar</td><td class="chinese">壮 吉</td></tr>
+<tr><td>34</td><td class="chinese">夂</td><td>3</td><td>zhǐ</td><td>go</td><td class="chinese">冬 处</td></tr>
+<tr><td>35</td><td class="chinese">夊</td><td>3</td><td>suī</td><td>slow</td><td class="chinese">夏 复</td></tr>
+<tr><td>36</td><td class="chinese">夕</td><td>3</td><td>xī</td><td>evening</td><td class="chinese">外 多</td></tr>
+<tr><td>37</td><td class="chinese">大</td><td>3</td><td>dà</td><td>big</td><td class="chinese">太 天</td></tr>
+<tr><td>38</td><td class="chinese">女</td><td>3</td><td>nǚ</td><td>woman</td><td class="chinese">好 妈</td></tr>
+<tr><td>39</td><td class="chinese">子</td><td>3</td><td>zǐ</td><td>child</td><td class="chinese">孙 孩</td></tr>
+<tr><td>40</td><td class="chinese">宀</td><td>3</td><td>mián</td><td>roof</td><td class="chinese">家 室</td></tr>
+<tr><td>41</td><td class="chinese">寸</td><td>3</td><td>cùn</td><td>inch</td><td class="chinese">对 寺</td></tr>
+<tr><td>42</td><td class="chinese">小</td><td>3</td><td>xiǎo</td><td>small</td><td class="chinese">少 尖</td></tr>
+<tr><td>43</td><td class="chinese">尢</td><td>3</td><td>wāng</td><td>lame</td><td class="chinese">尤 尬</td></tr>
+<tr><td>44</td><td class="chinese">尸</td><td>3</td><td>shī</td><td>corpse</td><td class="chinese">局 层</td></tr>
+<tr><td>45</td><td class="chinese">屮</td><td>3</td><td>chè</td><td>sprout</td><td class="chinese">屯</td></tr>
+<tr><td>46</td><td class="chinese">山</td><td>3</td><td>shān</td><td>mountain</td><td class="chinese">岁 岛</td></tr>
+<tr><td>47</td><td class="chinese">川</td><td>3</td><td>chuān</td><td>river</td><td class="chinese">州 巡</td></tr>
+<tr><td>48</td><td class="chinese">工</td><td>3</td><td>gōng</td><td>work</td><td class="chinese">左 巧</td></tr>
+<tr><td>49</td><td class="chinese">己</td><td>3</td><td>jǐ</td><td>self</td><td class="chinese">已 忌</td></tr>
+<tr><td>50</td><td class="chinese">巾</td><td>3</td><td>jīn</td><td>cloth</td><td class="chinese">布 带</td></tr>
+<tr><td>51</td><td class="chinese">干</td><td>3</td><td>gān</td><td>dry/shield</td><td class="chinese">平 年</td></tr>
+<tr><td>52</td><td class="chinese">幺</td><td>3</td><td>yāo</td><td>tiny</td><td class="chinese">幻 幼</td></tr>
+<tr><td>53</td><td class="chinese">广</td><td>3</td><td>yǎn</td><td>shelter</td><td class="chinese">庆 店</td></tr>
+<tr><td>54</td><td class="chinese">廴</td><td>3</td><td>yǐn</td><td>stride</td><td class="chinese">延 建</td></tr>
+<tr><td>55</td><td class="chinese">廾</td><td>3</td><td>gǒng</td><td>hands</td><td class="chinese">开 异</td></tr>
+<tr><td>56</td><td class="chinese">弋</td><td>3</td><td>yì</td><td>shoot</td><td class="chinese">式 弑</td></tr>
+<tr><td>57</td><td class="chinese">弓</td><td>3</td><td>gōng</td><td>bow</td><td class="chinese">张 引</td></tr>
+<tr><td>58</td><td class="chinese">彐</td><td>3</td><td>jì</td><td>snout</td><td class="chinese">归 当</td></tr>
+<tr><td>59</td><td class="chinese">彡</td><td>3</td><td>shān</td><td>hair</td><td class="chinese">形 影</td></tr>
+<tr><td>60</td><td class="chinese">彳</td><td>3</td><td>chì</td><td>step</td><td class="chinese">行 往</td></tr>
+</tbody>
+</table>
+
+<h4>4 Strokes</h4>
+<table>
+<thead>
+<tr><th>#</th><th>Radical</th><th>Strokes</th><th>Pinyin</th><th>Meaning</th><th>Examples</th></tr>
+</thead>
+<tbody>
+<tr><td>61</td><td class="chinese">心</td><td>4</td><td>xīn</td><td>heart</td><td class="chinese">想 忙</td></tr>
+<tr><td>62</td><td class="chinese">戈</td><td>4</td><td>gē</td><td>spear</td><td class="chinese">战 戏</td></tr>
+<tr><td>63</td><td class="chinese">户</td><td>4</td><td>hù</td><td>door</td><td class="chinese">房 所</td></tr>
+<tr><td>64</td><td class="chinese">手</td><td>4</td><td>shǒu</td><td>hand</td><td class="chinese">打 把</td></tr>
+<tr><td>65</td><td class="chinese">支</td><td>4</td><td>zhī</td><td>branch</td><td class="chinese">收 改</td></tr>
+<tr><td>66</td><td class="chinese">攴</td><td>4</td><td>pū</td><td>tap</td><td class="chinese">敲</td></tr>
+<tr><td>67</td><td class="chinese">文</td><td>4</td><td>wén</td><td>script</td><td class="chinese">齐 斋</td></tr>
+<tr><td>68</td><td class="chinese">斗</td><td>4</td><td>dǒu</td><td>dipper</td><td class="chinese">料 斜</td></tr>
+<tr><td>69</td><td class="chinese">斤</td><td>4</td><td>jīn</td><td>axe</td><td class="chinese">新 断</td></tr>
+<tr><td>70</td><td class="chinese">方</td><td>4</td><td>fāng</td><td>square</td><td class="chinese">旅 族</td></tr>
+<tr><td>71</td><td class="chinese">无</td><td>4</td><td>wú</td><td>not</td><td class="chinese">既 旡</td></tr>
+<tr><td>72</td><td class="chinese">日</td><td>4</td><td>rì</td><td>sun</td><td class="chinese">明 时</td></tr>
+<tr><td>73</td><td class="chinese">曰</td><td>4</td><td>yuē</td><td>say</td><td class="chinese">曲 曹</td></tr>
+<tr><td>74</td><td class="chinese">月</td><td>4</td><td>yuè</td><td>moon</td><td class="chinese">明 期</td></tr>
+<tr><td>75</td><td class="chinese">木</td><td>4</td><td>mù</td><td>tree</td><td class="chinese">林 村</td></tr>
+<tr><td>76</td><td class="chinese">欠</td><td>4</td><td>qiàn</td><td>lack</td><td class="chinese">次 欢</td></tr>
+<tr><td>77</td><td class="chinese">止</td><td>4</td><td>zhǐ</td><td>stop</td><td class="chinese">正 步</td></tr>
+<tr><td>78</td><td class="chinese">歹</td><td>4</td><td>dǎi</td><td>evil</td><td class="chinese">死 歼</td></tr>
+<tr><td>79</td><td class="chinese">殳</td><td>4</td><td>shū</td><td>weapon</td><td class="chinese">段 殿</td></tr>
+<tr><td>80</td><td class="chinese">毋</td><td>4</td><td>wú</td><td>do not</td><td class="chinese">母 每</td></tr>
+<tr><td>81</td><td class="chinese">比</td><td>4</td><td>bǐ</td><td>compare</td><td class="chinese">毕 皆</td></tr>
+<tr><td>82</td><td class="chinese">毛</td><td>4</td><td>máo</td><td>hair</td><td class="chinese">毫 毯</td></tr>
+<tr><td>83</td><td class="chinese">氏</td><td>4</td><td>shì</td><td>clan</td><td class="chinese">民 氓</td></tr>
+<tr><td>84</td><td class="chinese">气</td><td>4</td><td>qì</td><td>steam</td><td class="chinese">汽 氧</td></tr>
+<tr><td>85</td><td class="chinese">水</td><td>4</td><td>shuǐ</td><td>water</td><td class="chinese">河 海</td></tr>
+<tr><td>86</td><td class="chinese">火</td><td>4</td><td>huǒ</td><td>fire</td><td class="chinese">炒 热</td></tr>
+<tr><td>87</td><td class="chinese">爪</td><td>4</td><td>zhǎo</td><td>claw</td><td class="chinese">爬 爱</td></tr>
+<tr><td>88</td><td class="chinese">父</td><td>4</td><td>fù</td><td>father</td><td class="chinese">爸 爷</td></tr>
+<tr><td>89</td><td class="chinese">爻</td><td>4</td><td>yáo</td><td>trigram</td><td class="chinese">爽</td></tr>
+<tr><td>90</td><td class="chinese">爿</td><td>4</td><td>qiáng</td><td>split wood</td><td class="chinese">牀</td></tr>
+<tr><td>91</td><td class="chinese">片</td><td>4</td><td>piàn</td><td>slice</td><td class="chinese">版 牌</td></tr>
+<tr><td>92</td><td class="chinese">牙</td><td>4</td><td>yá</td><td>tooth</td><td class="chinese">雅</td></tr>
+<tr><td>93</td><td class="chinese">牛</td><td>4</td><td>niú</td><td>cow</td><td class="chinese">物 特</td></tr>
+<tr><td>94</td><td class="chinese">犬</td><td>4</td><td>quǎn</td><td>dog</td><td class="chinese">狗 犯</td></tr>
+</tbody>
+</table>
+
+<h4>5 Strokes</h4>
+<table>
+<thead>
+<tr><th>#</th><th>Radical</th><th>Strokes</th><th>Pinyin</th><th>Meaning</th><th>Examples</th></tr>
+</thead>
+<tbody>
+<tr><td>95</td><td class="chinese">玄</td><td>5</td><td>xuán</td><td>dark</td><td class="chinese">率</td></tr>
+<tr><td>96</td><td class="chinese">玉</td><td>5</td><td>yù</td><td>jade</td><td class="chinese">玩 王</td></tr>
+<tr><td>97</td><td class="chinese">瓜</td><td>5</td><td>guā</td><td>melon</td><td class="chinese">瓢</td></tr>
+<tr><td>98</td><td class="chinese">瓦</td><td>5</td><td>wǎ</td><td>tile</td><td class="chinese">瓶</td></tr>
+<tr><td>99</td><td class="chinese">甘</td><td>5</td><td>gān</td><td>sweet</td><td class="chinese">甜</td></tr>
+<tr><td>100</td><td class="chinese">生</td><td>5</td><td>shēng</td><td>life</td><td class="chinese">产 甥</td></tr>
+<tr><td>101</td><td class="chinese">用</td><td>5</td><td>yòng</td><td>use</td><td class="chinese">甩 甫</td></tr>
+<tr><td>102</td><td class="chinese">田</td><td>5</td><td>tián</td><td>field</td><td class="chinese">男 留</td></tr>
+<tr><td>103</td><td class="chinese">疋</td><td>5</td><td>pǐ</td><td>bolt</td><td class="chinese">疏</td></tr>
+<tr><td>104</td><td class="chinese">疔</td><td>5</td><td>nè</td><td>sickness</td><td class="chinese">病 疼</td></tr>
+<tr><td>105</td><td class="chinese">癶</td><td>5</td><td>bō</td><td>footsteps</td><td class="chinese">癸</td></tr>
+<tr><td>106</td><td class="chinese">白</td><td>5</td><td>bái</td><td>white</td><td class="chinese">的 百</td></tr>
+<tr><td>107</td><td class="chinese">皮</td><td>5</td><td>pí</td><td>skin</td><td class="chinese">皱</td></tr>
+<tr><td>108</td><td class="chinese">皿</td><td>5</td><td>mǐn</td><td>dish</td><td class="chinese">盆 益</td></tr>
+<tr><td>109</td><td class="chinese">目</td><td>5</td><td>mù</td><td>eye</td><td class="chinese">看 眼</td></tr>
+<tr><td>110</td><td class="chinese">矛</td><td>5</td><td>máo</td><td>spear</td><td class="chinese">柔</td></tr>
+<tr><td>111</td><td class="chinese">矢</td><td>5</td><td>shǐ</td><td>arrow</td><td class="chinese">知 短</td></tr>
+<tr><td>112</td><td class="chinese">石</td><td>5</td><td>shí</td><td>stone</td><td class="chinese">矿 码</td></tr>
+<tr><td>113</td><td class="chinese">示</td><td>5</td><td>shì</td><td>spirit</td><td class="chinese">礼 社</td></tr>
+<tr><td>114</td><td class="chinese">禸</td><td>5</td><td>róu</td><td>track</td><td class="chinese">禺</td></tr>
+<tr><td>115</td><td class="chinese">禾</td><td>5</td><td>hé</td><td>grain</td><td class="chinese">秋 科</td></tr>
+<tr><td>116</td><td class="chinese">穴</td><td>5</td><td>xué</td><td>cave</td><td class="chinese">空 穿</td></tr>
+<tr><td>117</td><td class="chinese">立</td><td>5</td><td>lì</td><td>stand</td><td class="chinese">站 竞</td></tr>
+</tbody>
+</table>
+
+<h4>6 Strokes</h4>
+<table>
+<thead>
+<tr><th>#</th><th>Radical</th><th>Strokes</th><th>Pinyin</th><th>Meaning</th><th>Examples</th></tr>
+</thead>
+<tbody>
+<tr><td>118</td><td class="chinese">竹</td><td>6</td><td>zhú</td><td>bamboo</td><td class="chinese">笔 笛</td></tr>
+<tr><td>119</td><td class="chinese">米</td><td>6</td><td>mǐ</td><td>rice</td><td class="chinese">粉 精</td></tr>
+<tr><td>120</td><td class="chinese">糸</td><td>6</td><td>mì</td><td>silk</td><td class="chinese">红 织</td></tr>
+<tr><td>121</td><td class="chinese">缶</td><td>6</td><td>fǒu</td><td>jar</td><td class="chinese">缺</td></tr>
+<tr><td>122</td><td class="chinese">网</td><td>6</td><td>wǎng</td><td>net</td><td class="chinese">罗 罚</td></tr>
+<tr><td>123</td><td class="chinese">羊</td><td>6</td><td>yáng</td><td>sheep</td><td class="chinese">美 群</td></tr>
+<tr><td>124</td><td class="chinese">羽</td><td>6</td><td>yǔ</td><td>feather</td><td class="chinese">翅 翔</td></tr>
+<tr><td>125</td><td class="chinese">老</td><td>6</td><td>lǎo</td><td>old</td><td class="chinese">考 者</td></tr>
+<tr><td>126</td><td class="chinese">而</td><td>6</td><td>ér</td><td>and</td><td class="chinese">耐</td></tr>
+<tr><td>127</td><td class="chinese">耒</td><td>6</td><td>lěi</td><td>plow</td><td class="chinese">耕</td></tr>
+<tr><td>128</td><td class="chinese">耳</td><td>6</td><td>ěr</td><td>ear</td><td class="chinese">取 联</td></tr>
+<tr><td>129</td><td class="chinese">聿</td><td>6</td><td>yù</td><td>brush</td><td class="chinese">笔 律</td></tr>
+<tr><td>130</td><td class="chinese">肉</td><td>6</td><td>ròu</td><td>meat</td><td class="chinese">肚 肝</td></tr>
+<tr><td>131</td><td class="chinese">臣</td><td>6</td><td>chén</td><td>minister</td><td class="chinese">卧</td></tr>
+<tr><td>132</td><td class="chinese">自</td><td>6</td><td>zì</td><td>self</td><td class="chinese">息</td></tr>
+<tr><td>133</td><td class="chinese">至</td><td>6</td><td>zhì</td><td>arrive</td><td class="chinese">致</td></tr>
+<tr><td>134</td><td class="chinese">臼</td><td>6</td><td>jiù</td><td>mortar</td><td class="chinese">舅</td></tr>
+<tr><td>135</td><td class="chinese">舌</td><td>6</td><td>shé</td><td>tongue</td><td class="chinese">舍 话</td></tr>
+<tr><td>136</td><td class="chinese">舛</td><td>6</td><td>chuǎn</td><td>oppose</td><td class="chinese">舜</td></tr>
+<tr><td>137</td><td class="chinese">舟</td><td>6</td><td>zhōu</td><td>boat</td><td class="chinese">船 航</td></tr>
+<tr><td>138</td><td class="chinese">艮</td><td>6</td><td>gèn</td><td>stopping</td><td class="chinese">良 艰</td></tr>
+<tr><td>139</td><td class="chinese">色</td><td>6</td><td>sè</td><td>color</td><td class="chinese">艳</td></tr>
+<tr><td>140</td><td class="chinese">艸</td><td>6</td><td>cǎo</td><td>grass</td><td class="chinese">花 草</td></tr>
+<tr><td>141</td><td class="chinese">虍</td><td>6</td><td>hū</td><td>tiger</td><td class="chinese">虎 虐</td></tr>
+<tr><td>142</td><td class="chinese">虫</td><td>6</td><td>chóng</td><td>insect</td><td class="chinese">蛇 蚊</td></tr>
+<tr><td>143</td><td class="chinese">血</td><td>6</td><td>xiě</td><td>blood</td><td class="chinese">衅</td></tr>
+<tr><td>144</td><td class="chinese">行</td><td>6</td><td>xíng</td><td>walk</td><td class="chinese">衍</td></tr>
+<tr><td>145</td><td class="chinese">衣</td><td>6</td><td>yī</td><td>clothes</td><td class="chinese">初 裤</td></tr>
+<tr><td>146</td><td class="chinese">西</td><td>6</td><td>xī</td><td>west</td><td class="chinese">要 票</td></tr>
+</tbody>
+</table>
+
+<h4>7 Strokes</h4>
+<table>
+<thead>
+<tr><th>#</th><th>Radical</th><th>Strokes</th><th>Pinyin</th><th>Meaning</th><th>Examples</th></tr>
+</thead>
+<tbody>
+<tr><td>147</td><td class="chinese">見</td><td>7</td><td>jiàn</td><td>see</td><td class="chinese">观 规</td></tr>
+<tr><td>148</td><td class="chinese">角</td><td>7</td><td>jiǎo</td><td>horn</td><td class="chinese">解 触</td></tr>
+<tr><td>149</td><td class="chinese">言</td><td>7</td><td>yán</td><td>speech</td><td class="chinese">说 话</td></tr>
+<tr><td>150</td><td class="chinese">谷</td><td>7</td><td>gǔ</td><td>valley</td><td class="chinese">欲</td></tr>
+<tr><td>151</td><td class="chinese">豆</td><td>7</td><td>dòu</td><td>bean</td><td class="chinese">短</td></tr>
+<tr><td>152</td><td class="chinese">豕</td><td>7</td><td>shǐ</td><td>pig</td><td class="chinese">家 豪</td></tr>
+<tr><td>153</td><td class="chinese">豸</td><td>7</td><td>zhì</td><td>badger</td><td class="chinese">豹 貌</td></tr>
+<tr><td>154</td><td class="chinese">貝</td><td>7</td><td>bèi</td><td>shell/money</td><td class="chinese">财 购</td></tr>
+<tr><td>155</td><td class="chinese">赤</td><td>7</td><td>chì</td><td>red</td><td class="chinese">赫</td></tr>
+<tr><td>156</td><td class="chinese">走</td><td>7</td><td>zǒu</td><td>run</td><td class="chinese">起 超</td></tr>
+<tr><td>157</td><td class="chinese">足</td><td>7</td><td>zú</td><td>foot</td><td class="chinese">跑 路</td></tr>
+<tr><td>158</td><td class="chinese">身</td><td>7</td><td>shēn</td><td>body</td><td class="chinese">射 躺</td></tr>
+<tr><td>159</td><td class="chinese">車</td><td>7</td><td>chē</td><td>cart</td><td class="chinese">轮 转</td></tr>
+<tr><td>160</td><td class="chinese">辛</td><td>7</td><td>xīn</td><td>bitter</td><td class="chinese">辣 辨</td></tr>
+<tr><td>161</td><td class="chinese">辰</td><td>7</td><td>chén</td><td>morning</td><td class="chinese">晨 震</td></tr>
+<tr><td>162</td><td class="chinese">辵</td><td>7</td><td>chuò</td><td>walk</td><td class="chinese">进 远</td></tr>
+<tr><td>163</td><td class="chinese">邑</td><td>7</td><td>yì</td><td>city</td><td class="chinese">都 郊</td></tr>
+<tr><td>164</td><td class="chinese">酉</td><td>7</td><td>yǒu</td><td>wine</td><td class="chinese">酒 醒</td></tr>
+<tr><td>165</td><td class="chinese">釆</td><td>7</td><td>biàn</td><td>distinguish</td><td class="chinese">番</td></tr>
+<tr><td>166</td><td class="chinese">里</td><td>7</td><td>lǐ</td><td>village</td><td class="chinese">野 理</td></tr>
+</tbody>
+</table>
+
+<h4>8 Strokes</h4>
+<table>
+<thead>
+<tr><th>#</th><th>Radical</th><th>Strokes</th><th>Pinyin</th><th>Meaning</th><th>Examples</th></tr>
+</thead>
+<tbody>
+<tr><td>167</td><td class="chinese">金</td><td>8</td><td>jīn</td><td>metal</td><td class="chinese">银 铁</td></tr>
+<tr><td>168</td><td class="chinese">長</td><td>8</td><td>cháng</td><td>long</td><td class="chinese">张</td></tr>
+<tr><td>169</td><td class="chinese">門</td><td>8</td><td>mén</td><td>gate</td><td class="chinese">问 间</td></tr>
+<tr><td>170</td><td class="chinese">阜</td><td>8</td><td>fù</td><td>mound</td><td class="chinese">阳 队</td></tr>
+<tr><td>171</td><td class="chinese">隶</td><td>8</td><td>lì</td><td>slave</td><td class="chinese">逮</td></tr>
+<tr><td>172</td><td class="chinese">隹</td><td>8</td><td>zhuī</td><td>short bird</td><td class="chinese">难 集</td></tr>
+<tr><td>173</td><td class="chinese">雨</td><td>8</td><td>yǔ</td><td>rain</td><td class="chinese">雪 雷</td></tr>
+<tr><td>174</td><td class="chinese">青</td><td>8</td><td>qīng</td><td>blue</td><td class="chinese">静</td></tr>
+<tr><td>175</td><td class="chinese">非</td><td>8</td><td>fēi</td><td>wrong</td><td class="chinese">悲 辈</td></tr>
+</tbody>
+</table>
+
+<h4>9 Strokes</h4>
+<table>
+<thead>
+<tr><th>#</th><th>Radical</th><th>Strokes</th><th>Pinyin</th><th>Meaning</th><th>Examples</th></tr>
+</thead>
+<tbody>
+<tr><td>176</td><td class="chinese">面</td><td>9</td><td>miàn</td><td>face</td><td class="chinese">革 鞋</td></tr>
+<tr><td>177</td><td class="chinese">革</td><td>9</td><td>gé</td><td>leather</td><td class="chinese">鞋 鞭</td></tr>
+<tr><td>178</td><td class="chinese">韋</td><td>9</td><td>wéi</td><td>tanned leather</td><td class="chinese">伟</td></tr>
+<tr><td>179</td><td class="chinese">韭</td><td>9</td><td>jiǔ</td><td>leek</td><td class="chinese">齑</td></tr>
+<tr><td>180</td><td class="chinese">音</td><td>9</td><td>yīn</td><td>sound</td><td class="chinese">韵 章</td></tr>
+<tr><td>181</td><td class="chinese">頁</td><td>9</td><td>yè</td><td>leaf/head</td><td class="chinese">顶 顺</td></tr>
+<tr><td>182</td><td class="chinese">風</td><td>9</td><td>fēng</td><td>wind</td><td class="chinese">飘</td></tr>
+<tr><td>183</td><td class="chinese">飛</td><td>9</td><td>fēi</td><td>fly</td><td class="chinese">飞</td></tr>
+<tr><td>184</td><td class="chinese">食</td><td>9</td><td>shí</td><td>eat</td><td class="chinese">饭 饮</td></tr>
+<tr><td>185</td><td class="chinese">首</td><td>9</td><td>shǒu</td><td>head</td><td class="chinese">馗</td></tr>
+<tr><td>186</td><td class="chinese">香</td><td>9</td><td>xiāng</td><td>fragrant</td><td class="chinese">馥</td></tr>
+</tbody>
+</table>
+
+<h4>10 Strokes</h4>
+<table>
+<thead>
+<tr><th>#</th><th>Radical</th><th>Strokes</th><th>Pinyin</th><th>Meaning</th><th>Examples</th></tr>
+</thead>
+<tbody>
+<tr><td>187</td><td class="chinese">馬</td><td>10</td><td>mǎ</td><td>horse</td><td class="chinese">骑 驶</td></tr>
+<tr><td>188</td><td class="chinese">骨</td><td>10</td><td>gǔ</td><td>bone</td><td class="chinese">骼 髅</td></tr>
+<tr><td>189</td><td class="chinese">高</td><td>10</td><td>gāo</td><td>tall</td><td class="chinese">搞</td></tr>
+<tr><td>190</td><td class="chinese">髟</td><td>10</td><td>biāo</td><td>hair</td><td class="chinese">鬓</td></tr>
+<tr><td>191</td><td class="chinese">鬥</td><td>10</td><td>dòu</td><td>fight</td><td class="chinese">闹</td></tr>
+<tr><td>192</td><td class="chinese">鬯</td><td>10</td><td>chàng</td><td>sacrificial wine</td><td></td></tr>
+<tr><td>193</td><td class="chinese">鬲</td><td>10</td><td>lì</td><td>cauldron</td><td></td></tr>
+<tr><td>194</td><td class="chinese">鬼</td><td>10</td><td>guǐ</td><td>ghost</td><td class="chinese">魂 魔</td></tr>
+</tbody>
+</table>
+
+<h4>11+ Strokes</h4>
+<table>
+<thead>
+<tr><th>#</th><th>Radical</th><th>Strokes</th><th>Pinyin</th><th>Meaning</th><th>Examples</th></tr>
+</thead>
+<tbody>
+<tr><td>195</td><td class="chinese">魚</td><td>11</td><td>yú</td><td>fish</td><td class="chinese">鲜 鲸</td></tr>
+<tr><td>196</td><td class="chinese">鳥</td><td>11</td><td>niǎo</td><td>bird</td><td class="chinese">鸡 鸭</td></tr>
+<tr><td>197</td><td class="chinese">鹵</td><td>11</td><td>lǔ</td><td>salt</td><td class="chinese">碱</td></tr>
+<tr><td>198</td><td class="chinese">鹿</td><td>11</td><td>lù</td><td>deer</td><td class="chinese">麒</td></tr>
+<tr><td>199</td><td class="chinese">麥</td><td>11</td><td>mài</td><td>wheat</td><td class="chinese">面</td></tr>
+<tr><td>200</td><td class="chinese">麻</td><td>11</td><td>má</td><td>hemp</td><td class="chinese">摩</td></tr>
+<tr><td>201</td><td class="chinese">黃</td><td>12</td><td>huáng</td><td>yellow</td><td class="chinese">横</td></tr>
+<tr><td>202</td><td class="chinese">黍</td><td>12</td><td>shǔ</td><td>millet</td><td></td></tr>
+<tr><td>203</td><td class="chinese">黑</td><td>12</td><td>hēi</td><td>black</td><td class="chinese">墨 默</td></tr>
+<tr><td>204</td><td class="chinese">黹</td><td>12</td><td>zhǐ</td><td>embroidery</td><td></td></tr>
+<tr><td>205</td><td class="chinese">黽</td><td>13</td><td>mǐn</td><td>toad</td><td></td></tr>
+<tr><td>206</td><td class="chinese">鼎</td><td>13</td><td>dǐng</td><td>tripod</td><td></td></tr>
+<tr><td>207</td><td class="chinese">鼓</td><td>13</td><td>gǔ</td><td>drum</td><td></td></tr>
+<tr><td>208</td><td class="chinese">鼠</td><td>13</td><td>shǔ</td><td>rat</td><td class="chinese">鼬</td></tr>
+<tr><td>209</td><td class="chinese">鼻</td><td>14</td><td>bí</td><td>nose</td><td class="chinese">鼾</td></tr>
+<tr><td>210</td><td class="chinese">齊</td><td>14</td><td>qí</td><td>even</td><td></td></tr>
+<tr><td>211</td><td class="chinese">齒</td><td>15</td><td>chǐ</td><td>tooth</td><td class="chinese">龄</td></tr>
+<tr><td>212</td><td class="chinese">龍</td><td>16</td><td>lóng</td><td>dragon</td><td></td></tr>
+<tr><td>213</td><td class="chinese">龜</td><td>16</td><td>guī</td><td>turtle</td><td></td></tr>
+<tr><td>214</td><td class="chinese">龠</td><td>17</td><td>yuè</td><td>flute</td><td></td></tr>
+</tbody>
+</table>
+
+</body>
+</html>
