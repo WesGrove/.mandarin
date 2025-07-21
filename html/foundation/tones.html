@@ -5,119 +5,254 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Understanding Mandarin Tones</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            color: #333;
-            background-color: #fff;
+        :root{
+          --accent:#007bff;
+          --bg:#f5f7fa;
+          --card-bg:#ffffff;
+          --text:#333;
+          --muted:#555;
+          --hover-shadow:0 6px 20px rgba(0,123,255,.25);
+          --font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
         }
-        
+
+        *{box-sizing:border-box}
+        body{margin:0;padding:40px 20px;background:var(--bg);color:var(--text);font-family:var(--font-family);font-size:14px;line-height:1.4}
+
         h1 {
-            color: #2c3e50;
-            border-bottom: 3px solid #00c3ff;
-            padding-bottom: 10px;
-            font-size: 2.2em;
             text-align: center;
             margin-bottom: 30px;
+            font-size: 24px;
+            color: var(--text);
         }
-        
+
         h2 {
-            color: #34495e;
-            border-bottom: 2px solid #00c3ff;
-            padding-bottom: 8px;
-            margin-top: 30px;
-            font-size: 1.5em;
-        }
-        
-        h3 {
-            color: #2c3e50;
-            margin-top: 0;
+            color: var(--text);
+            margin-top: 40px;
             margin-bottom: 20px;
-            font-size: 1.2em;
+            font-size: 20px;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 8px;
         }
-        
+
+        h3 {
+            color: var(--muted);
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
         h4 {
-            color: #34495e;
+            color: var(--muted);
             margin-top: 20px;
-            font-size: 1.1em;
+            margin-bottom: 10px;
+            font-size: 14px;
         }
-        
+
+        .subtitle {
+            text-align: center;
+            font-style: italic;
+            color: var(--muted);
+            margin-bottom: 30px;
+        }
+
         p {
             margin-bottom: 15px;
             text-align: justify;
         }
-        
+
         ul, ol {
             margin: 15px 0;
-            padding-left: 30px;
+            padding-left: 20px;
         }
-        
+
         li {
-            margin-bottom: 8px;
+            margin-bottom: 4px;
         }
-        
+
         strong {
-            color: #2c3e50;
+            color: var(--text);
             font-weight: 600;
         }
-        
-        hr {
-            border: none;
-            height: 2px;
-            background: linear-gradient(to right, #3498db, #ecf0f1, #3498db);
-            margin: 40px 0;
-        }
-        
-        .tone-section {
-            background-color: #f8f9fa;
-            border-left: 4px solid #3498db;
+
+        .intro {
+            background: var(--card-bg);
             padding: 20px;
-            margin: 20px 0;
-            border-radius: 0 5px 5px 0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 0 auto 30px auto;
+            border: 1px solid #e0e0e0;
+            max-width: 800px;
         }
-        
+
+        .intro p:first-child {
+            margin-top: 0;
+        }
+
+        .tone-section {
+            background: var(--card-bg);
+            border: 1px solid #e0e0e0;
+            border-left: 4px solid var(--accent);
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+        }
+
+        .tone-section h3 {
+            margin-top: 0;
+            color: var(--accent);
+            font-size: 16px;
+        }
+
         .practice-example {
-            background-color: #e8f5e8;
+            background: #e8f5e8;
             padding: 12px;
-            border-radius: 5px;
+            border-radius: 2px;
             margin: 15px 0;
             font-style: italic;
             border-left: 3px solid #27ae60;
+            font-size: 13px;
         }
-        
-        .intro {
-            font-size: 1.1em;
-            margin-bottom: 30px;
-            padding: 20px;
-            background-color: #ecf0f1;
-            border-radius: 8px;
-        }
-        
+
         .chinese-text {
-            font-weight: 500;
+            font-weight: 600;
             color: #e74c3c;
+            font-family: var(--font-family);
         }
-        
+
+        .concept-box {
+            background: var(--card-bg);
+            border: 1px solid #e0e0e0;
+            border-left: 4px solid var(--accent);
+            padding: 15px;
+            margin: 20px auto;
+            max-width: 800px;
+        }
+
+        .concept-box > p:first-child {
+            margin-top: 0;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .reference-card {
+            background: var(--card-bg);
+            border: 1px solid #e0e0e0;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 30px auto;
+            max-width: 800px;
+        }
+
+        .reference-card h3 {
+            margin-top: 0;
+            color: #856404;
+        }
+
+        .note {
+            font-style: italic;
+            color: var(--muted);
+            margin: 20px auto;
+            padding: 15px;
+            background: var(--card-bg);
+            border: 1px solid #e0e0e0;
+            border-left: 4px solid var(--accent);
+            max-width: 800px;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin: 20px auto;
+            background: transparent;
+            max-width: 100%;
+        }
+
+        th, td {
+            padding: 8px 12px;
+            border: 1px solid #e0e0e0;
+            transition: transform .25s, box-shadow .25s, background .25s;
+            position: relative;
+            vertical-align: top;
+            font-size: 13px;
+        }
+
+        th {
+            background: var(--accent);
+            font-weight: 600;
+            color: white;
+            border-bottom: 2px solid #0056b3;
+        }
+
+        tbody td {
+            background: var(--card-bg);
+        }
+
+        tbody td:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--hover-shadow);
+            background: #fff;
+            color: var(--accent);
+            z-index: 1;
+            border-color: var(--accent);
+        }
+
+        .tone-patterns {
+            font-size: 16px;
+            font-family: var(--font-family);
+            font-weight: 600;
+        }
+
+        .nav-menu {
+            background: var(--card-bg);
+            padding: 20px;
+            margin: 0 auto 30px auto;
+            border: 1px solid #e0e0e0;
+            max-width: 800px;
+        }
+
+        .nav-menu h3 {
+            margin-top: 0;
+            color: var(--text);
+            font-size: 16px;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .nav-menu li {
+            margin: 6px 0;
+        }
+
+        .nav-menu a {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.25s;
+        }
+
+        .nav-menu a:hover {
+            color: #0056b3;
+        }
+
+        hr {
+            border: none;
+            height: 1px;
+            background: #e0e0e0;
+            margin: 40px auto;
+            max-width: 800px;
+        }
+
         /* Focus styles for accessibility */
         *:focus {
-            outline: 2px solid #3498db;
+            outline: 2px solid var(--accent);
             outline-offset: 2px;
         }
-        
-        /* Better contrast for links if any are added */
-        a {
-            color: #2980b9;
-            text-decoration: underline;
-        }
-        
-        a:hover {
-            color: #1abc9c;
-        }
-        
+
         /* Print styles */
         @media print {
             body {
@@ -127,7 +262,7 @@
                 background: #fff;
             }
             
-            .tone-section {
+            .tone-section, .concept-box {
                 border: 1px solid #ccc;
                 box-shadow: none;
                 page-break-inside: avoid;
@@ -138,7 +273,7 @@
                 background: none;
             }
         }
-        
+
         /* Screen reader support */
         .sr-only {
             position: absolute;
@@ -151,29 +286,126 @@
             white-space: nowrap;
             border: 0;
         }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 10px;
+                font-size: 13px;
+            }
+            
+            h1 {
+                font-size: 20px;
+            }
+            
+            h2 {
+                font-size: 18px;
+            }
+        }
     </style>
 </head>
 <body>
     <main>
         <h1>Tones</h1>
+        <p class="subtitle">The Musical Foundation of Mandarin</p>
         
-        <div class="intro">
-            <p>Understanding and mastering Mandarin tones represents one of the most crucial yet challenging aspects of learning Chinese. Think of tones as the musical foundation of the language - they carry as much meaning as the consonants and vowels themselves. When you change a tone, you completely change the word's meaning, just as changing a letter would in English.</p>
-            
-            <p>Let me guide you through each tone systematically, focusing on both how to hear the differences and how to produce them accurately.</p>
+        <div class="nav-menu">
+            <h3>Quick Navigation</h3>
+            <ul>
+                <li><a href="#foundation"><strong>Foundation: Understanding Tones</strong></a></li>
+                <li><a href="#first-tone-heading"><strong>The First Tone: High and Steady</strong></a></li>
+                <li><a href="#second-tone-heading"><strong>The Second Tone: The Rising Question</strong></a></li>
+                <li><a href="#third-tone-heading"><strong>The Third Tone: The Dramatic Dip</strong></a></li>
+                <li><a href="#fourth-tone-heading"><strong>The Fourth Tone: The Decisive Drop</strong></a></li>
+                <li><a href="#neutral-tone-heading"><strong>The Neutral Tone: Light and Quick</strong></a></li>
+                <li><a href="#challenges-heading"><strong>Common Challenges and Solutions</strong></a></li>
+                <li><a href="#training-methods-heading"><strong>Key Training Methods</strong></a></li>
+            </ul>
         </div>
+
+        <section id="foundation">
+            <h2>Foundation: Understanding Tones</h2>
+            
+            <div class="concept-box">
+                <p><strong>Core Concept</strong>: Mandarin is tonal - pitch patterns change word meanings entirely</p>
+            </div>
+
+            <div class="intro">
+                <p>Understanding and mastering Mandarin tones represents one of the most crucial yet challenging aspects of learning Chinese. Think of tones as the musical foundation of the language - they carry as much meaning as the consonants and vowels themselves. When you change a tone, you completely change the word's meaning, just as changing a letter would in English.</p>
+                
+                <p>Let me guide you through each tone systematically, focusing on both how to hear the differences and how to produce them accurately.</p>
+            </div>
+
+            <h3>The 5 Tone System</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tone</th>
+                        <th>Symbol</th>
+                        <th>Pattern</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                        <th>Memory Aid</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1st</strong></td>
+                        <td>ˉ</td>
+                        <td><span class="tone-patterns">─</span></td>
+                        <td>High, level</td>
+                        <td><span class="chinese-text">mā</span> (mother)</td>
+                        <td>Doctor's "ahhhh" - steady & high</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2nd</strong></td>
+                        <td>ˊ</td>
+                        <td><span class="tone-patterns">╱</span></td>
+                        <td>Rising</td>
+                        <td><span class="chinese-text">má</span> (hemp)</td>
+                        <td>"Really?" - surprised rise</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3rd</strong></td>
+                        <td>ˇ</td>
+                        <td><span class="tone-patterns">╲╱</span></td>
+                        <td>Fall-rise</td>
+                        <td><span class="chinese-text">mǎ</span> (horse)</td>
+                        <td>"Oh..." then hopeful</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4th</strong></td>
+                        <td>ˋ</td>
+                        <td><span class="tone-patterns">╲</span></td>
+                        <td>Falling</td>
+                        <td><span class="chinese-text">mà</span> (scold)</td>
+                        <td>Firm "No!" - sharp drop</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Neutral</strong></td>
+                        <td>—</td>
+                        <td><span class="tone-patterns">·</span></td>
+                        <td>Light, quick</td>
+                        <td><span class="chinese-text">ma</span> (particle)</td>
+                        <td>Unstressed, like "a" in "about"</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <hr>
 
         <section aria-labelledby="first-tone-heading">
             <h2 id="first-tone-heading">The First Tone: High and Steady</h2>
             
             <p>The first tone maintains a high, level pitch throughout the entire syllable. Imagine you're at the doctor's office and they ask you to say "ahhhh" while examining your throat. That steady, sustained high pitch captures the essence of the first tone perfectly.</p>
             
-            <p>For production, start by finding your natural high pitch - not strained or squeaky, but comfortably high in your vocal range. The key insight is that this tone doesn't rise or fall; it stays perfectly level. Many learners accidentally let their voice drift downward at the end, which transforms it into a different tone entirely. Practice by placing your hand flat and moving it horizontally while saying <span lang="zh" class="chinese-text">"mā"</span> - your voice should follow that flat trajectory.</p>
+            <p>For production, start by finding your natural high pitch - not strained or squeaky, but comfortably high in your vocal range. The key insight is that this tone doesn't rise or fall; it stays perfectly level. Many learners accidentally let their voice drift downward at the end, which transforms it into a different tone entirely. Practice by placing your hand flat and moving it horizontally while saying <span class="chinese-text">"mā"</span> - your voice should follow that flat trajectory.</p>
             
-            <p>To recognize the first tone, listen for that unwavering quality. In natural speech, it often sounds confident and declarative, like stating a fact. The syllable <span lang="zh" class="chinese-text">"zhōng"</span> (middle) demonstrates this perfectly - the tone conveys a sense of stability and centeredness that actually matches the word's meaning.</p>
+            <p>To recognize the first tone, listen for that unwavering quality. In natural speech, it often sounds confident and declarative, like stating a fact. The syllable <span class="chinese-text">"zhōng"</span> (middle) demonstrates this perfectly - the tone conveys a sense of stability and centeredness that actually matches the word's meaning.</p>
 
             <div class="tone-section" role="region" aria-labelledby="first-tone-details">
-                <h3 id="first-tone-details">First Tone <span lang="zh">(ˉ)</span> - High Level</h3>
+                <h3 id="first-tone-details">First Tone <span>(ˉ)</span> - High Level</h3>
                 
                 <p><strong>Production:</strong></p>
                 <ul>
@@ -191,7 +423,7 @@
                 </ul>
                 
                 <div class="practice-example">
-                    <strong>Practice:</strong> <span lang="zh" class="chinese-text">mā</span> (mother) - Keep voice flat like drawing a horizontal line
+                    <strong>Practice:</strong> <span class="chinese-text">mā</span> (mother) - Keep voice flat like drawing a horizontal line
                 </div>
             </div>
         </section>
@@ -203,12 +435,12 @@
             
             <p>The second tone rises from a mid-level pitch to a high pitch, similar to how your voice naturally goes up when you ask "Really?" in English with genuine surprise. However, the Mandarin second tone is more controlled and deliberate than our English questioning intonation.</p>
             
-            <p>Start production at your comfortable middle pitch range and smoothly glide upward to your high range. The movement should be continuous and controlled, not jerky or hesitant. Think of it as an elevator smoothly ascending from the second floor to the fourth floor. Practice with <span lang="zh" class="chinese-text">"má"</span> (hemp) while drawing an upward diagonal line in the air - your voice should follow that ascending path.</p>
+            <p>Start production at your comfortable middle pitch range and smoothly glide upward to your high range. The movement should be continuous and controlled, not jerky or hesitant. Think of it as an elevator smoothly ascending from the second floor to the fourth floor. Practice with <span class="chinese-text">"má"</span> (hemp) while drawing an upward diagonal line in the air - your voice should follow that ascending path.</p>
             
             <p>Recognition becomes easier when you understand that the second tone often conveys urgency, questioning, or emphasis in emotional contexts. The rising pattern signals that something important or surprising is being communicated. Listen for that characteristic upward sweep that distinguishes it from the level first tone.</p>
 
             <div class="tone-section" role="region" aria-labelledby="second-tone-details">
-                <h3 id="second-tone-details">Second Tone <span lang="zh">(ˊ)</span> - Rising</h3>
+                <h3 id="second-tone-details">Second Tone <span>(ˊ)</span> - Rising</h3>
                 
                 <p><strong>Production:</strong></p>
                 <ul>
@@ -226,7 +458,7 @@
                 </ul>
                 
                 <div class="practice-example">
-                    <strong>Practice:</strong> <span lang="zh" class="chinese-text">má</span> (hemp) - Voice follows upward diagonal line
+                    <strong>Practice:</strong> <span class="chinese-text">má</span> (hemp) - Voice follows upward diagonal line
                 </div>
             </div>
         </section>
@@ -238,19 +470,19 @@
             
             <p>The third tone presents the most complex pattern - it starts at a medium pitch, dips down to your lowest comfortable range, then rises back up to medium or slightly higher. Think of it as the vocal equivalent of a disappointed "oh" that suddenly becomes hopeful. You might recognize this pattern from how we say "well..." when we're considering something uncertain.</p>
             
-            <p>Production requires careful attention to all three phases of the movement. Begin at your mid-range, allow your voice to fall to your lowest comfortable pitch (not strained or creaky), then smoothly rise back up. The dip should be noticeable but not exaggerated to the point of vocal strain. Practice <span lang="zh" class="chinese-text">"mǎ"</span> (horse) while drawing a valley shape with your finger - down, then up.</p>
+            <p>Production requires careful attention to all three phases of the movement. Begin at your mid-range, allow your voice to fall to your lowest comfortable pitch (not strained or creaky), then smoothly rise back up. The dip should be noticeable but not exaggerated to the point of vocal strain. Practice <span class="chinese-text">"mǎ"</span> (horse) while drawing a valley shape with your finger - down, then up.</p>
             
             <p>Many learners struggle with the third tone because they either don't dip low enough or they make the movement too abrupt. The transition should be smooth and natural, like a gentle hill rather than a sharp cliff. In connected speech, you'll often hear the third tone abbreviated when it appears before other tones, but when spoken in isolation or at the end of phrases, the full dip-and-rise pattern should be clearly audible.</p>
 
             <div class="tone-section" role="region" aria-labelledby="third-tone-details">
-                <h3 id="third-tone-details">Third Tone <span lang="zh">(ˇ)</span> - Falling-Rising</h3>
+                <h3 id="third-tone-details">Third Tone <span>(ˇ)</span> - Falling-Rising</h3>
                 
                 <p><strong>Production:</strong></p>
                 <ul>
                     <li>Start at mid-pitch</li>
                     <li>Dip down to low pitch</li>
                     <li>Rise back to mid/high pitch</li>
-                    <li>Three-part movement: mid &rarr; low &rarr; up</li>
+                    <li>Three-part movement: mid → low → up</li>
                 </ul>
                 
                 <p><strong>Recognition:</strong></p>
@@ -261,10 +493,12 @@
                 </ul>
                 
                 <div class="practice-example">
-                    <strong>Practice:</strong> <span lang="zh" class="chinese-text">mǎ</span> (horse) - Draw a valley shape while speaking
+                    <strong>Practice:</strong> <span class="chinese-text">mǎ</span> (horse) - Draw a valley shape while speaking
                 </div>
                 
-                <p><strong>Note:</strong> In connected speech, often abbreviated before other tones</p>
+                <div class="note">
+                    <strong>Note:</strong> In connected speech, often abbreviated before other tones
+                </div>
             </div>
         </section>
 
@@ -275,12 +509,12 @@
             
             <p>The fourth tone falls sharply from high to low pitch, conveying finality and determination. Imagine saying "No!" with absolute conviction, or the way a judge might pronounce "Guilty!" in a courtroom drama. This tone starts high and drops decisively to your low range.</p>
             
-            <p>For production, begin at your high pitch and let your voice fall quickly but smoothly to your low range. The movement should feel decisive and complete, not tentative or drawn out. Unlike the third tone's gentle dip, this is a direct, confident descent. Practice <span lang="zh" class="chinese-text">"mà"</span> (scold) while making a sharp downward gesture - your voice should mirror that decisive downward movement.</p>
+            <p>For production, begin at your high pitch and let your voice fall quickly but smoothly to your low range. The movement should feel decisive and complete, not tentative or drawn out. Unlike the third tone's gentle dip, this is a direct, confident descent. Practice <span class="chinese-text">"mà"</span> (scold) while making a sharp downward gesture - your voice should mirror that decisive downward movement.</p>
             
             <p>Recognition of the fourth tone becomes easier when you associate it with commands, statements of fact, or expressions of strong emotion. The falling pattern often signals completion, authority, or emphasis. Listen for that characteristic sharp descent that distinguishes it from the gentler movements of other tones.</p>
 
             <div class="tone-section" role="region" aria-labelledby="fourth-tone-details">
-                <h3 id="fourth-tone-details">Fourth Tone <span lang="zh">(ˋ)</span> - Falling</h3>
+                <h3 id="fourth-tone-details">Fourth Tone <span>(ˋ)</span> - Falling</h3>
                 
                 <p><strong>Production:</strong></p>
                 <ul>
@@ -298,7 +532,7 @@
                 </ul>
                 
                 <div class="practice-example">
-                    <strong>Practice:</strong> <span lang="zh" class="chinese-text">mà</span> (scold) - Voice follows sharp downward line
+                    <strong>Practice:</strong> <span class="chinese-text">mà</span> (scold) - Voice follows sharp downward line
                 </div>
             </div>
         </section>
@@ -312,7 +546,7 @@
             
             <p>Production of the neutral tone depends entirely on context. After a first tone, it tends to be lower and lighter. After a second tone, it often falls to a mid-low level. After a third tone, it typically rises slightly from the preceding low point. After a fourth tone, it usually stays in the lower range but with a lighter quality. The key is that it's always shorter and less emphasized than the preceding tone.</p>
             
-            <p>Recognition requires listening for that characteristic lightness and brevity. Neutral tone syllables often sound like they're "tagging along" after the main stressed syllable. In the word <span lang="zh" class="chinese-text">"xiézi"</span> (shoes), the second syllable carries the neutral tone and sounds quick and light compared to the rising second tone of the first syllable.</p>
+            <p>Recognition requires listening for that characteristic lightness and brevity. Neutral tone syllables often sound like they're "tagging along" after the main stressed syllable. In the word <span class="chinese-text">"xiézi"</span> (shoes), the second syllable carries the neutral tone and sounds quick and light compared to the rising second tone of the first syllable.</p>
 
             <div class="tone-section" role="region" aria-labelledby="neutral-tone-details">
                 <h3 id="neutral-tone-details">Neutral Tone (no mark) - Light &amp; Quick</h3>
@@ -338,7 +572,7 @@
                 </ul>
                 
                 <div class="practice-example">
-                    <strong>Practice:</strong> <span lang="zh" class="chinese-text">ma</span> (question particle), <span lang="zh" class="chinese-text">xiézi</span> (shoes - second syllable)
+                    <strong>Practice:</strong> <span class="chinese-text">ma</span> (question particle), <span class="chinese-text">xiézi</span> (shoes - second syllable)
                 </div>
             </div>
         </section>
@@ -352,7 +586,7 @@
             
             <p>For production difficulties, start by exaggerating the tones deliberately. Make your movements larger and more dramatic than necessary, then gradually refine them to more natural proportions. This approach helps establish the correct muscle memory and vocal coordination before worrying about sounding natural.</p>
             
-            <p>Practice recognition by listening to minimal pairs - words that differ only in tone, like <span lang="zh" class="chinese-text">"mā, má, mǎ, mà."</span> Train your ear to distinguish these differences before moving to longer phrases. Record yourself producing the tones and compare your patterns to native speaker models.</p>
+            <p>Practice recognition by listening to minimal pairs - words that differ only in tone, like <span class="chinese-text">"mā, má, mǎ, mà."</span> Train your ear to distinguish these differences before moving to longer phrases. Record yourself producing the tones and compare your patterns to native speaker models.</p>
         </section>
 
         <section aria-labelledby="connected-speech-heading">
@@ -368,36 +602,90 @@
         <section aria-labelledby="training-methods-heading">
             <h2 id="training-methods-heading">Key Training Methods</h2>
 
+            <div class="concept-box">
+                <p><strong>Training Strategy</strong>: Master individual tones first, then combine in context</p>
+            </div>
+
             <h3>Recognition Practice:</h3>
-            <ol>
-                <li><strong>Minimal pairs:</strong> <span lang="zh" class="chinese-text">mā-má-mǎ-mà</span></li>
-                <li><strong>Audio discrimination:</strong> Focus on pitch movement, not absolute pitch</li>
-                <li><strong>Context listening:</strong> Identify tones in natural speech</li>
-            </ol>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Minimal pairs</strong></td>
+                        <td>Words differing only in tone</td>
+                        <td><span class="chinese-text">mā-má-mǎ-mà</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Audio discrimination</strong></td>
+                        <td>Focus on pitch movement</td>
+                        <td>Listen for patterns, not absolute pitch</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Context listening</strong></td>
+                        <td>Identify tones in natural speech</td>
+                        <td>Songs, conversations, media</td>
+                    </tr>
+                </tbody>
+            </table>
 
             <h3>Production Practice:</h3>
-            <ol>
-                <li><strong>Exaggerate initially:</strong> Make movements dramatic, then refine</li>
-                <li><strong>Use gestures:</strong> Hand movements help establish muscle memory</li>
-                <li><strong>Record yourself:</strong> Compare with native speaker models</li>
-                <li><strong>Pattern practice:</strong> Drill tone combinations</li>
-            </ol>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Description</th>
+                        <th>Tip</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Exaggerate initially</strong></td>
+                        <td>Make movements dramatic</td>
+                        <td>Then refine to natural proportions</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Use gestures</strong></td>
+                        <td>Hand movements help</td>
+                        <td>Establishes muscle memory</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Record yourself</strong></td>
+                        <td>Compare with native speakers</td>
+                        <td>Identify specific areas to improve</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pattern practice</strong></td>
+                        <td>Drill tone combinations</td>
+                        <td>Build automatic responses</td>
+                    </tr>
+                </tbody>
+            </table>
 
-            <h3>Common Challenges:</h3>
-            <ul>
-                <li><strong>Absolute vs. relative pitch:</strong> Focus on movement patterns, not exact frequencies</li>
-                <li><strong>Tone sandhi:</strong> Third tone changes to second tone before another third tone</li>
-                <li><strong>Sentence intonation:</strong> Lexical tones maintain relationships within overall sentence melody</li>
-                <li><strong>Connected speech:</strong> Tones may be modified or abbreviated in natural conversation</li>
-            </ul>
+            <div class="reference-card">
+                <h3>Quick Reference: Common Challenges</h3>
+                
+                <h4>Key Issues & Solutions</h4>
+                <ul>
+                    <li><strong>Absolute vs. relative pitch:</strong> Focus on movement patterns, not exact frequencies</li>
+                    <li><strong>Tone sandhi:</strong> Third tone changes to second tone before another third tone</li>
+                    <li><strong>Sentence intonation:</strong> Lexical tones maintain relationships within overall sentence melody</li>
+                    <li><strong>Connected speech:</strong> Tones may be modified or abbreviated in natural conversation</li>
+                </ul>
 
-            <h3>Essential Tips:</h3>
-            <ul>
-                <li>Practice in isolation first, then in context</li>
-                <li>Each tone carries meaning - wrong tone = wrong word</li>
-                <li>Consistent daily practice builds neural pathways</li>
-                <li>Don't strain your voice - find comfortable pitch ranges</li>
-            </ul>
+                <h4>Essential Practice Tips</h4>
+                <ul>
+                    <li>Practice in isolation first, then in context</li>
+                    <li>Each tone carries meaning - wrong tone = wrong word</li>
+                    <li>Consistent daily practice builds neural pathways</li>
+                    <li>Don't strain your voice - find comfortable pitch ranges</li>
+                </ul>
+            </div>
         </section>
     </main>
 </body>

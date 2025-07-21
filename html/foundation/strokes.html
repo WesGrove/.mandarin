@@ -3,85 +3,304 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Strokes</title>
+    <title>Interactive Strokes Guide</title>
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            color: #333;
+        :root{
+          --accent:#007bff;
+          --bg:#f5f7fa;
+          --card-bg:#ffffff;
+          --text:#333;
+          --muted:#555;
+          --hover-shadow:0 6px 20px rgba(0,123,255,.25);
+          --font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
         }
-        .intro {
-            font-size: 1.1em;
-            margin-bottom: 30px;
-            padding: 20px;
-            background-color: #ecf0f1;
-            border-radius: 8px;
-        }
+
+        *{box-sizing:border-box}
+        body{margin:0;padding:40px 20px;background:var(--bg);color:var(--text);font-family:var(--font-family);font-size:14px;line-height:1.4}
+
         h1 {
-            color: #2c3e50;
-            border-bottom: 3px solid #00c3ff;
-            padding-bottom: 10px;
-            font-size: 2.2em;
             text-align: center;
             margin-bottom: 30px;
+            font-size: 24px;
+            color: var(--text);
         }
+
         h2 {
-            color: #34495e;
-            margin-top: 30px;
+            color: var(--text);
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 20px;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 8px;
         }
+
         h3 {
-            color: #34495e;
-            margin-top: 25px;
+            color: var(--muted);
+            margin-top: 30px;
+            font-size: 16px;
         }
+
         h4 {
-            color: #7f8c8d;
+            color: var(--muted);
             margin-top: 20px;
+            font-size: 14px;
         }
+
         h5 {
-            color: #95a5a6;
+            color: var(--muted);
             margin-top: 15px;
+            font-size: 13px;
         }
+
+        .subtitle {
+            text-align: center;
+            font-style: italic;
+            color: var(--muted);
+            margin-bottom: 30px;
+        }
+
+        .intro {
+            background: var(--card-bg);
+            border: 1px solid #e0e0e0;
+            border-left: 4px solid var(--accent);
+            padding: 20px;
+            margin: 30px auto;
+            max-width: 800px;
+            font-size: 15px;
+        }
+
+        .intro p:first-child {
+            margin-top: 0;
+        }
+
+        .intro p:last-child {
+            margin-bottom: 0;
+        }
+
         table {
             border-collapse: collapse;
-            width: 100%;
-            margin: 20px 0;
+            margin: 20px auto;
+            background: transparent;
+            max-width: 100%;
         }
+
         th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
+            padding: 8px 12px;
+            border: 1px solid #e0e0e0;
+            transition: transform .25s, box-shadow .25s, background .25s;
+            position: relative;
+            vertical-align: top;
+            font-size: 13px;
         }
+
         th {
-            background-color: #f2f2f2;
-            font-weight: bold;
+            background: var(--card-bg);
+            font-weight: 600;
+            border-bottom: 2px solid #c0c0c0;
+            color: var(--text);
         }
-        ul, ol {
-            margin: 15px 0;
-            padding-left: 30px;
+
+        tbody td {
+            background: var(--card-bg);
         }
-        li {
-            margin: 5px 0;
+
+        tbody td:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--hover-shadow);
+            background: #fff;
+            color: var(--accent);
+            z-index: 1;
+            border-color: var(--accent);
         }
+
+        .concept-box {
+            background: var(--card-bg);
+            border: 1px solid #e0e0e0;
+            border-left: 4px solid var(--accent);
+            padding: 15px;
+            margin: 20px auto;
+            max-width: 800px;
+        }
+
+        .concept-box > p:first-child {
+            margin-top: 0;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .principle-section {
+            background: var(--card-bg);
+            border: 1px solid #e0e0e0;
+            padding: 20px;
+            margin: 25px auto;
+            max-width: 800px;
+        }
+
+        .principle-section h4 {
+            margin-top: 0;
+            color: var(--accent);
+            font-size: 16px;
+        }
+
+        .example-box {
+            background: var(--card-bg);
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            margin: 15px auto;
+            max-width: 600px;
+        }
+
+        .pattern-card {
+            background: var(--card-bg);
+            border: 1px solid #e0e0e0;
+            border-left: 4px solid #28a745;
+            padding: 20px;
+            margin: 25px auto;
+            max-width: 800px;
+        }
+
+        .pattern-card h4 {
+            margin-top: 0;
+            color: #155724;
+        }
+
+        .reference-card {
+            background: var(--card-bg);
+            border: 1px solid #e0e0e0;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 30px auto;
+            max-width: 800px;
+        }
+
+        .reference-card h3 {
+            margin-top: 0;
+            color: #856404;
+        }
+
+        .note {
+            font-style: italic;
+            color: var(--muted);
+            margin: 20px auto;
+            padding: 15px;
+            background: var(--card-bg);
+            border: 1px solid #e0e0e0;
+            border-left: 4px solid var(--accent);
+            max-width: 800px;
+        }
+
+        .nav-menu {
+            background: var(--card-bg);
+            padding: 20px;
+            margin: 0 auto 30px auto;
+            border: 1px solid #e0e0e0;
+            max-width: 800px;
+        }
+
+        .nav-menu h3 {
+            margin-top: 0;
+            color: var(--text);
+            font-size: 16px;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .nav-menu li {
+            margin: 6px 0;
+        }
+
+        .nav-menu a {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.25s;
+        }
+
+        .nav-menu a:hover {
+            color: #0056b3;
+        }
+
+        code {
+            background: #f1f2f6;
+            padding: 2px 4px;
+            border-radius: 2px;
+            font-family: var(--font-family);
+            font-size: 12px;
+        }
+
         strong {
-            color: #2c3e50;
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        ul, ol {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+
+        li {
+            margin: 4px 0;
+        }
+
+        p {
+            margin: 15px auto;
+            max-width: 800px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 10px;
+                font-size: 13px;
+            }
+            
+            h1 {
+                font-size: 20px;
+            }
+            
+            h2 {
+                font-size: 18px;
+            }
+            
+            .intro, .concept-box, .principle-section, .pattern-card, .reference-card, .note {
+                margin: 15px auto;
+                padding: 15px;
+            }
         }
     </style>
 </head>
 <body>
+    
     <h1>Basic Strokes</h1>
+    <p class="subtitle">Interactive Stroke Order Guide</p>
+
+    <div class="nav-menu">
+        <h3>Quick Navigation</h3>
+        <ul>
+            <li><a href="#foundation"><strong>Foundation: Why Stroke Order Matters</strong></a></li>
+            <li><a href="#basic-strokes"><strong>Basic Stroke Types</strong></a></li>
+            <li><a href="#fundamental-principles"><strong>Six Fundamental Principles</strong></a></li>
+            <li><a href="#character-examples"><strong>Character Examples</strong></a></li>
+            <li><a href="#learning-journey"><strong>Building Your Intuition</strong></a></li>
+        </ul>
+    </div>
 
     <div class="intro">
         <p>Understanding Chinese character stroke order might initially seem like an arbitrary set of rules, but it actually follows logical patterns that have evolved over thousands of years of handwriting practice. Think of stroke order as the "choreography" of Chinese writing - just as dancers learn specific sequences of movements that flow naturally from one to the next, Chinese characters have optimal sequences that make writing faster, more legible, and more natural.</p>
     </div>
         
-    <h2>Why Stroke Order Matters Beyond Tradition</h2>
+    <h2 id="foundation">Why Stroke Order Matters Beyond Tradition</h2>
+
+    <div class="concept-box">
+        <p><strong>Core Concept</strong>: Stroke order creates natural flow and muscle memory for character recognition</p>
+    </div>
 
     <p>Before diving into the rules, it's important to understand why stroke order exists at all. When you write characters in the correct order, your hand naturally flows from one stroke to the next without awkward repositioning. This creates consistency in how characters look when written by hand, makes writing faster, and helps with character recognition when reading other people's handwriting. Perhaps most importantly for learners, following proper stroke order actually helps you remember characters better because the muscle memory of writing reinforces the visual memory of the character's structure.</p>
 
-    <h2>The Foundation: Basic Stroke Types and Directions</h2>
+    <h2 id="basic-strokes">The Foundation: Basic Stroke Types and Directions</h2>
 
     <p>Chinese characters are built from a relatively small set of basic strokes, each with a specific direction and shape. Understanding these fundamental building blocks provides the foundation for all stroke order rules.</p>
 
@@ -135,70 +354,80 @@
         </tbody>
     </table>
 
-    <h2>The Fundamental Principles: Six Core Rules</h2>
+    <h2 id="fundamental-principles">The Fundamental Principles: Six Core Rules</h2>
+
+    <div class="concept-box">
+        <p><strong>System Insight</strong>: Master six principles instead of memorizing thousands of individual character orders</p>
+    </div>
 
     <p>The beauty of Chinese stroke order lies in its systematic nature. Rather than memorizing the stroke order for thousands of individual characters, you can master six fundamental principles that apply across the vast majority of characters.</p>
 
-    <h4>1. Top to Bottom</h4>
+    <div class="principle-section">
+        <h4>1. Top to Bottom</h4>
+        <p>The first principle states that you write from top to bottom within any given character. This means that when a character has elements stacked vertically, you complete the upper elements before moving to the lower ones. Consider the character 三 (three) - you write the top horizontal stroke first, then the middle one, then the bottom one. This principle extends to complex characters where entire sections are arranged vertically.</p>
+        
+        <p>Write upper elements before lower elements.</p>
+        <ul>
+            <li><strong>Example:</strong> 三 (three) - top line, middle line, bottom line</li>
+            <li><strong>Example:</strong> 字 (character) - roof first, then house, then bottom</li>
+        </ul>
+    </div>
 
-    <p>The first principle states that you write from top to bottom within any given character. This means that when a character has elements stacked vertically, you complete the upper elements before moving to the lower ones. Consider the character 三 (three) - you write the top horizontal stroke first, then the middle one, then the bottom one. This principle extends to complex characters where entire sections are arranged vertically.</p>
+    <div class="principle-section">
+        <h4>2. Left to Right</h4>
+        <p>The second principle involves writing from left to right when elements are arranged horizontally. In the character 川 (river), you write the leftmost vertical stroke first, then the middle one, then the rightmost one. This follows the natural reading direction in Chinese and creates a logical flow across the character.</p>
 
-    <p>Write upper elements before lower elements.</p>
-    <ul>
-        <li><strong>Example:</strong> 三 (three) - top line, middle line, bottom line</li>
-        <li><strong>Example:</strong> 字 (character) - roof first, then house, then bottom</li>
-    </ul>
+        <p>Write left elements before right elements.</p>
+        <ul>
+            <li><strong>Example:</strong> 川 (river) - left stroke, middle stroke, right stroke</li>
+            <li><strong>Example:</strong> 林 (forest) - left 木, then right 木</li>
+        </ul>
+    </div>
 
-    <h4>2. Left to Right</h4>
+    <div class="principle-section">
+        <h4>3. Horizontal Before Vertical (when crossing)</h4>
+        <p>The third principle deals with horizontal strokes that intersect with vertical strokes. When these two stroke types cross each other, you write the horizontal stroke first, then the vertical stroke that cuts through it. This creates a stable foundation and prevents the vertical stroke from appearing to "hang" from the horizontal one.</p>
 
-    <p>The second principle involves writing from left to right when elements are arranged horizontally. In the character 川 (river), you write the leftmost vertical stroke first, then the middle one, then the rightmost one. This follows the natural reading direction in Chinese and creates a logical flow across the character.</p>
+        <p>When strokes intersect, write horizontal first.</p>
+        <ul>
+            <li><strong>Example:</strong> 十 (ten) - horizontal line first, then vertical through it</li>
+            <li><strong>Example:</strong> 王 (king) - three horizontal strokes, then vertical line</li>
+        </ul>
+    </div>
 
-    <p>Write left elements before right elements.</p>
-    <ul>
-        <li><strong>Example:</strong> 川 (river) - left stroke, middle stroke, right stroke</li>
-        <li><strong>Example:</strong> 林 (forest) - left 木, then right 木</li>
-    </ul>
+    <div class="principle-section">
+        <h4>4. Enclosures: Outside Before Inside, Bottom Last</h4>
+        <p>The fourth principle addresses how to handle enclosures - those character components that surround other elements. You write the enclosing strokes first, but you leave the bottom or closing stroke until after you've completed the enclosed elements. Think of it like building a house where you put up three walls first, add all the interior elements, then close off the final wall. The character 回 (return) demonstrates this beautifully - you write the outer frame's top and sides, then the inner elements, then close the outer frame.</p>
 
-    <h4>3. Horizontal Before Vertical (when crossing)</h4>
+        <p>Write enclosing strokes first, contents next, closing stroke last.</p>
+        <ul>
+            <li><strong>Example:</strong> 回 (return) - outer frame (top, left, right), inner content, bottom closure</li>
+            <li><strong>Example:</strong> 国 (country) - frame first, contents, then bottom line</li>
+        </ul>
+    </div>
 
-    <p>The third principle deals with horizontal strokes that intersect with vertical strokes. When these two stroke types cross each other, you write the horizontal stroke first, then the vertical stroke that cuts through it. This creates a stable foundation and prevents the vertical stroke from appearing to "hang" from the horizontal one.</p>
+    <div class="principle-section">
+        <h4>5. Center First (in three-part horizontal layouts)</h4>
+        <p>The fifth principle handles middle elements in three-part horizontal arrangements. When a character has left, center, and right components, you write the center component first, then the left side, then the right side. This might seem counterintuitive at first, but it ensures that the central element - often the most important semantic component - maintains proper proportions and positioning.</p>
 
-    <p>When strokes intersect, write horizontal first.</p>
-    <ul>
-        <li><strong>Example:</strong> 十 (ten) - horizontal line first, then vertical through it</li>
-        <li><strong>Example:</strong> 王 (king) - three horizontal strokes, then vertical line</li>
-    </ul>
+        <p>In left-center-right arrangements, write center first.</p>
+        <ul>
+            <li><strong>Example:</strong> 小 (small) - center vertical, left dot, right dot</li>
+            <li><strong>Example:</strong> 水 (water) - center vertical, left strokes, right stroke</li>
+        </ul>
+    </div>
 
-    <h4>4. Enclosures: Outside Before Inside, Bottom Last</h4>
+    <div class="principle-section">
+        <h4>6. Minor Strokes and Dots Last</h4>
+        <p>The sixth principle governs dots and minor strokes, which are typically added last after the main structure of the character is complete. These finishing touches are like adding punctuation to a sentence - they complete the meaning but don't form the primary structure.</p>
 
-    <p>The fourth principle addresses how to handle enclosures - those character components that surround other elements. You write the enclosing strokes first, but you leave the bottom or closing stroke until after you've completed the enclosed elements. Think of it like building a house where you put up three walls first, add all the interior elements, then close off the final wall. The character 回 (return) demonstrates this beautifully - you write the outer frame's top and sides, then the inner elements, then close the outer frame.</p>
+        <p>Add finishing touches after main structure.</p>
+        <ul>
+            <li><strong>Example:</strong> 主 (main) - complete main structure, add dot last</li>
+        </ul>
+    </div>
 
-    <p>Write enclosing strokes first, contents next, closing stroke last.</p>
-    <ul>
-        <li><strong>Example:</strong> 回 (return) - outer frame (top, left, right), inner content, bottom closure</li>
-        <li><strong>Example:</strong> 国 (country) - frame first, contents, then bottom line</li>
-    </ul>
-
-    <h4>5. Center First (in three-part horizontal layouts)</h4>
-
-    <p>The fifth principle handles middle elements in three-part horizontal arrangements. When a character has left, center, and right components, you write the center component first, then the left side, then the right side. This might seem counterintuitive at first, but it ensures that the central element - often the most important semantic component - maintains proper proportions and positioning.</p>
-
-    <p>In left-center-right arrangements, write center first.</p>
-    <ul>
-        <li><strong>Example:</strong> 小 (small) - center vertical, left dot, right dot</li>
-        <li><strong>Example:</strong> 水 (water) - center vertical, left strokes, right stroke</li>
-    </ul>
-
-    <h4>6. Minor Strokes and Dots Last</h4>
-
-    <p>The sixth principle governs dots and minor strokes, which are typically added last after the main structure of the character is complete. These finishing touches are like adding punctuation to a sentence - they complete the meaning but don't form the primary structure.</p>
-
-    <p>Add finishing touches after main structure.</p>
-    <ul>
-        <li><strong>Example:</strong> 主 (main) - complete main structure, add dot last</li>
-    </ul>
-
-    <h2>Seeing the Rules in Action: Character Examples</h2>
+    <h2 id="character-examples">Seeing the Rules in Action: Character Examples</h2>
 
     <p>Let's examine how these principles work together in real characters to build your intuitive understanding. Take the character 好 (good), which combines 女 (woman) on the left and 子 (child) on the right. Following the left-to-right principle, you would complete the entire 女 component first, then write the entire 子 component. Within the 女 component, you apply top-to-bottom, writing the horizontal stroke first, then the two strokes that form the lower portion.</p>
 
@@ -206,7 +435,11 @@
 
     <p>For intersection principles, consider 十 (ten). You write the horizontal stroke first, establishing the foundation, then add the vertical stroke that passes through it. This creates a stable, balanced character that looks proportional.</p>
 
-    <h2>Building Your Stroke Order Intuition</h2>
+    <h2 id="learning-journey">Building Your Stroke Order Intuition</h2>
+
+    <div class="concept-box">
+        <p><strong>Learning Strategy</strong>: Develop intuitive feel for natural construction flow</p>
+    </div>
 
     <p>Rather than trying to memorize rules as abstract concepts, focus on developing an intuitive feel for the natural flow of writing. When you encounter a new character, pause and ask yourself: "What feels like the most natural way to construct this character?" Often, your instinct will guide you toward the correct stroke order.</p>
 
@@ -214,29 +447,31 @@
 
     <p>Consider the character as having a logical construction sequence, like assembling a piece of furniture. You wouldn't attach the decorative elements before building the main frame, and similarly, you establish the primary structure of a character before adding the finishing details.</p>
 
-    <h2>Common Patterns and Exceptions</h2>
+    <h3>Common Patterns and Exceptions</h3>
 
     <p>As you progress in your study, you'll begin to recognize that certain character components appear frequently across many different characters. These radicals and phonetic components maintain consistent internal stroke orders regardless of where they appear. Once you master the stroke order for common components like 氵(water radical), 木 (wood), or 口 (mouth), you can apply that knowledge to hundreds of different characters.</p>
 
     <p>Some characters do present exceptions to the general rules, but these exceptions often follow their own logical patterns. For instance, some very traditional character forms might prioritize aesthetic balance over strict adherence to the standard rules. However, these exceptions become less intimidating once you have a solid foundation in the basic principles.</p>
 
-    <h3>Common Stroke Sequences</h3>
+    <div class="pattern-card">
+        <h4>Common Stroke Sequences</h4>
+        
+        <h5>Basic Characters</h5>
+        <ul>
+            <li><strong>人</strong> (person): left-falling stroke, then right-falling stroke</li>
+            <li><strong>大</strong> (big): horizontal, left-falling, right-falling</li>
+            <li><strong>木</strong> (tree): horizontal, vertical, left-falling, right-falling</li>
+            <li><strong>口</strong> (mouth): left vertical, top horizontal, right vertical, bottom horizontal</li>
+        </ul>
 
-    <h4>Basic Characters</h4>
-    <ul>
-        <li><strong>人</strong> (person): left-falling stroke, then right-falling stroke</li>
-        <li><strong>大</strong> (big): horizontal, left-falling, right-falling</li>
-        <li><strong>木</strong> (tree): horizontal, vertical, left-falling, right-falling</li>
-        <li><strong>口</strong> (mouth): left vertical, top horizontal, right vertical, bottom horizontal</li>
-    </ul>
+        <h5>Complex Characters</h5>
+        <ul>
+            <li><strong>好</strong> (good): Complete 女 (woman) entirely, then complete 子 (child)</li>
+            <li><strong>明</strong> (bright): Complete 日 (sun) entirely, then complete 月 (moon)</li>
+        </ul>
+    </div>
 
-    <h4>Complex Characters</h4>
-    <ul>
-        <li><strong>好</strong> (good): Complete 女 (woman) entirely, then complete 子 (child)</li>
-        <li><strong>明</strong> (bright): Complete 日 (sun) entirely, then complete 月 (moon)</li>
-    </ul>
-
-    <h2>The Learning Journey: From Conscious to Automatic</h2>
+    <h3>The Learning Journey: From Conscious to Automatic</h3>
 
     <p>Initially, following proper stroke order requires conscious attention and deliberate practice. You might find yourself pausing before each stroke to consider the correct sequence. This conscious phase is entirely normal and necessary for building proper habits.</p>
 
@@ -246,23 +481,30 @@
 
     <p>Understanding stroke order as a logical system rather than arbitrary rules transforms Chinese character writing from a daunting memorization task into an engaging puzzle where each character follows predictable patterns. This systematic approach not only makes writing more efficient but also deepens your appreciation for the elegant structure underlying Chinese characters.</p>
 
-    <h3>Key Principles</h3>
+    <div class="reference-card">
+        <h3>Key Principles Summary</h3>
 
-    <ol>
-        <li><strong>Follow natural hand movement</strong> - stroke order creates smooth writing flow</li>
-        <li><strong>Maintain character balance</strong> - proper order ensures correct proportions</li>
-        <li><strong>Build foundation first</strong> - establish main structure before details</li>
-        <li><strong>Think in components</strong> - learn radical stroke orders to apply across characters</li>
-    </ol>
+        <ol>
+            <li><strong>Follow natural hand movement</strong> - stroke order creates smooth writing flow</li>
+            <li><strong>Maintain character balance</strong> - proper order ensures correct proportions</li>
+            <li><strong>Build foundation first</strong> - establish main structure before details</li>
+            <li><strong>Think in components</strong> - learn radical stroke orders to apply across characters</li>
+        </ol>
 
-    <h3>Practice Tips</h3>
+        <h4>Practice Tips</h4>
 
-    <ul>
-        <li>Start slowly and focus on correct sequence</li>
-        <li>Use grid paper to maintain proportions</li>
-        <li>Practice common radicals repeatedly</li>
-        <li>Write characters multiple times in succession</li>
-        <li>Check stroke order with dictionaries when uncertain</li>
-    </ul>
+        <ul>
+            <li>Start slowly and focus on correct sequence</li>
+            <li>Use grid paper to maintain proportions</li>
+            <li>Practice common radicals repeatedly</li>
+            <li>Write characters multiple times in succession</li>
+            <li>Check stroke order with dictionaries when uncertain</li>
+        </ul>
+    </div>
+
+    <div class="note">
+        <em>This guide provides a systematic approach to mastering Chinese stroke order. Focus on understanding the underlying logic rather than memorizing individual sequences!</em>
+    </div>
+
 </body>
 </html>
