@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+    <meta charset="UTF-8">
+    <title>Flashcard Template</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+        --radius: 360px;   /* Increased from 320px to 360px */
+        --count: 8;        /* Keep the number of cards */
+        --font: "Poppins", sans-serif;
+        }
+
+        * {box-sizing: border-box}
+        html, body {
+        height: 100%;
+        margin: 0;
+        font-family: var(--font);
+        }
+        body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f5f7fa;
+        perspective: 1200px;
+        overflow: hidden;
+        }
+        .card {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 220px;              /* Width from previous adjustment */
+        height: auto;
+        margin: -50% 0 0 -110px;   /* Half of the width */
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, .5);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, .15);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        backface-visibility: hidden;
+        transform-origin: center center;
+        user-select: none; /* Prevent text selection */
+        }
+
+        .front {
+        padding: 18px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 56px;
+        color: #fff;
+        text-shadow: 0 0 8px rgba(0, 0, 0, .3);
+        position: relative;
+        }
+
+        .type-badge {
+        position: absolute;
+        bottom: 6px;
+        right: 8px;
+        font-size: 10px;
+        padding: 2px 6px;
+        border-radius: 8px;
+        background: rgba(0, 0, 0, .25);
+        color: #fff;
+        letter-spacing: .5px;
+        }
+
+        .back {
+        padding: 12px 14px;
+        font-size: 11px;
+        line-height: 1.4;
+        color: #222;
+        }
+        .back strong {
+        color: #000;
+        font-weight: 600;
+        }
+    </style>
+
+    </head>
+
+    <body>
+        
+        <div>
+            <!-- radical card example -->
+            <div class="card">
+
+                <div class="front" style="background:linear-gradient(135deg,#007bff,#00c3ff)">
+                    <span style="position:absolute;top:7px;left:10px;font-size:10px;color:#fff;font-weight:600">
+                        KX 85
+                    </span>
+                        氵
+                    <span class="type-badge">
+                        semantic
+                    </span>
+                </div>
+
+                <div class="back">
+                <strong>Meaning:</strong> water<br/>
+                <strong>Full:</strong> 水 shuǐ (3rd) · 4 strokes<br/>
+                <strong>Position:</strong> left side<br/>
+                <strong>Shape change:</strong> 水 → 氵 on left<br/>
+                <strong>Hook:</strong> “Three splashy droplets on the left”
+                    <!-- divider -->
+                    <hr style="border:none;border-top:1px solid #000;margin:8px 0 6px 0">
+
+                    <!-- examples row (characters only) -->
+                    <div style="font-size:18px;letter-spacing:4px;text-align:center">
+                    河 海 洗 法
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- stroke card example -->
+            <div class="card">
+
+                <div class="front" style="background:linear-gradient(135deg,#007bff,#00c3ff)">
+                    <span style="position:absolute;top:7px;left:10px;font-size:10px;color:#fff;font-weight:600">
+                        KX 85
+                    </span>
+                        氵
+                    <span class="type-badge">
+                        semantic
+                    </span>
+                </div>
+
+                <div class="back">
+                <strong>Meaning:</strong> water<br/>
+                <strong>Full:</strong> 水 shuǐ (3rd) · 4 strokes<br/>
+                <strong>Position:</strong> left side<br/>
+                <strong>Shape change:</strong> 水 → 氵 on left<br/>
+                <strong>Hook:</strong> “Three splashy droplets on the left”
+                    <!-- divider -->
+                    <hr style="border:none;border-top:1px solid #000;margin:8px 0 6px 0">
+
+                    <!-- examples row (characters only) -->
+                    <div style="font-size:18px;letter-spacing:4px;text-align:center">
+                    河 海 洗 法
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        
+    </body>
+</html>

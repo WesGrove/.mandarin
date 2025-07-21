@@ -16,7 +16,16 @@
         }
 
         *{box-sizing:border-box}
-        body{margin:0;padding:40px 20px;background:var(--bg);color:var(--text);font-family:var(--font-family);font-size:14px;line-height:1.4}
+        body {
+            margin:0;
+            padding:40px 20px;
+            background:var(--bg);
+            color:var(--text);
+            font-family:var(--font-family);
+            font-size:14px;
+            line-height:1.4;
+            text-align:center;
+        }
 
         h1 {
             text-align: center;
@@ -32,18 +41,21 @@
             font-size: 20px;
             border-bottom: 2px solid var(--accent);
             padding-bottom: 8px;
+            text-align: center;
         }
 
         h3 {
             color: var(--muted);
             margin-top: 30px;
             font-size: 16px;
+            text-align: center;
         }
 
         h4 {
             color: var(--muted);
             margin-top: 20px;
             font-size: 14px;
+            text-align: center;
         }
 
         .subtitle {
@@ -58,7 +70,8 @@
             padding: 20px;
             margin: 0 auto 30px auto;
             border: 1px solid #e0e0e0;
-            max-width: 600px;
+            max-width: 450px;
+            text-align: center;
         }
 
         .nav-menu h3 {
@@ -102,6 +115,7 @@
             position: relative;
             vertical-align: top;
             font-size: 13px;
+            text-align: center;
         }
 
         th {
@@ -177,7 +191,8 @@
             border-left: 4px solid var(--accent);
             padding: 15px;
             margin: 20px auto;
-            max-width: 800px;
+            max-width: 600px;
+            text-align: center;
         }
 
         .concept-box > p:first-child {
@@ -188,11 +203,12 @@
 
         .sound-group {
             margin-bottom: 25px;
+            text-align: center;
         }
 
         .group-table {
             margin-bottom: 20px;
-            max-width: 800px;
+            max-width: 600px;
         }
 
         .example-syllables {
@@ -200,7 +216,8 @@
             padding: 15px;
             border: 1px solid #e0e0e0;
             margin: 15px auto;
-            max-width: 600px;
+            max-width: 450px;
+            text-align: center;
         }
 
         .decoding-example {
@@ -209,7 +226,8 @@
             border: 1px solid #e0e0e0;
             border-left: 4px solid var(--accent);
             margin: 15px auto;
-            max-width: 600px;
+            max-width: 450px;
+            text-align: center;
         }
 
         .reference-card {
@@ -218,7 +236,8 @@
             border-left: 4px solid #ffc107;
             padding: 20px;
             margin: 30px auto;
-            max-width: 800px;
+            max-width: 600px;
+            text-align: center;
         }
 
         .reference-card h3 {
@@ -240,6 +259,7 @@
             border: 1px solid #e0e0e0;
             border-left: 4px solid var(--accent);
             max-width: 800px;
+            text-align: center;
         }
 
         code {
@@ -257,11 +277,18 @@
 
         ul, ol {
             padding-left: 20px;
-            margin: 10px 0;
+            margin: 10px auto;
+            display: inline-block;
+            text-align: left;
+            max-width: 600px;
         }
 
         li {
             margin: 4px 0;
+        }
+
+        p {
+            text-align: center;
         }
 
         @media (max-width: 768px) {
