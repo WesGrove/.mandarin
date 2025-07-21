@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Phase-1 Markdown-Style Hover Table</title>
+<style>
+:root{
+  --accent:#007bff;
+  --bg:#f5f7fa;
+  --card-bg:#ffffff;
+  --text:#333;
+  --muted:#555;
+  --hover-shadow:0 6px 20px rgba(0,123,255,.25);
+  --font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+*{box-sizing:border-box}
+body{margin:0;padding:40px 20px;background:var(--bg);color:var(--text);font-family:var(--font-family);font-size:14px;line-height:1.4}
+
+h1{text-align:center;margin-bottom:30px;font-size:24px}
+
+table{
+  border-collapse:collapse;
+  margin:0 auto;
+  background:transparent;
+}
+
+th,td{
+  padding:6px 12px;
+  border:1px solid #e0e0e0;
+  transition:transform .25s, box-shadow .25s, background .25s;
+  position:relative;
+  vertical-align:top;
+}
+
+th{
+  background:var(--card-bg);
+  font-weight:600;
+  border-bottom:2px solid #c0c0c0;
+}
+
+tbody td{
+  background:var(--card-bg);
+}
+
+tbody td:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--hover-shadow);
+  background:#fff;
+  color:var(--accent);
+  z-index:1;
+  border-color:var(--accent);
+}
+</style>
+</head>
+
+<body>
+<h1>Phase 1 - 100 characters</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Rank</th>
+      <th>Character</th>
+      <th>Pinyin</th>
+      <th>Meaning/Function</th>
+      <th>Usage&nbsp;Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>1</td><td>的</td><td>de</td><td>possessive particle</td><td>~4% of all text</td></tr>
+    <tr><td>2</td><td>一</td><td>yī</td><td>one</td><td>most common number</td></tr>
+    <tr><td>3</td><td>是</td><td>shì</td><td>to be</td><td>essential copula</td></tr>
+    <tr><td>4</td><td>在</td><td>zài</td><td>at, in, on</td><td>location/continuous</td></tr>
+    <tr><td>5</td><td>不</td><td>bù</td><td>not</td><td>primary negation</td></tr>
+    <tr><td>6</td><td>了</td><td>le</td><td>aspect particle</td><td>completion/change</td></tr>
+    <tr><td>7</td><td>有</td><td>yǒu</td><td>to have</td><td>possession/existence</td></tr>
+    <tr><td>8</td><td>和</td><td>hé</td><td>and</td><td>conjunction</td></tr>
+    <tr><td>9</td><td>人</td><td>rén</td><td>person</td><td>fundamental noun</td></tr>
+    <tr><td>10</td><td>这</td><td>zhè</td><td>this</td><td>demonstrative</td></tr>
+    <tr><td>11</td><td>中</td><td>zhōng</td><td>middle, China</td><td>positional/national</td></tr>
+    <tr><td>12</td><td>大</td><td>dà</td><td>big</td><td>size descriptor</td></tr>
+    <tr><td>13</td><td>为</td><td>wéi</td><td>for, as</td><td>preposition</td></tr>
+    <tr><td>14</td><td>上</td><td>shàng</td><td>up, on</td><td>directional</td></tr>
+    <tr><td>15</td><td>个</td><td>gè</td><td>classifier</td><td>most common measure</td></tr>
+    <tr><td>16</td><td>国</td><td>guó</td><td>country</td><td>nation concept</td></tr>
+    <tr><td>17</td><td>我</td><td>wǒ</td><td>I, me</td><td>first person</td></tr>
+    <tr><td>18</td><td>以</td><td>yǐ</td><td>with, by means of</td><td>instrumental</td></tr>
+    <tr><td>19</td><td>要</td><td>yào</td><td>want, need</td><td>desire/necessity</td></tr>
+    <tr><td>20</td><td>他</td><td>tā</td><td>he, him</td><td>third person male</td></tr>
+    <tr><td>21</td><td>时</td><td>shí</td><td>time</td><td>temporal concept</td></tr>
+    <tr><td>22</td><td>来</td><td>lái</td><td>come</td><td>movement toward</td></tr>
+    <tr><td>23</td><td>用</td><td>yòng</td><td>use</td><td>utilization</td></tr>
+    <tr><td>24</td><td>们</td><td>men</td><td>plural marker</td><td>group indicator</td></tr>
+    <tr><td>25</td><td>生</td><td>shēng</td><td>give birth, life</td><td>life/creation</td></tr>
+    <tr><td>26</td><td>到</td><td>dào</td><td>arrive, to</td><td>destination</td></tr>
+    <tr><td>27</td><td>作</td><td>zuò</td><td>make, do</td><td>creation/work</td></tr>
+    <tr><td>28</td><td>地</td><td>de/dì</td><td>adverbial particle/earth</td><td>grammar/location</td></tr>
+    <tr><td>29</td><td>于</td><td>yú</td><td>at, in</td><td>formal preposition</td></tr>
+    <tr><td>30</td><td>出</td><td>chū</td><td>exit, out</td><td>outward movement</td></tr>
+    <tr><td>31</td><td>就</td><td>jiù</td><td>then, exactly</td><td>emphasis/sequence</td></tr>
+    <tr><td>32</td><td>分</td><td>fēn</td><td>divide, minute</td><td>separation/time</td></tr>
+    <tr><td>33</td><td>对</td><td>duì</td><td>toward, correct</td><td>direction/accuracy</td></tr>
+    <tr><td>34</td><td>成</td><td>chéng</td><td>become</td><td>transformation</td></tr>
+    <tr><td>35</td><td>会</td><td>huì</td><td>can, meeting</td><td>ability/gathering</td></tr>
+    <tr><td>36</td><td>可</td><td>kě</td><td>can, may</td><td>possibility</td></tr>
+    <tr><td>37</td><td>主</td><td>zhǔ</td><td>main, master</td><td>primary/leader</td></tr>
+    <tr><td>38</td><td>发</td><td>fā</td><td>send, emit</td><td>dispatch/emission</td></tr>
+    <tr><td>39</td><td>年</td><td>nián</td><td>year</td><td>time unit</td></tr>
+    <tr><td>40</td><td>动</td><td>dòng</td><td>move</td><td>motion</td></tr>
+    <tr><td>41</td><td>同</td><td>tóng</td><td>same</td><td>similarity</td></tr>
+    <tr><td>42</td><td>工</td><td>gōng</td><td>work</td><td>labor concept</td></tr>
+    <tr><td>43</td><td>也</td><td>yě</td><td>also</td><td>addition</td></tr>
+    <tr><td>44</td><td>能</td><td>néng</td><td>can, able</td><td>capability</td></tr>
+    <tr><td>45</td><td>下</td><td>xià</td><td>down, below</td><td>downward direction</td></tr>
+    <tr><td>46</td><td>过</td><td>guò</td><td>cross, past</td><td>transit/experience</td></tr>
+    <tr><td>47</td><td>子</td><td>zi</td><td>child, suffix</td><td>offspring/diminutive</td></tr>
+    <tr><td>48</td><td>说</td><td>shuō</td><td>speak, say</td><td>verbal communication</td></tr>
+    <tr><td>49</td><td>产</td><td>chǎn</td><td>produce</td><td>creation/output</td></tr>
+    <tr><td>50</td><td>种</td><td>zhǒng</td><td>type, plant</td><td>category/cultivation</td></tr>
+    <tr><td>51</td><td>面</td><td>miàn</td><td>face, surface</td><td>facial/planar</td></tr>
+    <tr><td>52</td><td>而</td><td>ér</td><td>and, but</td><td>conjunction</td></tr>
+    <tr><td>53</td><td>方</td><td>fāng</td><td>square, direction</td><td>geometric/spatial</td></tr>
+    <tr><td>54</td><td>后</td><td>hòu</td><td>after, behind</td><td>temporal/spatial</td></tr>
+    <tr><td>55</td><td>多</td><td>duō</td><td>many, much</td><td>quantity</td></tr>
+    <tr><td>56</td><td>定</td><td>dìng</td><td>fixed, decide</td><td>stability/decision</td></tr>
+    <tr><td>57</td><td>行</td><td>xíng</td><td>walk, row</td><td>movement/linear</td></tr>
+    <tr><td>58</td><td>学</td><td>xué</td><td>study, learn</td><td>education</td></tr>
+    <tr><td>59</td><td>法</td><td>fǎ</td><td>law, method</td><td>regulation/technique</td></tr>
+    <tr><td>60</td><td>所</td><td>suǒ</td><td>place, that which</td><td>location/nominalization</td></tr>
+    <tr><td>61</td><td>民</td><td>mín</td><td>people</td><td>populace</td></tr>
+    <tr><td>62</td><td>得</td><td>de/děi</td><td>obtain, must</td><td>acquisition/necessity</td></tr>
+    <tr><td>63</td><td>经</td><td>jīng</td><td>pass through</td><td>transit/experience</td></tr>
+    <tr><td>64</td><td>十</td><td>shí</td><td>ten</td><td>decimal base</td></tr>
+    <tr><td>65</td><td>三</td><td>sān</td><td>three</td><td>basic number</td></tr>
+    <tr><td>66</td><td>之</td><td>zhī</td><td>possessive (formal)</td><td>classical grammar</td></tr>
+    <tr><td>67</td><td>进</td><td>jìn</td><td>enter</td><td>inward movement</td></tr>
+    <tr><td>68</td><td>着</td><td>zhe</td><td>aspect particle</td><td>ongoing state</td></tr>
+    <tr><td>69</td><td>等</td><td>děng</td><td>wait, class</td><td>temporal/categorical</td></tr>
+    <tr><td>70</td><td>部</td><td>bù</td><td>part, department</td><td>sectional/organizational</td></tr>
+    <tr><td>71</td><td>度</td><td>dù</td><td>degree, pass</td><td>measurement/transit</td></tr>
+    <tr><td>72</td><td>家</td><td>jiā</td><td>home, family</td><td>domestic/kinship</td></tr>
+    <tr><td>73</td><td>电</td><td>diàn</td><td>electricity</td><td>electrical energy</td></tr>
+    <tr><td>74</td><td>力</td><td>lì</td><td>strength, power</td><td>force concept</td></tr>
+    <tr><td>75</td><td>里</td><td>lǐ</td><td>inside, mile</td><td>interior/distance</td></tr>
+    <tr><td>76</td><td>如</td><td>rú</td><td>if, like</td><td>conditional/comparison</td></tr>
+    <tr><td>77</td><td>水</td><td>shuǐ</td><td>water</td><td>fundamental liquid</td></tr>
+    <tr><td>78</td><td>化</td><td>huà</td><td>change, ‑ize</td><td>transformation</td></tr>
+    <tr><td>79</td><td>高</td><td>gāo</td><td>high, tall</td><td>elevation</td></tr>
+    <tr><td>80</td><td>自</td><td>zì</td><td>self</td><td>reflexive</td></tr>
+    <tr><td>81</td><td>二</td><td>èr</td><td>two</td><td>basic number</td></tr>
+    <tr><td>82</td><td>理</td><td>lǐ</td><td>reason, manage</td><td>logic/administration</td></tr>
+    <tr><td>83</td><td>起</td><td>qǐ</td><td>rise, start</td><td>upward/beginning</td></tr>
+    <tr><td>84</td><td>小</td><td>xiǎo</td><td>small</td><td>size descriptor</td></tr>
+    <tr><td>85</td><td>物</td><td>wù</td><td>thing, object</td><td>material entity</td></tr>
+    <tr><td>86</td><td>现</td><td>xiàn</td><td>present, appear</td><td>temporal/manifestation</td></tr>
+    <tr><td>87</td><td>实</td><td>shí</td><td>real, solid</td><td>reality/substance</td></tr>
+    <tr><td>88</td><td>加</td><td>jiā</td><td>add</td><td>addition</td></tr>
+    <tr><td>89</td><td>量</td><td>liàng</td><td>measure, amount</td><td>quantification</td></tr>
+    <tr><td>90</td><td>都</td><td>dōu</td><td>all, capital</td><td>totality/governmental</td></tr>
+    <tr><td>91</td><td>两</td><td>liǎng</td><td>two (of something)</td><td>pair quantity</td></tr>
+    <tr><td>92</td><td>体</td><td>tǐ</td><td>body, system</td><td>physical/organizational</td></tr>
+    <tr><td>93</td><td>制</td><td>zhì</td><td>make, system</td><td>creation/organization</td></tr>
+    <tr><td>94</td><td>机</td><td>jī</td><td>machine, opportunity</td><td>mechanical/chance</td></tr>
+    <tr><td>95</td><td>当</td><td>dāng</td><td>when, should</td><td>temporal/obligation</td></tr>
+    <tr><td>96</td><td>使</td><td>shǐ</td><td>make, use</td><td>causation/utilization</td></tr>
+    <tr><td>97</td><td>点</td><td>diǎn</td><td>point, dot</td><td>positional/temporal</td></tr>
+    <tr><td>98</td><td>从</td><td>cóng</td><td>from</td><td>origin preposition</td></tr>
+    <tr><td>99</td><td>业</td><td>yè</td><td>industry, occupation</td><td>commercial/professional</td></tr>
+    <tr><td>100</td><td>本</td><td>běn</td><td>root, book</td><td>fundamental/textual</td></tr>
+  </tbody>
+</table>
+</body>
+</html>

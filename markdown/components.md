@@ -49,3 +49,6 @@ HSK vocabulary lists/flashcards
 Grammar reference books
 Audio/video content with subtitles
 Speaking practice partners or tutors
+
+### References & Resources:
+- https://www.mandarinzone.com/ (for hsk1-6 vocab)
