@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Common Radicals – 3-D Circle</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --radius: 360px;   /* Increased from 320px to 360px */
+  --count: 8;        /* Keep the number of cards */
+  --font: "Poppins", sans-serif;
+}
+
+* {box-sizing: border-box}
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: var(--font);
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f7fa;
+  perspective: 1200px;
+  overflow: hidden;
+}
+
+.carousel {
+  position: relative;
+  width: var(--radius);
+  height: var(--radius);
+  transform-style: preserve-3d;
+  cursor: grab;
+  transition: transform .4s ease-out;
+}
+.carousel:active {
+  cursor: grabbing;
+}
+
+.card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 220px;              /* Width from previous adjustment */
+  height: auto;
+  margin: -50% 0 0 -110px;   /* Half of the width */
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, .5);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, .15);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  backface-visibility: hidden;
+  transform-origin: center center;
+  user-select: none; /* Prevent text selection */
+}
+
+.front {
+  padding: 18px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 56px;
+  color: #fff;
+  text-shadow: 0 0 8px rgba(0, 0, 0, .3);
+  position: relative;
+}
+
+.type-badge {
+  position: absolute;
+  bottom: 6px;
+  right: 8px;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, .25);
+  color: #fff;
+  letter-spacing: .5px;
+}
+
+.back {
+  padding: 12px 14px;
+  font-size: 11px;
+  line-height: 1.4;
+  color: #222;
+}
+.back strong {
+  color: #000;
+  font-weight: 600;
+}
+
+/* controls bar styling */
+.controls {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.nav-btn {
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .35);
+  backdrop-filter: blur(8px);
+  color: #007bff;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s;
+}
+.nav-btn:hover {
+  background: rgba(255, 255, 255, .55);
+}
+.counter {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+</style>
+</head>
+
+<body>
+<!-- ----------  3-D ring (unchanged)  ---------- -->
+<div class="carousel" id="ring">
+    
+    <!-- 1 氵 semantic -->
+  <div class="card">
+    <div class="front" style="background:linear-gradient(135deg,#007bff,#00c3ff)">
+        <span style="position:absolute;top:7px;left:10px;font-size:10px;color:#fff;font-weight:600">KX 85</span>
+        氵
+        <span class="type-badge">semantic</span>
+    </div>
+    <div class="back">
+      <strong>Meaning:</strong> water<br/>
+      <strong>Full:</strong> 水 shuǐ (3rd) · 4 strokes<br/>
+      <strong>Position:</strong> left side<br/>
+      <strong>Shape change:</strong> 水 → 氵 on left<br/>
+      <strong>Hook:</strong> “Three splashy droplets on the left”
+        <!-- divider -->
+        <hr style="border:none;border-top:1px solid #000;margin:8px 0 6px 0">
+
+        <!-- examples row (characters only) -->
+        <div style="font-size:18px;letter-spacing:4px;text-align:center">
+        河 海 洗 法
+  </div>
+    </div>
+  </div>
+
+  <!-- 2 亻 semantic -->
+  <div class="card">
+    <div class="front" style="background:linear-gradient(135deg,#007bff,#00c3ff)">
+        <span style="position:absolute;top:7px;left:10px;font-size:10px;color:#fff;font-weight:600">KX 9</span>
+        亻
+        <span class="type-badge">semantic</span>
+    </div>
+    <div class="back">
+      <strong>Meaning:</strong> person / human<br/>
+      <strong>Full:</strong> 人 rén (2nd) · 2 strokes<br/>
+      <strong>Position:</strong> left side<br/>
+      <strong>Shape change:</strong> 人 → 亻 on left<br/>
+      <strong>Hook:</strong> “Standing person on the left”
+    
+        <!-- divider -->
+        <hr style="border:none;border-top:1px solid #000;margin:8px 0 6px 0">
+
+        <!-- examples row (characters only) -->
+        <div style="font-size:18px;letter-spacing:4px;text-align:center">
+        你 他 休 做
+        </div>
+    
+    </div>
+  </div>
+
+  <!-- 3 艹 semantic -->
+  <div class="card">
+    <div class="front" style="background:linear-gradient(135deg,#007bff,#00c3ff)">
+        <span style="position:absolute;top:7px;left:10px;font-size:10px;color:#fff;font-weight:600">KX 140</span>
+        艹
+        <span class="type-badge">semantic</span>
+    </div>
+    <div class="back">
+      <strong>Meaning:</strong> grass / plant<br/>
+      <strong>Full:</strong> 艸 cǎo (3rd) · 3 strokes<br/>
+      <strong>Position:</strong> top (grass crown)<br/>
+      <strong>Shape change:</strong> 艸 → 艹 on top<br/>
+      <strong>Hook:</strong> “Two blades of grass on top”
+        
+        <!-- divider -->
+        <hr style="border:none;border-top:1px solid #000;margin:8px 0 6px 0">
+
+        <!-- examples row (characters only) -->
+        <div style="font-size:18px;letter-spacing:4px;text-align:center">
+        花 茶 菜 草
+        </div>
+        
+    </div>
+  </div>
+
+  <!-- 4 讠 semantic -->
+  <div class="card">
+    <div class="front" style="background:linear-gradient(135deg,#007bff,#00c3ff)">
+        <span style="position:absolute;top:7px;left:10px;font-size:10px;color:#fff;font-weight:600">KX 149</span>
+        讠
+        <span class="type-badge">semantic</span>
+    </div>
+    <div class="back">
+      <strong>Meaning:</strong> speech / words<br/>
+      <strong>Full:</strong> 言 yán (2nd) · 7 strokes<br/>
+      <strong>Position:</strong> left side<br/>
+      <strong>Shape change:</strong> 言 → 讠 on left<br/>
+      <strong>Hook:</strong> “Talking mouth on the left”
+    
+            
+        <!-- divider -->
+        <hr style="border:none;border-top:1px solid #000;margin:8px 0 6px 0">
+
+        <!-- examples row (characters only) -->
+        <div style="font-size:18px;letter-spacing:4px;text-align:center">
+        说 话 讲 语
+        </div>
+        
+    </div>
+  </div>
+
+  <!-- 5 忄 semantic -->
+  <div class="card">
+    <div class="front" style="background:linear-gradient(135deg,#007bff,#00c3ff)">
+        <span style="position:absolute;top:7px;left:10px;font-size:10px;color:#fff;font-weight:600">KX 61</span>
+        忄
+        <span class="type-badge">semantic</span>
+    </div>
+    <div class="back">
+      <strong>Meaning:</strong> heart / emotion<br/>
+      <strong>Full:</strong> 心 xīn (1st) · 4 strokes<br/>
+      <strong>Position:</strong> left side (vertical heart)<br/>
+      <strong>Shape change:</strong> 心 → 忄 on left<br/>
+      <strong>Hook:</strong> “Vertical heart on the left”
+            
+        <!-- divider -->
+        <hr style="border:none;border-top:1px solid #000;margin:8px 0 6px 0">
+
+        <!-- examples row (characters only) -->
+        <div style="font-size:18px;letter-spacing:4px;text-align:center">
+        忙 怕 情 悔
+        </div>
+        
+    </div>
+  </div>
+
+  <!-- 6 扌 semantic -->
+  <div class="card">
+    <div class="front" style="background:linear-gradient(135deg,#007bff,#00c3ff)">
+        <span style="position:absolute;top:7px;left:10px;font-size:10px;color:#fff;font-weight:600">KX 64</span>
+        扌
+        <span class="type-badge">semantic</span>
+    </div>
+    <div class="back">
+      <strong>Meaning:</strong> hand / action<br/>
+      <strong>Full:</strong> 手 shǒu (3rd) · 4 strokes<br/>
+      <strong>Position:</strong> left side<br/>
+      <strong>Shape change:</strong> 手 → 扌 on left<br/>
+      <strong>Hook:</strong> “A swinging hand on the left”
+    
+        <!-- divider -->
+        <hr style="border:none;border-top:1px solid #000;margin:8px 0 6px 0">
+
+        <!-- examples row (characters only) -->
+        <div style="font-size:18px;letter-spacing:4px;text-align:center">
+        打 拉 推 把
+        </div>
+        
+    </div>
+  </div>
+
+  <!-- 7 阝 signific -->
+  <div class="card">
+    <div class="front" style="background:linear-gradient(135deg,#00c851,#2ecc71)">
+        <span style="position:absolute;top:7px;left:10px;font-size:10px;color:#fff;font-weight:600">KX 163</span>
+        阝
+        <span class="type-badge">signific</span>
+    </div>
+    <div class="back">
+      <strong>Meaning:</strong> city / place (right-ear)<br/>
+      <strong>Full:</strong> 邑 yì (4th) · 7 strokes<br/>
+      <strong>Position:</strong> right side<br/>
+      <strong>Shape change:</strong> 邑 → 阝 on right<br/>
+      <strong>Hook:</strong> “Right-ear means location”
+            
+        <!-- divider -->
+        <hr style="border:none;border-top:1px solid #000;margin:8px 0 6px 0">
+
+        <!-- examples row (characters only) -->
+        <div style="font-size:18px;letter-spacing:4px;text-align:center">
+        都 郊 部 邻
+        </div>
+        
+    </div>
+  </div>
+
+  <!-- 8 马 phonetic -->
+  <div class="card">
+    <div class="front" style="background:linear-gradient(135deg,#8e44ad,#9b59b6)">
+        <span style="position:absolute;top:7px;left:10px;font-size:10px;color:#fff;font-weight:600">KX 187</span>
+        马
+        <span class="type-badge">phonetic</span>
+    </div>
+    <div class="back">
+      <strong>Meaning:</strong> horse (also phonetic)<br/>
+      <strong>Full:</strong> 馬 mǎ (3rd) · 10 strokes → 3<br/>
+      <strong>Position:</strong> standalone or left<br/>
+      <strong>Shape change:</strong> traditional → simplified<br/>
+      <strong>Hook:</strong> “Galloping horse gives the sound MA”
+    </div>
+          
+        <!-- divider -->
+        <hr style="border:none;border-top:1px solid #000;margin:8px 0 6px 0">
+
+        <!-- examples row (characters only) -->
+        <div style="font-size:18px;letter-spacing:4px;text-align:center">
+        骑 驾 验 骂
+        </div>
+        
+</div>
+</div>
+
+<!-- ----------  arrow + counter controls  ---------- -->
+<div class="controls">
+  <button class="nav-btn" id="prev">←</button>
+  <span id="counter" class="counter">1 / 8</span>
+  <button class="nav-btn" id="next">→</button>
+</div>
+
+<script>
+const ring   = document.getElementById('ring');
+const cards  = [...ring.children];
+const count  = cards.length;
+const angle  = 360 / count;
+const prevBtn= document.getElementById('prev');
+const nextBtn= document.getElementById('next');
+const counter= document.getElementById('counter');
+
+let current  = 0;
+
+/* initial layout */
+cards.forEach((card,i)=>{
+  const theta = angle * i;
+  card.style.transform = `rotateY(${theta}deg) translateZ(${getComputedStyle(document.documentElement).getPropertyValue('--radius')})`;
+});
+
+function updateRing(){
+  ring.style.transform = `rotateY(${-current*angle}deg)`;
+  counter.textContent = `${current+1} / ${count}`;
+}
+
+prevBtn.addEventListener('click',()=>{
+  current = (current - 1 + count) % count;
+  updateRing();
+});
+nextBtn.addEventListener('click',()=>{
+  current = (current + 1) % count;
+  updateRing();
+});
+
+/* optional drag / wheel still works */
+let startX, startRot = 0, isDown=false;
+ring.addEventListener('mousedown',e=>{
+  isDown=true; startX=e.clientX; ring.style.transition='none';
+});
+window.addEventListener('mousemove',e=>{
+  if(!isDown) return;
+  startRot += (e.clientX - startX) * .25;
+  ring.style.transform = `rotateY(${startRot}deg)`;
+  startX = e.clientX;
+});
+window.addEventListener('mouseup',()=>{
+  if(!isDown) return; isDown=false;
+  ring.style.transition='transform .4s ease-out';
+  startRot = Math.round(startRot/angle)*angle;
+  current  = (-startRot/angle + count) % count;
+  updateRing();
+});
+</script>
+</body>
+</html>

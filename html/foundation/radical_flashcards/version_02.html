@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>氵 Light-Theme Flashcard</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --accent:#007bff;
+  --bg:#f5f7fa;
+  --card-bg:#ffffff;
+  --text:#333;
+  --muted:#555;
+  --shadow:0 4px 16px rgba(0,0,0,.08);
+  --hover-shadow:0 6px 20px rgba(0,123,255,.25);
+  --font:"Poppins",sans-serif;
+}
+
+html,body{height:100%;margin:0}
+body{display:flex;align-items:center;justify-content:center;background:var(--bg);font-family:var(--font);color:var(--text)}
+
+.card{
+  width:340px;
+  height:auto;
+  border-radius:20px;
+  background:var(--card-bg);
+  box-shadow:var(--shadow);
+  padding:18px 22px 22px;
+  box-sizing:border-box;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  transition:transform .25s, box-shadow .25s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:var(--hover-shadow);
+}
+
+.front{
+  font-size:64px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--text);
+  transition:color .25s;
+  margin:0;
+  padding-bottom:8px;                /* space above the line */
+  border-bottom:1px solid #e0e0e0;   /* thin dividing line */
+}
+
+.card:hover .front{color:var(--accent)}
+
+.back{
+  font-size:12px;
+  line-height:1.2;
+  color:var(--muted);
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+}
+
+.back p{margin:0}
+.back strong{color:var(--text);font-weight:600}
+</style>
+</head>
+
+<body>
+  <article class="card">
+    <div class="front" aria-hidden="true">氵</div>
+    <div class="back">
+      <p><strong>Meaning:</strong> water</p>
+      <p><strong>Full:</strong> 水 shuǐ (3rd tone) · 4 strokes · KX 85</p>
+      <p><strong>Position:</strong> left side</p>
+      <p><strong>Shape change:</strong> 水 → 氵 when on the left</p>
+      <p><strong>Examples:</strong> 河 river, 海 ocean, 洗 wash, 法 law</p>
+      <p><strong>Hook:</strong> “Three splashy droplets on the left”</p>
+    </div>
+  </article>
+</body>
+</html>
