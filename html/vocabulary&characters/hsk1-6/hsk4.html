@@ -1,32 +1,675 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>HSK-4 (1000 new words) – Working Table</title>
-
-<!-- GitHub-flavoured typography + Tabulator -->
-<link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css">
-<link href="https://unpkg.com/tabulator-tables@5.5.2/dist/css/tabulator.min.css" rel="stylesheet">
-
+<title>HSK-4 Vocabulary – Hover Table (601 items)</title>
 <style>
-  body{box-sizing:border-box;max-width:920px;margin:40px auto;padding:0 20px;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
-  .tabulator{border:none;font-size:15px;background:transparent}
-  .tabulator .tabulator-header{border-bottom:1px solid #d0d7de;background:transparent}
-  .tabulator .tabulator-header .tabulator-col{background:transparent}
-  .tabulator-arrow{display:none}
+:root{
+  --accent:#B61F24;          /* red accent color */
+  --bg:#fdfdfd;
+  --card-bg:#ffffff;
+  --text:#333;
+  --muted:#555;
+  --hover-shadow:0 6px 20px rgba(182,31,36,.35);
+  --font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+*{box-sizing:border-box}
+body{margin:0;padding:40px 20px;background:var(--bg);color:var(--text);font-family:var(--font-family);font-size:14px;line-height:1.4}
+
+h1{text-align:center;margin-bottom:30px;font-size:26px;font-weight:600;color:var(--accent)}
+
+table{
+  border-collapse:collapse;
+  margin:0 auto;
+  background:transparent;
+  max-width:1100px;
+}
+
+th,td{
+  padding:6px 12px;
+  border:1px solid #e0e0e0;
+  transition:transform .25s, box-shadow .25s, background .25s;
+  position:relative;
+  vertical-align:top;
+}
+
+th{
+  background:var(--card-bg);
+  font-weight:600;
+  color:var(--accent);
+  border-bottom:2px solid var(--accent);
+}
+
+tbody tr:nth-child(even) td{background:#fff8f8}
+
+tbody td:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--hover-shadow);
+  background:#fff;
+  color:var(--accent);
+  z-index:1;
+  border-color:var(--accent);
+  font-weight:500;
+}
 </style>
 </head>
 
-<body class="markdown-body">
+<body>
+<h1>HSK-4 Vocabulary (601 items)</h1>
 
-<h1>HSK-4 (1000 new words)</h1>
-<p>Click a column header to sort or filter.</p>
-
-<div id="hsk4-table"></div>
-
-<script src="https://unpkg.com/tabulator-tables@5.5.2/dist/js/tabulator.min.js"></script>
-<script src="\Version 2.0\js\hsk4.js"></script>
-
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Chinese</th>
+      <th>Pinyin</th>
+      <th>English</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>1</td><td>爱情</td><td>àiqíng</td><td>love</td></tr>
+    <tr><td>2</td><td>安排</td><td>ānpái</td><td>arrange</td></tr>
+    <tr><td>3</td><td>安全</td><td>ānquán</td><td>security</td></tr>
+    <tr><td>4</td><td>暗</td><td>àn</td><td>dark</td></tr>
+    <tr><td>5</td><td>按时</td><td>ànshí</td><td>on time</td></tr>
+    <tr><td>6</td><td>按照</td><td>ànzhào</td><td>according to</td></tr>
+    <tr><td>7</td><td>包括</td><td>bāokuò</td><td>include</td></tr>
+    <tr><td>8</td><td>保护</td><td>bǎohù</td><td>protect</td></tr>
+    <tr><td>9</td><td>保证</td><td>bǎozhèng</td><td>ensure</td></tr>
+    <tr><td>10</td><td>抱</td><td>bào</td><td>hold</td></tr>
+    <tr><td>11</td><td>抱歉</td><td>bàoqiàn</td><td>sorry</td></tr>
+    <tr><td>12</td><td>报道</td><td>bàodào</td><td>report</td></tr>
+    <tr><td>13</td><td>报名</td><td>bàomíng</td><td>sign up</td></tr>
+    <tr><td>14</td><td>倍</td><td>bèi</td><td>times</td></tr>
+    <tr><td>15</td><td>本来</td><td>běnlái</td><td>originally</td></tr>
+    <tr><td>16</td><td>笨</td><td>bèn</td><td>stupid</td></tr>
+    <tr><td>17</td><td>笔记本</td><td>bǐjìběn</td><td>notebook</td></tr>
+    <tr><td>18</td><td>毕业</td><td>bìyè</td><td>graduation</td></tr>
+    <tr><td>19</td><td>遍</td><td>biàn</td><td>(one/two) time(s)</td></tr>
+    <tr><td>20</td><td>标准</td><td>biāozhǔn</td><td>standard</td></tr>
+    <tr><td>21</td><td>表达</td><td>biǎodá</td><td>Expression</td></tr>
+    <tr><td>22</td><td>表格</td><td>biǎogé</td><td>form</td></tr>
+    <tr><td>23</td><td>表扬</td><td>biǎoyáng</td><td>praise</td></tr>
+    <tr><td>24</td><td>饼干</td><td>bǐnggān</td><td>cookies</td></tr>
+    <tr><td>25</td><td>并且</td><td>bìngqiě</td><td>also</td></tr>
+    <tr><td>26</td><td>博士</td><td>bóshì</td><td>doctor</td></tr>
+    <tr><td>27</td><td>不但</td><td>bùdàn</td><td>not only</td></tr>
+    <tr><td>28</td><td>不过</td><td>bùguò</td><td>however</td></tr>
+    <tr><td>29</td><td>不得不</td><td>bùdé bù</td><td>have to</td></tr>
+    <tr><td>30</td><td>不管</td><td>bùguǎn</td><td>no matter</td></tr>
+    <tr><td>31</td><td>不仅</td><td>bùjǐn</td><td>not only</td></tr>
+    <tr><td>32</td><td>部分</td><td>bùfèn</td><td>a part</td></tr>
+    <tr><td>33</td><td>擦</td><td>cā</td><td>wipe</td></tr>
+    <tr><td>34</td><td>猜</td><td>cāi</td><td>guess</td></tr>
+    <tr><td>35</td><td>材料</td><td>cáiliào</td><td>material</td></tr>
+    <tr><td>36</td><td>参观</td><td>cānguān</td><td>visit</td></tr>
+    <tr><td>37</td><td>差不多</td><td>chàbùduō</td><td>almost</td></tr>
+    <tr><td>38</td><td>尝</td><td>cháng</td><td>taste</td></tr>
+    <tr><td>39</td><td>长城</td><td>chángchéng</td><td>Great Wall</td></tr>
+    <tr><td>40</td><td>长江</td><td>chángjiāng</td><td>Yangtze River</td></tr>
+    <tr><td>41</td><td>场</td><td>chǎng</td><td>site</td></tr>
+    <tr><td>42</td><td>超过</td><td>chāoguò</td><td>exceed</td></tr>
+    <tr><td>43</td><td>吵</td><td>chǎo</td><td>noisy</td></tr>
+    <tr><td>44</td><td>成功</td><td>chénggōng</td><td>success</td></tr>
+    <tr><td>45</td><td>成熟</td><td>chéngshú</td><td>mature</td></tr>
+    <tr><td>46</td><td>成为</td><td>chéngwéi</td><td>become</td></tr>
+    <tr><td>47</td><td>诚实</td><td>chéngshí</td><td>honest</td></tr>
+    <tr><td>48</td><td>乘坐</td><td>chéngzuò</td><td>ride</td></tr>
+    <tr><td>49</td><td>吃惊</td><td>chījīng</td><td>be amazed</td></tr>
+    <tr><td>50</td><td>重新</td><td>chóngxīn</td><td>again</td></tr>
+    <tr><td>51</td><td>抽烟</td><td>chōuyān</td><td>smoking</td></tr>
+    <tr><td>52</td><td>出差</td><td>chūchāi</td><td>business trip</td></tr>
+    <tr><td>53</td><td>出发</td><td>chūfā</td><td>set out</td></tr>
+    <tr><td>54</td><td>出生</td><td>chūshēng</td><td>birth</td></tr>
+    <tr><td>55</td><td>传真</td><td>chuánzhēn</td><td>fax</td></tr>
+    <tr><td>56</td><td>窗户</td><td>chuānghù</td><td>window</td></tr>
+    <tr><td>57</td><td>词典</td><td>cídiǎn</td><td>dictionary</td></tr>
+    <tr><td>58</td><td>从来</td><td>cónglái</td><td>always</td></tr>
+    <tr><td>59</td><td>粗心</td><td>cūxīn</td><td>careless</td></tr>
+    <tr><td>60</td><td>答案</td><td>dá'àn</td><td>answer</td></tr>
+    <tr><td>61</td><td>打扮</td><td>dǎbàn</td><td>dress up</td></tr>
+    <tr><td>62</td><td>打扰</td><td>dǎrǎo</td><td>disturb</td></tr>
+    <tr><td>63</td><td>打印</td><td>dǎyìn</td><td>print</td></tr>
+    <tr><td>64</td><td>打折</td><td>dǎzhé</td><td>discount</td></tr>
+    <tr><td>65</td><td>打针</td><td>dǎzhēn</td><td>inject</td></tr>
+    <tr><td>66</td><td>大概</td><td>dàgài</td><td>probably</td></tr>
+    <tr><td>67</td><td>大使馆</td><td>dàshǐ guǎn</td><td>embassy</td></tr>
+    <tr><td>68</td><td>大约</td><td>dàyuē</td><td>about</td></tr>
+    <tr><td>69</td><td>戴</td><td>dài</td><td>wear</td></tr>
+    <tr><td>70</td><td>代表</td><td>dàibiǎo</td><td>representative</td></tr>
+    <tr><td>71</td><td>代替</td><td>dàitì</td><td>replace</td></tr>
+    <tr><td>72</td><td>大夫</td><td>dàfū</td><td>doctor</td></tr>
+    <tr><td>73</td><td>当</td><td>dāng</td><td>when</td></tr>
+    <tr><td>74</td><td>当地</td><td>dāng dì</td><td>local</td></tr>
+    <tr><td>75</td><td>当时</td><td>dāngshí</td><td>at that time</td></tr>
+    <tr><td>76</td><td>刀</td><td>dāo</td><td>knife</td></tr>
+    <tr><td>77</td><td>导游</td><td>dǎoyóu</td><td>guide</td></tr>
+    <tr><td>78</td><td>到</td><td>dào</td><td>reach</td></tr>
+    <tr><td>79</td><td>到处</td><td>dàochù</td><td>everywhere</td></tr>
+    <tr><td>80</td><td>到底</td><td>dàodǐ</td><td>to the end</td></tr>
+    <tr><td>81</td><td>道歉</td><td>dàoqiàn</td><td>apologize</td></tr>
+    <tr><td>82</td><td>得意</td><td>déyì</td><td>proud</td></tr>
+    <tr><td>83</td><td>等 (动)</td><td>děng (dòng)</td><td>wait (verb)</td></tr>
+    <tr><td>84</td><td>等 (助)</td><td>děng (zhù)</td><td>etc.</td></tr>
+    <tr><td>85</td><td>底</td><td>dǐ</td><td>bottom</td></tr>
+    <tr><td>86</td><td>地球</td><td>dìqiú</td><td>earth</td></tr>
+    <tr><td>87</td><td>地址</td><td>dìzhǐ</td><td>address</td></tr>
+    <tr><td>88</td><td>掉</td><td>diào</td><td>fall</td></tr>
+    <tr><td>89</td><td>调查</td><td>diàochá</td><td>investigation</td></tr>
+    <tr><td>90</td><td>丢</td><td>diū</td><td>lose</td></tr>
+    <tr><td>91</td><td>动作</td><td>dòngzuò</td><td>action</td></tr>
+    <tr><td>92</td><td>堵车</td><td>dǔchē</td><td>traffic jam</td></tr>
+    <tr><td>93</td><td>肚子</td><td>dùzi</td><td>belly</td></tr>
+    <tr><td>94</td><td>断</td><td>duàn</td><td>break</td></tr>
+    <tr><td>95</td><td>对话</td><td>duìhuà</td><td>dialogue</td></tr>
+    <tr><td>96</td><td>对面</td><td>duìmiàn</td><td>opposite side</td></tr>
+    <tr><td>97</td><td>顿</td><td>dùn</td><td>meal</td></tr>
+    <tr><td>98</td><td>朵</td><td>duǒ</td><td>classifier of flower</td></tr>
+    <tr><td>99</td><td>而</td><td>ér</td><td>and</td></tr>
+    <tr><td>100</td><td>儿童</td><td>értóng</td><td>children</td></tr>
+    <tr><td>101</td><td>发</td><td>fā</td><td>send out</td></tr>
+    <tr><td>102</td><td>发生</td><td>fāshēng</td><td>happen</td></tr>
+    <tr><td>103</td><td>发展</td><td>fāzhǎn</td><td>development</td></tr>
+    <tr><td>104</td><td>法律</td><td>fǎlǜ</td><td>law</td></tr>
+    <tr><td>105</td><td>翻译</td><td>fānyì</td><td>translate</td></tr>
+    <tr><td>106</td><td>烦恼</td><td>fánnǎo</td><td>annoyance</td></tr>
+    <tr><td>107</td><td>反对</td><td>fǎnduì</td><td>opposition</td></tr>
+    <tr><td>108</td><td>反映</td><td>fǎnyìng</td><td>reflect</td></tr>
+    <tr><td>109</td><td>范围</td><td>fànwéi</td><td>range</td></tr>
+    <tr><td>110</td><td>方法</td><td>fāngfǎ</td><td>method</td></tr>
+    <tr><td>111</td><td>方面</td><td>fāngmiàn</td><td>aspect</td></tr>
+    <tr><td>112</td><td>方向</td><td>fāngxiàng</td><td>direction</td></tr>
+    <tr><td>113</td><td>访问</td><td>fǎngwèn</td><td>visit</td></tr>
+    <tr><td>114</td><td>放弃</td><td>fàngqì</td><td>give up</td></tr>
+    <tr><td>115</td><td>放暑假</td><td>fàng shǔjià</td><td>summer vacation</td></tr>
+    <tr><td>116</td><td>分之</td><td>fēn zhī</td><td>percent</td></tr>
+    <tr><td>117</td><td>份</td><td>fèn</td><td>share (measure word)</td></tr>
+    <tr><td>118</td><td>丰富</td><td>fēngfù</td><td>rich</td></tr>
+    <tr><td>119</td><td>风景</td><td>fēngjǐng</td><td>scenery</td></tr>
+    <tr><td>120</td><td>否则</td><td>fǒuzé</td><td>otherwise</td></tr>
+    <tr><td>121</td><td>符合</td><td>fúhé</td><td>accord with</td></tr>
+    <tr><td>122</td><td>富</td><td>fù</td><td>rich</td></tr>
+    <tr><td>123</td><td>父亲</td><td>fùqīn</td><td>father</td></tr>
+    <tr><td>124</td><td>复印</td><td>fùyìn</td><td>to copy</td></tr>
+    <tr><td>125</td><td>复杂</td><td>fùzá</td><td>complex</td></tr>
+    <tr><td>126</td><td>负责</td><td>fùzé</td><td>be responsible for</td></tr>
+    <tr><td>127</td><td>改变</td><td>gǎibiàn</td><td>change</td></tr>
+    <tr><td>128</td><td>干杯</td><td>gānbēi</td><td>cheers!</td></tr>
+    <tr><td>129</td><td>干燥</td><td>gānzào</td><td>dry</td></tr>
+    <tr><td>130</td><td>感动</td><td>gǎndòng</td><td>be moved</td></tr>
+    <tr><td>131</td><td>感觉</td><td>gǎnjué</td><td>feel</td></tr>
+    <tr><td>132</td><td>感情</td><td>gǎnqíng</td><td>feeling</td></tr>
+    <tr><td>133</td><td>感谢</td><td>gǎnxiè</td><td>many thanks</td></tr>
+    <tr><td>134</td><td>干</td><td>gān</td><td>dry</td></tr>
+    <tr><td>135</td><td>刚刚</td><td>gānggāng</td><td>just</td></tr>
+    <tr><td>136</td><td>高级</td><td>gāojí</td><td>senior</td></tr>
+    <tr><td>137</td><td>各</td><td>gè</td><td>various</td></tr>
+    <tr><td>138</td><td>个子</td><td>gè zi</td><td>height</td></tr>
+    <tr><td>139</td><td>公里</td><td>gōnglǐ</td><td>kilometre</td></tr>
+    <tr><td>140</td><td>工具</td><td>gōngjù</td><td>tool</td></tr>
+    <tr><td>141</td><td>工资</td><td>gōngzī</td><td>wages</td></tr>
+    <tr><td>142</td><td>共同</td><td>gòngtóng</td><td>common</td></tr>
+    <tr><td>143</td><td>够</td><td>gòu</td><td>enough</td></tr>
+    <tr><td>144</td><td>购物</td><td>gòuwù</td><td>shopping</td></tr>
+    <tr><td>145</td><td>孤单</td><td>gūdān</td><td>alone</td></tr>
+    <tr><td>146</td><td>估计</td><td>gūjì</td><td>estimate</td></tr>
+    <tr><td>147</td><td>鼓励</td><td>gǔlì</td><td>encourage</td></tr>
+    <tr><td>148</td><td>鼓掌</td><td>gǔzhǎng</td><td>applause</td></tr>
+    <tr><td>149</td><td>顾客</td><td>gùkè</td><td>customer</td></tr>
+    <tr><td>150</td><td>故意</td><td>gùyì</td><td>deliberately</td></tr>
+    <tr><td>151</td><td>挂</td><td>guà</td><td>hang</td></tr>
+    <tr><td>152</td><td>关键</td><td>guānjiàn</td><td>key</td></tr>
+    <tr><td>153</td><td>观众</td><td>guānzhòng</td><td>audience</td></tr>
+    <tr><td>154</td><td>管理</td><td>guǎnlǐ</td><td>administration</td></tr>
+    <tr><td>155</td><td>光</td><td>guāng</td><td>light</td></tr>
+    <tr><td>156</td><td>广播</td><td>guǎngbò</td><td>radio broadcast</td></tr>
+    <tr><td>157</td><td>广告</td><td>guǎnggào</td><td>advertisement</td></tr>
+    <tr><td>158</td><td>逛</td><td>guàng</td><td>stroll</td></tr>
+    <tr><td>159</td><td>规定</td><td>guīdìng</td><td>regulations</td></tr>
+    <tr><td>160</td><td>国际</td><td>guójì</td><td>international</td></tr>
+    <tr><td>161</td><td>果然</td><td>guǒ rán</td><td>sure enough</td></tr>
+    <tr><td>162</td><td>过 (动)</td><td>guò (dòng)</td><td>pass</td></tr>
+    <tr><td>163</td><td>过 (助)</td><td>guò (zhù)</td><td>over</td></tr>
+    <tr><td>164</td><td>过程</td><td>guòchéng</td><td>process</td></tr>
+    <tr><td>165</td><td>海洋</td><td>hǎiyáng</td><td>ocean</td></tr>
+    <tr><td>166</td><td>害羞</td><td>hàixiū</td><td>shy</td></tr>
+    <tr><td>167</td><td>寒假</td><td>hánjià</td><td>the winter vacation</td></tr>
+    <tr><td>168</td><td>汗</td><td>hàn</td><td>sweat</td></tr>
+    <tr><td>169</td><td>航班</td><td>hángbān</td><td>flight</td></tr>
+    <tr><td>170</td><td>好处</td><td>hǎochù</td><td>benefit</td></tr>
+    <tr><td>171</td><td>好像</td><td>hǎoxiàng</td><td>be like, seem</td></tr>
+    <tr><td>172</td><td>号码</td><td>hàomǎ</td><td>number</td></tr>
+    <tr><td>173</td><td>合格</td><td>hégé</td><td>qualified</td></tr>
+    <tr><td>174</td><td>合适</td><td>héshì</td><td>appropriate</td></tr>
+    <tr><td>175</td><td>盒子</td><td>hézi</td><td>box</td></tr>
+    <tr><td>176</td><td>猴子</td><td>hóuzi</td><td>monkey</td></tr>
+    <tr><td>177</td><td>厚</td><td>hòu</td><td>thick</td></tr>
+    <tr><td>178</td><td>后悔</td><td>hòuhuǐ</td><td>regret</td></tr>
+    <tr><td>179</td><td>后来</td><td>hòulái</td><td>later</td></tr>
+    <tr><td>180</td><td>忽然</td><td>hūrán</td><td>suddenly</td></tr>
+    <tr><td>181</td><td>护士</td><td>hùshì</td><td>nurse</td></tr>
+    <tr><td>182</td><td>互相</td><td>hùxiāng</td><td>each other</td></tr>
+    <tr><td>183</td><td>怀疑</td><td>huáiyí</td><td>doubt</td></tr>
+    <tr><td>184</td><td>回忆</td><td>huíyì</td><td>memory</td></tr>
+    <tr><td>185</td><td>活动</td><td>huódòng</td><td>activity</td></tr>
+    <tr><td>186</td><td>活泼</td><td>huópō</td><td>lively</td></tr>
+    <tr><td>187</td><td>火</td><td>huǒ</td><td>fire</td></tr>
+    <tr><td>188</td><td>获得</td><td>huòdé</td><td>get</td></tr>
+    <tr><td>189</td><td>基础</td><td>jīchǔ</td><td>basics</td></tr>
+    <tr><td>190</td><td>激动</td><td>jīdòng</td><td>excited</td></tr>
+    <tr><td>191</td><td>积极</td><td>jījí</td><td>positive</td></tr>
+    <tr><td>192</td><td>积累</td><td>jīlěi</td><td>accumulation</td></tr>
+    <tr><td>193</td><td>极其</td><td>jíqí</td><td>extremely</td></tr>
+    <tr><td>194</td><td>集合</td><td>jíhé</td><td>aggregate</td></tr>
+    <tr><td>195</td><td>及时</td><td>jíshí</td><td>timely</td></tr>
+    <tr><td>196</td><td>即使</td><td>jíshǐ</td><td>even if</td></tr>
+    <tr><td>197</td><td>寄</td><td>jì</td><td>send</td></tr>
+    <tr><td>198</td><td>记者</td><td>jìzhě</td><td>reporter</td></tr>
+    <tr><td>199</td><td>计划</td><td>jìhuà</td><td>plan</td></tr>
+    <tr><td>200</td><td>既然</td><td>jìrán</td><td>although</td></tr>
+    <tr><td>201</td><td>技术</td><td>jìshù</td><td>technology</td></tr>
+    <tr><td>202</td><td>继续</td><td>jìxù</td><td>continue</td></tr>
+    <tr><td>203</td><td>家具</td><td>jiājù</td><td>furniture</td></tr>
+    <tr><td>204</td><td>加班</td><td>jiābān</td><td>overtime work</td></tr>
+    <tr><td>205</td><td>加油站</td><td>jiāyóu zhàn</td><td>gas station</td></tr>
+    <tr><td>206</td><td>假</td><td>jiǎ</td><td>false</td></tr>
+    <tr><td>207</td><td>价格</td><td>jiàgé</td><td>price</td></tr>
+    <tr><td>208</td><td>坚持</td><td>jiānchí</td><td>insist</td></tr>
+    <tr><td>209</td><td>减肥</td><td>jiǎnféi</td><td>reduce weight</td></tr>
+    <tr><td>210</td><td>减少</td><td>jiǎnshǎo</td><td>reduce</td></tr>
+    <tr><td>211</td><td>将来</td><td>jiānglái</td><td>future</td></tr>
+    <tr><td>212</td><td>奖金</td><td>jiǎngjīn</td><td>bonus</td></tr>
+    <tr><td>213</td><td>降低</td><td>jiàngdī</td><td>reduce</td></tr>
+    <tr><td>214</td><td>交</td><td>jiāo</td><td>hand over</td></tr>
+    <tr><td>215</td><td>交流</td><td>jiāoliú</td><td>communication</td></tr>
+    <tr><td>216</td><td>交通</td><td>jiāotōng</td><td>traffic</td></tr>
+    <tr><td>217</td><td>骄傲</td><td>jiāo'ào</td><td>proud</td></tr>
+    <tr><td>218</td><td>饺子</td><td>jiǎozi</td><td>dumplings</td></tr>
+    <tr><td>219</td><td>教授</td><td>jiàoshòu</td><td>professor</td></tr>
+    <tr><td>220</td><td>教育</td><td>jiàoyù</td><td>education</td></tr>
+    <tr><td>221</td><td>接受</td><td>jiēshòu</td><td>accept</td></tr>
+    <tr><td>222</td><td>结果</td><td>jiéguǒ</td><td>result</td></tr>
+    <tr><td>223</td><td>节约</td><td>jiéyuē</td><td>save</td></tr>
+    <tr><td>224</td><td>解释</td><td>jiěshì</td><td>explain</td></tr>
+    <tr><td>225</td><td>尽管</td><td>jǐnguǎn</td><td>although</td></tr>
+    <tr><td>226</td><td>紧张</td><td>jǐnzhāng</td><td>nervous</td></tr>
+    <tr><td>227</td><td>进行</td><td>jìnxíng</td><td>in process of</td></tr>
+    <tr><td>228</td><td>禁止</td><td>jìnzhǐ</td><td>prohibit</td></tr>
+    <tr><td>229</td><td>精彩</td><td>jīngcǎi</td><td>marvellous</td></tr>
+    <tr><td>230</td><td>精神</td><td>jīngshén</td><td>spirit</td></tr>
+    <tr><td>231</td><td>经济</td><td>jīngjì</td><td>economics</td></tr>
+    <tr><td>232</td><td>经历</td><td>jīnglì</td><td>experience</td></tr>
+    <tr><td>233</td><td>经验</td><td>jīngyàn</td><td>experience</td></tr>
+    <tr><td>234</td><td>京剧</td><td>jīngjù</td><td>Beijing opera</td></tr>
+    <tr><td>235</td><td>警察</td><td>jǐngchá</td><td>policeman</td></tr>
+    <tr><td>236</td><td>竟然</td><td>jìngrán</td><td>unexpectedly</td></tr>
+    <tr><td>237</td><td>竞争</td><td>jìngzhēng</td><td>compete</td></tr>
+    <tr><td>238</td><td>镜子</td><td>jìngzi</td><td>mirror</td></tr>
+    <tr><td>239</td><td>究竟</td><td>jiùjìng</td><td>exactly</td></tr>
+    <tr><td>240</td><td>举办</td><td>jǔbàn</td><td>hold</td></tr>
+    <tr><td>241</td><td>拒绝</td><td>jùjué</td><td>refuse</td></tr>
+    <tr><td>242</td><td>距离</td><td>jùlí</td><td>distance</td></tr>
+    <tr><td>243</td><td>开玩笑</td><td>kāiwánxiào</td><td>make fun of</td></tr>
+    <tr><td>244</td><td>看法</td><td>kànfǎ</td><td>view</td></tr>
+    <tr><td>245</td><td>考虑</td><td>kǎolǜ</td><td>consider</td></tr>
+    <tr><td>246</td><td>棵</td><td>kē</td><td>tree (measure word)</td></tr>
+    <tr><td>247</td><td>科学</td><td>kēxué</td><td>science</td></tr>
+    <tr><td>248</td><td>咳嗽</td><td>késòu</td><td>cough</td></tr>
+    <tr><td>249</td><td>可怜</td><td>kělián</td><td>poor</td></tr>
+    <tr><td>250</td><td>可是</td><td>kěshì</td><td>however</td></tr>
+    <tr><td>251</td><td>可惜</td><td>kěxí</td><td>unfortunately</td></tr>
+    <tr><td>252</td><td>肯定</td><td>kěndìng</td><td>sure</td></tr>
+    <tr><td>253</td><td>空气</td><td>kōngqì</td><td>air</td></tr>
+    <tr><td>254</td><td>恐怕</td><td>kǒngpà</td><td>I'm afraid</td></tr>
+    <tr><td>255</td><td>苦</td><td>kǔ</td><td>bitter</td></tr>
+    <tr><td>256</td><td>宽</td><td>kuān</td><td>wide</td></tr>
+    <tr><td>257</td><td>困</td><td>kùn</td><td>sleepy</td></tr>
+    <tr><td>258</td><td>困难</td><td>kùnnán</td><td>difficulty</td></tr>
+    <tr><td>259</td><td>扩大</td><td>kuòdà</td><td>expand</td></tr>
+    <tr><td>260</td><td>拉</td><td>lā</td><td>pull</td></tr>
+    <tr><td>261</td><td>垃圾桶</td><td>lèsè tǒng</td><td>trash</td></tr>
+    <tr><td>262</td><td>辣</td><td>là</td><td>spicy</td></tr>
+    <tr><td>263</td><td>来不及</td><td>láibují</td><td>there's not enough time</td></tr>
+    <tr><td>264</td><td>来得及</td><td>láidéjí</td><td>in time</td></tr>
+    <tr><td>265</td><td>懒</td><td>lǎn</td><td>lazy</td></tr>
+    <tr><td>266</td><td>浪费</td><td>làngfèi</td><td>waste</td></tr>
+    <tr><td>267</td><td>浪漫</td><td>làngmàn</td><td>romantic</td></tr>
+    <tr><td>268</td><td>老虎</td><td>lǎohǔ</td><td>tiger</td></tr>
+    <tr><td>269</td><td>冷静</td><td>lěngjìng</td><td>calm down</td></tr>
+    <tr><td>270</td><td>理发</td><td>lǐfǎ</td><td>haircut</td></tr>
+    <tr><td>271</td><td>理解</td><td>lǐjiě</td><td>understand</td></tr>
+    <tr><td>272</td><td>理想</td><td>lǐxiǎng</td><td>ideal</td></tr>
+    <tr><td>273</td><td>礼貌</td><td>lǐmào</td><td>politeness</td></tr>
+    <tr><td>274</td><td>厉害</td><td>lìhài</td><td>fierce</td></tr>
+    <tr><td>275</td><td>力气</td><td>lìqì</td><td>strength</td></tr>
+    <tr><td>276</td><td>例如</td><td>lìrú</td><td>for example</td></tr>
+    <tr><td>277</td><td>俩</td><td>liǎ</td><td>two</td></tr>
+    <tr><td>278</td><td>连</td><td>lián</td><td>even</td></tr>
+    <tr><td>279</td><td>联系</td><td>liánxì</td><td>contact</td></tr>
+    <tr><td>280</td><td>凉快</td><td>liángkuai</td><td>pleasantly cool</td></tr>
+    <tr><td>281</td><td>亮</td><td>liàng</td><td>bright</td></tr>
+    <tr><td>282</td><td>聊天</td><td>liáotiān</td><td>chat</td></tr>
+    <tr><td>283</td><td>另外</td><td>lìngwài</td><td>in addition</td></tr>
+    <tr><td>284</td><td>留</td><td>liú</td><td>stay</td></tr>
+    <tr><td>285</td><td>留学</td><td>liúxué</td><td>overseas study</td></tr>
+    <tr><td>286</td><td>流泪</td><td>liúlèi</td><td>shed tears</td></tr>
+    <tr><td>287</td><td>流利</td><td>liúlì</td><td>fluent</td></tr>
+    <tr><td>288</td><td>流行</td><td>liúxíng</td><td>popular</td></tr>
+    <tr><td>289</td><td>乱</td><td>luàn</td><td>chaos</td></tr>
+    <tr><td>290</td><td>律师</td><td>lǜshī</td><td>lawyer</td></tr>
+    <tr><td>291</td><td>麻烦</td><td>máfan</td><td>trouble</td></tr>
+    <tr><td>292</td><td>马虎</td><td>mǎhǔ</td><td>careless</td></tr>
+    <tr><td>293</td><td>满</td><td>mǎn</td><td>full</td></tr>
+    <tr><td>294</td><td>毛巾</td><td>máojīn</td><td>towel</td></tr>
+    <tr><td>295</td><td>美丽</td><td>měilì</td><td>beautiful</td></tr>
+    <tr><td>296</td><td>梦</td><td>mèng</td><td>dream</td></tr>
+    <tr><td>297</td><td>密码</td><td>mìmǎ</td><td>password</td></tr>
+    <tr><td>298</td><td>免费</td><td>miǎnfèi</td><td>free of charge</td></tr>
+    <tr><td>299</td><td>民族</td><td>mínzú</td><td>nation</td></tr>
+    <tr><td>300</td><td>母亲</td><td>mǔqīn</td><td>mother</td></tr>
+    <tr><td>301</td><td>目的</td><td>mùdì</td><td>objective</td></tr>
+    <tr><td>302</td><td>耐心</td><td>nàixīn</td><td>patience</td></tr>
+    <tr><td>303</td><td>难道</td><td>nándào</td><td>could it be said that …</td></tr>
+    <tr><td>304</td><td>难受</td><td>nánshòu</td><td>uncomfortable</td></tr>
+    <tr><td>305</td><td>内</td><td>nèi</td><td>within</td></tr>
+    <tr><td>306</td><td>内容</td><td>nèiróng</td><td>content</td></tr>
+    <tr><td>307</td><td>能力</td><td>nénglì</td><td>ability</td></tr>
+    <tr><td>308</td><td>年龄</td><td>niánlíng</td><td>age</td></tr>
+    <tr><td>309</td><td>农村</td><td>nóngcūn</td><td>countryside</td></tr>
+    <tr><td>310</td><td>弄</td><td>nòng</td><td>get, make</td></tr>
+    <tr><td>311</td><td>暖和</td><td>nuǎnhuo</td><td>warm</td></tr>
+    <tr><td>312</td><td>偶尔</td><td>ǒu'ěr</td><td>occasionally</td></tr>
+    <tr><td>313</td><td>排列</td><td>páiliè</td><td>array</td></tr>
+    <tr><td>314</td><td>判断</td><td>pànduàn</td><td>judge</td></tr>
+    <tr><td>315</td><td>陪</td><td>péi</td><td>accompany</td></tr>
+    <tr><td>316</td><td>批评</td><td>pīpíng</td><td>criticism</td></tr>
+    <tr><td>317</td><td>皮肤</td><td>pífū</td><td>skin</td></tr>
+    <tr><td>318</td><td>脾气</td><td>píqì</td><td>bad temper</td></tr>
+    <tr><td>319</td><td>篇</td><td>piān</td><td>piece</td></tr>
+    <tr><td>320</td><td>骗</td><td>piàn</td><td>fool</td></tr>
+    <tr><td>321</td><td>乒乓球</td><td>pīngpāng qiú</td><td>table tennis</td></tr>
+    <tr><td>322</td><td>平时</td><td>píngshí</td><td>peacetime</td></tr>
+    <tr><td>323</td><td>瓶子</td><td>píngzi</td><td>bottle</td></tr>
+    <tr><td>324</td><td>破</td><td>pò</td><td>broken</td></tr>
+    <tr><td>325</td><td>普遍</td><td>pǔbiàn</td><td>universal</td></tr>
+    <tr><td>326</td><td>其次</td><td>qícì</td><td>secondly</td></tr>
+    <tr><td>327</td><td>其中</td><td>qízhōng</td><td>among</td></tr>
+    <tr><td>328</td><td>起飞</td><td>qǐfēi</td><td>take off</td></tr>
+    <tr><td>329</td><td>起来</td><td>qǐlái</td><td>get up</td></tr>
+    <tr><td>330</td><td>气候</td><td>qìhòu</td><td>climate</td></tr>
+    <tr><td>331</td><td>千万</td><td>qiān wàn</td><td>must</td></tr>
+    <tr><td>332</td><td>签证</td><td>qiānzhèng</td><td>visa</td></tr>
+    <tr><td>333</td><td>墙</td><td>qiáng</td><td>wall</td></tr>
+    <tr><td>334</td><td>敲</td><td>qiāo</td><td>knock</td></tr>
+    <tr><td>335</td><td>桥</td><td>qiáo</td><td>bridge</td></tr>
+    <tr><td>336</td><td>巧克力</td><td>qiǎokèlì</td><td>chocolates</td></tr>
+    <tr><td>337</td><td>亲戚</td><td>qīnqī</td><td>relative</td></tr>
+    <tr><td>338</td><td>轻</td><td>qīng</td><td>light</td></tr>
+    <tr><td>339</td><td>轻松</td><td>qīngsōng</td><td>relaxed</td></tr>
+    <tr><td>340</td><td>情况</td><td>qíngkuàng</td><td>situation</td></tr>
+    <tr><td>341</td><td>请假</td><td>qǐngjià</td><td>leave</td></tr>
+    <tr><td>342</td><td>请客</td><td>qǐngkè</td><td>treat</td></tr>
+    <tr><td>343</td><td>穷</td><td>qióng</td><td>poor</td></tr>
+    <tr><td>344</td><td>区别</td><td>qūbié</td><td>difference</td></tr>
+    <tr><td>345</td><td>取</td><td>qǔ</td><td>take</td></tr>
+    <tr><td>346</td><td>全部</td><td>quánbù</td><td>whole</td></tr>
+    <tr><td>347</td><td>缺点</td><td>quēdiǎn</td><td>shortcoming</td></tr>
+    <tr><td>348</td><td>缺少</td><td>quēshǎo</td><td>lack</td></tr>
+    <tr><td>349</td><td>却</td><td>què</td><td>but</td></tr>
+    <tr><td>350</td><td>确实</td><td>quèshí</td><td>exactly</td></tr>
+    <tr><td>351</td><td>群</td><td>qún</td><td>group</td></tr>
+    <tr><td>352</td><td>然而</td><td>rán'ér</td><td>however</td></tr>
+    <tr><td>353</td><td>热闹</td><td>rènào</td><td>lively</td></tr>
+    <tr><td>354</td><td>人民币</td><td>rénmínbì</td><td>RMB</td></tr>
+    <tr><td>355</td><td>任何</td><td>rènhé</td><td>whatever, any</td></tr>
+    <tr><td>356</td><td>任务</td><td>rènwù</td><td>task</td></tr>
+    <tr><td>357</td><td>扔</td><td>rēng</td><td>throw</td></tr>
+    <tr><td>358</td><td>仍然</td><td>réngrán</td><td>still</td></tr>
+    <tr><td>359</td><td>日记</td><td>rìjì</td><td>diary</td></tr>
+    <tr><td>360</td><td>入口</td><td>rùkǒu</td><td>entrance</td></tr>
+    <tr><td>361</td><td>软</td><td>ruǎn</td><td>soft</td></tr>
+    <tr><td>362</td><td>散步</td><td>sànbù</td><td>take a walk</td></tr>
+    <tr><td>363</td><td>森林</td><td>sēnlín</td><td>forest</td></tr>
+    <tr><td>364</td><td>沙发</td><td>shāfā</td><td>sofa</td></tr>
+    <tr><td>365</td><td>商量</td><td>shāngliáng</td><td>discuss</td></tr>
+    <tr><td>366</td><td>伤心</td><td>shāngxīn</td><td>sad</td></tr>
+    <tr><td>367</td><td>稍微</td><td>shāowéi</td><td>slightly</td></tr>
+    <tr><td>368</td><td>社会</td><td>shèhuì</td><td>society</td></tr>
+    <tr><td>369</td><td>深</td><td>shēn</td><td>deep</td></tr>
+    <tr><td>370</td><td>申请</td><td>shēnqǐng</td><td>apply</td></tr>
+    <tr><td>371</td><td>甚至</td><td>shènzhì</td><td>even (..to the extent that)</td></tr>
+    <tr><td>372</td><td>生活</td><td>shēnghuó</td><td>life</td></tr>
+    <tr><td>373</td><td>生命</td><td>shēngmìng</td><td>life</td></tr>
+    <tr><td>374</td><td>省</td><td>shěng</td><td>province</td></tr>
+    <tr><td>375</td><td>剩</td><td>shèng</td><td>left</td></tr>
+    <tr><td>376</td><td>失败</td><td>shībài</td><td>fail</td></tr>
+    <tr><td>377</td><td>失望</td><td>shīwàng</td><td>disappointment</td></tr>
+    <tr><td>378</td><td>师傅</td><td>shīfù</td><td>master worker</td></tr>
+    <tr><td>379</td><td>湿润</td><td>shīrùn</td><td>moist</td></tr>
+    <tr><td>380</td><td>狮子</td><td>shīzi</td><td>lion</td></tr>
+    <tr><td>381</td><td>十分</td><td>shífēn</td><td>very</td></tr>
+    <tr><td>382</td><td>实际</td><td>shíjì</td><td>actual</td></tr>
+    <tr><td>383</td><td>实在</td><td>shízài</td><td>really</td></tr>
+    <tr><td>384</td><td>食品</td><td>shípǐn</td><td>food</td></tr>
+    <tr><td>385</td><td>使用</td><td>shǐyòng</td><td>use</td></tr>
+    <tr><td>386</td><td>试</td><td>shì</td><td>try</td></tr>
+    <tr><td>387</td><td>市场</td><td>shìchǎng</td><td>market</td></tr>
+    <tr><td>388</td><td>适合</td><td>shìhé</td><td>fit</td></tr>
+    <tr><td>389</td><td>适应</td><td>shìyìng</td><td>adapt</td></tr>
+    <tr><td>390</td><td>世纪</td><td>shìjì</td><td>century</td></tr>
+    <tr><td>391</td><td>收</td><td>shōu</td><td>collect</td></tr>
+    <tr><td>392</td><td>收入</td><td>shōurù</td><td>income</td></tr>
+    <tr><td>393</td><td>收拾</td><td>shōushí</td><td>tidy (up something)</td></tr>
+    <tr><td>394</td><td>首都</td><td>shǒudū</td><td>capital</td></tr>
+    <tr><td>395</td><td>首先</td><td>shǒuxiān</td><td>first</td></tr>
+    <tr><td>396</td><td>受不了</td><td>shòu bùliǎo</td><td>cannot bear</td></tr>
+    <tr><td>397</td><td>受到</td><td>shòudào</td><td>suffer</td></tr>
+    <tr><td>398</td><td>售货员</td><td>shòuhuòyuán</td><td>salesperson</td></tr>
+    <tr><td>399</td><td>输</td><td>shū</td><td>book</td></tr>
+    <tr><td>400</td><td>熟悉</td><td>shúxī</td><td>be familiar with</td></tr>
+    <tr><td>401</td><td>数量</td><td>shùliàng</td><td>quantity</td></tr>
+    <tr><td>402</td><td>数字</td><td>shùzì</td><td>number</td></tr>
+    <tr><td>403</td><td>帅</td><td>shuài</td><td>handsome</td></tr>
+    <tr><td>404</td><td>顺便</td><td>shùnbiàn</td><td>incidentally</td></tr>
+    <tr><td>405</td><td>顺利</td><td>shùnlì</td><td>smoothly</td></tr>
+    <tr><td>406</td><td>顺序</td><td>shùnxù</td><td>order</td></tr>
+    <tr><td>407</td><td>说明</td><td>shuōmíng</td><td>explain</td></tr>
+    <tr><td>408</td><td>硕士</td><td>shuòshì</td><td>master</td></tr>
+    <tr><td>409</td><td>死</td><td>sǐ</td><td>die</td></tr>
+    <tr><td>410</td><td>速度</td><td>sùdù</td><td>speed</td></tr>
+    <tr><td>411</td><td>塑料袋</td><td>sùliào dài</td><td>plastic bag</td></tr>
+    <tr><td>412</td><td>酸</td><td>suān</td><td>sour</td></tr>
+    <tr><td>413</td><td>算</td><td>suàn</td><td>count</td></tr>
+    <tr><td>414</td><td>随便</td><td>suíbiàn</td><td>casual</td></tr>
+    <tr><td>415</td><td>随着</td><td>suízhe</td><td>along with</td></tr>
+    <tr><td>416</td><td>孙子</td><td>sūnzi</td><td>grandson</td></tr>
+    <tr><td>417</td><td>所有</td><td>suǒyǒu</td><td>therefore</td></tr>
+    <tr><td>418</td><td>台</td><td>tái</td><td>platform</td></tr>
+    <tr><td>419</td><td>抬</td><td>tái</td><td>lift</td></tr>
+    <tr><td>420</td><td>态度</td><td>tàidù</td><td>attitude</td></tr>
+    <tr><td>421</td><td>谈</td><td>tán</td><td>talk</td></tr>
+    <tr><td>422</td><td>弹钢琴</td><td>dàn gāngqín</td><td>play the piano</td></tr>
+    <tr><td>423</td><td>汤</td><td>tāng</td><td>soup</td></tr>
+    <tr><td>424</td><td>躺</td><td>tǎng</td><td>lie</td></tr>
+    <tr><td>425</td><td>趟</td><td>tàng</td><td>trip</td></tr>
+    <tr><td>426</td><td>讨论</td><td>tǎolùn</td><td>discuss</td></tr>
+    <tr><td>427</td><td>讨厌</td><td>tǎoyàn</td><td>hate</td></tr>
+    <tr><td>428</td><td>特点</td><td>tèdiǎn</td><td>characteristic</td></tr>
+    <tr><td>429</td><td>提供</td><td>tígōng</td><td>provide</td></tr>
+    <tr><td>430</td><td>提前</td><td>tíqián</td><td>in advance</td></tr>
+    <tr><td>431</td><td>提醒</td><td>tíxǐng</td><td>remind</td></tr>
+    <tr><td>432</td><td>填空</td><td>tiánkòng</td><td>fill in the blanks</td></tr>
+    <tr><td>433</td><td>条件</td><td>tiáojiàn</td><td>condition</td></tr>
+    <tr><td>434</td><td>停止</td><td>tíngzhǐ</td><td>stop it</td></tr>
+    <tr><td>435</td><td>挺</td><td>tǐng</td><td>quite</td></tr>
+    <tr><td>436</td><td>通过</td><td>tōngguò</td><td>through</td></tr>
+    <tr><td>437</td><td>通知</td><td>tōngzhī</td><td>notice</td></tr>
+    <tr><td>438</td><td>同情</td><td>tóngqíng</td><td>sympathy</td></tr>
+    <tr><td>439</td><td>推</td><td>tuī</td><td>push</td></tr>
+    <tr><td>440</td><td>推迟</td><td>tuīchí</td><td>delay</td></tr>
+    <tr><td>441</td><td>脱</td><td>tuō</td><td>take off</td></tr>
+    <tr><td>442</td><td>袜子</td><td>wàzi</td><td>socks</td></tr>
+    <tr><td>443</td><td>完全</td><td>wánquán</td><td>completely</td></tr>
+    <tr><td>444</td><td>往</td><td>wǎng</td><td>to, towards</td></tr>
+    <tr><td>445</td><td>往往</td><td>wǎngwǎng</td><td>usually</td></tr>
+    <tr><td>446</td><td>网球</td><td>wǎngqiú</td><td>tennis</td></tr>
+    <tr><td>447</td><td>网站</td><td>wǎngzhàn</td><td>website</td></tr>
+    <tr><td>448</td><td>危险</td><td>wéixiǎn</td><td>danger</td></tr>
+    <tr><td>449</td><td>味道</td><td>wèidào</td><td>taste</td></tr>
+    <tr><td>450</td><td>温度</td><td>wēndù</td><td>temperature</td></tr>
+    <tr><td>451</td><td>文章</td><td>wénzhāng</td><td>article</td></tr>
+    <tr><td>452</td><td>握手</td><td>wòshǒu</td><td>handshake</td></tr>
+    <tr><td>453</td><td>污染</td><td>wūrǎn</td><td>contaminated</td></tr>
+    <tr><td>454</td><td>无</td><td>wú</td><td>nothing</td></tr>
+    <tr><td>455</td><td>无聊</td><td>wúliáo</td><td>boring</td></tr>
+    <tr><td>456</td><td>无论</td><td>wúlùn</td><td>no matter what</td></tr>
+    <tr><td>457</td><td>误会</td><td>wùhuì</td><td>misunderstanding</td></tr>
+    <tr><td>458</td><td>西红柿</td><td>xīhóngshì</td><td>tomato</td></tr>
+    <tr><td>459</td><td>吸引</td><td>xīyǐn</td><td>attract</td></tr>
+    <tr><td>460</td><td>洗衣机</td><td>xǐyījī</td><td>washing machine</td></tr>
+    <tr><td>461</td><td>咸</td><td>xián</td><td>salty</td></tr>
+    <tr><td>462</td><td>现代</td><td>xiàndài</td><td>modern</td></tr>
+    <tr><td>463</td><td>羡慕</td><td>xiànmù</td><td>envy</td></tr>
+    <tr><td>464</td><td>限制</td><td>xiànzhì</td><td>limit</td></tr>
+    <tr><td>465</td><td>香</td><td>xiāng</td><td>fragrant</td></tr>
+    <tr><td>466</td><td>相反</td><td>xiāngfǎn</td><td>contrary</td></tr>
+    <tr><td>467</td><td>详细</td><td>xiángxì</td><td>detailed</td></tr>
+    <tr><td>468</td><td>响</td><td>xiǎng</td><td>ring</td></tr>
+    <tr><td>469</td><td>消息</td><td>xiāoxī</td><td>message</td></tr>
+    <tr><td>470</td><td>小说</td><td>xiǎoshuō</td><td>novel</td></tr>
+    <tr><td>471</td><td>笑话</td><td>xiàohuà</td><td>joke</td></tr>
+    <tr><td>472</td><td>效果</td><td>xiàoguǒ</td><td>effect</td></tr>
+    <tr><td>473</td><td>辛苦</td><td>xīnkǔ</td><td>hard</td></tr>
+    <tr><td>474</td><td>心情</td><td>xīnqíng</td><td>mood</td></tr>
+    <tr><td>475</td><td>信任</td><td>xìnrèn</td><td>trust</td></tr>
+    <tr><td>476</td><td>信心</td><td>xìnxīn</td><td>confidence</td></tr>
+    <tr><td>477</td><td>信用卡</td><td>xìnyòngkǎ</td><td>credit card</td></tr>
+    <tr><td>478</td><td>兴奋</td><td>xīngfèn</td><td>excitement</td></tr>
+    <tr><td>479</td><td>行</td><td>xíng</td><td>OK</td></tr>
+    <tr><td>480</td><td>醒</td><td>xǐng</td><td>wake up</td></tr>
+    <tr><td>481</td><td>性别</td><td>xìngbié</td><td>gender</td></tr>
+    <tr><td>482</td><td>性格</td><td>xìnggé</td><td>character</td></tr>
+    <tr><td>483</td><td>幸福</td><td>xìngfú</td><td>happiness</td></tr>
+    <tr><td>484</td><td>修</td><td>xiū</td><td>repair</td></tr>
+    <tr><td>485</td><td>许多</td><td>xǔduō</td><td>many</td></tr>
+    <tr><td>486</td><td>血</td><td>xuè</td><td>blood</td></tr>
+    <tr><td>487</td><td>压力</td><td>yālì</td><td>pressure</td></tr>
+    <tr><td>488</td><td>牙膏</td><td>yágāo</td><td>toothpaste</td></tr>
+    <tr><td>489</td><td>亚洲</td><td>yàzhōu</td><td>Asia</td></tr>
+    <tr><td>490</td><td>呀</td><td>ya</td><td>ah</td></tr>
+    <tr><td>491</td><td>盐</td><td>yán</td><td>salt</td></tr>
+    <tr><td>492</td><td>严格</td><td>yángé</td><td>strict</td></tr>
+    <tr><td>493</td><td>严重</td><td>yánzhòng</td><td>serious</td></tr>
+    <tr><td>494</td><td>研究生</td><td>yánjiūshēng</td><td>graduate student</td></tr>
+    <tr><td>495</td><td>演出</td><td>yǎnchū</td><td>show</td></tr>
+    <tr><td>496</td><td>演员</td><td>yǎnyuán</td><td>performer, actor</td></tr>
+    <tr><td>497</td><td>阳光</td><td>yángguāng</td><td>sunshine</td></tr>
+    <tr><td>498</td><td>养成</td><td>yǎng chéng</td><td>cultivate</td></tr>
+    <tr><td>499</td><td>样子</td><td>yàngzi</td><td>one's look</td></tr>
+    <tr><td>500</td><td>邀请</td><td>yāoqǐng</td><td>invitation</td></tr>
+    <tr><td>501</td><td>钥匙</td><td>yàoshi</td><td>key</td></tr>
+    <tr><td>502</td><td>也许</td><td>yěxǔ</td><td>perhaps</td></tr>
+    <tr><td>503</td><td>页</td><td>yè</td><td>page</td></tr>
+    <tr><td>504</td><td>叶子</td><td>yèzi</td><td>leaf</td></tr>
+    <tr><td>505</td><td>一切</td><td>yīqiè</td><td>everything</td></tr>
+    <tr><td>506</td><td>以</td><td>yǐ</td><td>with</td></tr>
+    <tr><td>507</td><td>亿</td><td>yì</td><td>billion</td></tr>
+    <tr><td>508</td><td>意见</td><td>yìjiàn</td><td>opinion</td></tr>
+    <tr><td>509</td><td>艺术</td><td>yìshù</td><td>art</td></tr>
+    <tr><td>510</td><td>因此</td><td>yīncǐ</td><td>therefore</td></tr>
+    <tr><td>511</td><td>饮料</td><td>yǐnliào</td><td>drinks</td></tr>
+    <tr><td>512</td><td>引起</td><td>yǐnqǐ</td><td>cause</td></tr>
+    <tr><td>513</td><td>印象</td><td>yìnxiàng</td><td>impression</td></tr>
+    <tr><td>514</td><td>赢</td><td>yíng</td><td>win</td></tr>
+    <tr><td>515</td><td>硬</td><td>yìng</td><td>hard</td></tr>
+    <tr><td>516</td><td>勇敢</td><td>yǒnggǎn</td><td>brave</td></tr>
+    <tr><td>517</td><td>永远</td><td>yǒngyuǎn</td><td>forever</td></tr>
+    <tr><td>518</td><td>优点</td><td>yōudiǎn</td><td>advantage</td></tr>
+    <tr><td>519</td><td>优秀</td><td>yōuxiù</td><td>excellent</td></tr>
+    <tr><td>520</td><td>幽默</td><td>yōumò</td><td>humor</td></tr>
+    <tr><td>521</td><td>由</td><td>yóu</td><td>from</td></tr>
+    <tr><td>522</td><td>由于</td><td>yóuyú</td><td>because</td></tr>
+    <tr><td>523</td><td>尤其</td><td>yóuqí</td><td>especially</td></tr>
+    <tr><td>524</td><td>有趣</td><td>yǒuqù</td><td>interesting</td></tr>
+    <tr><td>525</td><td>友好</td><td>yǒuhǎo</td><td>friendly</td></tr>
+    <tr><td>526</td><td>友谊</td><td>yǒuyì</td><td>friendship</td></tr>
+    <tr><td>527</td><td>愉快</td><td>yúkuài</td><td>cheerful</td></tr>
+    <tr><td>528</td><td>于是</td><td>yúshì</td><td>therefore</td></tr>
+    <tr><td>529</td><td>与</td><td>yǔ</td><td>and</td></tr>
+    <tr><td>530</td><td>语法</td><td>yǔfǎ</td><td>grammar</td></tr>
+    <tr><td>531</td><td>语言</td><td>yǔyán</td><td>language</td></tr>
+    <tr><td>532</td><td>羽毛球</td><td>yǔmáoqiú</td><td>badminton</td></tr>
+    <tr><td>533</td><td>预习</td><td>yùxí</td><td>preview</td></tr>
+    <tr><td>534</td><td>圆</td><td>yuán</td><td>circle</td></tr>
+    <tr><td>535</td><td>原来</td><td>yuánlái</td><td>original</td></tr>
+    <tr><td>536</td><td>原谅</td><td>yuánliàng</td><td>forgive</td></tr>
+    <tr><td>537</td><td>原因</td><td>yuányīn</td><td>reason</td></tr>
+    <tr><td>538</td><td>约会</td><td>yuē huì</td><td>date</td></tr>
+    <tr><td>539</td><td>阅读</td><td>yuèdú</td><td>read</td></tr>
+    <tr><td>540</td><td>允许</td><td>yǔnxǔ</td><td>allow</td></tr>
+    <tr><td>541</td><td>杂志</td><td>zázhì</td><td>magazine</td></tr>
+    <tr><td>542</td><td>咱们</td><td>zánmen</td><td>we</td></tr>
+    <tr><td>543</td><td>暂时</td><td>zhànshí</td><td>temporary</td></tr>
+    <tr><td>544</td><td>脏</td><td>zàng</td><td>dirty</td></tr>
+    <tr><td>545</td><td>责任</td><td>zérèn</td><td>responsibility</td></tr>
+    <tr><td>546</td><td>增加</td><td>zēngjiā</td><td>increase</td></tr>
+    <tr><td>547</td><td>增长</td><td>zēngzhǎng</td><td>increase</td></tr>
+    <tr><td>548</td><td>窄</td><td>zhǎi</td><td>narrow</td></tr>
+    <tr><td>549</td><td>招聘</td><td>zhāopìn</td><td>recruit</td></tr>
+    <tr><td>550</td><td>着急</td><td>zhāojí</td><td>worry</td></tr>
+    <tr><td>551</td><td>真正</td><td>zhēnzhèng</td><td>real</td></tr>
+    <tr><td>552</td><td>整理</td><td>zhěnglǐ</td><td>arrangement</td></tr>
+    <tr><td>553</td><td>整齐</td><td>zhěngqí</td><td>neat</td></tr>
+    <tr><td>554</td><td>正常</td><td>zhèngcháng</td><td>normal</td></tr>
+    <tr><td>555</td><td>正好</td><td>zhènghǎo</td><td>just right</td></tr>
+    <tr><td>556</td><td>正确</td><td>zhèngquè</td><td>correct</td></tr>
+    <tr><td>557</td><td>正式</td><td>zhèngshì</td><td>formal</td></tr>
+    <tr><td>558</td><td>证明</td><td>zhèngmíng</td><td>prove</td></tr>
+    <tr><td>559</td><td>之</td><td>zhī</td><td>of</td></tr>
+    <tr><td>560</td><td>支持</td><td>zhīchí</td><td>support</td></tr>
+    <tr><td>561</td><td>知识</td><td>zhīshì</td><td>knowledge</td></tr>
+    <tr><td>562</td><td>值得</td><td>zhídé</td><td>worth</td></tr>
+    <tr><td>563</td><td>直接</td><td>zhíjiē</td><td>direct</td></tr>
+    <tr><td>564</td><td>植物</td><td>zhíwù</td><td>botany, plant</td></tr>
+    <tr><td>565</td><td>职业</td><td>zhíyè</td><td>occupation</td></tr>
+    <tr><td>566</td><td>指</td><td>zhǐ</td><td>only</td></tr>
+    <tr><td>567</td><td>只好</td><td>zhǐhǎo</td><td>have to</td></tr>
+    <tr><td>568</td><td>只要</td><td>zhǐyào</td><td>as long as</td></tr>
+    <tr><td>569</td><td>质量</td><td>zhìliàng</td><td>quality</td></tr>
+    <tr><td>570</td><td>至少</td><td>zhìshǎo</td><td>at least</td></tr>
+    <tr><td>571</td><td>制造</td><td>zhìzào</td><td>manufacture</td></tr>
+    <tr><td>572</td><td>中文</td><td>zhōngwén</td><td>Chinese</td></tr>
+    <tr><td>573</td><td>重点</td><td>zhòngdiǎn</td><td>a key</td></tr>
+    <tr><td>574</td><td>重视</td><td>zhòngshì</td><td>importance, attach importance to</td></tr>
+    <tr><td>575</td><td>周围</td><td>zhōuwéi</td><td>around</td></tr>
+    <tr><td>576</td><td>猪</td><td>zhū</td><td>pig</td></tr>
+    <tr><td>577</td><td>逐渐</td><td>zhújiàn</td><td>gradually</td></tr>
+    <tr><td>578</td><td>主动</td><td>zhǔdòng</td><td>active</td></tr>
+    <tr><td>579</td><td>主意</td><td>zhǔyì</td><td>idea</td></tr>
+    <tr><td>580</td><td>祝贺</td><td>zhùhè</td><td>congratulate</td></tr>
+    <tr><td>581</td><td>著名</td><td>zhùmíng</td><td>famous</td></tr>
+    <tr><td>582</td><td>专门</td><td>zhuānmén</td><td>specialized</td></tr>
+    <tr><td>583</td><td>专业</td><td>zhuānyè</td><td>major</td></tr>
+    <tr><td>584</td><td>赚</td><td>zhuàn</td><td>earn</td></tr>
+    <tr><td>585</td><td>撞</td><td>zhuàng</td><td>hit</td></tr>
+    <tr><td>586</td><td>准确</td><td>zhǔnquè</td><td>accuracy</td></tr>
+    <tr><td>587</td><td>准时</td><td>zhǔnshí</td><td>on time</td></tr>
+    <tr><td>588</td><td>仔细</td><td>zǐxì</td><td>careful</td></tr>
+    <tr><td>589</td><td>自然</td><td>zìrán</td><td>natural</td></tr>
+    <tr><td>590</td><td>总结</td><td>zǒngjié</td><td>summary</td></tr>
+    <tr><td>591</td><td>租</td><td>zū</td><td>rent</td></tr>
+    <tr><td>592</td><td>组成</td><td>zǔchéng</td><td>form</td></tr>
+    <tr><td>593</td><td>组织</td><td>zǔzhī</td><td>organization</td></tr>
+    <tr><td>594</td><td>嘴</td><td>zuǐ</td><td>mouth</td></tr>
+    <tr><td>595</td><td>最好</td><td>zuì hǎo</td><td>best</td></tr>
+    <tr><td>596</td><td>最后</td><td>zuìhòu</td><td>last</td></tr>
+    <tr><td>597</td><td>尊重</td><td>zūnzhòng</td><td>respect</td></tr>
+    <tr><td>598</td><td>做生意</td><td>zuò shēngyì</td><td>do business</td></tr>
+    <tr><td>599</td><td>座</td><td>zuò</td><td>seat</td></tr>
+    <tr><td>600</td><td>座位</td><td>zuòwèi</td><td>seat</td></tr>
+    <tr><td>601</td><td>作者</td><td>zuòzhě</td><td>author</td></tr>
+  </tbody>
+</table>
 </body>
 </html>

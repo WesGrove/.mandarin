@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chinese Learning Hub</title>
+    <style>
+        :root{
+          --accent:#007bff;
+          --bg:#f5f7fa;
+          --card-bg:#ffffff;
+          --text:#333;
+          --muted:#555;
+          --hover-shadow:0 6px 20px rgba(0,123,255,.25);
+          --font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        }
+
+        *{box-sizing:border-box}
+        
+        body {
+            margin:0;
+            padding:40px 20px;
+            background:var(--bg);
+            color:var(--text);
+            font-family:var(--font-family);
+            font-size:14px;
+            line-height:1.4;
+            text-align:center;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border: 1px solid #e0e0e0;
+            padding: 40px;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 24px;
+            color: var(--text);
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background: var(--card-bg);
+            border: 1px solid #e0e0e0;
+            border-left: 4px solid var(--accent);
+            transition: transform .25s, box-shadow .25s;
+        }
+        
+        .section:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--hover-shadow);
+        }
+        
+        .section h2 {
+            color: var(--text);
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 20px;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 8px;
+            text-align: center;
+        }
+        
+        .bullet-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .bullet-item {
+            margin-bottom: 15px;
+            padding: 12px 20px;
+            background: var(--card-bg);
+            border: 1px solid #e0e0e0;
+            transition: transform .25s, box-shadow .25s, background .25s;
+            position: relative;
+        }
+        
+        .bullet-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--hover-shadow);
+            background: #fff;
+            border-color: var(--accent);
+            z-index: 1;
+        }
+        
+        .bullet-link {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600;
+            display: block;
+            transition: color 0.25s;
+            font-size: 13px;
+        }
+        
+        .bullet-link:hover {
+            color: var(--accent);
+        }
+        
+        .bullet-link::before {
+            content: "→ ";
+            margin-right: 8px;
+            transition: transform 0.25s;
+        }
+        
+        .bullet-link:hover::before {
+            transform: translateX(2px);
+        }
+        
+        .description {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 5px;
+            font-style: italic;
+        }
+        
+        .add-section-note {
+            background: var(--card-bg);
+            border: 1px solid #e0e0e0;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            text-align: center;
+            color: #856404;
+            margin-top: 30px;
+            font-weight: 600;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            color: var(--muted);
+            font-size: 12px;
+            font-style: italic;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-style: italic;
+            color: var(--muted);
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 10px;
+                font-size: 13px;
+            }
+            
+            h1 {
+                font-size: 20px;
+            }
+            
+            .section h2 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Chinese Learning Hub</h1>
+        <p class="subtitle">Interactive Navigation</p>
+        
+        <!-- Section 1: Foundation -->
+        <div class="section">
+            <h2>1. Foundation (Must Learn First)</h2>
+            <ul class="bullet-list">
+                <li class="bullet-item">
+                    <a href="/html/foundation/pinyin.html" class="bullet-link">Pinyin System</a>
+                    <div class="description">All initials, finals, and tone combinations</div>
+                </li>
+                <li class="bullet-item">
+                    <a href="/html/foundation/tones.html" class="bullet-link">4 Tones + Neutral Tone</a>
+                    <div class="description">Recognition and production</div>
+                </li>
+                <li class="bullet-item">
+                    <a href="/html/foundation/strokes.html" class="bullet-link">Basic Stroke Order</a>
+                    <div class="description">For writing characters</div>
+                </li>
+                <li class="bullet-item">
+                    <a href="/html/foundation/radicals.html" class="bullet-link">Radicals</a>
+                    <div class="description">The building blocks of Chinese characters</div>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Section 2: Vocabulary & Characters -->
+        <div class="section">
+            <h2>2. Vocabulary &amp; Characters</h2>
+            <ul class="bullet-list">
+                <li class="bullet-item">
+                    <a href="/html/menus/hsk1-6.html" class="bullet-link">HSK Level 1-6 Vocabulary</a>
+                    <div class="description">150 → 5,000+ words</div>
+                </li>
+                <li class="bullet-item">
+                    <a href="/html/vocabulary&characters/recognition.html" class="bullet-link">Character Recognition</a>
+                    <div class="description">Start with most common 1,000 characters</div>
+                </li>
+                <li class="bullet-item">
+                    <a href="/html/vocabulary&characters/writing.html" class="bullet-link">Character Writing</a>
+                    <div class="description">Learn to handwrite and type</div>
+                </li>
+                <li class="bullet-item">
+                    <a href="/html/vocabulary&characters/classifiers.html" class="bullet-link">Measure Words (Classifiers)</a>
+                    <div class="description">Essential for counting and describing</div>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Instructions for adding more sections -->
+        <div class="add-section-note">
+            <strong>To add more sections:</strong><br>
+            Copy the section div structure below and modify the content, links, and descriptions as needed.
+        </div>
+        
+        <!-- TEMPLATE FOR NEW SECTIONS - Copy this structure to add more sections -->
+        <!--
+        <div class="section">
+            <h2>3. Your New Section Title</h2>
+            <ul class="bullet-list">
+                <li class="bullet-item">
+                    <a href="your-file.html" class="bullet-link">Your Topic</a>
+                    <div class="description">Your description here</div>
+                </li>
+                <li class="bullet-item">
+                    <a href="another-file.html" class="bullet-link">Another Topic</a>
+                    <div class="description">Another description here</div>
+                </li>
+            </ul>
+        </div>
+        -->
+        
+        <div class="footer">
+            <p>Click on any topic to navigate to detailed lessons • Edit this HTML file to add more sections and update links</p>
+        </div>
+    </div>
+</body>
+</html>

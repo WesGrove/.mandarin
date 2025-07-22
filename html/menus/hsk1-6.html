@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HSK Vocabulary Levels</title>
+    <style>
+        :root{
+          --accent:#007bff;
+          --bg:#f5f7fa;
+          --card-bg:#ffffff;
+          --text:#333;
+          --muted:#555;
+          --hover-shadow:0 6px 20px rgba(0,123,255,.25);
+          --font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        }
+
+        *{box-sizing:border-box}
+        
+        body {
+            margin:0;
+            padding:40px 20px;
+            background:var(--bg);
+            color:var(--text);
+            font-family:var(--font-family);
+            font-size:14px;
+            line-height:1.4;
+            text-align:center;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border: 1px solid #e0e0e0;
+            padding: 40px;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 24px;
+            color: var(--text);
+        }
+
+        .subtitle {
+            text-align: center;
+            font-style: italic;
+            color: var(--muted);
+            margin-bottom: 30px;
+        }
+
+        .overview {
+            background: var(--card-bg);
+            border: 1px solid #e0e0e0;
+            border-left: 4px solid var(--accent);
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .overview h3 {
+            margin-top: 0;
+            color: var(--text);
+            font-size: 16px;
+        }
+
+        .overview p {
+            margin: 10px 0;
+            color: var(--muted);
+            font-size: 13px;
+        }
+        
+        .hsk-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .hsk-level {
+            padding: 20px;
+            background: var(--card-bg);
+            border: 1px solid #e0e0e0;
+            border-left: 4px solid var(--accent);
+            transition: transform .25s, box-shadow .25s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .hsk-level:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--hover-shadow);
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .hsk-level h3 {
+            color: var(--text);
+            margin: 0 0 10px 0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .word-count {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        
+        .total-words {
+            color: var(--muted);
+            font-size: 12px;
+            margin-bottom: 12px;
+        }
+        
+        .description {
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.3;
+            text-align: left;
+        }
+
+        .proficiency-level {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: #e0e0e0;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .hsk-level:hover .progress-fill {
+            background: #0056b3;
+        }
+
+        /* Different progress levels */
+        .hsk-1 .progress-fill { width: 10%; }
+        .hsk-2 .progress-fill { width: 25%; }
+        .hsk-3 .progress-fill { width: 40%; }
+        .hsk-4 .progress-fill { width: 60%; }
+        .hsk-5 .progress-fill { width: 80%; }
+        .hsk-6 .progress-fill { width: 100%; }
+
+        .navigation-note {
+            background: var(--card-bg);
+            border: 1px solid #e0e0e0;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            text-align: center;
+            color: #856404;
+            margin-top: 30px;
+            font-weight: 600;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            color: var(--muted);
+            font-size: 12px;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 10px;
+                font-size: 13px;
+            }
+            
+            .hsk-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            h1 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>HSK Vocabulary Levels</h1>
+        <p class="subtitle">Chinese Proficiency Test Word Lists</p>
+        
+        <div class="overview">
+            <h3>HSK (Hanyu Shuiping Kaoshi)</h3>
+            <p>The standard Chinese proficiency test with 6 levels from beginner to advanced</p>
+            <p><strong>Total Vocabulary Range:</strong> 153 → 5,019 words</p>
+        </div>
+
+        <div class="hsk-grid">
+            <a href="/html/vocabulary&characters/hsk1-6/hsk1.html" class="hsk-level hsk-1">
+                <div class="proficiency-level">Beginner A1</div>
+                <h3>HSK Level 1</h3>
+                <div class="word-count">153 words</div>
+                <div class="total-words">Foundation vocabulary</div>
+                <div class="progress-bar"><div class="progress-fill"></div></div>
+                <div class="description">
+                    Basic everyday expressions and simple phrases. Survival Chinese for immediate needs. 
+                    Common greetings, numbers, family, and basic verbs.
+                </div>
+            </a>
+
+            <a href="/html/vocabulary&characters/hsk1-6/hsk2.html" class="hsk-level hsk-2">
+                <div class="proficiency-level">Beginner A2</div>
+                <h3>HSK Level 2</h3>
+                <div class="word-count">+151 new words</div>
+                <div class="total-words">304 words total</div>
+                <div class="progress-bar"><div class="progress-fill"></div></div>
+                <div class="description">
+                    Simple conversations on familiar topics. Shopping, dining, directions, and daily routines. 
+                    Can handle basic social interactions.
+                </div>
+            </a>
+
+            <a href="/html/vocabulary&characters/hsk1-6/hsk3.html" class="hsk-level hsk-3">
+                <div class="proficiency-level">Intermediate B1</div>
+                <h3>HSK Level 3</h3>
+                <div class="word-count">+310 new words</div>
+                <div class="total-words">614 words total</div>
+                <div class="progress-bar"><div class="progress-fill"></div></div>
+                <div class="description">
+                    Communicate in most daily situations. Work, study, travel contexts. 
+                    Express opinions and describe experiences with some complexity.
+                </div>
+            </a>
+
+            <a href="/html/vocabulary&characters/hsk1-6/hsk4.html" class="hsk-level hsk-4">
+                <div class="proficiency-level">Intermediate B2</div>
+                <h3>HSK Level 4</h3>
+                <div class="word-count">+601 new words</div>
+                <div class="total-words">1,215 words total</div>
+                <div class="progress-bar"><div class="progress-fill"></div></div>
+                <div class="description">
+                    Discuss abstract topics and complex ideas. Professional and academic contexts. 
+                    Understand native speakers in most situations.
+                </div>
+            </a>
+
+            <a href="/html/vocabulary&characters/hsk1-6/hsk5.html" class="hsk-level hsk-5">
+                <div class="proficiency-level">Advanced C1</div>
+                <h3>HSK Level 5</h3>
+                <div class="word-count">+1,304 new words</div>
+                <div class="total-words">2,519 words total</div>
+                <div class="progress-bar"><div class="progress-fill"></div></div>
+                <div class="description">
+                    Near-native fluency in most contexts. Literature, business, academic writing. 
+                    Understand cultural nuances and idiomatic expressions.
+                </div>
+            </a>
+
+            <a href="/html/vocabulary&characters/hsk1-6/hsk6.html" class="hsk-level hsk-6">
+                <div class="proficiency-level">Advanced C2</div>
+                <h3>HSK Level 6</h3>
+                <div class="word-count">+2,500 new words</div>
+                <div class="total-words">5,019 words total</div>
+                <div class="progress-bar"><div class="progress-fill"></div></div>
+                <div class="description">
+                    Native-level comprehension and expression. Specialized vocabulary for all fields. 
+                    Full cultural and linguistic competency.
+                </div>
+            </a>
+        </div>
+
+        <div class="navigation-note">
+            <strong>Study Progression:</strong><br>
+            Complete each level sequentially. Each builds on vocabulary from previous levels.
+        </div>
+        
+        <div class="footer">
+            <p>Click any level to access interactive vocabulary tables • Word counts based on new vocabulary per level</p>
+        </div>
+    </div>
+</body>
+</html>
