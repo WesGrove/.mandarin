@@ -2,6 +2,23 @@
 
 This has been made with Claude & Kimi AI and my own little bitty changes here and there. I am not a professional in any way, I'm just a hobbiest with access to some good AI and knack for finding linguistic resources. If there are any linguistic experts out there, please let me know how I can improve this. 
 
+# References
+
+The official Hanban/Confucius Institute website or the official HSK test preparation books published by Beijing Language and Culture University Press are the most authoritative sources.
+For quick verification, cross-reference multiple official sources:
+
+HSK Official Website (chinese-testing.cn)
+Official HSK Standard Course textbooks
+Pleco dictionary's HSK word lists (well-curated)
+
+The discrepancies you see online come from:
+
+Different HSK versions (old vs. new standards)
+Unofficial compilations
+Regional variations
+
+Stick to official Hanban materials for definitive word lists.
+
 # Language Repository Project Guide
 
 (click picture for video showcase)

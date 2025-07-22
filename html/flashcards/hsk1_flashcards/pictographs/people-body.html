@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HSK1 People & Body-Part Pictographs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --font: "Poppins", sans-serif;
+        }
+        * { box-sizing: border-box; }
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: var(--font);
+            background: #f5f7fa;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px 120px;
+            overflow-x: auto;
+            min-width: 1000px;
+        }
+        .section-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #333;
+            margin: 20px 0 30px;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        .card {
+            width: 220px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,.5);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 8px 32px rgba(0,0,0,.15);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        .front {
+            padding: 18px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 56px;
+            color: #fff;
+            text-shadow: 0 0 8px rgba(0,0,0,.3);
+            position: relative;
+            background: linear-gradient(135deg,#F8B51C,#e6a315);
+        }
+        .front .badge-left,
+        .front .badge-right {
+            position: absolute;
+            top: 7px;
+            font-size: 10px;
+            font-weight: 600;
+            color: #fff;
+        }
+        .badge-left { left: 10px; }
+        .badge-right { right: 10px; }
+        .type-badge {
+            position: absolute;
+            bottom: 6px;
+            right: 8px;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 8px;
+            background: rgba(0,0,0,.25);
+            color: #fff;
+            letter-spacing: .5px;
+        }
+        .back {
+            padding: 12px 14px;
+            font-size: 11px;
+            line-height: 1.4;
+            color: #222;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .examples {
+            margin-top: auto;
+            font-size: 16px;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #000;
+            margin: 8px 0 6px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="section-title">HSK1 People & Body-Part Pictographs</h1>
+
+    <div class="container">
+        <!-- 人 -->
+        <div class="card">
+            <div class="front">
+                <span class="badge-left">HSK 1</span>
+                <span class="badge-right">#1</span>
+                人
+                <span class="type-badge">pictograph</span>
+            </div>
+            <div class="back">
+                <strong>Meaning:</strong> person<br/>
+                <strong>Pinyin:</strong> rén (2nd tone)<br/>
+                <strong>Frequency:</strong> #4 most common<br/>
+                <strong>Type:</strong> Pictograph (walking figure)<br/>
+                <strong>Usage:</strong> Core noun for “person/people”<br/>
+                <strong>Context:</strong> “First human-figure pictograph learned”
+                <hr>
+                <div class="examples">一个人 好人</div>
+            </div>
+        </div>
+
+        <!-- 大 -->
+        <div class="card">
+            <div class="front">
+                <span class="badge-left">HSK 1</span>
+                <span class="badge-right">#2</span>
+                大
+                <span class="type-badge">pictograph</span>
+            </div>
+            <div class="back">
+                <strong>Meaning:</strong> big<br/>
+                <strong>Pinyin:</strong> dà (4th tone)<br/>
+                <strong>Frequency:</strong> Top-20 character<br/>
+                <strong>Type:</strong> Pictograph (arms wide)<br/>
+                <strong>Usage:</strong> Adjective: size, degree, age<br/>
+                <strong>Context:</strong> “Visual exaggeration of size”
+                <hr>
+                <div class="examples">很大 大小</div>
+            </div>
+        </div>
+
+        <!-- 小 -->
+        <div class="card">
+            <div class="front">
+                <span class="badge-left">HSK 1</span>
+                <span class="badge-right">#3</span>
+                小
+                <span class="type-badge">pictograph</span>
+            </div>
+            <div class="back">
+                <strong>Meaning:</strong> small<br/>
+                <strong>Pinyin:</strong> xiǎo (3rd tone)<br/>
+                <strong>Frequency:</strong> Top-30 character<br/>
+                <strong>Type:</strong> Pictograph (three tiny dots)<br/>
+                <strong>Usage:</strong> Adjective for size or endearment<br/>
+                <strong>Context:</strong> “Contrastive pair with 大”
+                <hr>
+                <div class="examples">小狗 小孩</div>
+            </div>
+        </div>
+
+        <!-- 女 -->
+        <div class="card">
+            <div class="front">
+                <span class="badge-left">HSK 1</span>
+                <span class="badge-right">#4</span>
+                女
+                <span class="type-badge">pictograph</span>
+            </div>
+            <div class="back">
+                <strong>Meaning:</strong> woman/female<br/>
+                <strong>Pinyin:</strong> nǚ (3rd tone)<br/>
+                <strong>Frequency:</strong> Core radical<br/>
+                <strong>Type:</strong> Pictograph (kneeling figure)<br/>
+                <strong>Usage:</strong> Noun & component in female-related chars<br/>
+                <strong>Context:</strong> “Foundational radical 女”
+                <hr>
+                <div class="examples">女人 女生</div>
+            </div>
+        </div>
+
+        <!-- 子 -->
+        <div class="card">
+            <div class="front">
+                <span class="badge-left">HSK 1</span>
+                <span class="badge-right">#5</span>
+                子
+                <span class="type-badge">pictograph</span>
+            </div>
+            <div class="back">
+                <strong>Meaning:</strong> child/son<br/>
+                <strong>Pinyin:</strong> zǐ (3rd tone)<br/>
+                <strong>Frequency:</strong> Top-50 character<br/>
+                <strong>Type:</strong> Pictograph (baby with arms)<br/>
+                <strong>Usage:</strong> Noun & suffix (e.g., 桌子)<br/>
+                <strong>Context:</strong> “Core family & nominal suffix”
+                <hr>
+                <div class="examples">儿子 孩子</div>
+            </div>
+        </div>
+
+        <!-- 目 -->
+        <div class="card">
+            <div class="front">
+                <span class="badge-left">HSK 1</span>
+                <span class="badge-right">#6</span>
+                目
+                <span class="type-badge">pictograph</span>
+            </div>
+            <div class="back">
+                <strong>Meaning:</strong> eye<br/>
+                <strong>Pinyin:</strong> mù (4th tone)<br/>
+                <strong>Frequency:</strong> Common radical<br/>
+                <strong>Type:</strong> Pictograph (eye shape)<br/>
+                <strong>Usage:</strong> Radical in vision-related characters<br/>
+                <strong>Context:</strong> “Visual basis for 看, 睛, etc.”
+                <hr>
+                <div class="examples">目光 耳目</div>
+            </div>
+        </div>
+
+        <!-- 手 -->
+        <div class="card">
+            <div class="front">
+                <span class="badge-left">HSK 1</span>
+                <span class="badge-right">#7</span>
+                手
+                <span class="type-badge">pictograph</span>
+            </div>
+            <div class="back">
+                <strong>Meaning:</strong> hand<br/>
+                <strong>Pinyin:</strong> shǒu (3rd tone)<br/>
+                <strong>Frequency:</strong> High-frequency noun/radical<br/>
+                <strong>Type:</strong> Pictograph (five fingers)<br/>
+                <strong>Usage:</strong> Hand, actions, measure word<br/>
+                <strong>Context:</strong> “Key radical 扌 (提手旁)”
+                <hr>
+                <div class="examples">手机 洗手</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

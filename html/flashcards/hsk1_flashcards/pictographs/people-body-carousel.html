@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>People & Body-Part Pictographs – Carousel</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --radius: 360px;
+  --count: 7;            /* 7 pictographs */
+  --font: "Poppins", sans-serif;
+}
+* { box-sizing: border-box; }
+html,body{height:100%;margin:0;font-family:var(--font)}
+body{display:flex;align-items:center;justify-content:center;
+     background:#f5f7fa;perspective:1200px;overflow:hidden}
+
+/* ---------- carousel ---------- */
+.carousel{
+  position:relative;width:var(--radius);height:var(--radius);
+  transform-style:preserve-3d;cursor:grab;transition:transform .4s ease-out}
+.carousel:active{cursor:grabbing}
+
+/* ---------- card ---------- */
+.card{
+  position:absolute;top:50%;left:50%;width:220px;height:auto;
+  margin:-50% 0 0 -110px;border-radius:20px;
+  border:1px solid rgba(255,255,255,.5);backdrop-filter:blur(12px);
+  box-shadow:0 8px 32px rgba(0,0,0,.15);overflow:hidden;
+  display:flex;flex-direction:column;backface-visibility:hidden;
+  user-select:none}
+
+.front{
+  padding:18px 0;display:flex;align-items:center;justify-content:center;
+  font-size:56px;color:#fff;text-shadow:0 0 8px rgba(0,0,0,.3);
+  position:relative;background:linear-gradient(135deg,#F8B51C,#e6a315)}
+.badge-left,.badge-right{
+  position:absolute;top:7px;font-size:10px;font-weight:600;color:#fff}
+.badge-left{left:10px}
+.badge-right{right:10px}
+.type-badge{
+  position:absolute;bottom:6px;right:8px;font-size:10px;padding:2px 6px;
+  border-radius:8px;background:rgba(0,0,0,.25);color:#fff;letter-spacing:.5px}
+
+.back{
+  padding:12px 14px;font-size:11px;line-height:1.4;color:#222;
+  display:flex;flex-direction:column;flex-grow:1}
+.back strong{color:#000;font-weight:600}
+hr{border:none;border-top:1px solid #000;margin:8px 0 6px 0}
+.examples{margin-top:auto;font-size:16px;letter-spacing:2px;text-align:center}
+
+/* ---------- controls ---------- */
+.controls{
+  position:absolute;bottom:25px;left:50%;transform:translateX(-50%);
+  display:flex;align-items:center;gap:18px}
+.nav-btn{
+  width:44px;height:44px;border:none;border-radius:50%;
+  background:rgba(255,255,255,.35);backdrop-filter:blur(8px);
+  color:#007bff;font-size:20px;font-weight:600;cursor:pointer;
+  transition:background .2s}
+.nav-btn:hover{background:rgba(255,255,255,.55)}
+.counter{font-size:14px;font-weight:600;color:#333}
+</style>
+</head>
+
+<body>
+<div class="carousel" id="ring">
+
+  <!-- 1 人 -->
+  <div class="card">
+    <div class="front">
+      <span class="badge-left">HSK 1</span>
+      <span class="badge-right">#1</span>
+      人
+      <span class="type-badge">pictograph</span>
+    </div>
+    <div class="back">
+      <strong>Meaning:</strong> person<br/>
+      <strong>Pinyin:</strong> rén (2nd tone)<br/>
+      <strong>Frequency:</strong> #4 most common<br/>
+      <strong>Type:</strong> Pictograph (walking figure)<br/>
+      <strong>Usage:</strong> Core noun for “person/people”<br/>
+      <strong>Context:</strong> “First human-figure pictograph learned”
+      <hr>
+      <div class="examples">一个人 好人</div>
+    </div>
+  </div>
+
+  <!-- 2 大 -->
+  <div class="card">
+    <div class="front">
+      <span class="badge-left">HSK 1</span>
+      <span class="badge-right">#2</span>
+      大
+      <span class="type-badge">pictograph</span>
+    </div>
+    <div class="back">
+      <strong>Meaning:</strong> big<br/>
+      <strong>Pinyin:</strong> dà (4th tone)<br/>
+      <strong>Frequency:</strong> Top-20 character<br/>
+      <strong>Type:</strong> Pictograph (arms wide)<br/>
+      <strong>Usage:</strong> Adjective: size, degree, age<br/>
+      <strong>Context:</strong> “Visual exaggeration of size”
+      <hr>
+      <div class="examples">很大 大小</div>
+    </div>
+  </div>
+
+  <!-- 3 小 -->
+  <div class="card">
+    <div class="front">
+      <span class="badge-left">HSK 1</span>
+      <span class="badge-right">#3</span>
+      小
+      <span class="type-badge">pictograph</span>
+    </div>
+    <div class="back">
+      <strong>Meaning:</strong> small<br/>
+      <strong>Pinyin:</strong> xiǎo (3rd tone)<br/>
+      <strong>Frequency:</strong> Top-30 character<br/>
+      <strong>Type:</strong> Pictograph (three tiny dots)<br/>
+      <strong>Usage:</strong> Adjective for size or endearment<br/>
+      <strong>Context:</strong> “Contrastive pair with 大”
+      <hr>
+      <div class="examples">小狗 小孩</div>
+    </div>
+  </div>
+
+  <!-- 4 女 -->
+  <div class="card">
+    <div class="front">
+      <span class="badge-left">HSK 1</span>
+      <span class="badge-right">#4</span>
+      女
+      <span class="type-badge">pictograph</span>
+    </div>
+    <div class="back">
+      <strong>Meaning:</strong> woman/female<br/>
+      <strong>Pinyin:</strong> nǚ (3rd tone)<br/>
+      <strong>Frequency:</strong> Core radical<br/>
+      <strong>Type:</strong> Pictograph (kneeling figure)<br/>
+      <strong>Usage:</strong> Noun & component in female-related chars<br/>
+      <strong>Context:</strong> “Foundational radical 女”
+      <hr>
+      <div class="examples">女人 女生</div>
+    </div>
+  </div>
+
+  <!-- 5 子 -->
+  <div class="card">
+    <div class="front">
+      <span class="badge-left">HSK 1</span>
+      <span class="badge-right">#5</span>
+      子
+      <span class="type-badge">pictograph</span>
+    </div>
+    <div class="back">
+      <strong>Meaning:</strong> child/son<br/>
+      <strong>Pinyin:</strong> zǐ (3rd tone)<br/>
+      <strong>Frequency:</strong> Top-50 character<br/>
+      <strong>Type:</strong> Pictograph (baby with arms)<br/>
+      <strong>Usage:</strong> Noun & suffix (e.g., 桌子)<br/>
+      <strong>Context:</strong> “Core family & nominal suffix”
+      <hr>
+      <div class="examples">儿子 孩子</div>
+    </div>
+  </div>
+
+  <!-- 6 目 -->
+  <div class="card">
+    <div class="front">
+      <span class="badge-left">HSK 1</span>
+      <span class="badge-right">#6</span>
+      目
+      <span class="type-badge">pictograph</span>
+    </div>
+    <div class="back">
+      <strong>Meaning:</strong> eye<br/>
+      <strong>Pinyin:</strong> mù (4th tone)<br/>
+      <strong>Frequency:</strong> Common radical<br/>
+      <strong>Type:</strong> Pictograph (eye shape)<br/>
+      <strong>Usage:</strong> Radical in vision-related characters<br/>
+      <strong>Context:</strong> “Visual basis for 看, 睛, etc.”
+      <hr>
+      <div class="examples">目光 耳目</div>
+    </div>
+  </div>
+
+  <!-- 7 手 -->
+  <div class="card">
+    <div class="front">
+      <span class="badge-left">HSK 1</span>
+      <span class="badge-right">#7</span>
+      手
+      <span class="type-badge">pictograph</span>
+    </div>
+    <div class="back">
+      <strong>Meaning:</strong> hand<br/>
+      <strong>Pinyin:</strong> shǒu (3rd tone)<br/>
+      <strong>Frequency:</strong> High-frequency noun/radical<br/>
+      <strong>Type:</strong> Pictograph (five fingers)<br/>
+      <strong>Usage:</strong> Hand, actions, measure word<br/>
+      <strong>Context:</strong> “Key radical 扌 (提手旁)”
+      <hr>
+      <div class="examples">手机 洗手</div>
+    </div>
+  </div>
+
+</div><!-- /#ring -->
+
+<!-- controls -->
+<div class="controls">
+  <button class="nav-btn" id="prev">←</button>
+  <span id="counter" class="counter">1 / 7</span>
+  <button class="nav-btn" id="next">→</button>
+</div>
+
+<script>
+const ring   = document.getElementById('ring');
+const cards  = [...ring.children];
+const count  = cards.length;
+const angle  = 360 / count;
+const prevBtn= document.getElementById('prev');
+const nextBtn= document.getElementById('next');
+const counter= document.getElementById('counter');
+
+let current = 0;
+
+/* initial 3-D positioning */
+cards.forEach((c,i)=>{
+  const theta = angle * i;
+  c.style.transform = `rotateY(${theta}deg) translateZ(${getComputedStyle(document.documentElement).getPropertyValue('--radius')})`;
+});
+
+function updateRing() {
+  ring.style.transform = `rotateY(${-current*angle}deg)`;
+  counter.textContent = `${current+1} / ${count}`;
+}
+
+/* arrow controls */
+prevBtn.addEventListener('click',()=>{current=(current-1+count)%count;updateRing()});
+nextBtn.addEventListener('click',()=>{current=(current+1)%count;updateRing()});
+
+/* optional drag */
+let startX, startRot=0, isDown=false;
+ring.addEventListener('mousedown',e=>{isDown=true;startX=e.clientX;ring.style.transition='none'});
+window.addEventListener('mousemove',e=>{
+  if(!isDown) return;
+  startRot += (e.clientX-startX)*.25;
+  ring.style.transform = `rotateY(${startRot}deg)`;
+  startX = e.clientX;
+});
+window.addEventListener('mouseup',()=>{
+  if(!isDown) return; isDown=false;
+  ring.style.transition='transform .4s ease-out';
+  startRot = Math.round(startRot/angle)*angle;
+  current  = (-startRot/angle+count)%count;
+  updateRing();
+});
+</script>
+</body>
+</html>
