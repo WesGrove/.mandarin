@@ -4,6 +4,8 @@ This has been made with Claude & Kimi AI and my own little bitty changes here an
 
 # Language Repository Project Guide
 
+[![Beta Showcase](https://img.youtube.com/vi/VIDEO_ID/0.jpg)](https://youtube.com/shorts/AnaXHfPxtGs?si=SamsIm72QXkUVVlJ)
+
 ## Project Vision & Mission
 
 ### Core Dream
