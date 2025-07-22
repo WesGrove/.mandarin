@@ -19,6 +19,15 @@ Regional variations
 
 Stick to official Hanban materials for definitive word lists.
 
+Official Sources:
+
+- chinesetest.cn - The official HSK website administered by the National Chinese Proficiency Test Committee ChinesetestChinesetest
+- HSK Standard Course textbooks - Authorized by Hanban, developed by Beijing Language and Culture University Press and Chinese Testing International (CTI), covering exactly 150 words for HSK1 HskstandardcourseInternet Archive
+- Beijing Language and Culture University Press - The official publisher since 1985, well-known for authoritative Chinese as Second Language materials DOKUMEN.PUBAmazon
+- Multiple sources confirm HSK1 contains 150 words (not 153), based on the International Curriculum for Chinese Language Education published by Hanban HSK 1 Official Vocabulary List - Learn LanguagesLingoDeer.
+- Officially authorized by Hanban HSK Standard Course – Authorized Textbook for HSK Preparation
+- 100% consistent with HSK test content HSK 1 Standard Course : Free Download, Borrow, and Streaming : Internet Archive
+
 # Language Repository Project Guide
 
 (click picture for video showcase)
