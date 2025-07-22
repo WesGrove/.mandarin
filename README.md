@@ -4,6 +4,7 @@ This has been made with Claude & Kimi AI and my own little bitty changes here an
 
 # Language Repository Project Guide
 
+(click picture for video showcase)
 [![Beta Showcase](https://i.imgur.com/xAz4zg9.jpeg)](https://youtube.com/shorts/AnaXHfPxtGs?si=SamsIm72QXkUVVlJ)
 
 ## Project Vision & Mission
