@@ -16,6 +16,15 @@
         * {
             box-sizing: border-box;
         }
+
+        .page-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            padding-bottom: 50px; /* the actual bottom space */
+            box-sizing: border-box;
+            }
         
         html, body {
             height: 100%;
@@ -32,8 +41,8 @@
             perspective: 1200px;
             overflow-x: auto;
             overflow-y: auto;
-            padding: 40px 20px;
-            min-width: 1000px; /* Ensure minimum width to fit all cards */
+            padding: 40px 20px 120px;   /* ← added bottom padding */
+            min-width: 1000px;
         }
         
         .container {
@@ -114,6 +123,7 @@
 </head>
 
 <body>
+  <div class="page-wrapper">
     
     <h1 class="section-title">Radical Cards Template</h1>
     
@@ -480,6 +490,7 @@
                 <strong>Meaning:</strong> (possessive particle)<br/>
                 <strong>Pinyin:</strong> de (5th/neutral tone)<br/>
                 <strong>Frequency:</strong> Most common (4% of all text)<br/>
+                <strong>Type:</strong> Phonetic Compound
                 <strong>Usage:</strong> Shows possession, modification<br/>
                 <strong>Context:</strong> "Grammar backbone character"
                 <!-- divider -->
@@ -510,6 +521,7 @@
                 <strong>Meaning:</strong> open, start<br/>
                 <strong>Pinyin:</strong> kāi (1st tone)<br/>
                 <strong>Frequency:</strong> Daily life core vocabulary<br/>
+                <strong>Type:</strong> Compound Ideograph
                 <strong>Usage:</strong> Opening things, starting actions<br/>
                 <strong>Context:</strong> "Essential daily action word"
                 <!-- divider -->
@@ -540,6 +552,7 @@
                 <strong>Meaning:</strong> nature, gender<br/>
                 <strong>Pinyin:</strong> xìng (4th tone)<br/>
                 <strong>Frequency:</strong> Reading threshold vocabulary<br/>
+                <strong>Type:</strong> Phonetic Compound
                 <strong>Usage:</strong> Character traits, gender, properties<br/>
                 <strong>Context:</strong> "Enables newspaper reading"
                 <!-- divider -->
@@ -570,6 +583,7 @@
                 <strong>Meaning:</strong> party (political)<br/>
                 <strong>Pinyin:</strong> dǎng (3rd tone)<br/>
                 <strong>Frequency:</strong> Fluency polish vocabulary<br/>
+                <strong>Type:</strong> Phonetic Compound
                 <strong>Usage:</strong> Politics, formal writing<br/>
                 <strong>Context:</strong> "Advanced reading foundation"
                 <!-- divider -->
@@ -603,8 +617,10 @@
             <div class="back">
                 <strong>Meaning:</strong> I, me<br/>
                 <strong>Pinyin:</strong> wǒ (3rd tone)<br/>
-                <strong>Common Rank:</strong> #1 most essential<br/>
-                <strong>Usage:</strong> First person pronoun, basic identity
+                <strong>Frequency:</strong> #1 most essential<br/>
+                <strong>Type:</strong> Phonetic Compound<br/>
+                <strong>Usage:</strong> First person pronoun, basic identity<br/>
+                <strong>Context:</strong> "Core identity pronoun; first word in most textbooks"
                 <!-- divider -->
                 <hr style="border:none;border-top:1px solid #000;margin:8px 0 6px 0">
                 <!-- examples row (words/phrases) -->
@@ -632,8 +648,10 @@
             <div class="back">
                 <strong>Meaning:</strong> you (formal)<br/>
                 <strong>Pinyin:</strong> nín (2nd tone)<br/>
-                <strong>Common Rank:</strong> Polite form essential<br/>
-                <strong>Usage:</strong> Formal address, respect
+                <strong>Frequency:</strong> Polite form essential<br/>
+                <strong>Type:</strong> Phonetic Compound<br/>
+                <strong>Usage:</strong> Formal address, respect<br/>
+                <strong>Context:</strong> "Politeness essential; first respectful 'you' learned"
                 <!-- divider -->
                 <hr style="border:none;border-top:1px solid #000;margin:8px 0 6px 0">
                 <!-- examples row (words/phrases) -->
@@ -661,8 +679,10 @@
             <div class="back">
                 <strong>Meaning:</strong> prefix for names/kinship<br/>
                 <strong>Pinyin:</strong> ā (1st tone)<br/>
-                <strong>Common Rank:</strong> Informal address prefix<br/>
-                <strong>Usage:</strong> Casual names, family terms
+                <strong>Frequency:</strong> Informal address prefix<br/>
+                <strong>Type:</strong> Phonetic Compound<br/>
+                <strong>Usage:</strong> Casual names, family terms<br/>
+                <strong>Context:</strong> "Nickname & kinship prefix; unlocks informal speech"
                 <!-- divider -->
                 <hr style="border:none;border-top:1px solid #000;margin:8px 0 6px 0">
                 <!-- examples row (words/phrases) -->
@@ -690,8 +710,10 @@
             <div class="back">
                 <strong>Meaning:</strong> love<br/>
                 <strong>Pinyin:</strong> ài (4th tone)<br/>
-                <strong>Common Rank:</strong> Core emotional vocabulary<br/>
-                <strong>Usage:</strong> Love, affection, liking
+                <strong>Frequency:</strong> Core emotional vocabulary<br/>
+                <strong>Type:</strong> Compound Ideograph<br/>
+                <strong>Usage:</strong> Love, affection, liking<br/>
+                <strong>Context:</strong> "Emotional vocabulary milestone; enables deeper expression"
                 <!-- divider -->
                 <hr style="border:none;border-top:1px solid #000;margin:8px 0 6px 0">
                 <!-- examples row (words/phrases) -->
@@ -719,8 +741,10 @@
             <div class="back">
                 <strong>Meaning:</strong> alas, sigh<br/>
                 <strong>Pinyin:</strong> āi (1st tone)<br/>
-                <strong>Common Rank:</strong> Emotional expression<br/>
-                <strong>Usage:</strong> Exclamation of disappointment
+                <strong>Frequency:</strong> Emotional expression<br/>
+                <strong>Type:</strong> Phonetic Compound<br/>
+                <strong>Usage:</strong> Exclamation of disappointment<br/>
+                <strong>Context:</strong> "Native-level emotional sigh; adds conversational color"
                 <!-- divider -->
                 <hr style="border:none;border-top:1px solid #000;margin:8px 0 6px 0">
                 <!-- examples row (words/phrases) -->
@@ -748,8 +772,10 @@
             <div class="back">
                 <strong>Meaning:</strong> oh, hey<br/>
                 <strong>Pinyin:</strong> āi (1st tone)<br/>
-                <strong>Common Rank:</strong> Native-level expression<br/>
-                <strong>Usage:</strong> Casual exclamation, attention-getter
+                <strong>Frequency:</strong> Native-level expression<br/>
+                <strong>Type:</strong> Phonetic Compound<br/>
+                <strong>Usage:</strong> Casual exclamation, attention-getter<br/>
+                <strong>Context:</strong> "Fluent attention-getter; marks near-native discourse"
                 <!-- divider -->
                 <hr style="border:none;border-top:1px solid #000;margin:8px 0 6px 0">
                 <!-- examples row (words/phrases) -->
@@ -760,5 +786,6 @@
         </div>
     </div>
     
+  </div><!-- /.page-wrapper -->
 </body>
 </html>

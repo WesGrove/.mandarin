@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Pinyin Guide</title>
+    <title>Complete Pinyin & Tones Guide</title>
     <style>
         :root{
           --accent:#007bff;
@@ -16,16 +16,7 @@
         }
 
         *{box-sizing:border-box}
-        body {
-            margin:0;
-            padding:40px 20px;
-            background:var(--bg);
-            color:var(--text);
-            font-family:var(--font-family);
-            font-size:14px;
-            line-height:1.4;
-            text-align:center;
-        }
+        body{margin:0;padding:40px 20px;background:var(--bg);color:var(--text);font-family:var(--font-family);font-size:14px;line-height:1.4}
 
         h1 {
             text-align: center;
@@ -41,21 +32,25 @@
             font-size: 20px;
             border-bottom: 2px solid var(--accent);
             padding-bottom: 8px;
-            text-align: center;
         }
 
         h3 {
             color: var(--muted);
             margin-top: 30px;
             font-size: 16px;
-            text-align: center;
         }
 
         h4 {
             color: var(--muted);
             margin-top: 20px;
             font-size: 14px;
-            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        h5 {
+            color: var(--muted);
+            margin-top: 15px;
+            font-size: 13px;
         }
 
         .subtitle {
@@ -70,8 +65,9 @@
             padding: 20px;
             margin: 0 auto 30px auto;
             border: 1px solid #e0e0e0;
-            max-width: 450px;
-            text-align: center;
+            max-width: 700px;
+            border-radius: 4px;
+            border-left: 4px solid var(--accent);
         }
 
         .nav-menu h3 {
@@ -101,15 +97,87 @@
             color: #0056b3;
         }
 
+        .content-section {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .concept-box {
+            background: var(--card-bg);
+            border: 1px solid #e0e0e0;
+            border-left: 4px solid var(--accent);
+            padding: 15px;
+            margin: 20px auto;
+            max-width: 800px;
+            border-radius: 4px;
+        }
+
+        .concept-box > p:first-child {
+            margin-top: 0;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .sound-category, .tone-category {
+            margin-bottom: 40px;
+        }
+
+        .category-header {
+            background: var(--card-bg);
+            border: 1px solid #e0e0e0;
+            padding: 15px;
+            margin: 20px 0 10px 0;
+            border-radius: 4px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .category-header h4 {
+            margin: 0;
+            color: var(--accent);
+            font-size: 16px;
+        }
+
+        .category-header p {
+            margin: 5px 0 0 0;
+            color: var(--muted);
+            font-style: italic;
+        }
+
+        .tone-detail {
+            background: var(--card-bg);
+            border: 1px solid #e0e0e0;
+            border-left: 4px solid #28a745;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .tone-detail h4 {
+            margin-top: 0;
+            color: #28a745;
+            font-size: 16px;
+        }
+
+        .practice-example {
+            background: #e8f5e8;
+            padding: 12px;
+            border-radius: 4px;
+            margin: 15px 0;
+            font-style: italic;
+            border-left: 3px solid #28a745;
+            font-size: 13px;
+        }
+
         table {
             border-collapse: collapse;
             margin: 20px auto;
             background: transparent;
             max-width: 100%;
+            width: 100%;
         }
 
         th, td {
-            padding: 6px 12px;
+            padding: 8px 12px;
             border: 1px solid #e0e0e0;
             transition: transform .25s, box-shadow .25s, background .25s;
             position: relative;
@@ -123,6 +191,9 @@
             font-weight: 600;
             border-bottom: 2px solid #c0c0c0;
             color: var(--text);
+            position: sticky;
+            top: 0;
+            z-index: 10;
         }
 
         tbody td {
@@ -138,11 +209,17 @@
             border-color: var(--accent);
         }
 
+        .group-table {
+            margin-bottom: 20px;
+            max-width: 800px;
+        }
+
         .master-chart {
             overflow-x: auto;
             margin: 20px auto;
             border: 1px solid #e0e0e0;
             max-width: 100%;
+            border-radius: 4px;
         }
 
         .master-chart table {
@@ -185,30 +262,25 @@
             background: #f8f9fa;
         }
 
-        .concept-box {
+        .example-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .example-item {
             background: var(--card-bg);
             border: 1px solid #e0e0e0;
-            border-left: 4px solid var(--accent);
             padding: 15px;
-            margin: 20px auto;
-            max-width: 600px;
+            border-radius: 4px;
+            transition: transform .25s, box-shadow .25s;
             text-align: center;
         }
 
-        .concept-box > p:first-child {
-            margin-top: 0;
-            font-weight: 600;
-            color: var(--accent);
-        }
-
-        .sound-group {
-            margin-bottom: 25px;
-            text-align: center;
-        }
-
-        .group-table {
-            margin-bottom: 20px;
-            max-width: 600px;
+        .example-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--hover-shadow);
         }
 
         .example-syllables {
@@ -216,8 +288,8 @@
             padding: 15px;
             border: 1px solid #e0e0e0;
             margin: 15px auto;
-            max-width: 450px;
-            text-align: center;
+            max-width: 600px;
+            border-radius: 4px;
         }
 
         .decoding-example {
@@ -226,8 +298,8 @@
             border: 1px solid #e0e0e0;
             border-left: 4px solid var(--accent);
             margin: 15px auto;
-            max-width: 450px;
-            text-align: center;
+            max-width: 600px;
+            border-radius: 4px;
         }
 
         .reference-card {
@@ -236,13 +308,28 @@
             border-left: 4px solid #ffc107;
             padding: 20px;
             margin: 30px auto;
-            max-width: 600px;
-            text-align: center;
+            max-width: 800px;
+            border-radius: 4px;
         }
 
         .reference-card h3 {
             margin-top: 0;
             color: #856404;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .highlight-box h3 {
+            color: white;
+            margin-top: 0;
         }
 
         .tone-patterns {
@@ -259,7 +346,17 @@
             border: 1px solid #e0e0e0;
             border-left: 4px solid var(--accent);
             max-width: 800px;
-            text-align: center;
+            border-radius: 4px;
+        }
+
+        blockquote {
+            border-left: 4px solid #ddd;
+            margin: 20px 0;
+            padding-left: 20px;
+            color: #666;
+            background: var(--card-bg);
+            padding: 15px;
+            border-radius: 4px;
         }
 
         code {
@@ -277,10 +374,7 @@
 
         ul, ol {
             padding-left: 20px;
-            margin: 10px auto;
-            display: inline-block;
-            text-align: left;
-            max-width: 600px;
+            margin: 10px 0;
         }
 
         li {
@@ -288,7 +382,8 @@
         }
 
         p {
-            text-align: center;
+            margin: 10px auto;
+            max-width: 800px;
         }
 
         @media (max-width: 768px) {
@@ -308,18 +403,37 @@
             h2 {
                 font-size: 18px;
             }
+            
+            table {
+                font-size: 11px;
+            }
+            
+            th, td {
+                padding: 6px 8px;
+            }
+            
+            .concept-box, .reference-card, .note, .example-syllables, .decoding-example, .tone-detail {
+                margin: 15px 10px;
+                padding: 15px;
+            }
+
+            .example-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
         }
     </style>
 </head>
 <body>
     
-    <h1>Pinyin</h1>
-    <p class="subtitle">Interactive Tables</p>
+    <h1>Pinyin & Tones</h1>
+    <p class="subtitle">Complete Guide to Mandarin Sound System</p>
     
     <div class="nav-menu">
         <h3>Quick Navigation</h3>
         <ul>
             <li><a href="#foundation-tones"><strong>Foundation: Understanding Tones</strong></a></li>
+            <li><a href="#detailed-tone-analysis"><strong>Detailed Tone Analysis</strong></a></li>
             <li><a href="#complete-sound-system"><strong>Complete Sound System</strong></a></li>
             <li><a href="#interactive-combination-chart"><strong>Interactive Combination Chart</strong></a></li>
             <li><a href="#practical-application"><strong>Practical Application</strong></a></li>
@@ -327,545 +441,893 @@
         </ul>
     </div>
 
-    <h2 id="foundation-tones">Foundation: Understanding Tones</h2>
-    
-    <div class="concept-box">
-        <p><strong>Core Concept</strong>: Mandarin is tonal - pitch patterns change word meanings entirely</p>
-    </div>
+    <div class="content-section">
+        <h2 id="foundation-tones">Foundation: Understanding Tones</h2>
+        
+        <div class="concept-box">
+            <p><strong>Core Concept</strong>: Mandarin is tonal - pitch patterns change word meanings entirely</p>
+            <p>Think of tones as the "melody" of each syllable. Just as changing a musical note changes the song, changing a tone changes the word's meaning completely. Understanding and mastering Mandarin tones represents one of the most crucial aspects of learning Chinese.</p>
+        </div>
 
-    <h3>The 5 Tone System</h3>
+        <h3>The 5 Tone System Overview</h3>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Tone</th>
-                <th>Symbol</th>
-                <th>Pattern</th>
-                <th>Description</th>
-                <th>Example</th>
-                <th>Memory Aid</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><strong>1st</strong></td>
-                <td>ˉ</td>
-                <td><span class="tone-patterns">─</span></td>
-                <td>High, level</td>
-                <td><strong>mā</strong> (mother)</td>
-                <td>Doctor's "ahhhh" - steady & high</td>
-            </tr>
-            <tr>
-                <td><strong>2nd</strong></td>
-                <td>ˊ</td>
-                <td><span class="tone-patterns">╱</span></td>
-                <td>Rising</td>
-                <td><strong>má</strong> (hemp)</td>
-                <td>"Really?" - surprised rise</td>
-            </tr>
-            <tr>
-                <td><strong>3rd</strong></td>
-                <td>ˇ</td>
-                <td><span class="tone-patterns">╲╱</span></td>
-                <td>Fall-rise</td>
-                <td><strong>mǎ</strong> (horse)</td>
-                <td>"Oh..." then hopeful</td>
-            </tr>
-            <tr>
-                <td><strong>4th</strong></td>
-                <td>ˋ</td>
-                <td><span class="tone-patterns">╲</span></td>
-                <td>Falling</td>
-                <td><strong>mà</strong> (scold)</td>
-                <td>Firm "No!" - sharp drop</td>
-            </tr>
-            <tr>
-                <td><strong>Neutral</strong></td>
-                <td>—</td>
-                <td><span class="tone-patterns">·</span></td>
-                <td>Light, quick</td>
-                <td><strong>ma</strong> (particle)</td>
-                <td>Unstressed, like "a" in "about"</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <h2 id="complete-sound-system">Complete Sound System</h2>
-
-    <h3>Initials: The Starting Sounds</h3>
-    <p style="font-style: italic;">21 consonant sounds that begin syllables</p>
-
-    <div class="sound-group">
-        <h4><strong>Group A: Similar to English</strong> <em>(6 sounds)</em></h4>
-        <table class="group-table">
-            <thead>
-                <tr>
-                    <th>Sound</th>
-                    <th>Type</th>
-                    <th>Description</th>
-                    <th>Example</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>b</strong></td>
-                    <td>Unaspirated</td>
-                    <td>Like 'b' but no breath puff</td>
-                    <td><strong>bà</strong> (dad)</td>
-                </tr>
-                <tr>
-                    <td><strong>p</strong></td>
-                    <td>Aspirated</td>
-                    <td>'p' with strong breath</td>
-                    <td><strong>pà</strong> (afraid)</td>
-                </tr>
-                <tr>
-                    <td><strong>m</strong></td>
-                    <td>Nasal</td>
-                    <td>Exactly like English 'm'</td>
-                    <td><strong>mā</strong> (mother)</td>
-                </tr>
-                <tr>
-                    <td><strong>f</strong></td>
-                    <td>Fricative</td>
-                    <td>Exactly like English 'f'</td>
-                    <td><strong>fā</strong> (send)</td>
-                </tr>
-                <tr>
-                    <td><strong>d</strong></td>
-                    <td>Unaspirated</td>
-                    <td>Like 'd' but no breath</td>
-                    <td><strong>dà</strong> (big)</td>
-                </tr>
-                <tr>
-                    <td><strong>t</strong></td>
-                    <td>Aspirated</td>
-                    <td>'t' with breath puff</td>
-                    <td><strong>tā</strong> (he/she/it)</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div class="sound-group">
-        <h4><strong>Group B: Familiar Sounds</strong> <em>(5 sounds)</em></h4>
-        <table class="group-table">
-            <thead>
-                <tr>
-                    <th>Sound</th>
-                    <th>Type</th>
-                    <th>Description</th>
-                    <th>Example</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>n</strong></td>
-                    <td>Nasal</td>
-                    <td>Like English 'n'</td>
-                    <td><strong>nǐ</strong> (you)</td>
-                </tr>
-                <tr>
-                    <td><strong>l</strong></td>
-                    <td>Liquid</td>
-                    <td>Like English 'l'</td>
-                    <td><strong>lái</strong> (come)</td>
-                </tr>
-                <tr>
-                    <td><strong>g</strong></td>
-                    <td>Unaspirated</td>
-                    <td>Like 'g' but no breath</td>
-                    <td><strong>gǒu</strong> (dog)</td>
-                </tr>
-                <tr>
-                    <td><strong>k</strong></td>
-                    <td>Aspirated</td>
-                    <td>'k' with breath puff</td>
-                    <td><strong>kàn</strong> (look)</td>
-                </tr>
-                <tr>
-                    <td><strong>h</strong></td>
-                    <td>Fricative</td>
-                    <td>Like English 'h'</td>
-                    <td><strong>hǎo</strong> (good)</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div class="sound-group">
-        <h4><strong>Group C: Dental Series</strong> <em>(3 sounds)</em></h4>
-        <table class="group-table">
-            <thead>
-                <tr>
-                    <th>Sound</th>
-                    <th>Type</th>
-                    <th>Description</th>
-                    <th>Example</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>z</strong></td>
-                    <td>Unaspirated</td>
-                    <td>Like 'ds' in "suds"</td>
-                    <td><strong>zǒu</strong> (walk)</td>
-                </tr>
-                <tr>
-                    <td><strong>c</strong></td>
-                    <td>Aspirated</td>
-                    <td>Like 'ts' in "cats"</td>
-                    <td><strong>cài</strong> (vegetable)</td>
-                </tr>
-                <tr>
-                    <td><strong>s</strong></td>
-                    <td>Fricative</td>
-                    <td>Like English 's'</td>
-                    <td><strong>sān</strong> (three)</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div class="sound-group">
-        <h4><strong>Group D: Retroflex Series</strong> <em>(4 sounds)</em></h4>
-        <p><em>Tongue tip curls back toward roof of mouth</em></p>
-        <table class="group-table">
-            <thead>
-                <tr>
-                    <th>Sound</th>
-                    <th>Type</th>
-                    <th>Description</th>
-                    <th>Example</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>zh</strong></td>
-                    <td>Unaspirated</td>
-                    <td>Like 'j' but tongue back</td>
-                    <td><strong>zhōng</strong> (middle)</td>
-                </tr>
-                <tr>
-                    <td><strong>ch</strong></td>
-                    <td>Aspirated</td>
-                    <td>Like 'ch' but tongue back</td>
-                    <td><strong>chī</strong> (eat)</td>
-                </tr>
-                <tr>
-                    <td><strong>sh</strong></td>
-                    <td>Fricative</td>
-                    <td>Like 'sh' but tongue back</td>
-                    <td><strong>shì</strong> (is)</td>
-                </tr>
-                <tr>
-                    <td><strong>r</strong></td>
-                    <td>Liquid</td>
-                    <td>Like English 'r' but tongue back</td>
-                    <td><strong>rén</strong> (person)</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div class="sound-group">
-        <h4><strong>Group E: Palatal Series</strong> <em>(3 sounds)</em></h4>
-        <p><em>Tongue high and forward, almost touching hard palate</em></p>
-        <table class="group-table">
-            <thead>
-                <tr>
-                    <th>Sound</th>
-                    <th>Type</th>
-                    <th>Description</th>
-                    <th>Example</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>j</strong></td>
-                    <td>Unaspirated</td>
-                    <td>Like "jee" but tongue forward</td>
-                    <td><strong>jiā</strong> (home)</td>
-                </tr>
-                <tr>
-                    <td><strong>q</strong></td>
-                    <td>Aspirated</td>
-                    <td>Like "chee" but tongue forward</td>
-                    <td><strong>qù</strong> (go)</td>
-                </tr>
-                <tr>
-                    <td><strong>x</strong></td>
-                    <td>Fricative</td>
-                    <td>Like "she" but tongue forward</td>
-                    <td><strong>xué</strong> (study)</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <h3>Finals: The Ending Sounds</h3>
-    <p style="font-style: italic;">38 vowel patterns that complete syllables</p>
-
-    <h4><strong>Simple Vowels</strong> <em>(6 core sounds)</em></h4>
-    <table>
-        <thead>
-            <tr>
-                <th>Final</th>
-                <th>Sound</th>
-                <th>Description</th>
-                <th>Example</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr><td><strong>a</strong></td><td>/a/</td><td>As in "father"</td><td><strong>bà</strong> (dad)</td></tr>
-            <tr><td><strong>o</strong></td><td>/o/</td><td>As in "awe"</td><td><strong>bō</strong> (wave)</td></tr>
-            <tr><td><strong>e</strong></td><td>/ə/</td><td>Like "her" but shorter</td><td><strong>dé</strong> (get)</td></tr>
-            <tr><td><strong>i</strong></td><td>/i/</td><td>As in "see"</td><td><strong>bǐ</strong> (compare)</td></tr>
-            <tr><td><strong>u</strong></td><td>/u/</td><td>As in "too"</td><td><strong>bù</strong> (no)</td></tr>
-            <tr><td><strong>ü</strong></td><td>/y/</td><td>German 'ü', French 'u'</td><td><strong>nǚ</strong> (woman)</td></tr>
-        </tbody>
-    </table>
-
-    <h4><strong>Compound Finals with 'a'</strong> <em>(9 sounds)</em></h4>
-    <table>
-        <thead>
-            <tr>
-                <th>Final</th>
-                <th>Pattern</th>
-                <th>Description</th>
-                <th>Example</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr><td><strong>ai</strong></td><td>/ai/</td><td>Like "eye"</td><td><strong>ài</strong> (love)</td></tr>
-            <tr><td><strong>ei</strong></td><td>/ei/</td><td>Like "hey"</td><td><strong>běi</strong> (north)</td></tr>
-            <tr><td><strong>ao</strong></td><td>/au/</td><td>Like "cow"</td><td><strong>hǎo</strong> (good)</td></tr>
-            <tr><td><strong>ou</strong></td><td>/ou/</td><td>Like "go"</td><td><strong>gǒu</strong> (dog)</td></tr>
-            <tr><td><strong>an</strong></td><td>/an/</td><td>'a' + 'n'</td><td><strong>fàn</strong> (food)</td></tr>
-            <tr><td><strong>en</strong></td><td>/ən/</td><td>Like "taken"</td><td><strong>rén</strong> (person)</td></tr>
-            <tr><td><strong>ang</strong></td><td>/aŋ/</td><td>'a' + 'ng' sound</td><td><strong>fáng</strong> (room)</td></tr>
-            <tr><td><strong>eng</strong></td><td>/əŋ/</td><td>Like "hung"</td><td><strong>fēng</strong> (wind)</td></tr>
-            <tr><td><strong>er</strong></td><td>/ɚ/</td><td>Like "are" with r-sound</td><td><strong>ér</strong> (child)</td></tr>
-        </tbody>
-    </table>
-
-    <h4><strong>Compound Finals with 'i'</strong> <em>(10 sounds)</em></h4>
-    <table>
-        <thead>
-            <tr>
-                <th>Final</th>
-                <th>Pattern</th>
-                <th>Description</th>
-                <th>Example</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr><td><strong>ia</strong></td><td>/ia/</td><td>'i' + 'a'</td><td><strong>jiā</strong> (home)</td></tr>
-            <tr><td><strong>ie</strong></td><td>/iɛ/</td><td>Like "yeah"</td><td><strong>xiě</strong> (write)</td></tr>
-            <tr><td><strong>iao</strong></td><td>/iau/</td><td>'i' + 'ao'</td><td><strong>xiǎo</strong> (small)</td></tr>
-            <tr><td><strong>iu</strong></td><td>/iou/</td><td>'i' + 'ou'</td><td><strong>liù</strong> (six)</td></tr>
-            <tr><td><strong>ian</strong></td><td>/ian/</td><td>'i' + 'an'</td><td><strong>tiān</strong> (sky)</td></tr>
-            <tr><td><strong>in</strong></td><td>/in/</td><td>Like "seen"</td><td><strong>xīn</strong> (heart)</td></tr>
-            <tr><td><strong>iang</strong></td><td>/iaŋ/</td><td>'i' + 'ang'</td><td><strong>liáng</strong> (bright)</td></tr>
-            <tr><td><strong>ing</strong></td><td>/iŋ/</td><td>Like "sing"</td><td><strong>míng</strong> (bright)</td></tr>
-            <tr><td><strong>iong</strong></td><td>/iuŋ/</td><td>'i' + 'ong'</td><td><strong>xiōng</strong> (bear)</td></tr>
-        </tbody>
-    </table>
-
-    <h4><strong>Compound Finals with 'u'</strong> <em>(9 sounds)</em></h4>
-    <table>
-        <thead>
-            <tr>
-                <th>Final</th>
-                <th>Pattern</th>
-                <th>Description</th>
-                <th>Example</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr><td><strong>ua</strong></td><td>/ua/</td><td>'u' + 'a'</td><td><strong>huā</strong> (flower)</td></tr>
-            <tr><td><strong>uo</strong></td><td>/uo/</td><td>'u' + 'o'</td><td><strong>guó</strong> (country)</td></tr>
-            <tr><td><strong>uai</strong></td><td>/uai/</td><td>'u' + 'ai'</td><td><strong>kuài</strong> (fast)</td></tr>
-            <tr><td><strong>ui</strong></td><td>/uei/</td><td>'u' + 'ei'</td><td><strong>guì</strong> (expensive)</td></tr>
-            <tr><td><strong>uan</strong></td><td>/uan/</td><td>'u' + 'an'</td><td><strong>huān</strong> (happy)</td></tr>
-            <tr><td><strong>un</strong></td><td>/uən/</td><td>'u' + 'en'</td><td><strong>tún</strong> (village)</td></tr>
-            <tr><td><strong>uang</strong></td><td>/uaŋ/</td><td>'u' + 'ang'</td><td><strong>huáng</strong> (yellow)</td></tr>
-            <tr><td><strong>ueng</strong></td><td>/uəŋ/</td><td>'u' + 'eng'</td><td><strong>wēng</strong> (old man)</td></tr>
-        </tbody>
-    </table>
-
-    <h4><strong>Compound Finals with 'ü'</strong> <em>(4 sounds)</em></h4>
-    <table>
-        <thead>
-            <tr>
-                <th>Final</th>
-                <th>Pattern</th>
-                <th>Description</th>
-                <th>Example</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr><td><strong>üe</strong></td><td>/yɛ/</td><td>'ü' + 'e'</td><td><strong>xuě</strong> (snow)</td></tr>
-            <tr><td><strong>üan</strong></td><td>/yan/</td><td>'ü' + 'an'</td><td><strong>xuān</strong> (announce)</td></tr>
-            <tr><td><strong>ün</strong></td><td>/yn/</td><td>'ü' + 'n'</td><td><strong>yún</strong> (cloud)</td></tr>
-        </tbody>
-    </table>
-
-    <h2 id="interactive-combination-chart">Interactive Combination Chart</h2>
-
-    <div class="concept-box">
-        <p><strong>How to read</strong>: Find your initial (row) + final (column) = complete syllable</p>
-        <p><strong>Empty cells</strong> = Combinations that don't exist in Mandarin</p>
-    </div>
-
-    <h3>Master Pinyin Chart</h3>
-    <p style="font-style: italic;">All 1,200+ possible syllable combinations</p>
-
-    <div class="master-chart">
         <table>
             <thead>
                 <tr>
-                    <th></th>
-                    <th>a</th><th>o</th><th>e</th><th>er</th><th>ai</th><th>ei</th><th>ao</th><th>ou</th><th>an</th><th>en</th><th>ang</th><th>eng</th><th>ong</th><th>i</th><th>ia</th><th>iao</th><th>ie</th><th>iu</th><th>ian</th><th>in</th><th>iang</th><th>ing</th><th>iong</th><th>u</th><th>ua</th><th>uo</th><th>uai</th><th>ui</th><th>uan</th><th>un</th><th>uang</th><th>ueng</th><th>ü</th><th>üe</th><th>üan</th><th>ün</th>
+                    <th>Tone</th>
+                    <th>Symbol</th>
+                    <th>Pattern</th>
+                    <th>Description</th>
+                    <th>Example</th>
+                    <th>Memory Aid</th>
                 </tr>
             </thead>
             <tbody>
-                <tr><td>∅</td><td>a</td><td>o</td><td>e</td><td>er</td><td>ai</td><td>ei</td><td>ao</td><td>ou</td><td>an</td><td>en</td><td>ang</td><td>eng</td><td>ong</td><td>yi</td><td>ya</td><td>yao</td><td>ye</td><td>you</td><td>yan</td><td>yin</td><td>yang</td><td>ying</td><td>yong</td><td>wu</td><td>wa</td><td>wo</td><td>wai</td><td>wei</td><td>wan</td><td>wen</td><td>wang</td><td>weng</td><td>yu</td><td>yue</td><td>yuan</td><td>yun</td></tr>
-                <tr><td>b</td><td>ba</td><td>bo</td><td></td><td></td><td>bai</td><td>bei</td><td>bao</td><td></td><td>ban</td><td>ben</td><td>bang</td><td>beng</td><td></td><td>bi</td><td></td><td>biao</td><td>bie</td><td></td><td>bian</td><td>bin</td><td></td><td>bing</td><td></td><td>bu</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                <tr><td>p</td><td>pa</td><td>po</td><td></td><td></td><td>pai</td><td>pei</td><td>pao</td><td>pou</td><td>pan</td><td>pen</td><td>pang</td><td>peng</td><td></td><td>pi</td><td></td><td>piao</td><td>pie</td><td></td><td>pian</td><td>pin</td><td></td><td>ping</td><td></td><td>pu</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                <tr><td>m</td><td>ma</td><td>mo</td><td>me</td><td></td><td>mai</td><td>mei</td><td>mao</td><td>mou</td><td>man</td><td>men</td><td>mang</td><td>meng</td><td></td><td>mi</td><td></td><td>miao</td><td>mie</td><td>miu</td><td>mian</td><td>min</td><td></td><td>ming</td><td></td><td>mu</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                <tr><td>f</td><td>fa</td><td>fo</td><td></td><td></td><td></td><td>fei</td><td></td><td>fou</td><td>fan</td><td>fen</td><td>fang</td><td>feng</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>fu</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                <tr><td>d</td><td>da</td><td></td><td>de</td><td></td><td>dai</td><td>dei</td><td>dao</td><td>dou</td><td>dan</td><td>den</td><td>dang</td><td>deng</td><td>dong</td><td>di</td><td></td><td>diao</td><td>die</td><td>diu</td><td>dian</td><td></td><td></td><td>ding</td><td></td><td>du</td><td>duo</td><td></td><td>dui</td><td>duan</td><td>dun</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                <tr><td>t</td><td>ta</td><td></td><td>te</td><td></td><td>tai</td><td>tei</td><td>tao</td><td>tou</td><td>tan</td><td></td><td>tang</td><td>teng</td><td>tong</td><td>ti</td><td></td><td>tiao</td><td>tie</td><td></td><td>tian</td><td>ting</td><td></td><td>tu</td><td>tuo</td><td></td><td>tui</td><td>tuan</td><td>tun</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                <tr><td>n</td><td>na</td><td></td><td>ne</td><td></td><td>nai</td><td>nei</td><td>nao</td><td>nou</td><td>nan</td><td>nen</td><td>nang</td><td>neng</td><td>nong</td><td>ni</td><td></td><td>niao</td><td>nie</td><td>niu</td><td>nian</td><td>nin</td><td>niang</td><td>ning</td><td></td><td>nu</td><td>nuo</td><td></td><td>nuan</td><td></td><td></td><td></td><td>nü</td><td>nüe</td><td></td><td></td></tr>
-                <tr><td>l</td><td>la</td><td></td><td>le</td><td></td><td>lai</td><td>lei</td><td>lao</td><td>lou</td><td>lan</td><td></td><td>lang</td><td>leng</td><td>long</td><td>li</td><td>lia</td><td>liao</td><td>lie</td><td>liu</td><td>lian</td><td>lin</td><td>liang</td><td>ling</td><td></td><td>lu</td><td>luo</td><td></td><td>luan</td><td>lun</td><td></td><td></td><td>lü</td><td>lüe</td><td></td><td></td></tr>
-                <tr><td>g</td><td>ga</td><td></td><td>ge</td><td></td><td>gai</td><td>gei</td><td>gao</td><td>gou</td><td>gan</td><td>gen</td><td>gang</td><td>geng</td><td>gong</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>gu</td><td>gua</td><td>guo</td><td>guai</td><td>gui</td><td>guan</td><td>gun</td><td>guang</td><td></td><td></td><td></td><td></td><td></td></tr>
-                <tr><td>k</td><td>ka</td><td></td><td>ke</td><td></td><td>kai</td><td>kei</td><td>kao</td><td>kou</td><td>kan</td><td>ken</td><td>kang</td><td>keng</td><td>kong</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>ku</td><td>kua</td><td>kuo</td><td>kuai</td><td>kui</td><td>kuan</td><td>kun</td><td>kuang</td><td></td><td></td><td></td><td></td><td></td></tr>
-                <tr><td>h</td><td>ha</td><td></td><td>he</td><td></td><td>hai</td><td>hei</td><td>hao</td><td>hou</td><td>han</td><td>hen</td><td>hang</td><td>heng</td><td>hong</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>hu</td><td>hua</td><td>huo</td><td>huai</td><td>hui</td><td>huan</td><td>hun</td><td>huang</td><td></td><td></td><td></td><td></td><td></td></tr>
-                <tr><td>z</td><td>za</td><td></td><td>ze</td><td></td><td>zai</td><td>zei</td><td>zao</td><td>zou</td><td>zan</td><td>zen</td><td>zang</td><td>zeng</td><td>zong</td><td>zi</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>zu</td><td>zuo</td><td></td><td>zui</td><td>zuan</td><td>zun</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                <tr><td>c</td><td>ca</td><td></td><td>ce</td><td></td><td>cai</td><td></td><td>cao</td><td>cou</td><td>can</td><td>cen</td><td>cang</td><td>ceng</td><td>cong</td><td>ci</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>cu</td><td>cuo</td><td></td><td>cui</td><td>cuan</td><td>cun</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                <tr><td>s</td><td>sa</td><td></td><td>se</td><td></td><td>sai</td><td></td><td>sao</td><td>sou</td><td>san</td><td>sen</td><td>sang</td><td>seng</td><td>song</td><td>si</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>su</td><td>suo</td><td></td><td>sui</td><td>suan</td><td>sun</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                <tr><td>zh</td><td>zha</td><td></td><td>zhe</td><td></td><td>zhai</td><td>zhei</td><td>zhao</td><td>zhou</td><td>zhan</td><td>zhen</td><td>zhang</td><td>zheng</td><td>zhong</td><td>zhi</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>zhu</td><td>zhua</td><td>zhuo</td><td>zhuai</td><td>zhui</td><td>zhuan</td><td>zhun</td><td>zhuang</td><td></td><td></td><td></td><td></td><td></td></tr>
-                <tr><td>ch</td><td>cha</td><td></td><td>che</td><td></td><td>chai</td><td></td><td>chao</td><td>chou</td><td>chan</td><td>chen</td><td>chang</td><td>cheng</td><td>chong</td><td>chi</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>chu</td><td>chua</td><td>chuo</td><td>chuai</td><td>chui</td><td>chuan</td><td>chun</td><td>chuang</td><td></td><td></td><td></td><td></td><td></td></tr>
-                <tr><td>sh</td><td>sha</td><td></td><td>she</td><td></td><td>shai</td><td>shei</td><td>shao</td><td>shou</td><td>shan</td><td>shen</td><td>shang</td><td>sheng</td><td></td><td>shi</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>shu</td><td>shua</td><td>shuo</td><td>shuai</td><td>shui</td><td>shuan</td><td>shun</td><td>shuang</td><td></td><td></td><td></td><td></td><td></td></tr>
-                <tr><td>r</td><td></td><td></td><td>re</td><td></td><td></td><td></td><td>rao</td><td>rou</td><td>ran</td><td>ren</td><td>rang</td><td>reng</td><td>rong</td><td>ri</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>ru</td><td>rua</td><td>ruo</td><td></td><td>rui</td><td>ruan</td><td>run</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                <tr><td>j</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>ji</td><td>jia</td><td>jiao</td><td>jie</td><td>jiu</td><td>jian</td><td>jin</td><td>jiang</td><td>jing</td><td>jiong</td><td>ju</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>jue</td><td>juan</td><td>jun</td></tr>
-                <tr><td>q</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>qi</td><td>qia</td><td>qiao</td><td>qie</td><td>qiu</td><td>qian</td><td>qin</td><td>qiang</td><td>qing</td><td>qiong</td><td>qu</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>que</td><td>quan</td><td>qun</td></tr>
-                <tr><td>x</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>xi</td><td>xia</td><td>xiao</td><td>xie</td><td>xiu</td><td>xian</td><td>xin</td><td>xiang</td><td>xing</td><td>xiong</td><td>xu</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>xue</td><td>xuan</td><td>xun</td></tr>
+                <tr>
+                    <td><strong>1st</strong></td>
+                    <td>ˉ</td>
+                    <td><span class="tone-patterns">─</span></td>
+                    <td>High, level</td>
+                    <td><strong>mā</strong> (mother)</td>
+                    <td>Doctor's "ahhhh" - steady & high</td>
+                </tr>
+                <tr>
+                    <td><strong>2nd</strong></td>
+                    <td>ˊ</td>
+                    <td><span class="tone-patterns">╱</span></td>
+                    <td>Rising</td>
+                    <td><strong>má</strong> (hemp)</td>
+                    <td>"Really?" - surprised rise</td>
+                </tr>
+                <tr>
+                    <td><strong>3rd</strong></td>
+                    <td>ˇ</td>
+                    <td><span class="tone-patterns">╲╱</span></td>
+                    <td>Fall-rise</td>
+                    <td><strong>mǎ</strong> (horse)</td>
+                    <td>"Oh..." then hopeful</td>
+                </tr>
+                <tr>
+                    <td><strong>4th</strong></td>
+                    <td>ˋ</td>
+                    <td><span class="tone-patterns">╲</span></td>
+                    <td>Falling</td>
+                    <td><strong>mà</strong> (scold)</td>
+                    <td>Firm "No!" - sharp drop</td>
+                </tr>
+                <tr>
+                    <td><strong>Neutral</strong></td>
+                    <td>—</td>
+                    <td><span class="tone-patterns">·</span></td>
+                    <td>Light, quick</td>
+                    <td><strong>ma</strong> (particle)</td>
+                    <td>Unstressed, like "a" in "about"</td>
+                </tr>
             </tbody>
         </table>
-    </div>
 
-    <h2 id="practical-application">Practical Application</h2>
+        <h2 id="detailed-tone-analysis">Detailed Tone Analysis</h2>
 
-    <h3>Syllable Decoding Strategy</h3>
-    <div class="concept-box">
-        <p>Every Mandarin syllable = <strong>Initial + Final + Tone</strong></p>
-    </div>
+        <div class="tone-category">
+            <div class="category-header">
+                <h4>First Tone: High and Steady</h4>
+                <p>Maintains high, level pitch throughout - like saying "ahhhh" at the doctor</p>
+            </div>
+            
+            <div class="tone-detail">
+                <h4>First Tone (ˉ) - High Level</h4>
+                
+                <p><strong>Production Technique:</strong></p>
+                <ul>
+                    <li>Start at high pitch in your vocal range</li>
+                    <li>Maintain steady, level pitch throughout</li>
+                    <li>Avoid any rising or falling movement</li>
+                    <li>Duration: Full syllable length</li>
+                </ul>
+                
+                <p><strong>Recognition Tips:</strong></p>
+                <ul>
+                    <li>Unwavering high pitch</li>
+                    <li>Sounds confident and declarative</li>
+                    <li>No pitch movement up or down</li>
+                </ul>
+                
+                <div class="practice-example">
+                    <strong>Practice:</strong> <strong>mā</strong> (mother), <strong>zhōng</strong> (middle) - Keep voice flat like drawing a horizontal line
+                </div>
+            </div>
+        </div>
 
-    <div class="decoding-example">
-        <h4><strong>Example: xuéxiào</strong> 学校 (school)</h4>
-        <ol>
-            <li><strong>xué</strong> = x + üe + 2nd tone</li>
-            <li><strong>xiào</strong> = x + iao + 4th tone</li>
-        </ol>
-    </div>
+        <div class="tone-category">
+            <div class="category-header">
+                <h4>Second Tone: The Rising Question</h4>
+                <p>Rises from mid-level to high pitch - like asking "Really?" with surprise</p>
+            </div>
+            
+            <div class="tone-detail">
+                <h4>Second Tone (ˊ) - Rising</h4>
+                
+                <p><strong>Production Technique:</strong></p>
+                <ul>
+                    <li>Start at mid-pitch</li>
+                    <li>Rise smoothly to high pitch</li>
+                    <li>Continuous upward movement</li>
+                    <li>Like asking "Really?" in English</li>
+                </ul>
+                
+                <p><strong>Recognition Tips:</strong></p>
+                <ul>
+                    <li>Clear upward pitch sweep</li>
+                    <li>Often conveys urgency or questioning</li>
+                    <li>Sounds like English question intonation</li>
+                </ul>
+                
+                <div class="practice-example">
+                    <strong>Practice:</strong> <strong>má</strong> (hemp), <strong>qián</strong> (money) - Voice follows upward diagonal line
+                </div>
+            </div>
+        </div>
 
-    <h4><strong>Practice Exercises</strong></h4>
-    <div class="example-syllables">
-        <p><strong>Decode these syllables:</strong></p>
-        <ul>
-            <li><strong>zhuāng</strong> → zh + uang + 1st tone</li>
-            <li><strong>qiáng</strong> → q + iang + 2nd tone</li>
-            <li><strong>chuāng</strong> → ch + uang + 1st tone</li>
-            <li><strong>shuāi</strong> → sh + uai + 1st tone</li>
-        </ul>
-    </div>
+        <div class="tone-category">
+            <div class="category-header">
+                <h4>Third Tone: The Dramatic Dip</h4>
+                <p>Most complex pattern: dips low then rises - like disappointed "oh" becoming hopeful</p>
+            </div>
+            
+            <div class="tone-detail">
+                <h4>Third Tone (ˇ) - Falling-Rising</h4>
+                
+                <p><strong>Production Technique:</strong></p>
+                <ul>
+                    <li>Start at mid-pitch</li>
+                    <li>Dip down to low pitch</li>
+                    <li>Rise back to mid/high pitch</li>
+                    <li>Three-part movement: mid → low → up</li>
+                </ul>
+                
+                <p><strong>Recognition Tips:</strong></p>
+                <ul>
+                    <li>Distinctive "valley" shape</li>
+                    <li>Most complex tone pattern</li>
+                    <li>Often sounds contemplative</li>
+                </ul>
+                
+                <div class="practice-example">
+                    <strong>Practice:</strong> <strong>mǎ</strong> (horse), <strong>hǎo</strong> (good) - Draw a valley shape while speaking
+                </div>
+                
+                <div class="note">
+                    <strong>Important:</strong> In connected speech, often abbreviated before other tones. When two third tones appear consecutively, the first typically changes to a second tone.
+                </div>
+            </div>
+        </div>
 
-    <h2 id="advanced-rules-patterns">Advanced Rules & Patterns</h2>
+        <div class="tone-category">
+            <div class="category-header">
+                <h4>Fourth Tone: The Decisive Drop</h4>
+                <p>Falls sharply from high to low - like saying "No!" with conviction</p>
+            </div>
+            
+            <div class="tone-detail">
+                <h4>Fourth Tone (ˋ) - Falling</h4>
+                
+                <p><strong>Production Technique:</strong></p>
+                <ul>
+                    <li>Start at high pitch</li>
+                    <li>Drop sharply to low pitch</li>
+                    <li>Quick, decisive downward movement</li>
+                    <li>Like saying "No!" firmly</li>
+                </ul>
+                
+                <p><strong>Recognition Tips:</strong></p>
+                <ul>
+                    <li>Sharp downward sweep</li>
+                    <li>Sounds authoritative/final</li>
+                    <li>Conveys commands or strong statements</li>
+                </ul>
+                
+                <div class="practice-example">
+                    <strong>Practice:</strong> <strong>mà</strong> (scold), <strong>shì</strong> (is) - Voice follows sharp downward line
+                </div>
+            </div>
+        </div>
 
-    <h3>Spelling Conventions</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Full Form</th>
-                <th>Written Form</th>
-                <th>Rule</th>
-                <th>Example</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><strong>iou</strong></td>
-                <td><strong>iu</strong></td>
-                <td>Drop 'o' with initials</td>
-                <td><strong>liú</strong> (flow)</td>
-            </tr>
-            <tr>
-                <td><strong>uei</strong></td>
-                <td><strong>ui</strong></td>
-                <td>Drop 'e' with initials</td>
-                <td><strong>guì</strong> (expensive)</td>
-            </tr>
-            <tr>
-                <td><strong>uen</strong></td>
-                <td><strong>un</strong></td>
-                <td>Drop 'e' with initials</td>
-                <td><strong>tún</strong> (village)</td>
-            </tr>
-        </tbody>
-    </table>
+        <div class="tone-category">
+            <div class="category-header">
+                <h4>Neutral Tone: Light and Quick</h4>
+                <p>Unstressed, contextual tone - depends on preceding tone for its pitch level</p>
+            </div>
+            
+            <div class="tone-detail">
+                <h4>Neutral Tone (no mark) - Light & Quick</h4>
+                
+                <p><strong>Production Technique:</strong></p>
+                <ul>
+                    <li>Short duration, reduced stress</li>
+                    <li>Pitch depends on preceding tone:</li>
+                    <ul>
+                        <li>After 1st tone: lower and light</li>
+                        <li>After 2nd tone: mid-low level</li>
+                        <li>After 3rd tone: slight rise from low</li>
+                        <li>After 4th tone: stays low but light</li>
+                    </ul>
+                </ul>
+                
+                <p><strong>Recognition Tips:</strong></p>
+                <ul>
+                    <li>Unstressed, quick syllable</li>
+                    <li>Sounds like it's "tagging along"</li>
+                    <li>Similar to unstressed syllables in English</li>
+                </ul>
+                
+                <div class="practice-example">
+                    <strong>Practice:</strong> <strong>ma</strong> (question particle), <strong>xiézi</strong> (shoes - second syllable)
+                </div>
+            </div>
+        </div>
 
-    <h3>Special Cases</h3>
-    <ul>
-        <li><strong>ü</strong> becomes <strong>u</strong> after <strong>j, q, x</strong> (they can only pair with ü-sounds)</li>
-        <li><strong>yi, ya, yao...</strong> = <strong>i, ia, iao...</strong> when syllables start with i-sounds</li>
-        <li><strong>wu, wa, wo...</strong> = <strong>u, ua, uo...</strong> when syllables start with u-sounds</li>
-    </ul>
+        <div class="reference-card">
+            <h3>Tone Training Methods</h3>
+            
+            <h4>Recognition Practice:</h4>
+            <div class="example-grid">
+                <div class="example-item">
+                    <strong>Minimal Pairs</strong><br>
+                    <strong>mā-má-mǎ-mà</strong><br>
+                    <em>Words differing only in tone</em>
+                </div>
+                <div class="example-item">
+                    <strong>Audio Discrimination</strong><br>
+                    Focus on movement patterns<br>
+                    <em>Not absolute pitch</em>
+                </div>
+                <div class="example-item">
+                    <strong>Context Listening</strong><br>
+                    Natural speech identification<br>
+                    <em>Songs, conversations, media</em>
+                </div>
+            </div>
 
-    <h3>Tone Mark Placement Rules</h3>
-    <ol>
-        <li><strong>Single vowel</strong>: Place on the vowel → <strong>mā, mí, mǔ</strong></li>
-        <li><strong>Multiple vowels</strong>: Follow hierarchy
+            <h4>Production Practice:</h4>
+            <div class="example-grid">
+                <div class="example-item">
+                    <strong>Exaggerate Initially</strong><br>
+                    Make movements dramatic<br>
+                    <em>Then refine to natural</em>
+                </div>
+                <div class="example-item">
+                    <strong>Use Gestures</strong><br>
+                    Hand movements help<br>
+                    <em>Builds muscle memory</em>
+                </div>
+                <div class="example-item">
+                    <strong>Record Yourself</strong><br>
+                    Compare with natives<br>
+                    <em>Identify improvement areas</em>
+                </div>
+                <div class="example-item">
+                    <strong>Pattern Drills</strong><br>
+                    Practice combinations<br>
+                    <em>Build automatic responses</em>
+                </div>
+            </div>
+        </div>
+
+        <h2 id="complete-sound-system">Complete Sound System</h2>
+
+        <div class="highlight-box">
+            <h3>System Overview</h3>
+            <p><strong>21 Initials</strong> (consonant sounds) + <strong>38 Finals</strong> (vowel patterns) + <strong>5 Tones</strong> = <strong>~1,200 possible syllables</strong></p>
+        </div>
+
+        <h3>Initials: The Starting Sounds</h3>
+        <p style="font-style: italic; text-align: center;">21 consonant sounds that begin syllables</p>
+
+        <div class="sound-category">
+            <div class="category-header">
+                <h4>Group A: Similar to English</h4>
+                <p>6 sounds that closely match English pronunciations</p>
+            </div>
+            <table class="group-table">
+                <thead>
+                    <tr>
+                        <th>Sound</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>b</strong></td>
+                        <td>Unaspirated</td>
+                        <td>Like 'b' but no breath puff</td>
+                        <td><strong>bà</strong> (dad)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>p</strong></td>
+                        <td>Aspirated</td>
+                        <td>'p' with strong breath</td>
+                        <td><strong>pà</strong> (afraid)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>m</strong></td>
+                        <td>Nasal</td>
+                        <td>Exactly like English 'm'</td>
+                        <td><strong>mā</strong> (mother)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>f</strong></td>
+                        <td>Fricative</td>
+                        <td>Exactly like English 'f'</td>
+                        <td><strong>fā</strong> (send)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>d</strong></td>
+                        <td>Unaspirated</td>
+                        <td>Like 'd' but no breath</td>
+                        <td><strong>dà</strong> (big)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>t</strong></td>
+                        <td>Aspirated</td>
+                        <td>'t' with breath puff</td>
+                        <td><strong>tā</strong> (he/she/it)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="sound-category">
+            <div class="category-header">
+                <h4>Group B: Familiar Sounds</h4>
+                <p>5 sounds similar to English with minor differences</p>
+            </div>
+            <table class="group-table">
+                <thead>
+                    <tr>
+                        <th>Sound</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>n</strong></td>
+                        <td>Nasal</td>
+                        <td>Like English 'n'</td>
+                        <td><strong>nǐ</strong> (you)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>l</strong></td>
+                        <td>Liquid</td>
+                        <td>Like English 'l'</td>
+                        <td><strong>lái</strong> (come)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>g</strong></td>
+                        <td>Unaspirated</td>
+                        <td>Like 'g' but no breath</td>
+                        <td><strong>gǒu</strong> (dog)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>k</strong></td>
+                        <td>Aspirated</td>
+                        <td>'k' with breath puff</td>
+                        <td><strong>kàn</strong> (look)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>h</strong></td>
+                        <td>Fricative</td>
+                        <td>Like English 'h'</td>
+                        <td><strong>hǎo</strong> (good)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="sound-category">
+            <div class="category-header">
+                <h4>Group C: Dental Series</h4>
+                <p>3 sounds made with tongue against teeth</p>
+            </div>
+            <table class="group-table">
+                <thead>
+                    <tr>
+                        <th>Sound</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>z</strong></td>
+                        <td>Unaspirated</td>
+                        <td>Like 'ds' in "suds"</td>
+                        <td><strong>zǒu</strong> (walk)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>c</strong></td>
+                        <td>Aspirated</td>
+                        <td>Like 'ts' in "cats"</td>
+                        <td><strong>cài</strong> (vegetable)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>s</strong></td>
+                        <td>Fricative</td>
+                        <td>Like English 's'</td>
+                        <td><strong>sān</strong> (three)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="sound-category">
+            <div class="category-header">
+                <h4>Group D: Retroflex Series</h4>
+                <p>4 sounds with tongue tip curled back toward roof of mouth</p>
+            </div>
+            <table class="group-table">
+                <thead>
+                    <tr>
+                        <th>Sound</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>zh</strong></td>
+                        <td>Unaspirated</td>
+                        <td>Like 'j' but tongue back</td>
+                        <td><strong>zhōng</strong> (middle)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ch</strong></td>
+                        <td>Aspirated</td>
+                        <td>Like 'ch' but tongue back</td>
+                        <td><strong>chī</strong> (eat)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>sh</strong></td>
+                        <td>Fricative</td>
+                        <td>Like 'sh' but tongue back</td>
+                        <td><strong>shì</strong> (is)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>r</strong></td>
+                        <td>Liquid</td>
+                        <td>Like English 'r' but tongue back</td>
+                        <td><strong>rén</strong> (person)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="sound-category">
+            <div class="category-header">
+                <h4>Group E: Palatal Series</h4>
+                <p>3 sounds with tongue high and forward, almost touching hard palate</p>
+            </div>
+            <table class="group-table">
+                <thead>
+                    <tr>
+                        <th>Sound</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>j</strong></td>
+                        <td>Unaspirated</td>
+                        <td>Like "jee" but tongue forward</td>
+                        <td><strong>jiā</strong> (home)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>q</strong></td>
+                        <td>Aspirated</td>
+                        <td>Like "chee" but tongue forward</td>
+                        <td><strong>qù</strong> (go)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>x</strong></td>
+                        <td>Fricative</td>
+                        <td>Like "she" but tongue forward</td>
+                        <td><strong>xué</strong> (study)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Finals: The Ending Sounds</h3>
+        <p style="font-style: italic; text-align: center;">38 vowel patterns that complete syllables</p>
+
+        <div class="sound-category">
+            <div class="category-header">
+                <h4>Simple Vowels</h4>
+                <p>6 core vowel sounds - the foundation of all finals</p>
+            </div>
+            <table class="group-table">
+                <thead>
+                    <tr>
+                        <th>Final</th>
+                        <th>Sound</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>a</strong></td><td>/a/</td><td>As in "father"</td><td><strong>bà</strong> (dad)</td></tr>
+                    <tr><td><strong>o</strong></td><td>/o/</td><td>As in "awe"</td><td><strong>bō</strong> (wave)</td></tr>
+                    <tr><td><strong>e</strong></td><td>/ə/</td><td>Like "her" but shorter</td><td><strong>dé</strong> (get)</td></tr>
+                    <tr><td><strong>i</strong></td><td>/i/</td><td>As in "see"</td><td><strong>bǐ</strong> (compare)</td></tr>
+                    <tr><td><strong>u</strong></td><td>/u/</td><td>As in "too"</td><td><strong>bù</strong> (no)</td></tr>
+                    <tr><td><strong>ü</strong></td><td>/y/</td><td>German 'ü', French 'u'</td><td><strong>nǚ</strong> (woman)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="sound-category">
+            <div class="category-header">
+                <h4>Compound Finals with 'a'</h4>
+                <p>9 combinations featuring the 'a' vowel</p>
+            </div>
+            <table class="group-table">
+                <thead>
+                    <tr>
+                        <th>Final</th>
+                        <th>Pattern</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>ai</strong></td><td>/ai/</td><td>Like "eye"</td><td><strong>ài</strong> (love)</td></tr>
+                    <tr><td><strong>ei</strong></td><td>/ei/</td><td>Like "hey"</td><td><strong>běi</strong> (north)</td></tr>
+                    <tr><td><strong>ao</strong></td><td>/au/</td><td>Like "cow"</td><td><strong>hǎo</strong> (good)</td></tr>
+                    <tr><td><strong>ou</strong></td><td>/ou/</td><td>Like "go"</td><td><strong>gǒu</strong> (dog)</td></tr>
+                    <tr><td><strong>an</strong></td><td>/an/</td><td>'a' + 'n'</td><td><strong>fàn</strong> (food)</td></tr>
+                    <tr><td><strong>en</strong></td><td>/ən/</td><td>Like "taken"</td><td><strong>rén</strong> (person)</td></tr>
+                    <tr><td><strong>ang</strong></td><td>/aŋ/</td><td>'a' + 'ng' sound</td><td><strong>fáng</strong> (room)</td></tr>
+                    <tr><td><strong>eng</strong></td><td>/əŋ/</td><td>Like "hung"</td><td><strong>fēng</strong> (wind)</td></tr>
+                    <tr><td><strong>er</strong></td><td>/ɚ/</td><td>Like "are" with r-sound</td><td><strong>ér</strong> (child)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="sound-category">
+            <div class="category-header">
+                <h4>Compound Finals with 'i'</h4>
+                <p>10 combinations starting with the 'i' vowel</p>
+            </div>
+            <table class="group-table">
+                <thead>
+                    <tr>
+                        <th>Final</th>
+                        <th>Pattern</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>ia</strong></td><td>/ia/</td><td>'i' + 'a'</td><td><strong>jiā</strong> (home)</td></tr>
+                    <tr><td><strong>ie</strong></td><td>/iɛ/</td><td>Like "yeah"</td><td><strong>xiě</strong> (write)</td></tr>
+                    <tr><td><strong>iao</strong></td><td>/iau/</td><td>'i' + 'ao'</td><td><strong>xiǎo</strong> (small)</td></tr>
+                    <tr><td><strong>iu</strong></td><td>/iou/</td><td>'i' + 'ou'</td><td><strong>liù</strong> (six)</td></tr>
+                    <tr><td><strong>ian</strong></td><td>/ian/</td><td>'i' + 'an'</td><td><strong>tiān</strong> (sky)</td></tr>
+                    <tr><td><strong>in</strong></td><td>/in/</td><td>Like "seen"</td><td><strong>xīn</strong> (heart)</td></tr>
+                    <tr><td><strong>iang</strong></td><td>/iaŋ/</td><td>'i' + 'ang'</td><td><strong>liáng</strong> (bright)</td></tr>
+                    <tr><td><strong>ing</strong></td><td>/iŋ/</td><td>Like "sing"</td><td><strong>míng</strong> (bright)</td></tr>
+                    <tr><td><strong>iong</strong></td><td>/iuŋ/</td><td>'i' + 'ong'</td><td><strong>xiōng</strong> (bear)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="sound-category">
+            <div class="category-header">
+                <h4>Compound Finals with 'u'</h4>
+                <p>9 combinations starting with the 'u' vowel</p>
+            </div>
+            <table class="group-table">
+                <thead>
+                    <tr>
+                        <th>Final</th>
+                        <th>Pattern</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>ua</strong></td><td>/ua/</td><td>'u' + 'a'</td><td><strong>huā</strong> (flower)</td></tr>
+                    <tr><td><strong>uo</strong></td><td>/uo/</td><td>'u' + 'o'</td><td><strong>guó</strong> (country)</td></tr>
+                    <tr><td><strong>uai</strong></td><td>/uai/</td><td>'u' + 'ai'</td><td><strong>kuài</strong> (fast)</td></tr>
+                    <tr><td><strong>ui</strong></td><td>/uei/</td><td>'u' + 'ei'</td><td><strong>guì</strong> (expensive)</td></tr>
+                    <tr><td><strong>uan</strong></td><td>/uan/</td><td>'u' + 'an'</td><td><strong>huān</strong> (happy)</td></tr>
+                    <tr><td><strong>un</strong></td><td>/uən/</td><td>'u' + 'en'</td><td><strong>tún</strong> (village)</td></tr>
+                    <tr><td><strong>uang</strong></td><td>/uaŋ/</td><td>'u' + 'ang'</td><td><strong>huáng</strong> (yellow)</td></tr>
+                    <tr><td><strong>ueng</strong></td><td>/uəŋ/</td><td>'u' + 'eng'</td><td><strong>wēng</strong> (old man)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="sound-category">
+            <div class="category-header">
+                <h4>Compound Finals with 'ü'</h4>
+                <p>4 combinations with the special 'ü' vowel</p>
+            </div>
+            <table class="group-table">
+                <thead>
+                    <tr>
+                        <th>Final</th>
+                        <th>Pattern</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>üe</strong></td><td>/yɛ/</td><td>'ü' + 'e'</td><td><strong>xuě</strong> (snow)</td></tr>
+                    <tr><td><strong>üan</strong></td><td>/yan/</td><td>'ü' + 'an'</td><td><strong>xuān</strong> (announce)</td></tr>
+                    <tr><td><strong>ün</strong></td><td>/yn/</td><td>'ü' + 'n'</td><td><strong>yún</strong> (cloud)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2 id="interactive-combination-chart">Interactive Combination Chart</h2>
+
+        <div class="concept-box">
+            <p><strong>How to read</strong>: Find your initial (row) + final (column) = complete syllable</p>
+            <p><strong>Empty cells</strong> = Combinations that don't exist in Mandarin</p>
+            <p><strong>Hover over cells</strong> to see them highlighted - this helps track combinations across the large chart</p>
+        </div>
+
+        <h3>Master Pinyin Chart</h3>
+        <p style="font-style: italic; text-align: center;">All 1,200+ possible syllable combinations</p>
+
+        <div class="master-chart">
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>a</th><th>o</th><th>e</th><th>er</th><th>ai</th><th>ei</th><th>ao</th><th>ou</th><th>an</th><th>en</th><th>ang</th><th>eng</th><th>ong</th><th>i</th><th>ia</th><th>iao</th><th>ie</th><th>iu</th><th>ian</th><th>in</th><th>iang</th><th>ing</th><th>iong</th><th>u</th><th>ua</th><th>uo</th><th>uai</th><th>ui</th><th>uan</th><th>un</th><th>uang</th><th>ueng</th><th>ü</th><th>üe</th><th>üan</th><th>ün</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>∅</td><td>a</td><td>o</td><td>e</td><td>er</td><td>ai</td><td>ei</td><td>ao</td><td>ou</td><td>an</td><td>en</td><td>ang</td><td>eng</td><td>ong</td><td>yi</td><td>ya</td><td>yao</td><td>ye</td><td>you</td><td>yan</td><td>yin</td><td>yang</td><td>ying</td><td>yong</td><td>wu</td><td>wa</td><td>wo</td><td>wai</td><td>wei</td><td>wan</td><td>wen</td><td>wang</td><td>weng</td><td>yu</td><td>yue</td><td>yuan</td><td>yun</td></tr>
+                    <tr><td>b</td><td>ba</td><td>bo</td><td></td><td></td><td>bai</td><td>bei</td><td>bao</td><td></td><td>ban</td><td>ben</td><td>bang</td><td>beng</td><td></td><td>bi</td><td></td><td>biao</td><td>bie</td><td></td><td>bian</td><td>bin</td><td></td><td>bing</td><td></td><td>bu</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td>p</td><td>pa</td><td>po</td><td></td><td></td><td>pai</td><td>pei</td><td>pao</td><td>pou</td><td>pan</td><td>pen</td><td>pang</td><td>peng</td><td></td><td>pi</td><td></td><td>piao</td><td>pie</td><td></td><td>pian</td><td>pin</td><td></td><td>ping</td><td></td><td>pu</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td>m</td><td>ma</td><td>mo</td><td>me</td><td></td><td>mai</td><td>mei</td><td>mao</td><td>mou</td><td>man</td><td>men</td><td>mang</td><td>meng</td><td></td><td>mi</td><td></td><td>miao</td><td>mie</td><td>miu</td><td>mian</td><td>min</td><td></td><td>ming</td><td></td><td>mu</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td>f</td><td>fa</td><td>fo</td><td></td><td></td><td></td><td>fei</td><td></td><td>fou</td><td>fan</td><td>fen</td><td>fang</td><td>feng</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>fu</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td>d</td><td>da</td><td></td><td>de</td><td></td><td>dai</td><td>dei</td><td>dao</td><td>dou</td><td>dan</td><td>den</td><td>dang</td><td>deng</td><td>dong</td><td>di</td><td></td><td>diao</td><td>die</td><td>diu</td><td>dian</td><td></td><td></td><td>ding</td><td></td><td>du</td><td>duo</td><td></td><td>dui</td><td>duan</td><td>dun</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td>t</td><td>ta</td><td></td><td>te</td><td></td><td>tai</td><td>tei</td><td>tao</td><td>tou</td><td>tan</td><td></td><td>tang</td><td>teng</td><td>tong</td><td>ti</td><td></td><td>tiao</td><td>tie</td><td></td><td>tian</td><td>ting</td><td></td><td>tu</td><td>tuo</td><td></td><td>tui</td><td>tuan</td><td>tun</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td>n</td><td>na</td><td></td><td>ne</td><td></td><td>nai</td><td>nei</td><td>nao</td><td>nou</td><td>nan</td><td>nen</td><td>nang</td><td>neng</td><td>nong</td><td>ni</td><td></td><td>niao</td><td>nie</td><td>niu</td><td>nian</td><td>nin</td><td>niang</td><td>ning</td><td></td><td>nu</td><td>nuo</td><td></td><td>nuan</td><td></td><td></td><td></td><td>nü</td><td>nüe</td><td></td><td></td></tr>
+                    <tr><td>l</td><td>la</td><td></td><td>le</td><td></td><td>lai</td><td>lei</td><td>lao</td><td>lou</td><td>lan</td><td></td><td>lang</td><td>leng</td><td>long</td><td>li</td><td>lia</td><td>liao</td><td>lie</td><td>liu</td><td>lian</td><td>lin</td><td>liang</td><td>ling</td><td></td><td>lu</td><td>luo</td><td></td><td>luan</td><td>lun</td><td></td><td></td><td>lü</td><td>lüe</td><td></td><td></td></tr>
+                    <tr><td>g</td><td>ga</td><td></td><td>ge</td><td></td><td>gai</td><td>gei</td><td>gao</td><td>gou</td><td>gan</td><td>gen</td><td>gang</td><td>geng</td><td>gong</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>gu</td><td>gua</td><td>guo</td><td>guai</td><td>gui</td><td>guan</td><td>gun</td><td>guang</td><td></td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td>k</td><td>ka</td><td></td><td>ke</td><td></td><td>kai</td><td>kei</td><td>kao</td><td>kou</td><td>kan</td><td>ken</td><td>kang</td><td>keng</td><td>kong</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>ku</td><td>kua</td><td>kuo</td><td>kuai</td><td>kui</td><td>kuan</td><td>kun</td><td>kuang</td><td></td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td>h</td><td>ha</td><td></td><td>he</td><td></td><td>hai</td><td>hei</td><td>hao</td><td>hou</td><td>han</td><td>hen</td><td>hang</td><td>heng</td><td>hong</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>hu</td><td>hua</td><td>huo</td><td>huai</td><td>hui</td><td>huan</td><td>hun</td><td>huang</td><td></td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td>z</td><td>za</td><td></td><td>ze</td><td></td><td>zai</td><td>zei</td><td>zao</td><td>zou</td><td>zan</td><td>zen</td><td>zang</td><td>zeng</td><td>zong</td><td>zi</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>zu</td><td>zuo</td><td></td><td>zui</td><td>zuan</td><td>zun</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td>c</td><td>ca</td><td></td><td>ce</td><td></td><td>cai</td><td></td><td>cao</td><td>cou</td><td>can</td><td>cen</td><td>cang</td><td>ceng</td><td>cong</td><td>ci</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>cu</td><td>cuo</td><td></td><td>cui</td><td>cuan</td><td>cun</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td>s</td><td>sa</td><td></td><td>se</td><td></td><td>sai</td><td></td><td>sao</td><td>sou</td><td>san</td><td>sen</td><td>sang</td><td>seng</td><td>song</td><td>si</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>su</td><td>suo</td><td></td><td>sui</td><td>suan</td><td>sun</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td>zh</td><td>zha</td><td></td><td>zhe</td><td></td><td>zhai</td><td>zhei</td><td>zhao</td><td>zhou</td><td>zhan</td><td>zhen</td><td>zhang</td><td>zheng</td><td>zhong</td><td>zhi</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>zhu</td><td>zhua</td><td>zhuo</td><td>zhuai</td><td>zhui</td><td>zhuan</td><td>zhun</td><td>zhuang</td><td></td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td>ch</td><td>cha</td><td></td><td>che</td><td></td><td>chai</td><td></td><td>chao</td><td>chou</td><td>chan</td><td>chen</td><td>chang</td><td>cheng</td><td>chong</td><td>chi</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>chu</td><td>chua</td><td>chuo</td><td>chuai</td><td>chui</td><td>chuan</td><td>chun</td><td>chuang</td><td></td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td>sh</td><td>sha</td><td></td><td>she</td><td></td><td>shai</td><td>shei</td><td>shao</td><td>shou</td><td>shan</td><td>shen</td><td>shang</td><td>sheng</td><td></td><td>shi</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>shu</td><td>shua</td><td>shuo</td><td>shuai</td><td>shui</td><td>shuan</td><td>shun</td><td>shuang</td><td></td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td>r</td><td></td><td></td><td>re</td><td></td><td></td><td></td><td>rao</td><td>rou</td><td>ran</td><td>ren</td><td>rang</td><td>reng</td><td>rong</td><td>ri</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>ru</td><td>rua</td><td>ruo</td><td></td><td>rui</td><td>ruan</td><td>run</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td>j</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>ji</td><td>jia</td><td>jiao</td><td>jie</td><td>jiu</td><td>jian</td><td>jin</td><td>jiang</td><td>jing</td><td>jiong</td><td>ju</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>jue</td><td>juan</td><td>jun</td></tr>
+                    <tr><td>q</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>qi</td><td>qia</td><td>qiao</td><td>qie</td><td>qiu</td><td>qian</td><td>qin</td><td>qiang</td><td>qing</td><td>qiong</td><td>qu</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>que</td><td>quan</td><td>qun</td></tr>
+                    <tr><td>x</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>xi</td><td>xia</td><td>xiao</td><td>xie</td><td>xiu</td><td>xian</td><td>xin</td><td>xiang</td><td>xing</td><td>xiong</td><td>xu</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>xue</td><td>xuan</td><td>xun</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2 id="practical-application">Practical Application</h2>
+
+        <div class="concept-box">
+            <p><strong>Syllable Formation</strong>: Every Mandarin syllable = <strong>Initial + Final + Tone</strong></p>
+            <p>Master this formula and you can pronounce any Chinese word correctly! Remember: wrong tone = wrong word.</p>
+        </div>
+
+        <h3>Syllable Decoding Strategy</h3>
+
+        <div class="decoding-example">
+            <h4><strong>Example: xuéxiào</strong> 学校 (school)</h4>
+            <ol>
+                <li><strong>xué</strong> = x (palatal fricative) + üe (ü+e compound) + 2nd tone (rising)</li>
+                <li><strong>xiào</strong> = x (palatal fricative) + iao (i+ao compound) + 4th tone (falling)</li>
+            </ol>
+        </div>
+
+        <h4><strong>Practice Exercises</strong></h4>
+        <div class="example-grid">
+            <div class="example-item">
+                <strong>zhuāng</strong> 庄<br>
+                zh + uang + 1st tone<br>
+                <em>"village"</em>
+            </div>
+            <div class="example-item">
+                <strong>qiáng</strong> 墙<br>
+                q + iang + 2nd tone<br>
+                <em>"wall"</em>
+            </div>
+            <div class="example-item">
+                <strong>chuāng</strong> 窗<br>
+                ch + uang + 1st tone<br>
+                <em>"window"</em>
+            </div>
+            <div class="example-item">
+                <strong>shuāi</strong> 帅<br>
+                sh + uai + 1st tone<br>
+                <em>"handsome"</em>
+            </div>
+        </div>
+
+        <h2 id="advanced-rules-patterns">Advanced Rules & Patterns</h2>
+
+        <div class="sound-category">
+            <div class="category-header">
+                <h4>Tone Sandhi (Tone Changes)</h4>
+                <p>How tones change in connected speech</p>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Original Pattern</th>
+                        <th>Changed Pattern</th>
+                        <th>Rule</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>3rd + 3rd</strong></td>
+                        <td><strong>2nd + 3rd</strong></td>
+                        <td>First becomes 2nd tone</td>
+                        <td><strong>nǐhǎo</strong> → <strong>níhǎo</strong> (hello)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3rd + non-3rd</strong></td>
+                        <td><strong>½ 3rd + tone</strong></td>
+                        <td>3rd tone abbreviated (half-third)</td>
+                        <td><strong>wǒde</strong> (my)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>一 yī + 4th</strong></td>
+                        <td><strong>一 yí + 4th</strong></td>
+                        <td>"One" becomes 2nd before 4th tones</td>
+                        <td><strong>yíge</strong> (one [item])</td>
+                    </tr>
+                    <tr>
+                        <td><strong>不 bù + 4th</strong></td>
+                        <td><strong>不 bú + 4th</strong></td>
+                        <td>"Not" becomes 2nd before 4th tones</td>
+                        <td><strong>búshì</strong> (is not)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="sound-category">
+            <div class="category-header">
+                <h4>Spelling Conventions</h4>
+                <p>How full forms are simplified in writing</p>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Full Form</th>
+                        <th>Written Form</th>
+                        <th>Rule</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>iou</strong></td>
+                        <td><strong>iu</strong></td>
+                        <td>Drop 'o' with initials</td>
+                        <td><strong>liú</strong> (flow)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>uei</strong></td>
+                        <td><strong>ui</strong></td>
+                        <td>Drop 'e' with initials</td>
+                        <td><strong>guì</strong> (expensive)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>uen</strong></td>
+                        <td><strong>un</strong></td>
+                        <td>Drop 'e' with initials</td>
+                        <td><strong>tún</strong> (village)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="concept-box">
+            <p><strong>Special Cases</strong></p>
             <ul>
-                <li><strong>a</strong> or <strong>e</strong> gets priority → <strong>jiāo, lèi</strong></li>
-                <li><strong>o</strong> in <strong>ou</strong> → <strong>lóu</strong></li>
-                <li><strong>i</strong> in <strong>iu</strong> → <strong>liú</strong></li>
-                <li>Otherwise, second vowel → <strong>tuí</strong></li>
+                <li><strong>ü</strong> becomes <strong>u</strong> after <strong>j, q, x</strong> (they can only pair with ü-sounds)</li>
+                <li><strong>yi, ya, yao...</strong> = <strong>i, ia, iao...</strong> when syllables start with i-sounds</li>
+                <li><strong>wu, wa, wo...</strong> = <strong>u, ua, uo...</strong> when syllables start with u-sounds</li>
             </ul>
-        </li>
-    </ol>
+        </div>
 
-    <h3>System Statistics</h3>
-    <ul>
-        <li><strong>21</strong> initials × <strong>38</strong> finals = ~<strong>800</strong> theoretical combinations</li>
-        <li><strong>Actual combinations</strong>: ~<strong>400</strong> syllables (many are impossible)</li>
-        <li><strong>With tones</strong>: ~<strong>1,200</strong> meaningful syllables in Standard Mandarin</li>
-        <li><strong>Total Chinese characters</strong>: 50,000+ (but only ~3,000 commonly used)</li>
-    </ul>
+        <div class="sound-category">
+            <div class="category-header">
+                <h4>Tone Mark Placement Rules</h4>
+                <p>Where to place tone marks in complex finals</p>
+            </div>
+            <ol>
+                <li><strong>Single vowel</strong>: Place on the vowel → <strong>mā, mí, mǔ</strong></li>
+                <li><strong>Multiple vowels</strong>: Follow hierarchy
+                    <ul>
+                        <li><strong>a</strong> or <strong>e</strong> gets priority → <strong>jiāo, lèi</strong></li>
+                        <li><strong>o</strong> in <strong>ou</strong> → <strong>lóu</strong></li>
+                        <li><strong>i</strong> in <strong>iu</strong> → <strong>liú</strong></li>
+                        <li>Otherwise, second vowel → <strong>tuí</strong></li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
 
-    <div class="reference-card">
-        <h3>Quick Reference Card</h3>
-        
-        <h4>Essential Patterns to Master First</h4>
-        <ol>
-            <li><strong>Four tones</strong> - Practice with <strong>ma, ma, ma, ma</strong></li>
-            <li><strong>Basic finals</strong> - <strong>a, e, i, o, u</strong> + <strong>ai, ao, ou</strong></li>
-            <li><strong>Easy initials</strong> - <strong>b, p, m, f, d, t, n, l</strong></li>
-            <li><strong>Tricky sounds</strong> - <strong>j/q/x, zh/ch/sh, z/c/s</strong></li>
-        </ol>
+        <div class="highlight-box">
+            <h3>System Statistics</h3>
+            <p><strong>21 initials</strong> × <strong>38 finals</strong> × <strong>5 tones</strong> = ~<strong>4,000 theoretical combinations</strong></p>
+            <p><strong>Actual combinations</strong>: ~<strong>1,200</strong> meaningful syllables in Standard Mandarin</p>
+        </div>
 
-        <h4>Memory Tricks</h4>
-        <ul>
-            <li><strong>Retroflex (zh/ch/sh/r)</strong>: Curl tongue like a cat</li>
-            <li><strong>Palatals (j/q/x)</strong>: Tongue high like saying "cheese"</li>
-            <li><strong>Aspirated (p/t/k/q/ch/c)</strong>: Feel breath on your hand</li>
-            <li><strong>3rd tone</strong>: Think "really?" (down-up pattern)</li>
-        </ul>
-    </div>
+        <div class="reference-card">
+            <h3>Complete Learning Strategy</h3>
+            
+            <h4>Week-by-Week Progression:</h4>
+            <div class="example-grid">
+                <div class="example-item">
+                    <strong>Week 1-2: Tones</strong><br>
+                    Master 5 tones with minimal pairs<br>
+                    <em>mā-má-mǎ-mà-ma practice</em>
+                </div>
+                <div class="example-item">
+                    <strong>Week 3-4: Basic Finals</strong><br>
+                    6 simple vowels + common diphthongs<br>
+                    <em>a, e, i, o, u, ü + ai, ao, ou, ei</em>
+                </div>
+                <div class="example-item">
+                    <strong>Week 5-6: Easy Initials</strong><br>
+                    English-like consonants first<br>
+                    <em>b,p,m,f,d,t,n,l + g,k,h</em>
+                </div>
+                <div class="example-item">
+                    <strong>Week 7-8: Complex Sounds</strong><br>
+                    Challenging consonant groups<br>
+                    <em>zh/ch/sh, j/q/x, z/c/s</em>
+                </div>
+            </div>
 
-    <div class="note">
-        <em>This guide represents the complete Mandarin Pinyin sound system. Master these patterns and you'll be able to pronounce any Chinese word correctly!</em>
+            <h4>Memory Techniques:</h4>
+            <ul>
+                <li><strong>Retroflex (zh/ch/sh/r)</strong>: Curl tongue like a cat</li>
+                <li><strong>Palatals (j/q/x)</strong>: Tongue high like saying "cheese"</li>
+                <li><strong>Aspirated (p/t/k/q/ch/c)</strong>: Feel breath on your hand</li>
+                <li><strong>3rd tone</strong>: Think "really?" (down-up pattern)</li>
+                <li><strong>Tone sandhi</strong>: Two 3rd tones = first becomes 2nd</li>
+            </ul>
+
+            <h4>Common Challenges & Solutions:</h4>
+            <ul>
+                <li><strong>Focus on relative pitch</strong>, not absolute frequencies</li>
+                <li><strong>Exaggerate initially</strong>, then refine to natural proportions</li>
+                <li><strong>Use gestures and visualization</strong> to reinforce muscle memory</li>
+                <li><strong>Record yourself</strong> and compare with native speakers</li>
+                <li><strong>Practice consistently</strong> - even 10 minutes daily builds neural pathways</li>
+            </ul>
+        </div>
+
+        <div class="note">
+            <em>This complete guide represents the entire Mandarin Pinyin and tone system. Master these patterns systematically and you'll achieve accurate pronunciation of any Chinese word. Remember: consistency in practice is more important than perfection - every session builds your foundation for fluent communication.</em>
+        </div>
     </div>
 
 </body>

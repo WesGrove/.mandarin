@@ -1,2 +1,3 @@
-Make complete Pinyin table for visual reference
-Make tables for every section. Make sure to couple explanations with visual learning. 
+- add audio bites to basic tables to start, add all...eventually
+- make full flashcard html tempates for all cards in each foundation section to start with, then for hsk and common use cards
+- redesign and reformat and refine overall structure and layout for efficiency. 

@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chinese Learning Hub</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --accent: #007bff;
+      --accent-light: #4da3ff;
+      --accent-dark: #0056b3;
+      --bg: #f8f9fa;
+      --card-bg: #ffffff;
+      --text: #333;
+      --muted: #6c757d;
+      --divider: #e0e0e0;
+      --hover-shadow: 0 6px 20px rgba(0, 123, 255, 0.2);
+      --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      --section-title: #4a6fa5;
+    }
+
+    /* Header Menu Styles */
+    .header-menu {
+      background: linear-gradient(135deg, var(--card-bg) 0%, #f0f8ff 100%);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid var(--divider);
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    .menu-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--accent-dark);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+      transition: color 0.3s ease;
+    }
+
+    .logo:hover {
+      color: var(--accent);
+    }
+
+    .menu-nav {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: 30px;
+    }
+
+    .menu-item {
+      position: relative;
+    }
+
+    .menu-link {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .menu-link:hover {
+      background: rgba(0, 123, 255, 0.1);
+      color: var(--accent-dark);
+    }
+
+    .dropdown-icon {
+      font-size: 12px;
+      transition: transform 0.3s ease;
+    }
+
+    .menu-item:hover .dropdown-icon {
+      transform: rotate(180deg);
+    }
+
+    .dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--card-bg);
+      border-radius: 8px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      min-width: 250px;
+      max-height: 70vh;
+      overflow-y: auto;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+      border: 1px solid var(--divider);
+      z-index: 1001;
+      
+      /* Custom scrollbar styling */
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent-light) transparent;
+    }
+
+    /* Scrollable indicator - subtle shadow at bottom */
+    .dropdown::after {
+      content: '';
+      position: sticky;
+      bottom: 0;
+      display: block;
+      height: 10px;
+      background: linear-gradient(transparent, rgba(0,0,0,0.1));
+      pointer-events: none;
+      margin-top: -10px;
+    }
+
+    .dropdown::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .dropdown::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .dropdown::-webkit-scrollbar-thumb {
+      background-color: var(--accent-light);
+      border-radius: 3px;
+      opacity: 0.7;
+    }
+
+    .dropdown::-webkit-scrollbar-thumb:hover {
+      background-color: var(--accent);
+    }
+
+    .menu-item:hover .dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-section {
+      padding: 15px 0;
+    }
+
+    .dropdown-section:not(:last-child) {
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .dropdown-section-title {
+      padding: 5px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent-dark);
+      margin-bottom: 8px;
+      background: rgba(0, 123, 255, 0.05);
+    }
+
+    .dropdown-link {
+      display: block;
+      padding: 8px 20px;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .dropdown-link:hover {
+      background: rgba(0, 123, 255, 0.1);
+      color: var(--accent-dark);
+      padding-left: 25px;
+    }
+
+    .placeholder-dropdown {
+      padding: 15px 20px;
+      color: var(--muted);
+      font-style: italic;
+      text-align: center;
+    }
+
+    /* Mobile Menu */
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 20px;
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        margin: 20px 10px;
+        padding: 20px 15px;
+      }
+
+      .menu-container {
+        padding: 0 15px;
+      }
+
+      .mobile-toggle {
+        display: block;
+      }
+
+      .menu-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--card-bg);
+        flex-direction: column;
+        gap: 0;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        border-top: 1px solid var(--divider);
+      }
+
+      .menu-nav.active {
+        display: flex;
+      }
+
+      .menu-item {
+        border-bottom: 1px solid var(--divider);
+      }
+
+      .menu-link {
+        padding: 15px 20px;
+        border-radius: 0;
+        justify-content: space-between;
+      }
+
+      .dropdown {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        background: rgba(0, 123, 255, 0.05);
+        display: none;
+        max-height: 60vh;
+        overflow-y: auto;
+      }
+
+      .menu-item.active .dropdown {
+        display: block;
+      }
+
+      .dropdown-section-title {
+        background: rgba(0, 123, 255, 0.1);
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-family);
+      font-size: 16px;
+      line-height: 1.6;
+      text-align: center;
+      background-image: radial-gradient(circle at 10% 20%, rgba(225, 240, 255, 0.3) 0%, rgba(255, 255, 255, 0.5) 100%);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+      background: var(--card-bg);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      position: relative;
+      overflow: hidden;
+    }
+
+    header {
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+      color: var(--accent-dark);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .subtitle {
+      font-style: italic;
+      color: var(--muted);
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    .section-divider {
+      margin: 40px 0 30px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+    }
+
+    .section-divider::before,
+    .section-divider::after {
+      content: '';
+      flex: 1;
+      border-bottom: 2px solid var(--divider);
+    }
+
+    .section-divider h2 {
+      padding: 0 20px;
+      color: var(--accent-dark);
+      font-size: 22px;
+      font-weight: 600;
+      margin: 0;
+      background: linear-gradient(to right, var(--accent), var(--accent-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 25px;
+      justify-content: center;
+      margin: 0 auto 40px;
+      max-width: 800px;
+    }
+
+    /* Special layout for grammar section */
+    .grammar-section {
+      margin: 0 auto 40px;
+      max-width: 800px;
+    }
+
+    .grammar-row-top {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      margin-bottom: 25px;
+      width: 100%;
+    }
+
+    .grammar-row-bottom {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+      max-width: 500px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .skill {
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+
+    .skill:hover {
+      transform: translateY(-5px);
+    }
+
+    .skill-icon-container {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 15px;
+      position: relative;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      border: 3px solid white;
+      transition: all 0.3s ease;
+      background: linear-gradient(135deg, #ffffff, #f0f8ff);
+    }
+
+    .skill:hover .skill-icon-container {
+      transform: scale(1.05);
+      box-shadow: var(--hover-shadow);
+      border-color: var(--accent-light);
+    }
+
+    .skill-icon {
+      font-size: 32px;
+      color: var(--accent);
+      transition: all 0.3s ease;
+    }
+
+    .skill:hover .skill-icon {
+      color: var(--accent-dark);
+    }
+
+    .skill-name {
+      font-size: 16px;
+      color: var(--text);
+      font-weight: 600;
+      text-align: center;
+      line-height: 1.3;
+      padding: 0 5px;
+    }
+
+    .skill-description {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 8px;
+      font-style: italic;
+      max-width: 90%;
+    }
+
+    .footer {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid var(--divider);
+      color: var(--muted);
+      font-size: 14px;
+      font-style: italic;
+    }
+
+    /* Responsive design */
+    @media (max-width: 1024px) {
+      .container {
+        margin: 20px 10px;
+        padding: 20px 15px;
+      }
+      
+      .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 20px;
+      }
+      
+      .skill-icon-container {
+        width: 85px;
+        height: 85px;
+      }
+      
+      .skill-icon {
+        font-size: 26px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 28px;
+      }
+      
+      .subtitle {
+        font-size: 16px;
+      }
+      
+      .section-divider h2 {
+        font-size: 18px;
+      }
+
+      /* Keep grammar horizontal until smaller screens */
+      .grammar-row-top {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+
+      .grammar-row-bottom {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        max-width: 400px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+
+      /* Only switch grammar to vertical on very small screens */
+      .grammar-row-top {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .grammar-row-bottom {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        max-width: 300px;
+      }
+      
+      .skill-icon-container {
+        width: 75px;
+        height: 75px;
+      }
+      
+      .skill-name {
+        font-size: 14px;
+      }
+    }
+    
+  </style>
+</head>
+<body>
+  <!-- Header Menu -->
+  <header class="header-menu">
+    <div class="menu-container">
+      <a href="hub.html" class="logo">.mandarin</a>
+      
+      <nav>
+        <ul class="menu-nav">
+          <li class="menu-item">
+            <a href="#" class="menu-link">
+              Learning Hub
+              <i class="fas fa-chevron-down dropdown-icon"></i>
+            </a>
+            <div class="dropdown">
+              <div class="dropdown-section">
+                <div class="dropdown-section-title">1. Foundation</div>
+                <a href="/html/foundation/pinyin.html" class="dropdown-link">Pinyin & Tones</a>
+                <a href="/html/foundation/strokes.html" class="dropdown-link">Stroke Order</a>
+                <a href="/html/foundation/radicals.html" class="dropdown-link">Radicals</a>
+              </div>
+              
+              <div class="dropdown-section">
+                <div class="dropdown-section-title">2. Vocabulary & Characters</div>
+                <a href="/html/menus/hsk1-6.html" class="dropdown-link">HSK Vocabulary</a>
+                <a href="/html/vocabulary&characters/recognition.html" class="dropdown-link">Character Recognition</a>
+                <a href="/html/vocabulary&characters/writing.html" class="dropdown-link">Character Writing</a>
+                <a href="/html/vocabulary&characters/classifiers.html" class="dropdown-link">Measure Words</a>
+              </div>
+              
+              <div class="dropdown-section">
+                <div class="dropdown-section-title">3. Grammar Structures</div>
+                <a href="/html/grammar/svo.html" class="dropdown-link">Sentence Structure</a>
+                <a href="/html/grammar/questions.html" class="dropdown-link">Question Formation</a>
+                <a href="/html/grammar/tenses.html" class="dropdown-link">Verb Tenses</a>
+                <a href="/html/grammar/comparison.html" class="dropdown-link">Comparison</a>
+                <a href="/html/grammar/complex.html" class="dropdown-link">Complex Sentences</a>
+              </div>
+              
+              <div class="dropdown-section">
+                <div class="dropdown-section-title">4. Practical Skills</div>
+                <a href="/html/skills/listening.html" class="dropdown-link">Listening</a>
+                <a href="/html/skills/speaking.html" class="dropdown-link">Speaking</a>
+                <a href="/html/skills/reading.html" class="dropdown-link">Reading</a>
+                <a href="/html/skills/writing.html" class="dropdown-link">Writing</a>
+              </div>
+              
+              <div class="dropdown-section">
+                <div class="dropdown-section-title">5. Cultural Components</div>
+                <a href="/html/culture/numbers.html" class="dropdown-link">Numbers</a>
+                <a href="/html/culture/time.html" class="dropdown-link">Time Expressions</a>
+                <a href="/html/culture/politeness.html" class="dropdown-link">Cultural Context</a>
+                <a href="/html/culture/idioms.html" class="dropdown-link">Idioms & Expressions</a>
+              </div>
+              
+              <div class="dropdown-section">
+                <div class="dropdown-section-title">6. Advanced Elements</div>
+                <a href="/html/advanced/regional.html" class="dropdown-link">Regional Variations</a>
+                <a href="/html/advanced/classical.html" class="dropdown-link">Classical Chinese</a>
+                <a href="/html/advanced/professional.html" class="dropdown-link">Professional Vocabulary</a>
+                <a href="/html/advanced/slang.html" class="dropdown-link">Slang & Internet</a>
+              </div>
+            </div>
+          </li>
+          
+          <li class="menu-item">
+            <a href="#" class="menu-link">
+              Flashards
+              <i class="fas fa-chevron-down dropdown-icon"></i>
+            </a>
+            <div class="dropdown">
+              <div class="placeholder-dropdown">
+                Card features coming soon...
+              </div>
+            </div>
+          </li>
+          
+          <li class="menu-item">
+            <a href="#" class="menu-link">
+              Resources
+              <i class="fas fa-chevron-down dropdown-icon"></i>
+            </a>
+            <div class="dropdown">
+              <div class="placeholder-dropdown">
+                Additional resources coming soon...
+              </div>
+            </div>
+          </li>
+        </ul>
+        
+        <button class="mobile-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+    <header>
+      <h1>Learning Hub</h1>
+      <p class="subtitle">Interactive Guide</p>
+    </header>
+
+    <!-- Foundation Section -->
+    <div class="section-divider">
+      <h2>1. Foundation</h2>
+    </div>
+    <div class="skills-grid">
+      <a href="/html/foundation/pinyin.html" class="skill">
+        <div class="skill-icon-container">
+          <i class="fas fa-volume-up skill-icon"></i>
+        </div>
+        <div class="skill-name">Pinyin & Tones</div>
+        <div class="skill-description">Initials, finals, 4 tones + neutral</div>
+      </a>
+      
+      <a href="/html/foundation/strokes.html" class="skill">
+        <div class="skill-icon-container">
+          <i class="fas fa-pen skill-icon"></i>
+        </div>
+        <div class="skill-name">Stroke Order</div>
+        <div class="skill-description">For writing characters</div>
+      </a>
+      
+      <a href="/html/foundation/radicals.html" class="skill">
+        <div class="skill-icon-container">
+          <i class="fas fa-puzzle-piece skill-icon"></i>
+        </div>
+        <div class="skill-name">Radicals</div>
+        <div class="skill-description">Building blocks of characters</div>
+      </a>
+    </div>
+
+    <!-- Vocabulary & Characters Section -->
+    <div class="section-divider">
+      <h2>2. Vocabulary & Characters</h2>
+    </div>
+    <div class="skills-grid">
+      <a href="/html/menus/hsk1-6.html" class="skill">
+        <div class="skill-icon-container">
+          <i class="fas fa-book skill-icon"></i>
+        </div>
+        <div class="skill-name">HSK Vocabulary</div>
+        <div class="skill-description">Levels 1-6 (150 → 5,000+ words)</div>
+      </a>
+      
+      <a href="/html/vocabulary&characters/recognition.html" class="skill">
+        <div class="skill-icon-container">
+          <i class="fas fa-eye skill-icon"></i>
+        </div>
+        <div class="skill-name">Character Recognition</div>
+        <div class="skill-description">Most common 1,000 characters</div>
+      </a>
+      
+      <a href="/html/vocabulary&characters/writing.html" class="skill">
+        <div class="skill-icon-container">
+          <i class="fas fa-pen-nib skill-icon"></i>
+        </div>
+        <div class="skill-name">Character Writing</div>
+        <div class="skill-description">Handwriting and typing</div>
+      </a>
+      
+      <a href="/html/vocabulary&characters/classifiers.html" class="skill">
+        <div class="skill-icon-container">
+          <i class="fas fa-ruler skill-icon"></i>
+        </div>
+        <div class="skill-name">Measure Words</div>
+        <div class="skill-description">Essential classifiers</div>
+      </a>
+    </div>
+
+    <!-- Grammar Structures Section -->
+    <div class="section-divider">
+      <h2>3. Grammar Structures</h2>
+    </div>
+    <div class="grammar-section">
+      <div class="grammar-row-top">
+        <a href="/html/grammar/svo.html" class="skill">
+          <div class="skill-icon-container">
+            <i class="fas fa-cubes skill-icon"></i>
+          </div>
+          <div class="skill-name">Sentence Structure</div>
+          <div class="skill-description">Subject-Verb-Object patterns</div>
+        </a>
+        
+        <a href="/html/grammar/questions.html" class="skill">
+          <div class="skill-icon-container">
+            <i class="fas fa-question-circle skill-icon"></i>
+          </div>
+          <div class="skill-name">Question Formation</div>
+          <div class="skill-description">Question words + particles</div>
+        </a>
+        
+        <a href="/html/grammar/tenses.html" class="skill">
+          <div class="skill-icon-container">
+            <i class="fas fa-hourglass-half skill-icon"></i>
+          </div>
+          <div class="skill-name">Verb Tenses</div>
+          <div class="skill-description">了, 过, 着, 正在, etc.</div>
+          </a>
+      </div>
+      
+      <div class="grammar-row-bottom">
+        <a href="/html/grammar/comparison.html" class="skill">
+          <div class="skill-icon-container">
+            <i class="fas fa-balance-scale skill-icon"></i>
+          </div>
+          <div class="skill-name">Comparison</div>
+          <div class="skill-description">比, 最, 更 and more</div>
+        </a>
+        
+        <a href="/html/grammar/complex.html" class="skill">
+          <div class="skill-icon-container">
+            <i class="fas fa-link skill-icon"></i>
+          </div>
+          <div class="skill-name">Complex Sentences</div>
+          <div class="skill-description">因为…所以, 虽然…但是, etc.</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Practical Skills Section -->
+    <div class="section-divider">
+      <h2>4. Practical Skills</h2>
+    </div>
+    <div class="skills-grid">
+      <a href="/html/skills/listening.html" class="skill">
+        <div class="skill-icon-container">
+          <i class="fas fa-headphones skill-icon"></i>
+        </div>
+        <div class="skill-name">Listening</div>
+        <div class="skill-description">From slow to natural speed</div>
+      </a>
+      
+      <a href="/html/skills/speaking.html" class="skill">
+        <div class="skill-icon-container">
+          <i class="fas fa-comment-dots skill-icon"></i>
+        </div>
+        <div class="skill-name">Speaking</div>
+        <div class="skill-description">Pronunciation and intonation</div>
+      </a>
+      
+      <a href="/html/skills/reading.html" class="skill">
+        <div class="skill-icon-container">
+          <i class="fas fa-book-open skill-icon"></i>
+        </div>
+        <div class="skill-name">Reading</div>
+        <div class="skill-description">Texts to newspapers/literature</div>
+      </a>
+      
+      <a href="/html/skills/writing.html" class="skill">
+        <div class="skill-icon-container">
+          <i class="fas fa-edit skill-icon"></i>
+        </div>
+        <div class="skill-name">Writing</div>
+        <div class="skill-description">Sentences to paragraphs</div>
+      </a>
+    </div>
+
+    <!-- Cultural Components Section -->
+    <div class="section-divider">
+      <h2>5. Cultural Components</h2>
+    </div>
+    <div class="skills-grid">
+      <a href="/html/culture/numbers.html" class="skill">
+        <div class="skill-icon-container">
+          <i class="fas fa-calculator skill-icon"></i>
+        </div>
+        <div class="skill-name">Numbers</div>
+        <div class="skill-description">Chinese numeral system</div>
+      </a>
+      
+      <a href="/html/culture/time.html" class="skill">
+        <div class="skill-icon-container">
+          <i class="fas fa-clock skill-icon"></i>
+        </div>
+        <div class="skill-name">Time Expressions</div>
+        <div class="skill-description">Days, months, telling time</div>
+      </a>
+      
+      <a href="/html/culture/politeness.html" class="skill">
+        <div class="skill-icon-container">
+          <i class="fas fa-hands-helping skill-icon"></i>
+        </div>
+        <div class="skill-name">Cultural Context</div>
+        <div class="skill-description">Politeness levels</div>
+      </a>
+      
+      <a href="/html/culture/idioms.html" class="skill">
+        <div class="skill-icon-container">
+          <i class="fas fa-quote-right skill-icon"></i>
+        </div>
+        <div class="skill-name">Idioms & Expressions</div>
+        <div class="skill-description">成语 chengyu and phrases</div>
+      </a>
+    </div>
+
+    <!-- Advanced Elements Section -->
+    <div class="section-divider">
+      <h2>6. Advanced Elements</h2>
+    </div>
+    <div class="skills-grid">
+      <a href="/html/advanced/regional.html" class="skill">
+        <div class="skill-icon-container">
+          <i class="fas fa-globe-asia skill-icon"></i>
+        </div>
+        <div class="skill-name">Regional Variations</div>
+        <div class="skill-description">Dialectal differences</div>
+      </a>
+      
+      <a href="/html/advanced/classical.html" class="skill">
+        <div class="skill-icon-container">
+          <i class="fas fa-scroll skill-icon"></i>
+        </div>
+        <div class="skill-name">Classical Chinese</div>
+        <div class="skill-description">文言文 essentials</div>
+      </a>
+      
+      <a href="/html/advanced/professional.html" class="skill">
+        <div class="skill-icon-container">
+          <i class="fas fa-briefcase skill-icon"></i>
+        </div>
+        <div class="skill-name">Professional Vocabulary</div>
+        <div class="skill-description">Tailored to your field</div>
+      </a>
+      
+      <a href="/html/advanced/slang.html" class="skill">
+        <div class="skill-icon-container">
+          <i class="fas fa-hashtag skill-icon"></i>
+        </div>
+        <div class="skill-name">Slang & Internet</div>
+        <div class="skill-description">Modern communication</div>
+      </a>
+    </div>
+
+    <div class="footer">
+      Click on any topic to navigate to detailed lessons • All content available for free
+    </div>
+  </div>
+
+  <script>
+    // Add subtle hover animation to all skills
+    document.querySelectorAll('.skill').forEach(skill => {
+      skill.addEventListener('mouseenter', function() {
+        this.querySelector('.skill-icon').style.transform = 'scale(1.15)';
+      });
+      
+      skill.addEventListener('mouseleave', function() {
+        this.querySelector('.skill-icon').style.transform = 'scale(1)';
+      });
+    });
+
+    // Smart dropdown positioning
+    document.querySelectorAll('.menu-item').forEach(item => {
+      const dropdown = item.querySelector('.dropdown');
+      if (dropdown) {
+        item.addEventListener('mouseenter', function() {
+          // Reset positioning
+          dropdown.style.top = '100%';
+          dropdown.style.bottom = 'auto';
+          
+          // Check if dropdown would be cut off at bottom
+          setTimeout(() => {
+            const rect = dropdown.getBoundingClientRect();
+            const viewportHeight = window.innerHeight;
+            
+            if (rect.bottom > viewportHeight - 20) {
+              dropdown.style.top = 'auto';
+              dropdown.style.bottom = '100%';
+            }
+          }, 0);
+        });
+      }
+    });
+
+    // Mobile menu functionality
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const menuNav = document.querySelector('.menu-nav');
+    
+    if (mobileToggle && menuNav) {
+      mobileToggle.addEventListener('click', function() {
+        menuNav.classList.toggle('active');
+        const icon = this.querySelector('i');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-times');
+      });
+    }
+
+    // Mobile dropdown functionality
+    document.querySelectorAll('.menu-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          const menuItem = this.parentElement;
+          menuItem.classList.toggle('active');
+        }
+      });
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+      if (menuNav && mobileToggle && !e.target.closest('.menu-container')) {
+        menuNav.classList.remove('active');
+        const icon = mobileToggle.querySelector('i');
+        if (icon) {
+          icon.classList.add('fa-bars');
+          icon.classList.remove('fa-times');
+        }
+      }
+    });
+  </script>
+</body>
+</html>
