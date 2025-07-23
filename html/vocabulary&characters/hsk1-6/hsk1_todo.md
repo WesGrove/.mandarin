@@ -1,12 +1,6 @@
-# hsk1_NEW.html
-- In hsk1_NEW.html Remove X button from all cards and include a small label below the card evenly spaced between the card and the screen bottom that reads "click off card to return"
-- In hsk1_NEW.html ix (茶 	东西 	分钟 	很 	看 	吗 	那 	钱 	上午 	睡觉 	喂 	想 	一 	怎么 	做) so that they function as the rest of the table does. right now they have no response.
-
-# BOTH
 - Check that all HSK1 vocab pieces you have fit within 象形, 指事, 会意, 形声, Particles & Function Words. Check to see if there are other Parts of Speech covered in the HSK1 list i have now that are mislabeled. Correct any mislabelings and be make sure they're accurate. 
 
 # hsk1.html
-- Remove card functionality from tables in hsk1.html and add audio column.
 - Split hsk1.html "Comlete Character Index" into the corrosponding page sections across the page.
 - Add complete character index from hsk1_NEW.html and remove NEW file, bringing it all back. 
 - Add flashcard carousels for each grouping in each section (need to come up with subsection goruping method)
