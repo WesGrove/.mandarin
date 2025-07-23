@@ -1,0 +1,2465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HSK1 Character Formation Guide - Interactive</title>
+    <style>
+        :root{
+          --accent:#F8B51C;
+          --bg:#f5f7fa;
+          --card-bg:#ffffff;
+          --text:#333;
+          --muted:#555;
+          --hover-shadow:0 6px 20px rgba(248,181,28,.25);
+          --font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        }
+
+        *{box-sizing:border-box}
+        body{margin:0;padding:30px 20px;background:var(--bg);color:var(--text);font-family:var(--font-family);font-size:14px;line-height:1.4}
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 24px;
+            color: var(--text);
+        }
+
+        h2 {
+            color: var(--accent);
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 28px;
+            font-weight: 700;
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 10px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        h3 {
+            color: var(--muted);
+            margin-top: 24px;
+            font-size: 16px;
+        }
+
+        h4 {
+            color: var(--muted);
+            margin-top: 16px;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-style: italic;
+            color: var(--muted);
+            margin-bottom: 30px;
+        }
+
+        .intro {
+            background: var(--card-bg);
+            border: 1px solid #e0e0e0;
+            border-left: 4px solid var(--accent);
+            padding: 20px;
+            margin: 30px auto;
+            max-width: 800px;
+            border-radius: 4px;
+            font-size: 15px;
+        }
+
+        .concept-box {
+            background: var(--card-bg);
+            border: 1px solid #e0e0e0;
+            border-left: 4px solid var(--accent);
+            padding: 15px;
+            margin: 20px auto;
+            max-width: 800px;
+            border-radius: 4px;
+        }
+
+        .nav-menu {
+            background: var(--card-bg);
+            padding: 16px;
+            margin: 0 auto 20px auto;
+            border: 1px solid #e0e0e0;
+            max-width: 600px;
+            border-radius: 4px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .nav-menu h3 {
+            margin-top: 0;
+            color: var(--text);
+            font-size: 16px;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .nav-menu li {
+            margin: 4px 0;
+        }
+
+        .nav-menu a {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.25s;
+        }
+
+        .nav-menu a:hover {
+            color: #d49a17;
+        }
+
+        .content-section {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .chinese {
+            font-family: "Noto Sans CJK SC", "Microsoft YaHei", "SimHei", "Arial Unicode MS", sans-serif;
+            font-size: 1.3em;
+            font-weight: 500;
+        }
+
+        .char-card {
+            background: var(--card-bg);
+            border: 1px solid #e0e0e0;
+            padding: 14px 16px;
+            margin: 14px auto;
+            max-width: 800px;
+            border-radius: 4px;
+            transition: transform .25s, box-shadow .25s;
+        }
+
+        .char-card:hover {
+            transform: translateY(-1px);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .char-header {
+            display: flex;
+            align-items: baseline;
+            gap: 15px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+
+        .char-main {
+            font-size: 2.5em;
+            color: var(--accent);
+        }
+
+        .char-info {
+            display: flex;
+            gap: 12px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .char-breakdown {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 4px;
+            margin: 10px 0;
+            line-height: 1.3;
+        }
+
+        .memory-tip {
+            background: #fff8e5;
+            border-left: 3px solid var(--accent);
+            padding: 10px 12px;
+            margin: 10px 0;
+            border-radius: 0 4px 4px 0;
+            line-height: 1.3;
+        }
+
+        .memory-tip strong {
+            color: var(--accent);
+        }
+
+        .examples {
+            margin-top: 10px;
+        }
+
+        .example-item {
+            padding: 6px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .example-item:last-child {
+            border-bottom: none;
+        }
+
+        .category-intro {
+            background: var(--card-bg);
+            border: 1px solid #e0e0e0;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            border-radius: 4px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .stats-box {
+            background: linear-gradient(135deg, var(--accent) 0%, #d49a17 100%);
+            color: white;
+            padding: 16px;
+            border-radius: 8px;
+            margin: 16px auto;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .stats-box h3 {
+            color: white;
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+
+        .char-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 12px;
+            margin: 16px auto;
+            max-width: 800px;
+        }
+
+        /* New grid-style table for character index */
+        .character-grid-table {
+            overflow-x: auto;
+            margin: 20px auto;
+            max-width: 900px;
+        }
+
+        .character-grid-table table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--card-bg);
+            font-family: "Noto Sans CJK SC", "Microsoft YaHei", "SimHei", "Arial Unicode MS", sans-serif;
+        }
+
+        .character-grid-table th,
+        .character-grid-table td {
+            padding: 12px 10px;
+            border: 1px solid #e0e0e0;
+            text-align: center;
+            width: 6%;
+            position: relative;
+        }
+
+        .character-grid-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: var(--accent);
+            font-family: var(--font-family);
+            font-size: 12px;
+            padding: 8px 4px;
+        }
+
+        .character-grid-table th:first-child {
+            width: 4%;
+            background: var(--accent);
+            color: white;
+        }
+
+        .character-grid-table td {
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            height: 50px;
+        }
+
+        .character-grid-table tbody tr:first-child td:first-child {
+            background: #f8f9fa;
+            font-family: var(--font-family);
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--accent);
+            cursor: default;
+        }
+
+        .character-grid-table tbody tr:not(:first-child) td:hover {
+            background: var(--accent) !important;
+            color: white !important;
+            transform: scale(1.15);
+            box-shadow: 0 4px 12px rgba(248,181,28,0.4);
+            z-index: 10;
+            font-size: 24px;
+        }
+
+        /* Alternating row colors */
+        .character-grid-table tbody tr:nth-child(even) {
+            background: #fffbf0;
+        }
+
+        .click-instruction {
+            text-align: center;
+            font-size: 13px;
+            color: var(--accent);
+            margin: 10px 0;
+            font-style: italic;
+        }
+
+        .pos-tag {
+            display: inline-block;
+            padding: 1px 6px;
+            border-radius: 3px;
+            font-size: 11px;
+            font-weight: 600;
+            background: #e0e0e0;
+            color: #666;
+        }
+
+        .pos-tag.verb { background: #e3f2fd; color: #1976d2; }
+        .pos-tag.noun { background: #f3e5f5; color: #7b1fa2; }
+        .pos-tag.adj { background: #e8f5e9; color: #388e3c; }
+        .pos-tag.adv { background: #fff3e0; color: #f57c00; }
+        .pos-tag.part { background: #fce4ec; color: #c2185b; }
+        .pos-tag.num { background: #e1f5fe; color: #0288d1; }
+
+        p {
+            margin: 8px auto;
+            max-width: 800px;
+        }
+
+        ul, ol {
+            padding-left: 20px;
+            margin: 8px auto;
+            max-width: 800px;
+        }
+
+        li {
+            margin: 3px 0;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 10px;
+                font-size: 13px;
+            }
+            
+            h1 {
+                font-size: 20px;
+            }
+            
+            h2 {
+                font-size: 22px;
+            }
+            
+            .char-main {
+                font-size: 2em;
+            }
+            
+            .char-header {
+                gap: 10px;
+            }
+
+            .intro, .concept-box, .category-intro, .char-card {
+                margin: 12px 10px;
+                padding: 12px;
+            }
+            
+            .close-modal {
+                top: -15px;
+                right: -15px;
+            }
+
+            .character-grid-table td {
+                font-size: 16px;
+                padding: 8px 4px;
+            }
+
+            .character-grid-table th {
+                font-size: 10px;
+                padding: 6px 2px;
+            }
+        }
+
+        .highlight-component {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .component-meaning {
+            color: var(--muted);
+            font-size: 0.85em;
+            display: block;
+            margin-top: 2px;
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(8px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { 
+                opacity: 0;
+                transform: scale(0.9) translateY(-20px);
+            }
+            to { 
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .modal-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .modal-card {
+            width: 260px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,.5);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 8px 32px rgba(0,0,0,.3);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            animation: slideIn 0.3s ease;
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+
+        .modal-front {
+            padding: 18px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(0,0,0,.3);
+            position: relative;
+            background: linear-gradient(135deg, #F8B51C, #e6a315);
+            font-family: "Noto Sans CJK SC", "Microsoft YaHei", "SimHei", "Arial Unicode MS", sans-serif;
+            min-height: 90px;
+        }
+
+        .modal-badge-left,
+        .modal-badge-right {
+            position: absolute;
+            top: 8px;
+            font-size: 11px;
+            font-weight: 600;
+            color: #fff;
+            font-family: var(--font-family);
+            text-shadow: 0 1px 2px rgba(0,0,0,.2);
+        }
+
+        .modal-badge-left { left: 10px; }
+        .modal-badge-right { right: 10px; }
+
+        .modal-type-badge {
+            position: absolute;
+            bottom: 6px;
+            right: 8px;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 8px;
+            background: rgba(0,0,0,.25);
+            color: #fff;
+            letter-spacing: .5px;
+            font-family: var(--font-family);
+        }
+
+        .modal-back {
+            padding: 12px 16px;
+            font-size: 12px;
+            line-height: 1.15;
+            color: #222;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            background: var(--card-bg);
+        }
+
+        .modal-back strong {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .modal-examples {
+            margin-top: 0;
+            font-size: 18px;
+            letter-spacing: 2px;
+            text-align: center;
+            font-family: "Noto Sans CJK SC", "Microsoft YaHei", "SimHei", "Arial Unicode MS", sans-serif;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .modal-back audio {
+            height: 20px;
+            vertical-align: middle;
+            width: 140px;
+            outline: none;
+        }
+
+        .modal-divider {
+            border: none;
+            border-top: 1px solid #ddd;
+            margin: 10px 0;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: -18px;
+            right: -18px;
+            background: rgba(255,255,255,0.95);
+            border: 2px solid var(--accent);
+            font-size: 20px;
+            color: var(--accent);
+            cursor: pointer;
+            z-index: 1001;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.2s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            font-weight: bold;
+        }
+
+        .close-modal:hover {
+            background: var(--accent);
+            color: white;
+            transform: rotate(90deg) scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>HSK1 Character Formation Guide</h1>
+    <p class="subtitle">Understanding How Chinese Characters Work - Interactive Edition</p>
+    
+    <div class="intro">
+        <p>Welcome to your journey through HSK1 characters! This guide organizes all 150 HSK1 vocabulary items by how they were formed, making them easier to understand and remember. Chinese characters aren't random drawings—they follow logical patterns that, once understood, unlock the entire writing system.</p>
+        
+        <p>Each character lesson includes:</p>
+        <ul>
+            <li><strong>Character Analysis</strong> - Breaking down components and radicals</li>
+            <li><strong>Memory Tips</strong> - Visual and conceptual connections</li>
+            <li><strong>Formation Logic</strong> - Understanding why characters look the way they do</li>
+            <li><strong>Usage Examples</strong> - Seeing characters in context</li>
+        </ul>
+    </div>
+
+    <div class="stats-box">
+        <h3>HSK1 Overview</h3>
+        <p><strong>150 Essential Characters</strong> organized by formation type<br>
+        Master these and you'll understand basic Chinese structure!</p>
+    </div>
+
+    <h2>Complete Character Index</h2>
+    <p class="click-instruction">✨ Click any character below to see detailed information! ✨</p>
+    
+    <div class="character-grid-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>1-10</th>
+                    <th>10</th>
+                    <th>20</th>
+                    <th>30</th>
+                    <th>40</th>
+                    <th>50</th>
+                    <th>60</th>
+                    <th>70</th>
+                    <th>80</th>
+                    <th>90</th>
+                    <th>100</th>
+                    <th>110</th>
+                    <th>120</th>
+                    <th>130</th>
+                    <th>140</th>
+                    <th>150</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td data-info='{"pinyin":"chá","type":"Phonetic","meaning":"tea"}'>茶</td>
+                    <td data-info='{"pinyin":"dōng xi","type":"Compound","meaning":"thing"}'>东西</td>
+                    <td data-info='{"pinyin":"fēn zhōng","type":"Compound","meaning":"minute"}'>分钟</td>
+                    <td data-info='{"pinyin":"hěn","type":"Phonetic","meaning":"very"}'>很</td>
+                    <td data-info='{"pinyin":"kàn","type":"Compound","meaning":"to look"}'>看</td>
+                    <td data-info='{"pinyin":"ma","type":"Phonetic","meaning":"question particle"}'>吗</td>
+                    <td data-info='{"pinyin":"nà","type":"Phonetic","meaning":"that"}'>那</td>
+                    <td data-info='{"pinyin":"qián","type":"Phonetic","meaning":"money"}'>钱</td>
+                    <td data-info='{"pinyin":"shàng wǔ","type":"Compound","meaning":"morning"}'>上午</td>
+                    <td data-info='{"pinyin":"shuì jiào","type":"Compound","meaning":"to sleep"}'>睡觉</td>
+                    <td data-info='{"pinyin":"wèi","type":"Phonetic","meaning":"hello"}'>喂</td>
+                    <td data-info='{"pinyin":"xiǎng","type":"Phonetic","meaning":"to think; want"}'>想</td>
+                    <td data-info='{"pinyin":"yī","type":"Ideograph","meaning":"one"}'>一</td>
+                    <td data-info='{"pinyin":"zěn me","type":"Compound","meaning":"how"}'>怎么</td>
+                    <td data-info='{"pinyin":"zuò","type":"Phonetic","meaning":"to do"}'>做</td>
+                </tr>
+                <tr>
+                    <td data-info="{&quot;pinyin&quot;:&quot;ài&quot;,&quot;type&quot;:&quot;Phonetic&quot;,&quot;meaning&quot;:&quot;to love&quot;}">爱</td>
+                    <td data-info='{"pinyin":"chī","type":"Phonetic","meaning":"to eat"}'>吃</td>
+                    <td data-info='{"pinyin":"dōu","type":"Phonetic","meaning":"all; both"}'>都</td>
+                    <td data-info='{"pinyin":"gāo xìng","type":"Compound","meaning":"happy"}'>高兴</td>
+                    <td data-info='{"pinyin":"hòu miàn","type":"Compound","meaning":"behind"}'>后面</td>
+                    <td data-info='{"pinyin":"kàn jiàn","type":"Compound","meaning":"to see"}'>看见</td>
+                    <td data-info='{"pinyin":"mǎi","type":"Phonetic","meaning":"to buy"}'>买</td>
+                    <td data-info='{"pinyin":"ne","type":"Phonetic","meaning":"question particle"}'>呢</td>
+                    <td data-info='{"pinyin":"qián miàn","type":"Compound","meaning":"front"}'>前面</td>
+                    <td data-info='{"pinyin":"shǎo","type":"Ideograph","meaning":"few"}'>少</td>
+                    <td data-info='{"pinyin":"shuō","type":"Phonetic","meaning":"to speak"}'>说</td>
+                    <td data-info='{"pinyin":"wǒ","type":"Pictograph","meaning":"I; me"}'>我</td>
+                    <td data-info='{"pinyin":"xiǎo","type":"Ideograph","meaning":"small"}'>小</td>
+                    <td data-info='{"pinyin":"yī diǎn er","type":"Phrase","meaning":"a little"}'>一点儿</td>
+                    <td data-info='{"pinyin":"zěn me yàng","type":"Phrase","meaning":"how about"}'>怎么样</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td data-info="{&quot;pinyin&quot;:&quot;bā&quot;,&quot;type&quot;:&quot;Ideograph&quot;,&quot;meaning&quot;:&quot;eight&quot;}">八</td>
+                    <td data-info='{"pinyin":"chū zū chē","type":"Compound","meaning":"taxi"}'>出租车</td>
+                    <td data-info='{"pinyin":"dú","type":"Phonetic","meaning":"to read"}'>读</td>
+                    <td data-info='{"pinyin":"gè","type":"Ideograph","meaning":"measure word"}'>个</td>
+                    <td data-info='{"pinyin":"huí","type":"Pictograph","meaning":"to return"}'>回</td>
+                    <td data-info='{"pinyin":"kuài","type":"Phonetic","meaning":"piece; yuan"}'>块</td>
+                    <td data-info='{"pinyin":"māo","type":"Phonetic","meaning":"cat"}'>猫</td>
+                    <td data-info='{"pinyin":"néng","type":"Phonetic","meaning":"can; able"}'>能</td>
+                    <td data-info='{"pinyin":"qǐng","type":"Phonetic","meaning":"please"}'>请</td>
+                    <td data-info='{"pinyin":"shéi","type":"Phonetic","meaning":"who?"}'>谁</td>
+                    <td data-info='{"pinyin":"sì","type":"Ideograph","meaning":"four"}'>四</td>
+                    <td data-info='{"pinyin":"wǒ men","type":"Compound","meaning":"we"}'>我们</td>
+                    <td data-info='{"pinyin":"xiǎo jiě","type":"Compound","meaning":"Miss"}'>小姐</td>
+                    <td data-info='{"pinyin":"yī fu","type":"Compound","meaning":"clothes"}'>衣服</td>
+                    <td data-info='{"pinyin":"zhè","type":"Phonetic","meaning":"this"}'>这</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td data-info="{&quot;pinyin&quot;:&quot;bà ba&quot;,&quot;type&quot;:&quot;Phonetic&quot;,&quot;meaning&quot;:&quot;father&quot;}">爸爸</td>
+                    <td data-info='{"pinyin":"dǎ diàn huà","type":"Phrase","meaning":"make a phone call"}'>打电话</td>
+                    <td data-info='{"pinyin":"duì bu qǐ","type":"Phrase","meaning":"sorry"}'>对不起</td>
+                    <td data-info='{"pinyin":"gōng zuò","type":"Compound","meaning":"work"}'>工作</td>
+                    <td data-info='{"pinyin":"huì","type":"Phonetic","meaning":"can; meeting"}'>会</td>
+                    <td data-info='{"pinyin":"lái","type":"Pictograph","meaning":"to come"}'>来</td>
+                    <td data-info='{"pinyin":"méi guān xi","type":"Phrase","meaning":"no problem"}'>没关系</td>
+                    <td data-info='{"pinyin":"nǐ","type":"Phonetic","meaning":"you"}'>你</td>
+                    <td data-info='{"pinyin":"qù","type":"Compound","meaning":"to go"}'>去</td>
+                    <td data-info='{"pinyin":"shén me","type":"Compound","meaning":"what"}'>什么</td>
+                    <td data-info='{"pinyin":"suì","type":"Phonetic","meaning":"year (age)"}'>岁</td>
+                    <td data-info='{"pinyin":"wǔ","type":"Ideograph","meaning":"five"}'>五</td>
+                    <td data-info='{"pinyin":"xiē","type":"Phonetic","meaning":"some"}'>些</td>
+                    <td data-info='{"pinyin":"yī shēng","type":"Compound","meaning":"doctor"}'>医生</td>
+                    <td data-info='{"pinyin":"zhōng guó","type":"Compound","meaning":"China"}'>中国</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td data-info="{&quot;pinyin&quot;:&quot;bēi zi&quot;,&quot;type&quot;:&quot;Phonetic&quot;,&quot;meaning&quot;:&quot;cup&quot;}">杯子</td>
+                    <td data-info='{"pinyin":"dà","type":"Ideograph","meaning":"big"}'>大</td>
+                    <td data-info='{"pinyin":"duō","type":"Compound","meaning":"many"}'>多</td>
+                    <td data-info='{"pinyin":"gǒu","type":"Phonetic","meaning":"dog"}'>狗</td>
+                    <td data-info='{"pinyin":"jǐ","type":"Ideograph","meaning":"how many (few)"}'>几</td>
+                    <td data-info='{"pinyin":"lǎo shī","type":"Compound","meaning":"teacher"}'>老师</td>
+                    <td data-info="{&quot;pinyin&quot;:&quot;méi yǒu&quot;,&quot;type&quot;:&quot;Compound&quot;,&quot;meaning&quot;:&quot;don't have&quot;}">没有</td>
+                    <td data-info='{"pinyin":"nián","type":"Pictograph","meaning":"year"}'>年</td>
+                    <td data-info='{"pinyin":"rè","type":"Phonetic","meaning":"hot"}'>热</td>
+                    <td data-info='{"pinyin":"shí","type":"Ideograph","meaning":"ten"}'>十</td>
+                    <td data-info='{"pinyin":"tā","type":"Phonetic","meaning":"he"}'>他</td>
+                    <td data-info='{"pinyin":"xǐ huan","type":"Compound","meaning":"to like"}'>喜欢</td>
+                    <td data-info='{"pinyin":"xiě","type":"Phonetic","meaning":"to write"}'>写</td>
+                    <td data-info='{"pinyin":"yī yuàn","type":"Compound","meaning":"hospital"}'>医院</td>
+                    <td data-info='{"pinyin":"zhōng wǔ","type":"Compound","meaning":"noon"}'>中午</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td data-info="{&quot;pinyin&quot;:&quot;běi jīng&quot;,&quot;type&quot;:&quot;Compound&quot;,&quot;meaning&quot;:&quot;Beijing&quot;}">北京</td>
+                    <td data-info='{"pinyin":"de","type":"Particle","meaning":"possessive particle"}'>的</td>
+                    <td data-info='{"pinyin":"duō shǎo","type":"Compound","meaning":"how many"}'>多少</td>
+                    <td data-info='{"pinyin":"hàn yǔ","type":"Compound","meaning":"Chinese language"}'>汉语</td>
+                    <td data-info='{"pinyin":"jiā","type":"Compound","meaning":"home; family"}'>家</td>
+                    <td data-info='{"pinyin":"le","type":"Particle","meaning":"completed action"}'>了</td>
+                    <td data-info='{"pinyin":"mǐ fàn","type":"Compound","meaning":"cooked rice"}'>米饭</td>
+                    <td data-info='{"pinyin":"nǚ ér","type":"Compound","meaning":"daughter"}'>女儿</td>
+                    <td data-info='{"pinyin":"rén","type":"Pictograph","meaning":"person"}'>人</td>
+                    <td data-info='{"pinyin":"shí hou","type":"Compound","meaning":"time"}'>时候</td>
+                    <td data-info='{"pinyin":"tā","type":"Phonetic","meaning":"she"}'>她</td>
+                    <td data-info='{"pinyin":"xià","type":"Ideograph","meaning":"down"}'>下</td>
+                    <td data-info='{"pinyin":"xiè xie","type":"Phonetic","meaning":"thank you"}'>谢谢</td>
+                    <td data-info='{"pinyin":"yǐ zi","type":"Phonetic","meaning":"chair"}'>椅子</td>
+                    <td data-info='{"pinyin":"zhù","type":"Phonetic","meaning":"to live"}'>住</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td data-info="{&quot;pinyin&quot;:&quot;běn&quot;,&quot;type&quot;:&quot;Compound&quot;,&quot;meaning&quot;:&quot;root; measure word&quot;}">本</td>
+                    <td data-info="{&quot;pinyin&quot;:&quot;diǎn&quot;,&quot;type&quot;:&quot;Phonetic&quot;,&quot;meaning&quot;:&quot;o'clock; dot&quot;}">点</td>
+                    <td data-info='{"pinyin":"ér zi","type":"Compound","meaning":"son"}'>儿子</td>
+                    <td data-info='{"pinyin":"hǎo","type":"Compound","meaning":"good"}'>好</td>
+                    <td data-info='{"pinyin":"jiào","type":"Phonetic","meaning":"to call"}'>叫</td>
+                    <td data-info='{"pinyin":"lěng","type":"Phonetic","meaning":"cold"}'>冷</td>
+                    <td data-info='{"pinyin":"míng tiān","type":"Compound","meaning":"tomorrow"}'>明天</td>
+                    <td data-info='{"pinyin":"péng you","type":"Compound","meaning":"friend"}'>朋友</td>
+                    <td data-info='{"pinyin":"rèn shi","type":"Compound","meaning":"to know"}'>认识</td>
+                    <td data-info='{"pinyin":"shì","type":"Compound","meaning":"to be"}'>是</td>
+                    <td data-info='{"pinyin":"tài","type":"Ideograph","meaning":"too; very"}'>太</td>
+                    <td data-info='{"pinyin":"xià wǔ","type":"Compound","meaning":"afternoon"}'>下午</td>
+                    <td data-info='{"pinyin":"xīng qī","type":"Compound","meaning":"week"}'>星期</td>
+                    <td data-info='{"pinyin":"yǒu","type":"Compound","meaning":"to have"}'>有</td>
+                    <td data-info='{"pinyin":"zhuō zi","type":"Phonetic","meaning":"table"}'>桌子</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td data-info="{&quot;pinyin&quot;:&quot;bú kè qi&quot;,&quot;type&quot;:&quot;Phrase&quot;,&quot;meaning&quot;:&quot;you're welcome&quot;}">不客气</td>
+                    <td data-info='{"pinyin":"diàn nǎo","type":"Compound","meaning":"computer"}'>电脑</td>
+                    <td data-info='{"pinyin":"èr","type":"Ideograph","meaning":"two"}'>二</td>
+                    <td data-info='{"pinyin":"hào","type":"Phonetic","meaning":"number; date"}'>号</td>
+                    <td data-info='{"pinyin":"jīn tiān","type":"Compound","meaning":"today"}'>今天</td>
+                    <td data-info='{"pinyin":"lǐ","type":"Compound","meaning":"inside"}'>里</td>
+                    <td data-info='{"pinyin":"míng zi","type":"Compound","meaning":"name"}'>名字</td>
+                    <td data-info='{"pinyin":"piào liang","type":"Phonetic","meaning":"beautiful"}'>漂亮</td>
+                    <td data-info='{"pinyin":"sān","type":"Ideograph","meaning":"three"}'>三</td>
+                    <td data-info='{"pinyin":"shū","type":"Pictograph","meaning":"book"}'>书</td>
+                    <td data-info='{"pinyin":"tiān qì","type":"Compound","meaning":"weather"}'>天气</td>
+                    <td data-info='{"pinyin":"xià yǔ","type":"Compound","meaning":"to rain"}'>下雨</td>
+                    <td data-info='{"pinyin":"xué sheng","type":"Compound","meaning":"student"}'>学生</td>
+                    <td data-info='{"pinyin":"yuè","type":"Pictograph","meaning":"month; moon"}'>月</td>
+                    <td data-info='{"pinyin":"zì","type":"Compound","meaning":"character"}'>字</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td data-info="{&quot;pinyin&quot;:&quot;bù&quot;,&quot;type&quot;:&quot;Ideograph&quot;,&quot;meaning&quot;:&quot;not; no&quot;}">不</td>
+                    <td data-info='{"pinyin":"diàn shì","type":"Compound","meaning":"TV"}'>电视</td>
+                    <td data-info='{"pinyin":"fàn diàn","type":"Compound","meaning":"restaurant"}'>饭店</td>
+                    <td data-info='{"pinyin":"hē","type":"Phonetic","meaning":"to drink"}'>喝</td>
+                    <td data-info='{"pinyin":"jiǔ","type":"Ideograph","meaning":"nine"}'>九</td>
+                    <td data-info='{"pinyin":"liù","type":"Ideograph","meaning":"six"}'>六</td>
+                    <td data-info='{"pinyin":"nǎ","type":"Phonetic","meaning":"which"}'>哪</td>
+                    <td data-info='{"pinyin":"píng guǒ","type":"Phonetic","meaning":"apple"}'>苹果</td>
+                    <td data-info='{"pinyin":"shāng diàn","type":"Compound","meaning":"shop"}'>商店</td>
+                    <td data-info='{"pinyin":"shuǐ","type":"Pictograph","meaning":"water"}'>水</td>
+                    <td data-info='{"pinyin":"tīng","type":"Phonetic","meaning":"to listen"}'>听</td>
+                    <td data-info='{"pinyin":"xiān sheng","type":"Compound","meaning":"Mr.; Sir"}'>先生</td>
+                    <td data-info='{"pinyin":"xué xí","type":"Compound","meaning":"to study"}'>学习</td>
+                    <td data-info='{"pinyin":"zài","type":"Phonetic","meaning":"at; in"}'>在</td>
+                    <td data-info='{"pinyin":"zuó tiān","type":"Compound","meaning":"yesterday"}'>昨天</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td data-info="{&quot;pinyin&quot;:&quot;cài&quot;,&quot;type&quot;:&quot;Phonetic&quot;,&quot;meaning&quot;:&quot;vegetable&quot;}">菜</td>
+                    <td data-info='{"pinyin":"diàn yǐng","type":"Compound","meaning":"movie"}'>电影</td>
+                    <td data-info='{"pinyin":"fēi jī","type":"Compound","meaning":"airplane"}'>飞机</td>
+                    <td data-info='{"pinyin":"hé","type":"Phonetic","meaning":"and"}'>和</td>
+                    <td data-info='{"pinyin":"kāi","type":"Ideograph","meaning":"to open"}'>开</td>
+                    <td data-info='{"pinyin":"mā ma","type":"Phonetic","meaning":"mother"}'>妈妈</td>
+                    <td data-info='{"pinyin":"nǎ er","type":"Compound","meaning":"where"}'>哪儿</td>
+                    <td data-info='{"pinyin":"qī","type":"Ideograph","meaning":"seven"}'>七</td>
+                    <td data-info='{"pinyin":"shàng","type":"Ideograph","meaning":"up; above"}'>上</td>
+                    <td data-info='{"pinyin":"shuǐ guǒ","type":"Compound","meaning":"fruit"}'>水果</td>
+                    <td data-info='{"pinyin":"tóng xué","type":"Compound","meaning":"classmate"}'>同学</td>
+                    <td data-info='{"pinyin":"xiàn zài","type":"Compound","meaning":"now"}'>现在</td>
+                    <td data-info='{"pinyin":"xué xiào","type":"Compound","meaning":"school"}'>学校</td>
+                    <td data-info='{"pinyin":"zài jiàn","type":"Compound","meaning":"goodbye"}'>再见</td>
+                    <td data-info='{"pinyin":"zuò","type":"Compound","meaning":"to sit"}'>坐</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="nav-menu">
+        <h3>Quick Navigation</h3>
+        <ul>
+            <li><a href="#pictographs"><strong>Pictographs (象形)</strong> - Pictures of Things</a></li>
+            <li><a href="#ideographs"><strong>Ideographs (指事)</strong> - Abstract Concepts</a></li>
+            <li><a href="#compound-ideographs"><strong>Compound Ideographs (会意)</strong> - Combined Meanings</a></li>
+            <li><a href="#phonetic-compounds"><strong>Phonetic Compounds (形声)</strong> - Sound + Meaning</a></li>
+            <li><a href="#particles"><strong>Particles & Function Words</strong></a></li>
+        </ul>
+    </div>
+
+    <div class="content-section">
+        <h2 id="pictographs">Pictographs (象形) - Pictures of Things</h2>
+        
+        <div class="category-intro">
+            <p>Pictographs are the oldest type of Chinese characters—they started as simple drawings of objects. While they've evolved over thousands of years, you can still see traces of the original pictures. These are the easiest characters to remember because they visually represent what they mean.</p>
+        </div>
+
+        <div class="char-card">
+            <div class="char-header">
+                <span class="chinese char-main">人</span>
+                <div class="char-info">
+                    <span><strong>rén</strong></span>
+                    <span class="pos-tag noun">名</span>
+                    <span>person; people</span>
+                </div>
+            </div>
+            <div class="char-breakdown">
+                <strong>Visual Origin:</strong> Picture of a person walking, seen from the side. The two strokes represent legs in motion.
+            </div>
+            <div class="memory-tip">
+                <strong>Memory Tip:</strong> Looks like a person walking with legs spread apart. When used as a radical (亻), it appears on the left side of characters related to people and human actions.
+            </div>
+            <div class="examples">
+                <strong>Examples in HSK1:</strong>
+                <div class="example-item">中国<span class="chinese">人</span> (Chinese person)</div>
+                <div class="example-item">三个<span class="chinese">人</span> (three people)</div>
+            </div>
+        </div>
+
+        <div class="char-card">
+            <div class="char-header">
+                <span class="chinese char-main">口</span>
+                <div class="char-info">
+                    <span><strong>kǒu</strong></span>
+                    <span class="pos-tag noun">名</span>
+                    <span>mouth</span>
+                </div>
+            </div>
+            <div class="char-breakdown">
+                <strong>Visual Origin:</strong> A square representing an open mouth. One of the simplest and most recognizable pictographs.
+            </div>
+            <div class="memory-tip">
+                <strong>Memory Tip:</strong> Square = mouth opening. Appears in many characters related to speaking, eating, or openings: 吃 (eat), 喝 (drink), 吗 (question particle).
+            </div>
+            <div class="examples">
+                <strong>Found in HSK1:</strong>
+                <div class="example-item"><span class="chinese">口</span>渴 (thirsty - mouth dry)</div>
+                <div class="example-item">出<span class="chinese">口</span> (exit)</div>
+                <div class="example-item">人<span class="chinese">口</span> (population)</div>
+            </div>
+        </div>
+
+        <div class="char-card">
+            <div class="char-header">
+                <span class="chinese char-main">水</span>
+                <div class="char-info">
+                    <span><strong>shuǐ</strong></span>
+                    <span class="pos-tag noun">名</span>
+                    <span>water</span>
+                </div>
+            </div>
+            <div class="char-breakdown">
+                <strong>Visual Origin:</strong> Picture of flowing water with splashes on the sides. When used as a radical (氵), appears as three dots on the left.
+            </div>
+            <div class="memory-tip">
+                <strong>Memory Tip:</strong> Center line = main flow, side strokes = splashing drops. The radical form (氵) looks like three water drops.
+            </div>
+            <div class="examples">
+                <strong>Related in HSK1:</strong>
+                <div class="example-item">喝<span class="chinese">水</span> (drink water)</div>
+                <div class="example-item">热<span class="chinese">水</span> (hot water)</div>
+            </div>
+        </div>
+
+        <div class="char-card">
+            <div class="char-header">
+                <span class="chinese char-main">月</span>
+                <div class="char-info">
+                    <span><strong>yuè</strong></span>
+                    <span class="pos-tag noun">名</span>
+                    <span>month; moon</span>
+                </div>
+            </div>
+            <div class="char-breakdown">
+                <strong>Visual Origin:</strong> Crescent moon shape. The two horizontal lines inside represent the moon's surface features visible to ancient observers.
+            </div>
+            <div class="memory-tip">
+                <strong>Memory Tip:</strong> Looks like a crescent moon in a window frame. Also means "month" because ancient Chinese used lunar calendar.
+            </div>
+            <div class="examples">
+                <strong>Usage:</strong>
+                <div class="example-item">一个<span class="chinese">月</span> (one month)</div>
+                <div class="example-item">这个<span class="chinese">月</span> (this month)</div>
+            </div>
+        </div>
+
+        <h2 id="ideographs">Ideographs (指事) - Abstract Concepts</h2>
+        
+        <div class="category-intro">
+            <p>Ideographs use simple symbols to represent abstract ideas. They're not pictures of objects, but rather visual representations of concepts like "up," "down," or numbers. These characters use position, quantity, or symbolic marks to convey meaning.</p>
+        </div>
+
+        <div class="char-card">
+            <div class="char-header">
+                <span class="chinese char-main">一</span>
+                <div class="char-info">
+                    <span><strong>yī</strong></span>
+                    <span class="pos-tag num">数</span>
+                    <span>one</span>
+                </div>
+            </div>
+            <div class="char-breakdown">
+                <strong>Concept:</strong> A single horizontal line represents the number one—the simplest possible number representation.
+            </div>
+            <div class="memory-tip">
+                <strong>Memory Tip:</strong> One line = one. Foundation of the Chinese counting system. Also used to mean "once" or "throughout."
+            </div>
+            <div class="examples">
+                <strong>Common usage:</strong>
+                <div class="example-item"><span class="chinese">一</span>个人 (one person)</div>
+                <div class="example-item"><span class="chinese">一</span>点儿 (a little bit)</div>
+                <div class="example-item"><span class="chinese">一</span>起 (together)</div>
+            </div>
+        </div>
+
+        <div class="char-card">
+            <div class="char-header">
+                <span class="chinese char-main">二</span>
+                <div class="char-info">
+                    <span><strong>èr</strong></span>
+                    <span class="pos-tag num">数</span>
+                    <span>two</span>
+                </div>
+            </div>
+            <div class="char-breakdown">
+                <strong>Concept:</strong> Two horizontal lines stacked to represent the number two.
+            </div>
+            <div class="memory-tip">
+                <strong>Memory Tip:</strong> Two lines = two. Simple counting logic continues from 一.
+            </div>
+            <div class="examples">
+                <strong>Usage:</strong>
+                <div class="example-item"><span class="chinese">二</span>十 (twenty)</div>
+                <div class="example-item">十<span class="chinese">二</span> (twelve)</div>
+                <div class="example-item"><span class="chinese">二</span>月 (February)</div>
+            </div>
+        </div>
+
+        <div class="char-card">
+            <div class="char-header">
+                <span class="chinese char-main">三</span>
+                <div class="char-info">
+                    <span><strong>sān</strong></span>
+                    <span class="pos-tag num">数</span>
+                    <span>three</span>
+                </div>
+            </div>
+            <div class="char-breakdown">
+                <strong>Concept:</strong> Three horizontal lines for the number three. After this, the pattern changes.
+            </div>
+            <div class="memory-tip">
+                <strong>Memory Tip:</strong> Three lines = three. The last number to use simple line counting.
+            </div>
+            <div class="examples">
+                <strong>Examples:</strong>
+                <div class="example-item"><span class="chinese">三</span>个朋友 (three friends)</div>
+                <div class="example-item">星期<span class="chinese">三</span> (Wednesday)</div>
+                <div class="example-item"><span class="chinese">三</span>点 (3 o'clock)</div>
+            </div>
+        </div>
+
+        <div class="char-card">
+            <div class="char-header">
+                <span class="chinese char-main">上</span>
+                <div class="char-info">
+                    <span><strong>shàng</strong></span>
+                    <span class="pos-tag noun">名</span>
+                    <span>up; above</span>
+                </div>
+            </div>
+            <div class="char-breakdown">
+                <strong>Concept:</strong> A mark above a horizontal line, indicating the concept of "above" or "up."
+            </div>
+            <div class="memory-tip">
+                <strong>Memory Tip:</strong> The small stroke points upward from the baseline, showing direction. Used in: 上午 (morning), 上学 (go to school).
+            </div>
+            <div class="examples">
+                <strong>Common uses:</strong>
+                <div class="example-item"><span class="chinese">上</span>午 (morning)</div>
+                <div class="example-item"><span class="chinese">上</span>班 (go to work)</div>
+                <div class="example-item">楼<span class="chinese">上</span> (upstairs)</div>
+            </div>
+        </div>
+
+        <div class="char-card">
+            <div class="char-header">
+                <span class="chinese char-main">下</span>
+                <div class="char-info">
+                    <span><strong>xià</strong></span>
+                    <span class="pos-tag noun">名</span>
+                    <span>down; below</span>
+                </div>
+            </div>
+            <div class="char-breakdown">
+                <strong>Concept:</strong> A mark below a horizontal line, indicating "below" or "down."
+            </div>
+            <div class="memory-tip">
+                <strong>Memory Tip:</strong> The stroke hangs down from the baseline. Opposite of 上. Used in: 下午 (afternoon), 下雨 (rain falls).
+            </div>
+            <div class="examples">
+                <strong>Examples:</strong>
+                <div class="example-item"><span class="chinese">下</span>午 (afternoon)</div>
+                <div class="example-item"><span class="chinese">下</span>雨 (rain)</div>
+                <div class="example-item"><span class="chinese">下</span>班 (get off work)</div>
+            </div>
+        </div>
+
+        <div class="char-card">
+            <div class="char-header">
+                <span class="chinese char-main">大</span>
+                <div class="char-info">
+                    <span><strong>dà</strong></span>
+                    <span class="pos-tag adj">形</span>
+                    <span>big</span>
+                </div>
+            </div>
+            <div class="char-breakdown">
+                <strong>Concept:</strong> A person (人) with arms stretched wide to show "bigness."
+            </div>
+            <div class="memory-tip">
+                <strong>Memory Tip:</strong> Person with arms spread wide = taking up lots of space = big. Component in: 太 (too/very).
+            </div>
+            <div class="examples">
+                <strong>Usage:</strong>
+                <div class="example-item"><span class="chinese">大</span>学 (university)</div>
+                <div class="example-item"><span class="chinese">大</span>家 (everyone)</div>
+                <div class="example-item">很<span class="chinese">大</span> (very big)</div>
+            </div>
+        </div>
+
+        <div class="char-card">
+            <div class="char-header">
+                <span class="chinese char-main">小</span>
+                <div class="char-info">
+                    <span><strong>xiǎo</strong></span>
+                    <span class="pos-tag adj">形</span>
+                    <span>small</span>
+                </div>
+            </div>
+            <div class="char-breakdown">
+                <strong>Concept:</strong> Three small drops or divisions, representing something divided into small parts.
+            </div>
+            <div class="memory-tip">
+                <strong>Memory Tip:</strong> Something divided (丿八) becomes smaller. Used in: 小姐 (Miss), 小学生 (elementary student).
+            </div>
+            <div class="examples">
+                <strong>Examples:</strong>
+                <div class="example-item"><span class="chinese">小</span>狗 (small dog; puppy)</div>
+                <div class="example-item"><span class="chinese">小</span>姐 (Miss; young lady)</div>
+                <div class="example-item"><span class="chinese">小</span>时 (hour)</div>
+            </div>
+        </div>
+
+        <h2 id="compound-ideographs">Compound Ideographs (会意) - Combined Meanings</h2>
+        
+        <div class="category-intro">
+            <p>Compound ideographs combine two or more meaningful parts to create a new meaning. The meaning comes from the logical relationship between the components. These are like visual equations: component A + component B = new meaning C.</p>
+        </div>
+
+        <div class="char-card">
+            <div class="char-header">
+                <span class="chinese char-main">好</span>
+                <div class="char-info">
+                    <span><strong>hǎo</strong></span>
+                    <span class="pos-tag adj">形</span>
+                    <span>good</span>
+                </div>
+            </div>
+            <div class="char-breakdown">
+                <strong>Components:</strong> <span class="highlight-component">女</span> (woman) + <span class="highlight-component">子</span> (child) = good
+            </div>
+            <div class="memory-tip">
+                <strong>Memory Tip:</strong> In ancient China, a woman with a child represented family harmony = "good." One of the most famous compound ideographs.
+            </div>
+            <div class="examples">
+                <strong>Common uses:</strong>
+                <div class="example-item"><span class="chinese">好</span>吃 (delicious)</div>
+                <div class="example-item">很<span class="chinese">好</span> (very good)</div>
+                <div class="example-item">你<span class="chinese">好</span> (hello)</div>
+            </div>
+        </div>
+
+        <div class="char-card">
+            <div class="char-header">
+                <span class="chinese char-main">看</span>
+                <div class="char-info">
+                    <span><strong>kàn</strong></span>
+                    <span class="pos-tag verb">动</span>
+                    <span>to see; to look at</span>
+                </div>
+            </div>
+            <div class="char-breakdown">
+                <strong>Components:</strong> <span class="highlight-component">手</span> (hand) + <span class="highlight-component">目</span> (eye) = to look
+            </div>
+            <div class="memory-tip">
+                <strong>Memory Tip:</strong> Hand shading eyes to see better = looking carefully. The hand component appears as 扌on top.
+            </div>
+            <div class="examples">
+                <strong>Usage:</strong>
+                <div class="example-item"><span class="chinese">看</span>书 (read a book)</div>
+                <div class="example-item"><span class="chinese">看</span>电视 (watch TV)</div>
+                <div class="example-item"><span class="chinese">看见</span> (to see)</div>
+            </div>
+        </div>
+
+        <div class="char-card">
+            <div class="char-header">
+                <span class="chinese char-main">坐</span>
+                <div class="char-info">
+                    <span><strong>zuò</strong></span>
+                    <span class="pos-tag verb">动</span>
+                    <span>to sit</span>
+                </div>
+            </div>
+            <div class="char-breakdown">
+                <strong>Components:</strong> Two <span class="highlight-component">人</span> (people) + <span class="highlight-component">土</span> (earth) = to sit
+            </div>
+            <div class="memory-tip">
+                <strong>Memory Tip:</strong> Two people sitting on the ground. The people face each other in conversation while seated.
+            </div>
+            <div class="examples">
+                <strong>Usage:</strong>
+                <div class="example-item"><span class="chinese">坐</span>下 (sit down)</div>
+                <div class="example-item"><span class="chinese">坐</span>车 (take a vehicle)</div>
+                <div class="example-item">请<span class="chinese">坐</span> (please sit)</div>
+            </div>
+        </div>
+
+        <h2 id="phonetic-compounds">Phonetic Compounds (形声) - Sound + Meaning</h2>
+        
+        <div class="category-intro">
+            <p>About 80% of Chinese characters are phonetic compounds. They combine a semantic component (meaning) with a phonetic component (sound hint). The semantic part tells you the general category, while the phonetic part hints at pronunciation. This is the most productive way Chinese creates new characters.</p>
+        </div>
+
+        <div class="char-card">
+            <div class="char-header">
+                <span class="chinese char-main">妈</span>
+                <div class="char-info">
+                    <span><strong>mā</strong></span>
+                    <span class="pos-tag noun">名</span>
+                    <span>mother</span>
+                </div>
+            </div>
+            <div class="char-breakdown">
+                <strong>Components:</strong> <span class="highlight-component">女</span> (woman) + <span class="highlight-component">马</span> (mǎ - horse)
+                <br><span class="component-meaning">Semantic: female family member | Phonetic: mǎ → mā</span>
+            </div>
+            <div class="memory-tip">
+                <strong>Memory Tip:</strong> Woman (女) + sound "ma" (马) = mama/mother. The horse provides the "ma" sound.
+            </div>
+            <div class="examples">
+                <strong>Usage:</strong>
+                <div class="example-item"><span class="chinese">妈妈</span> (mom)</div>
+                <div class="example-item">我<span class="chinese">妈妈</span> (my mother)</div>
+                <div class="example-item"><span class="chinese">妈妈</span>好 (Hello, mom)</div>
+            </div>
+        </div>
+
+        <div class="char-card">
+            <div class="char-header">
+                <span class="chinese char-main">吗</span>
+                <div class="char-info">
+                    <span><strong>ma</strong></span>
+                    <span class="pos-tag part">助</span>
+                    <span>[question particle]</span>
+                </div>
+            </div>
+            <div class="char-breakdown">
+                <strong>Components:</strong> <span class="highlight-component">口</span> (mouth) + <span class="highlight-component">马</span> (mǎ - horse)
+                <br><span class="component-meaning">Semantic: spoken particle | Phonetic: mǎ → ma</span>
+            </div>
+            <div class="memory-tip">
+                <strong>Memory Tip:</strong> Mouth (口) + "ma" sound (马) = question particle "ma". Same phonetic as 妈 but different semantic component.
+            </div>
+            <div class="examples">
+                <strong>Question examples:</strong>
+                <div class="example-item">你好<span class="chinese">吗</span>? (How are you?)</div>
+                <div class="example-item">是学生<span class="chinese">吗</span>? (Are you a student?)</div>
+                <div class="example-item">喜欢<span class="chinese">吗</span>? (Do you like it?)</div>
+            </div>
+        </div>
+
+        <div class="char-card">
+            <div class="char-header">
+                <span class="chinese char-main">请</span>
+                <div class="char-info">
+                    <span><strong>qǐng</strong></span>
+                    <span class="pos-tag verb">动</span>
+                    <span>please; to invite</span>
+                </div>
+            </div>
+            <div class="char-breakdown">
+                <strong>Components:</strong> <span class="highlight-component">讠</span> (speech) + <span class="highlight-component">青</span> (qīng - green/blue)
+                <br><span class="component-meaning">Semantic: polite speech | Phonetic: qīng → qǐng</span>
+            </div>
+            <div class="memory-tip">
+                <strong>Memory Tip:</strong> Speech radical + "qing" sound = polite request. The speech radical shows it's about communication.
+            </div>
+            <div class="examples">
+                <strong>Polite uses:</strong>
+                <div class="example-item"><span class="chinese">请</span>坐 (please sit)</div>
+                <div class="example-item"><span class="chinese">请</span>问 (excuse me, may I ask)</div>
+                <div class="example-item"><span class="chinese">请</span>进 (please come in)</div>
+            </div>
+        </div>
+
+        <div class="char-card">
+            <div class="char-header">
+                <span class="chinese char-main">谁</span>
+                <div class="char-info">
+                    <span><strong>shéi</strong></span>
+                    <span class="pos-tag">代</span>
+                    <span>who?</span>
+                </div>
+            </div>
+            <div class="char-breakdown">
+                <strong>Components:</strong> <span class="highlight-component">讠</span> (speech) + <span class="highlight-component">隹</span> (zhuī - short-tailed bird)
+                <br><span class="component-meaning">Semantic: question word | Phonetic: modified sound</span>
+            </div>
+            <div class="memory-tip">
+                <strong>Memory Tip:</strong> Speech radical indicates it's a question word. Think "Who's speaking?"
+            </div>
+            <div class="examples">
+                <strong>Question examples:</strong>
+                <div class="example-item"><span class="chinese">谁</span>是老师? (Who is the teacher?)</div>
+                <div class="example-item">你是<span class="chinese">谁</span>? (Who are you?)</div>
+                <div class="example-item"><span class="chinese">谁</span>的书? (Whose book?)</div>
+            </div>
+        </div>
+
+        <div class="char-card">
+            <div class="char-header">
+                <span class="chinese char-main">话</span>
+                <div class="char-info">
+                    <span><strong>huà</strong></span>
+                    <span class="pos-tag noun">名</span>
+                    <span>speech; language</span>
+                </div>
+            </div>
+            <div class="char-breakdown">
+                <strong>Components:</strong> <span class="highlight-component">讠</span> (speech) + <span class="highlight-component">舌</span> (shé - tongue)
+                <br><span class="component-meaning">Semantic: speech + tongue = spoken language</span>
+            </div>
+            <div class="memory-tip">
+                <strong>Memory Tip:</strong> Speech + tongue = talking/language. Used in: 说话 (speak), 电话 (telephone).
+            </div>
+            <div class="examples">
+                <strong>Usage:</strong>
+                <div class="example-item">说<span class="chinese">话</span> (speak; talk)</div>
+                <div class="example-item">电<span class="chinese">话</span> (telephone)</div>
+                <div class="example-item">中国<span class="chinese">话</span> (Chinese language)</div>
+            </div>
+        </div>
+
+        <div class="char-card">
+            <div class="char-header">
+                <span class="chinese char-main">们</span>
+                <div class="char-info">
+                    <span><strong>men</strong></span>
+                    <span class="pos-tag">suffix</span>
+                    <span>[plural marker for people]</span>
+                </div>
+            </div>
+            <div class="char-breakdown">
+                <strong>Components:</strong> <span class="highlight-component">亻</span> (person) + <span class="highlight-component">门</span> (mén - door)
+                <br><span class="component-meaning">Semantic: people | Phonetic: mén → men</span>
+            </div>
+            <div class="memory-tip">
+                <strong>Memory Tip:</strong> Person radical + "men" sound = plural people. 我们 (we), 他们 (they).
+            </div>
+            <div class="examples">
+                <strong>Plural forms:</strong>
+                <div class="example-item">我<span class="chinese">们</span> (we; us)</div>
+                <div class="example-item">他<span class="chinese">们</span> (they; them)</div>
+                <div class="example-item">老师<span class="chinese">们</span> (teachers)</div>
+            </div>
+        </div>
+
+        <h2 id="particles">Particles & Function Words</h2>
+        
+        <div class="category-intro">
+            <p>Chinese particles and function words are grammatical tools that don't have concrete meanings but are essential for sentence structure. They mark questions, show relationships, indicate completed actions, and more. These are some of the most frequently used characters in Chinese.</p>
+        </div>
+
+        <div class="char-card">
+            <div class="char-header">
+                <span class="chinese char-main">的</span>
+                <div class="char-info">
+                    <span><strong>de</strong></span>
+                    <span class="pos-tag part">助</span>
+                    <span>possessive/descriptive particle</span>
+                </div>
+            </div>
+            <div class="char-breakdown">
+                <strong>Function:</strong> Links descriptions to nouns, shows possession
+                <br><strong>Components:</strong> <span class="highlight-component">白</span> (white) + <span class="highlight-component">勺</span> (ladle)
+            </div>
+            <div class="memory-tip">
+                <strong>Memory Tip:</strong> Most common character in Chinese! Think of it as "'s" in English or as a linking word.
+            </div>
+            <div class="examples">
+                <strong>Examples:</strong>
+                <div class="example-item">我<span class="chinese">的</span>书 (my book)</div>
+                <div class="example-item">好吃<span class="chinese">的</span>菜 (delicious food)</div>
+                <div class="example-item">中国<span class="chinese">的</span>茶 (Chinese tea)</div>
+            </div>
+        </div>
+
+        <div class="char-card">
+            <div class="char-header">
+                <span class="chinese char-main">了</span>
+                <div class="char-info">
+                    <span><strong>le</strong></span>
+                    <span class="pos-tag part">助</span>
+                    <span>completed action/change particle</span>
+                </div>
+            </div>
+            <div class="char-breakdown">
+                <strong>Function:</strong> Shows completed actions or changed states
+            </div>
+            <div class="memory-tip">
+                <strong>Memory Tip:</strong> Think "I did it!" The hook shape suggests completion, like a checkmark.
+            </div>
+            <div class="examples">
+                <strong>Examples:</strong>
+                <div class="example-item">吃<span class="chinese">了</span> (ate/have eaten)</div>
+                <div class="example-item">来<span class="chinese">了</span> (came/has come)</div>
+                <div class="example-item">好<span class="chinese">了</span> (OK now/ready)</div>
+            </div>
+        </div>
+
+        <div class="char-card">
+            <div class="char-header">
+                <span class="chinese char-main">吗</span>
+                <div class="char-info">
+                    <span><strong>ma</strong></span>
+                    <span class="pos-tag part">助</span>
+                    <span>yes/no question particle</span>
+                </div>
+            </div>
+            <div class="char-breakdown">
+                <strong>Function:</strong> Turns statements into yes/no questions
+            </div>
+            <div class="memory-tip">
+                <strong>Memory Tip:</strong> Add "ma" to any statement to make it a question. Like adding "?" in English.
+            </div>
+            <div class="examples">
+                <strong>Examples:</strong>
+                <div class="example-item">好<span class="chinese">吗</span>? (Is it good?)</div>
+                <div class="example-item">你是学生<span class="chinese">吗</span>? (Are you a student?)</div>
+            </div>
+        </div>
+
+        <div class="char-card">
+            <div class="char-header">
+                <span class="chinese char-main">呢</span>
+                <div class="char-info">
+                    <span><strong>ne</strong></span>
+                    <span class="pos-tag part">助</span>
+                    <span>question particle; how about...?</span>
+                </div>
+            </div>
+            <div class="char-breakdown">
+                <strong>Function:</strong> Returns questions, asks "how about...?"
+            </div>
+            <div class="memory-tip">
+                <strong>Memory Tip:</strong> Bounces questions back like a tennis ball. "And you?"
+            </div>
+            <div class="examples">
+                <strong>Examples:</strong>
+                <div class="example-item">你<span class="chinese">呢</span>? (How about you?)</div>
+                <div class="example-item">我很好，你<span class="chinese">呢</span>? (I'm fine, and you?)</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Character Modal -->
+    <div class="modal-overlay" id="characterModal">
+        <div class="modal-container">
+            <div class="modal-card">
+                <div class="modal-front">
+                    <span class="modal-badge-left">HSK 1</span>
+                    <span class="modal-badge-right" id="modalNumber">#1</span>
+                    <span id="modalCharacter">人</span>
+                    <span class="modal-type-badge" id="modalType">pictograph</span>
+                </div>
+                <div class="modal-back">
+                    <strong>Meaning:</strong> <span id="modalMeaning">person</span><br/>
+                    <strong>Pinyin:</strong> <span id="modalPinyin">rén</span><br/>
+                    <strong>Frequency:</strong> <span id="modalFrequency">Top 10</span><br/>
+                    <strong>Type:</strong> <span id="modalFormationType">Pictograph</span><br/>
+                    <strong>Usage:</strong> <span id="modalUsage">Core noun</span><br/>
+                    <strong>Context:</strong> <span id="modalContext">Walking human figure</span><br/>
+                    <strong>Audio:</strong> <audio controls style="height: 20px; vertical-align: middle;" onerror="this.style.display='none'">
+                        <source id="modalAudio" src="audio/ren.mp3" type="audio/mpeg">
+                    </audio>
+                    <hr class="modal-divider">
+                    <div class="modal-examples" id="modalExamples">一个人 好人</div>
+                </div>
+            </div>
+            <button class="close-modal" onclick="closeModal()">&times;</button>
+        </div>
+    </div>
+
+    <script>
+        // Character sequence mapping
+        const characterSequence = [
+            null, '茶', '东西', '分钟', '很', '看', '吗', '那', '钱', '上午', '睡觉', '喂', '想', '一', '怎么', '做',
+            '爱', '吃', '都', '高兴', '后面', '看见', '买', '呢', '前面', '少', '说', '我', '小', '一点儿', '怎么样', null,
+            '八', '出租车', '读', '个', '回', '块', '猫', '能', '请', '谁', '四', '我们', '小姐', '衣服', '这', null,
+            '爸爸', '打电话', '对不起', '工作', '会', '来', '没关系', '你', '去', '什么', '岁', '五', '些', '医生', '中国', null,
+            '杯子', '大', '多', '狗', '几', '老师', '没有', '年', '热', '十', '他', '喜欢', '写', '医院', '中午', null,
+            '北京', '的', '多少', '汉语', '家', '了', '米饭', '女儿', '人', '时候', '她', '下', '谢谢', '椅子', '住', null,
+            '本', '点', '儿子', '好', '叫', '冷', '明天', '朋友', '认识', '是', '太', '下午', '星期', '有', '桌子', null,
+            '不客气', '电脑', '二', '号', '今天', '里', '名字', '漂亮', '三', '书', '天气', '下雨', '学生', '月', '字', null,
+            '不', '电视', '饭店', '喝', '九', '六', '哪', '苹果', '商店', '水', '听', '先生', '学习', '在', '昨天', null,
+            '菜', '电影', '飞机', '和', '开', '妈妈', '哪儿', '七', '上', '水果', '同学', '现在', '学校', '再见', '坐', null
+        ];
+
+        // Comprehensive character data with examples and context for all 150 HSK1 characters
+        const characterData = {
+            // Pictographs
+            '人': { 
+                frequency: '#4 most common', 
+                usage: 'Core noun for "person/people"', 
+                context: 'First human-figure pictograph learned',
+                examples: '一个人 好人' 
+            },
+            '口': { 
+                frequency: 'Top radical', 
+                usage: 'Mouth, opening, entrance', 
+                context: 'Square mouth opening',
+                examples: '人口 出口' 
+            },
+            '水': { 
+                frequency: 'Top 100', 
+                usage: 'Water, liquid', 
+                context: 'Flowing water with splashes',
+                examples: '喝水 热水' 
+            },
+            '月': { 
+                frequency: 'Common', 
+                usage: 'Month, moon', 
+                context: 'Crescent moon shape',
+                examples: '一个月 这个月' 
+            },
+            '回': { 
+                frequency: 'Common', 
+                usage: 'Return, go back', 
+                context: 'Circular return path',
+                examples: '回家 回来' 
+            },
+            '来': { 
+                frequency: 'Top 50', 
+                usage: 'Come, arrive', 
+                context: 'Wheat arriving (harvest)',
+                examples: '来了 过来' 
+            },
+            '书': { 
+                frequency: 'Common', 
+                usage: 'Book, writing', 
+                context: 'Simplified writing tool',
+                examples: '看书 买书' 
+            },
+            '年': { 
+                frequency: 'Top 100', 
+                usage: 'Year', 
+                context: 'Person carrying grain',
+                examples: '今年 明年' 
+            },
+            '我': { 
+                frequency: 'Top 10', 
+                usage: 'First person pronoun', 
+                context: 'Hand with weapon (self)',
+                examples: '我是 我的' 
+            },
+            
+            // Ideographs
+            '一': { 
+                frequency: 'Top 5', 
+                usage: 'Number one, unity', 
+                context: 'Single line = one',
+                examples: '一个 一点儿' 
+            },
+            '二': { 
+                frequency: 'Common', 
+                usage: 'Number two', 
+                context: 'Two lines = two',
+                examples: '二十 十二' 
+            },
+            '三': { 
+                frequency: 'Common', 
+                usage: 'Number three', 
+                context: 'Three lines = three',
+                examples: '三个 三点' 
+            },
+            '四': { 
+                frequency: 'Common', 
+                usage: 'Number four', 
+                context: 'Enclosure (four sides)',
+                examples: '四个 四点' 
+            },
+            '五': { 
+                frequency: 'Common', 
+                usage: 'Number five', 
+                context: 'Cross between elements',
+                examples: '五个 五点' 
+            },
+            '六': { 
+                frequency: 'Common', 
+                usage: 'Number six', 
+                context: 'Shelter shape',
+                examples: '六个 六月' 
+            },
+            '七': { 
+                frequency: 'Common', 
+                usage: 'Number seven', 
+                context: 'Cutting gesture',
+                examples: '七个 七点' 
+            },
+            '八': { 
+                frequency: 'Common', 
+                usage: 'Number eight', 
+                context: 'Splitting apart',
+                examples: '八个 八月' 
+            },
+            '九': { 
+                frequency: 'Common', 
+                usage: 'Number nine', 
+                context: 'Elbow/bent arm',
+                examples: '九个 九点' 
+            },
+            '十': { 
+                frequency: 'Top 50', 
+                usage: 'Number ten', 
+                context: 'Complete unit (cross)',
+                examples: '十个 十月' 
+            },
+            '上': { 
+                frequency: 'Top 20', 
+                usage: 'Up, above, go to', 
+                context: 'Mark above baseline',
+                examples: '上午 上班' 
+            },
+            '下': { 
+                frequency: 'Top 30', 
+                usage: 'Down, below, next', 
+                context: 'Mark below baseline',
+                examples: '下午 下雨' 
+            },
+            '大': { 
+                frequency: 'Top 20', 
+                usage: 'Big, large, great', 
+                context: 'Arms spread wide',
+                examples: '大学 很大' 
+            },
+            '小': { 
+                frequency: 'Top 30', 
+                usage: 'Small, little, young', 
+                context: 'Divided into small parts',
+                examples: '小狗 小姐' 
+            },
+            '不': { 
+                frequency: 'Top 10', 
+                usage: 'Not, no (negation)', 
+                context: 'Negative gesture',
+                examples: '不是 不好' 
+            },
+            '太': { 
+                frequency: 'Common', 
+                usage: 'Too, very, extremely', 
+                context: 'Big + excess dot',
+                examples: '太好了 太大' 
+            },
+            '个': { 
+                frequency: 'Top 10', 
+                usage: 'General measure word', 
+                context: 'Individual unit',
+                examples: '一个 几个' 
+            },
+            '几': { 
+                frequency: 'Common', 
+                usage: 'How many (few)', 
+                context: 'Small table shape',
+                examples: '几个 几点' 
+            },
+            '开': { 
+                frequency: 'Top 100', 
+                usage: 'Open, start, drive', 
+                context: 'Hands opening gate',
+                examples: '开门 开车' 
+            },
+            '少': { 
+                frequency: 'Common', 
+                usage: 'Few, little, less', 
+                context: 'Small + reduction',
+                examples: '多少 很少' 
+            },
+            
+            // Compound Ideographs
+            '好': { 
+                frequency: 'Top 50', 
+                usage: 'Good, well, OK', 
+                context: 'Woman + child harmony',
+                examples: '很好 好吃' 
+            },
+            '看': { 
+                frequency: 'Top 50', 
+                usage: 'Look, see, watch', 
+                context: 'Hand shading eye',
+                examples: '看书 看电视' 
+            },
+            '坐': { 
+                frequency: 'Common', 
+                usage: 'Sit, take (transport)', 
+                context: 'Two people on ground',
+                examples: '坐下 坐车' 
+            },
+            '多': { 
+                frequency: 'Top 100', 
+                usage: 'Many, much, more', 
+                context: 'Multiple evenings',
+                examples: '很多 多少' 
+            },
+            '本': { 
+                frequency: 'Common', 
+                usage: 'Root, basis, MW for books', 
+                context: 'Tree with root mark',
+                examples: '一本书 本子' 
+            },
+            '家': { 
+                frequency: 'Top 50', 
+                usage: 'Home, family, expert', 
+                context: 'Roof over pig (wealth)',
+                examples: '回家 大家' 
+            },
+            '有': { 
+                frequency: 'Top 10', 
+                usage: 'Have, exist, there is', 
+                context: 'Hand holding meat',
+                examples: '有人 没有' 
+            },
+            '里': { 
+                frequency: 'Top 100', 
+                usage: 'Inside, inner, lining', 
+                context: 'Field + earth layers',
+                examples: '里面 这里' 
+            },
+            '去': { 
+                frequency: 'Top 50', 
+                usage: 'Go, leave for', 
+                context: 'Earth + private (leave)',
+                examples: '去学校 去哪儿' 
+            },
+            '是': { 
+                frequency: 'Top 5', 
+                usage: 'Be, is, yes', 
+                context: 'Sun + correct = truth',
+                examples: '是的 不是' 
+            },
+            '字': { 
+                frequency: 'Common', 
+                usage: 'Character, word', 
+                context: 'Roof + child (nurture)',
+                examples: '汉字 名字' 
+            },
+            
+            // Phonetic Compounds
+            '妈妈': { 
+                frequency: 'Basic family', 
+                usage: 'Mother, mom', 
+                context: 'Woman + ma sound',
+                examples: '我妈妈 妈妈好' 
+            },
+            '爸爸': { 
+                frequency: 'Basic family', 
+                usage: 'Father, dad', 
+                context: 'Father + ba sound',
+                examples: '我爸爸 爸爸好' 
+            },
+            '吗': { 
+                frequency: 'Top particle', 
+                usage: 'Question particle', 
+                context: 'Mouth + ma sound',
+                examples: '好吗？ 是吗？' 
+            },
+            '请': { 
+                frequency: 'Common polite', 
+                usage: 'Please, invite', 
+                context: 'Speech + qing sound',
+                examples: '请坐 请问' 
+            },
+            '谁': { 
+                frequency: 'Common', 
+                usage: 'Who, whom', 
+                context: 'Speech + phonetic',
+                examples: '你是谁？ 谁的' 
+            },
+            '话': { 
+                frequency: 'Common', 
+                usage: 'Speech, language', 
+                context: 'Speech + tongue',
+                examples: '说话 电话' 
+            },
+            '们': { 
+                frequency: 'Plural suffix', 
+                usage: 'Plural for people', 
+                context: 'Person + men sound',
+                examples: '我们 他们' 
+            },
+            '谢谢': { 
+                frequency: 'Basic courtesy', 
+                usage: 'Thank you', 
+                context: 'Speech + phonetic',
+                examples: '谢谢你 谢谢！' 
+            },
+            '你': { 
+                frequency: 'Top 10', 
+                usage: 'You (singular)', 
+                context: 'Person + ni sound',
+                examples: '你好 你的' 
+            },
+            '他': { 
+                frequency: 'Top 20', 
+                usage: 'He, him', 
+                context: 'Person + also',
+                examples: '他是 他的' 
+            },
+            '她': { 
+                frequency: 'Top 30', 
+                usage: 'She, her', 
+                context: 'Woman + also',
+                examples: '她是 她的' 
+            },
+            '很': { 
+                frequency: 'Top 50', 
+                usage: 'Very, quite', 
+                context: 'Step + hen sound',
+                examples: '很好 很大' 
+            },
+            '和': { 
+                frequency: 'Top 50', 
+                usage: 'And, with, harmony', 
+                context: 'Grain + mouth',
+                examples: '我和你 和平' 
+            },
+            '吃': { 
+                frequency: 'Common', 
+                usage: 'Eat', 
+                context: 'Mouth + beg',
+                examples: '吃饭 好吃' 
+            },
+            '喝': { 
+                frequency: 'Common', 
+                usage: 'Drink', 
+                context: 'Mouth + he sound',
+                examples: '喝水 喝茶' 
+            },
+            '听': { 
+                frequency: 'Common', 
+                usage: 'Listen, hear', 
+                context: 'Mouth/ear + ax',
+                examples: '听说 听见' 
+            },
+            '说': { 
+                frequency: 'Top 50', 
+                usage: 'Say, speak', 
+                context: 'Speech + exchange',
+                examples: '说话 说中文' 
+            },
+            '读': { 
+                frequency: 'Common', 
+                usage: 'Read aloud', 
+                context: 'Speech + sell',
+                examples: '读书 朗读' 
+            },
+            '写': { 
+                frequency: 'Common', 
+                usage: 'Write', 
+                context: 'Cover + phonetic',
+                examples: '写字 写信' 
+            },
+            '买': { 
+                frequency: 'Common', 
+                usage: 'Buy, purchase', 
+                context: 'Net + shell (money)',
+                examples: '买东西 买书' 
+            },
+            '住': { 
+                frequency: 'Common', 
+                usage: 'Live, reside', 
+                context: 'Person + master',
+                examples: '住在 住哪儿' 
+            },
+            '做': { 
+                frequency: 'Top 100', 
+                usage: 'Do, make', 
+                context: 'Person + ancient',
+                examples: '做什么 做饭' 
+            },
+            '想': { 
+                frequency: 'Top 100', 
+                usage: 'Think, want, miss', 
+                context: 'Phase + heart',
+                examples: '想要 想你' 
+            },
+            '会': { 
+                frequency: 'Top 50', 
+                usage: 'Can, able, meeting', 
+                context: 'People gathering',
+                examples: '会说 开会' 
+            },
+            '能': { 
+                frequency: 'Top 100', 
+                usage: 'Can, able to', 
+                context: 'Bear (strong)',
+                examples: '能不能 能力' 
+            },
+            '爱': { 
+                frequency: 'Common', 
+                usage: 'Love', 
+                context: 'Complex emotion',
+                examples: '我爱你 爱好' 
+            },
+            '喂': { 
+                frequency: 'Common', 
+                usage: 'Hello (phone)', 
+                context: 'Mouth + wei sound',
+                examples: '喂，你好 喂！' 
+            },
+            '叫': { 
+                frequency: 'Common', 
+                usage: 'Call, be called', 
+                context: 'Mouth + phonetic',
+                examples: '叫什么 叫我' 
+            },
+            '在': { 
+                frequency: 'Top 20', 
+                usage: 'At, in, exist', 
+                context: 'Earth + talent',
+                examples: '在家 在哪儿' 
+            },
+            '这': { 
+                frequency: 'Top 20', 
+                usage: 'This', 
+                context: 'Movement + culture',
+                examples: '这个 这里' 
+            },
+            '那': { 
+                frequency: 'Top 30', 
+                usage: 'That', 
+                context: 'Phonetic compound',
+                examples: '那个 那里' 
+            },
+            '哪': { 
+                frequency: 'Common', 
+                usage: 'Which, where', 
+                context: 'Mouth + na sound',
+                examples: '哪个 哪儿' 
+            },
+            
+            // Particles & Function Words
+            '的': { 
+                frequency: '#1 most common', 
+                usage: 'Possessive/descriptive', 
+                context: 'Most frequent character',
+                examples: '我的 好的' 
+            },
+            '了': { 
+                frequency: 'Top 5', 
+                usage: 'Completed action', 
+                context: 'Hook = completion',
+                examples: '吃了 来了' 
+            },
+            '呢': { 
+                frequency: 'Common particle', 
+                usage: 'Question return', 
+                context: 'Mouth + ne sound',
+                examples: '你呢？ 我呢？' 
+            },
+            '都': { 
+                frequency: 'Top 100', 
+                usage: 'All, both', 
+                context: 'Capital/metropolis',
+                examples: '都是 都好' 
+            },
+            
+            // Compound Words
+            '北京': { 
+                frequency: 'Capital city', 
+                usage: 'Beijing', 
+                context: 'North + capital',
+                examples: '去北京 北京人' 
+            },
+            '中国': { 
+                frequency: 'Country name', 
+                usage: 'China', 
+                context: 'Middle + kingdom',
+                examples: '中国人 中国话' 
+            },
+            '学生': { 
+                frequency: 'Common', 
+                usage: 'Student', 
+                context: 'Study + person',
+                examples: '大学生 学生们' 
+            },
+            '老师': { 
+                frequency: 'Common', 
+                usage: 'Teacher', 
+                context: 'Old/respected + master',
+                examples: '语文老师 老师好' 
+            },
+            '朋友': { 
+                frequency: 'Common', 
+                usage: 'Friend', 
+                context: 'Companion + friend',
+                examples: '好朋友 朋友们' 
+            },
+            '同学': { 
+                frequency: 'Common', 
+                usage: 'Classmate', 
+                context: 'Same + study',
+                examples: '同学们 老同学' 
+            },
+            '先生': { 
+                frequency: 'Common', 
+                usage: 'Mr., Sir', 
+                context: 'First + born',
+                examples: '王先生 先生好' 
+            },
+            '小姐': { 
+                frequency: 'Common', 
+                usage: 'Miss', 
+                context: 'Young + sister',
+                examples: '李小姐 小姐好' 
+            },
+            '医生': { 
+                frequency: 'Common', 
+                usage: 'Doctor', 
+                context: 'Medicine + person',
+                examples: '看医生 医生说' 
+            },
+            '儿子': { 
+                frequency: 'Family term', 
+                usage: 'Son', 
+                context: 'Child + child',
+                examples: '我儿子 儿子好' 
+            },
+            '女儿': { 
+                frequency: 'Family term', 
+                usage: 'Daughter', 
+                context: 'Female + child',
+                examples: '我女儿 女儿好' 
+            },
+            '今天': { 
+                frequency: 'Time word', 
+                usage: 'Today', 
+                context: 'Now + day',
+                examples: '今天好 今天冷' 
+            },
+            '明天': { 
+                frequency: 'Time word', 
+                usage: 'Tomorrow', 
+                context: 'Bright + day',
+                examples: '明天见 明天来' 
+            },
+            '昨天': { 
+                frequency: 'Time word', 
+                usage: 'Yesterday', 
+                context: 'Past + day',
+                examples: '昨天去了 昨天的事' 
+            },
+            '星期': { 
+                frequency: 'Time word', 
+                usage: 'Week', 
+                context: 'Star + period',
+                examples: '星期一 这星期' 
+            },
+            '时候': { 
+                frequency: 'Common', 
+                usage: 'Time, moment', 
+                context: 'Time + wait',
+                examples: '什么时候 的时候' 
+            },
+            '现在': { 
+                frequency: 'Common', 
+                usage: 'Now, present', 
+                context: 'Appear + at',
+                examples: '现在好 现在去' 
+            },
+            '上午': { 
+                frequency: 'Time word', 
+                usage: 'Morning', 
+                context: 'Upper + noon',
+                examples: '上午好 上午九点' 
+            },
+            '下午': { 
+                frequency: 'Time word', 
+                usage: 'Afternoon', 
+                context: 'Lower + noon',
+                examples: '下午好 下午三点' 
+            },
+            '中午': { 
+                frequency: 'Time word', 
+                usage: 'Noon', 
+                context: 'Middle + noon',
+                examples: '中午吃饭 中午好' 
+            },
+            '电话': { 
+                frequency: 'Common', 
+                usage: 'Telephone', 
+                context: 'Electric + speech',
+                examples: '打电话 电话号码' 
+            },
+            '电视': { 
+                frequency: 'Common', 
+                usage: 'Television', 
+                context: 'Electric + vision',
+                examples: '看电视 电视机' 
+            },
+            '电脑': { 
+                frequency: 'Common', 
+                usage: 'Computer', 
+                context: 'Electric + brain',
+                examples: '用电脑 电脑上' 
+            },
+            '电影': { 
+                frequency: 'Common', 
+                usage: 'Movie', 
+                context: 'Electric + shadow',
+                examples: '看电影 好电影' 
+            },
+            '学校': { 
+                frequency: 'Common', 
+                usage: 'School', 
+                context: 'Study + institution',
+                examples: '去学校 在学校' 
+            },
+            '医院': { 
+                frequency: 'Common', 
+                usage: 'Hospital', 
+                context: 'Medicine + institution',
+                examples: '去医院 医院里' 
+            },
+            '商店': { 
+                frequency: 'Common', 
+                usage: 'Shop, store', 
+                context: 'Commerce + shop',
+                examples: '去商店 商店里' 
+            },
+            '饭店': { 
+                frequency: 'Common', 
+                usage: 'Restaurant', 
+                context: 'Meal + shop',
+                examples: '去饭店 饭店里' 
+            },
+            '汉语': { 
+                frequency: 'Language', 
+                usage: 'Chinese language', 
+                context: 'Han + language',
+                examples: '学汉语 说汉语' 
+            },
+            '名字': { 
+                frequency: 'Common', 
+                usage: 'Name', 
+                context: 'Name + character',
+                examples: '你的名字 叫什么名字' 
+            },
+            '东西': { 
+                frequency: 'Common', 
+                usage: 'Thing, stuff', 
+                context: 'East + west = all',
+                examples: '买东西 什么东西' 
+            },
+            '水果': { 
+                frequency: 'Common', 
+                usage: 'Fruit', 
+                context: 'Water + fruit',
+                examples: '吃水果 买水果' 
+            },
+            '苹果': { 
+                frequency: 'Common', 
+                usage: 'Apple', 
+                context: 'Plant + phonetic',
+                examples: '吃苹果 红苹果' 
+            },
+            '米饭': { 
+                frequency: 'Common', 
+                usage: 'Cooked rice', 
+                context: 'Rice + meal',
+                examples: '吃米饭 白米饭' 
+            },
+            '茶': { 
+                frequency: 'Common', 
+                usage: 'Tea', 
+                context: 'Plant + phonetic',
+                examples: '喝茶 绿茶' 
+            },
+            '菜': { 
+                frequency: 'Common', 
+                usage: 'Vegetable, dish', 
+                context: 'Plant + pick',
+                examples: '买菜 好吃的菜' 
+            },
+            '高兴': { 
+                frequency: 'Common', 
+                usage: 'Happy', 
+                context: 'High + mood',
+                examples: '很高兴 高兴吗' 
+            },
+            '漂亮': { 
+                frequency: 'Common', 
+                usage: 'Beautiful', 
+                context: 'Water + pretty',
+                examples: '很漂亮 漂亮的' 
+            },
+            '热': { 
+                frequency: 'Common', 
+                usage: 'Hot', 
+                context: 'Hand + fire',
+                examples: '很热 热水' 
+            },
+            '冷': { 
+                frequency: 'Common', 
+                usage: 'Cold', 
+                context: 'Ice + command',
+                examples: '很冷 冷水' 
+            },
+            '天气': { 
+                frequency: 'Common', 
+                usage: 'Weather', 
+                context: 'Sky + air',
+                examples: '天气好 天气冷' 
+            },
+            '工作': { 
+                frequency: 'Common', 
+                usage: 'Work, job', 
+                context: 'Work + do',
+                examples: '去工作 工作忙' 
+            },
+            '学习': { 
+                frequency: 'Common', 
+                usage: 'Study, learn', 
+                context: 'Learn + practice',
+                examples: '学习汉语 努力学习' 
+            },
+            '睡觉': { 
+                frequency: 'Common', 
+                usage: 'Sleep', 
+                context: 'Sleep + sleep',
+                examples: '去睡觉 睡觉了' 
+            },
+            '看见': { 
+                frequency: 'Common', 
+                usage: 'See, catch sight of', 
+                context: 'Look + see',
+                examples: '看见了 看见你' 
+            },
+            '认识': { 
+                frequency: 'Common', 
+                usage: 'Know, recognize', 
+                context: 'Recognize + know',
+                examples: '认识你 不认识' 
+            },
+            '喜欢': { 
+                frequency: 'Common', 
+                usage: 'Like', 
+                context: 'Happy + joyful',
+                examples: '喜欢吃 很喜欢' 
+            },
+            '再见': { 
+                frequency: 'Common greeting', 
+                usage: 'Goodbye', 
+                context: 'Again + see',
+                examples: '再见！ 明天再见' 
+            },
+            '对不起': { 
+                frequency: 'Common courtesy', 
+                usage: 'Sorry', 
+                context: 'Face + cannot rise',
+                examples: '对不起！ 真对不起' 
+            },
+            '没关系': { 
+                frequency: 'Common courtesy', 
+                usage: 'No problem', 
+                context: 'Not + relation',
+                examples: '没关系 真的没关系' 
+            },
+            '不客气': { 
+                frequency: 'Common courtesy', 
+                usage: 'You\'re welcome', 
+                context: 'Not + polite',
+                examples: '不客气！ 不用客气' 
+            },
+            '打电话': { 
+                frequency: 'Common phrase', 
+                usage: 'Make a phone call', 
+                context: 'Hit + telephone',
+                examples: '打电话给你 打个电话' 
+            },
+            '出租车': { 
+                frequency: 'Common', 
+                usage: 'Taxi', 
+                context: 'Rent out + car',
+                examples: '坐出租车 叫出租车' 
+            },
+            '飞机': { 
+                frequency: 'Common', 
+                usage: 'Airplane', 
+                context: 'Fly + machine',
+                examples: '坐飞机 飞机票' 
+            },
+            '下雨': { 
+                frequency: 'Weather', 
+                usage: 'Rain (verb)', 
+                context: 'Fall + rain',
+                examples: '下雨了 要下雨' 
+            },
+            '怎么': { 
+                frequency: 'Question word', 
+                usage: 'How', 
+                context: 'How + particle',
+                examples: '怎么样 怎么办' 
+            },
+            '怎么样': { 
+                frequency: 'Question phrase', 
+                usage: 'How about', 
+                context: 'How + manner',
+                examples: '怎么样？ 这个怎么样' 
+            },
+            '什么': { 
+                frequency: 'Common question', 
+                usage: 'What', 
+                context: 'Mixed + particle',
+                examples: '什么东西 什么时候' 
+            },
+            '多少': { 
+                frequency: 'Question word', 
+                usage: 'How many/much', 
+                context: 'Many + few',
+                examples: '多少钱 多少个' 
+            },
+            '哪儿': { 
+                frequency: 'Question word', 
+                usage: 'Where', 
+                context: 'Which + suffix',
+                examples: '在哪儿 去哪儿' 
+            },
+            '分钟': { 
+                frequency: 'Time unit', 
+                usage: 'Minute', 
+                context: 'Divide + clock',
+                examples: '五分钟 十分钟' 
+            },
+            '点': { 
+                frequency: 'Common', 
+                usage: 'O\'clock, point', 
+                context: 'Black dot',
+                examples: '三点 一点儿' 
+            },
+            '号': { 
+                frequency: 'Common', 
+                usage: 'Number, date', 
+                context: 'Mouth + call',
+                examples: '几号 电话号码' 
+            },
+            '岁': { 
+                frequency: 'Age', 
+                usage: 'Years old', 
+                context: 'Mountain + evening',
+                examples: '几岁 二十岁' 
+            },
+            '块': { 
+                frequency: 'Money/measure', 
+                usage: 'Yuan, piece', 
+                context: 'Earth + decision',
+                examples: '五块钱 一块' 
+            },
+            '钱': { 
+                frequency: 'Common', 
+                usage: 'Money', 
+                context: 'Metal + phonetic',
+                examples: '多少钱 有钱' 
+            },
+            '些': { 
+                frequency: 'Common', 
+                usage: 'Some, few', 
+                context: 'This + two',
+                examples: '一些 这些' 
+            },
+            '一点儿': { 
+                frequency: 'Common phrase', 
+                usage: 'A little bit', 
+                context: 'One + dot + suffix',
+                examples: '一点儿水 好一点儿' 
+            },
+            '没有': { 
+                frequency: 'Common negation', 
+                usage: 'Don\'t have', 
+                context: 'Not + have',
+                examples: '没有钱 没有时间' 
+            },
+            '前面': { 
+                frequency: 'Direction', 
+                usage: 'Front, ahead', 
+                context: 'Front + side',
+                examples: '在前面 前面的' 
+            },
+            '后面': { 
+                frequency: 'Direction', 
+                usage: 'Behind, back', 
+                context: 'Back + side',
+                examples: '在后面 后面的' 
+            },
+            '衣服': { 
+                frequency: 'Common', 
+                usage: 'Clothes', 
+                context: 'Clothing + garment',
+                examples: '买衣服 穿衣服' 
+            },
+            '杯子': { 
+                frequency: 'Common', 
+                usage: 'Cup', 
+                context: 'Wood + phonetic',
+                examples: '一个杯子 茶杯子' 
+            },
+            '椅子': { 
+                frequency: 'Common', 
+                usage: 'Chair', 
+                context: 'Wood + strange',
+                examples: '坐椅子 一把椅子' 
+            },
+            '桌子': { 
+                frequency: 'Common', 
+                usage: 'Table', 
+                context: 'Wood + tall',
+                examples: '桌子上 大桌子' 
+            },
+            '狗': { 
+                frequency: 'Common animal', 
+                usage: 'Dog', 
+                context: 'Animal + gou sound',
+                examples: '小狗 狗狗' 
+            },
+            '猫': { 
+                frequency: 'Common animal', 
+                usage: 'Cat', 
+                context: 'Animal + miao sound',
+                examples: '小猫 猫咪' 
+            }
+        };
+
+        function getCharacterNumber(character) {
+            return characterSequence.indexOf(character);
+        }
+
+        function openModal(cell) {
+            if (!cell.dataset.info) return; // Skip empty cells
+            
+            const character = cell.textContent.trim();
+            let info;
+            
+            try {
+                info = JSON.parse(cell.dataset.info);
+            } catch (e) {
+                console.error('Error parsing character info:', e);
+                return;
+            }
+            
+            const number = getCharacterNumber(character);
+
+            // Get data from characterData or use defaults
+            const data = characterData[character] || { 
+                frequency: 'Common',
+                usage: 'Standard usage',
+                context: 'HSK1 vocabulary',
+                examples: character + ' 例子' 
+            };
+
+            // Update modal content
+            document.getElementById('modalNumber').textContent = '#' + number;
+            document.getElementById('modalCharacter').textContent = character;
+            document.getElementById('modalPinyin').textContent = info.pinyin;
+            document.getElementById('modalMeaning').textContent = info.meaning;
+            document.getElementById('modalFrequency').textContent = data.frequency;
+            document.getElementById('modalFormationType').textContent = info.type;
+            document.getElementById('modalUsage').textContent = data.usage;
+            document.getElementById('modalContext').textContent = data.context;
+            document.getElementById('modalExamples').textContent = data.examples;
+            
+            // Set audio source based on character
+            const audioElement = document.getElementById('modalAudio');
+            if (audioElement) {
+                const audioFileName = info.pinyin.split(' ').join('_'); // Handle multi-syllable words
+                audioElement.src = `audio/${audioFileName}.mp3`;
+            }
+            
+            // Set type badge
+            const typeBadge = document.getElementById('modalType');
+            typeBadge.textContent = info.type.toLowerCase();
+            
+            // Show modal
+            document.getElementById('characterModal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('characterModal').classList.remove('active');
+        }
+
+        // Initialize event listeners when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click handlers to all character cells in the grid (except the header row)
+            const characterCells = document.querySelectorAll('.character-grid-table tbody tr:not(:first-child) td');
+            characterCells.forEach(cell => {
+                if (cell.dataset.info) {
+                    cell.addEventListener('click', function() {
+                        openModal(this);
+                    });
+                }
+            });
+
+            // Close modal when clicking outside
+            document.getElementById('characterModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeModal();
+                }
+            });
+
+            // Close modal with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeModal();
+                }
+            });
+
+            // Add smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
