@@ -9,3 +9,6 @@
 - Proof Read Data
 - Proof Read Code
 - Debug
+
+# FLAHSCARDS PAGE
+- make a seperate hsk1 page for flashcards organized by subject matter 
